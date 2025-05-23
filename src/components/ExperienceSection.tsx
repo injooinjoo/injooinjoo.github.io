@@ -12,9 +12,9 @@ import {
 const ExperienceSection = () => {
   const experiences = [
     {
-      company: "SOOP (前 아프리카TV)",
+      company: "SOOP Co., Ltd.(Formerly AfreecaTV)",
       period: "2016.02 ~ 현재",
-      position: "플랫폼 전략기획 총괄",
+      position: "Streamer Ops. Lead (Game)",
       details: [
         "직무 및 주요 업무: 플랫폼 전략기획, 개인화 알고리즘, 자동화 시스템 구축",
         "주요 프로젝트 성과: 개인화 알고리즘(노출 4배 증가), 멸망전 시스템(참가자 수 3배 증가), 해시태그 리뉴얼"
@@ -49,7 +49,7 @@ const ExperienceSection = () => {
   return (
     <section id="experience" className="min-h-screen py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <ScrollSection>
+        <ScrollSection className="animate-fade-in">
           <h2 className="text-5xl md:text-6xl font-thin text-gray-900 text-center mb-6">
             Experience
           </h2>
@@ -62,10 +62,10 @@ const ExperienceSection = () => {
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-200"></div>
           
           {experiences.map((exp, index) => (
-            <ScrollSection key={exp.company} delay={index * 300}>
+            <ScrollSection key={exp.company} delay={index * 300} className="animate-scale-in">
               <div className={`flex items-center mb-20 ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
                 <div className={`w-full md:w-5/12 ${index % 2 === 1 ? 'md:order-2' : ''}`}>
-                  <Card className="overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                  <Card className="overflow-hidden shadow-md hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2">
                     <CardHeader className="bg-gradient-to-r from-gray-100 to-white">
                       <CardTitle className="text-2xl font-medium">{exp.company}</CardTitle>
                       <CardDescription className="text-md text-[#007ACC] font-medium">{exp.position}</CardDescription>

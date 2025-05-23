@@ -28,8 +28,8 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
         }
       },
       {
-        threshold: 0.1,
-        rootMargin: '-50px 0px'
+        threshold: 0.15,  // Increased threshold for earlier animation trigger
+        rootMargin: '-10px 0px'  // Adjusted rootMargin for better timing
       }
     );
 
@@ -49,10 +49,10 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
       ref={ref}
       id={id}
       className={cn(
-        "transition-all duration-1000 ease-out",
+        "transition-all duration-1000 ease-out will-change-transform",
         isVisible 
-          ? "opacity-100 translate-y-0" 
-          : "opacity-0 translate-y-8",
+          ? "opacity-100 transform-none" 
+          : "opacity-0 translate-y-16",  // More dramatic initial position
         className
       )}
     >

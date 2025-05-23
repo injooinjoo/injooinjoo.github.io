@@ -88,12 +88,73 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+				'slide-up': {
+          from: {
+            transform: 'translateY(100px)',
+            opacity: '0'
+          },
+          to: {
+            transform: 'translateY(0)',
+            opacity: '1'
+          }
+        },
+        'slide-down': {
+          from: {
+            transform: 'translateY(-100px)',
+            opacity: '0'
+          },
+          to: {
+            transform: 'translateY(0)',
+            opacity: '1'
+          }
+        },
+        'slide-left': {
+          from: {
+            transform: 'translateX(100px)',
+            opacity: '0'
+          },
+          to: {
+            transform: 'translateX(0)',
+            opacity: '1'
+          }
+        },
+        'slide-right': {
+          from: {
+            transform: 'translateX(-100px)',
+            opacity: '0'
+          },
+          to: {
+            transform: 'translateX(0)',
+            opacity: '1'
+          }
+        },
+        'scale-up': {
+          from: {
+            transform: 'scale(0.95)',
+            opacity: '0'
+          },
+          to: {
+            transform: 'scale(1)',
+            opacity: '1'
+          }
+        }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+        'slide-up': 'slide-up 0.6s ease-out',
+        'slide-down': 'slide-down 0.6s ease-out',
+        'slide-left': 'slide-left 0.6s ease-out',
+        'slide-right': 'slide-right 0.6s ease-out',
+        'scale-up': 'scale-up 0.6s ease-out'
+			},
+      transitionProperty: {
+        'height': 'height',
+        'spacing': 'margin, padding',
+        'width': 'width',
+        'transform': 'transform',
+      },
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
