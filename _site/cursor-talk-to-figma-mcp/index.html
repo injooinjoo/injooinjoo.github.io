@@ -1,0 +1,510 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.25.1 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Cursor Talk to Figma MCP - 안녕하세요 김인주 입니다.</title>
+<meta name="description" content="An amazing website.">
+
+
+  <meta name="author" content="In Joo Kim">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="안녕하세요 김인주 입니다.">
+<meta property="og:title" content="Cursor Talk to Figma MCP">
+<meta property="og:url" content="http://localhost:4000/cursor-talk-to-figma-mcp/">
+
+
+  <meta property="og:description" content="An amazing website.">
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/cursor-talk-to-figma-mcp/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "In Joo Kim",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="안녕하세요 김인주 입니다. Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--page">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__greeting">안녕하세요 김인주 입니다.</div>
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          안녕하세요 김인주 입니다.
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/#cover-page">홈</a>
+            </li><li class="masthead__menu-item">
+              <a href="/#profile-summary">프로필 요약</a>
+            </li><li class="masthead__menu-item">
+              <a href="/#skillset">스킬셋</a>
+            </li><li class="masthead__menu-item">
+              <a href="/#career-timeline">경력 타임라인</a>
+            </li><li class="masthead__menu-item">
+              <a href="/#project-highlights">프로젝트 하이라이트</a>
+            </li><li class="masthead__menu-item">
+              <a href="/#education-certifications">교육 및 인증</a>
+            </li><li class="masthead__menu-item">
+              <a href="/#end-page">연락처</a>
+            </li><li class="masthead__menu-item">
+            <button id="lang-toggle" style="background:none;border:none;color:inherit;font-size:12px;cursor:pointer;">ENG/KOR</button>
+          </li>
+        </ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      <h1 id="cursor-talk-to-figma-mcp">Cursor Talk to Figma MCP</h1>
+
+<p>This project implements a Model Context Protocol (MCP) integration between Cursor AI and Figma, allowing Cursor to communicate with Figma for reading designs and modifying them programmatically.</p>
+
+<p>https://github.com/user-attachments/assets/129a14d2-ed73-470f-9a4c-2240b2a4885c</p>
+
+<h2 id="project-structure">Project Structure</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">src/talk_to_figma_mcp/</code> - TypeScript MCP server for Figma integration</li>
+  <li><code class="language-plaintext highlighter-rouge">src/cursor_mcp_plugin/</code> - Figma plugin for communicating with Cursor</li>
+  <li><code class="language-plaintext highlighter-rouge">src/socket.ts</code> - WebSocket server that facilitates communication between the MCP server and Figma plugin</li>
+</ul>
+
+<h2 id="get-started">Get Started</h2>
+
+<ol>
+  <li>Install Bun if you haven’t already:</li>
+</ol>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-fsSL</span> https://bun.sh/install | bash
+</code></pre></div></div>
+
+<ol>
+  <li>Run setup, this will also install MCP in your Cursor’s active project</li>
+</ol>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bun setup
+</code></pre></div></div>
+
+<ol>
+  <li>Start the Websocket server</li>
+</ol>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bun socket
+</code></pre></div></div>
+
+<ol>
+  <li>MCP server</li>
+</ol>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bunx cursor-talk-to-figma-mcp
+</code></pre></div></div>
+
+<ol>
+  <li><strong>NEW</strong> Install Figma plugin from <a href="https://www.figma.com/community/plugin/1485687494525374295/cursor-talk-to-figma-mcp-plugin">Figma community page</a> or <a href="#figma-plugin">install locally</a></li>
+</ol>
+
+<h2 id="quick-video-tutorial">Quick Video Tutorial</h2>
+
+<p><a href="https://www.linkedin.com/posts/sonnylazuardi_just-wanted-to-share-my-latest-experiment-activity-7307821553654657024-yrh8">Video Link</a></p>
+
+<h2 id="design-automation-example">Design Automation Example</h2>
+
+<p><strong>Bulk text content replacement</strong></p>
+
+<p>Thanks to <a href="https://github.com/dusskapark">@dusskapark</a> for contributing the bulk text replacement feature. Here is the <a href="https://www.youtube.com/watch?v=j05gGT3xfCs">demo video</a>.</p>
+
+<p><strong>Instance Override Propagation</strong>
+Another contribution from <a href="https://github.com/dusskapark">@dusskapark</a>
+Propagate component instance overrides from a source instance to multiple target instances with a single command. This feature dramatically reduces repetitive design work when working with component instances that need similar customizations. Check out our <a href="https://youtu.be/uvuT8LByroI">demo video</a>.</p>
+
+<h2 id="manual-setup-and-installation">Manual Setup and Installation</h2>
+
+<h3 id="mcp-server-integration-with-cursor">MCP Server: Integration with Cursor</h3>
+
+<p>Add the server to your Cursor MCP configuration in <code class="language-plaintext highlighter-rouge">~/.cursor/mcp.json</code>:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"mcpServers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"TalkToFigma"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bunx"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"cursor-talk-to-figma-mcp@latest"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="websocket-server">WebSocket Server</h3>
+
+<p>Start the WebSocket server:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bun socket
+</code></pre></div></div>
+
+<h3 id="figma-plugin">Figma Plugin</h3>
+
+<ol>
+  <li>In Figma, go to Plugins &gt; Development &gt; New Plugin</li>
+  <li>Choose “Link existing plugin”</li>
+  <li>Select the <code class="language-plaintext highlighter-rouge">src/cursor_mcp_plugin/manifest.json</code> file</li>
+  <li>The plugin should now be available in your Figma development plugins</li>
+</ol>
+
+<h2 id="windows--wsl-guide">Windows + WSL Guide</h2>
+
+<ol>
+  <li>Install bun via powershell</li>
+</ol>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>powershell <span class="nt">-c</span> <span class="s2">"irm bun.sh/install.ps1|iex"</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Uncomment the hostname <code class="language-plaintext highlighter-rouge">0.0.0.0</code> in <code class="language-plaintext highlighter-rouge">src/socket.ts</code></li>
+</ol>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// uncomment this to allow connections in windows wsl</span>
+<span class="nx">hostname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0.0.0</span><span class="dl">"</span><span class="p">,</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Start the websocket</li>
+</ol>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bun socket
+</code></pre></div></div>
+
+<h2 id="usage">Usage</h2>
+
+<ol>
+  <li>Start the WebSocket server</li>
+  <li>Install the MCP server in Cursor</li>
+  <li>Open Figma and run the Cursor MCP Plugin</li>
+  <li>Connect the plugin to the WebSocket server by joining a channel using <code class="language-plaintext highlighter-rouge">join_channel</code></li>
+  <li>Use Cursor to communicate with Figma using the MCP tools</li>
+</ol>
+
+<h2 id="mcp-tools">MCP Tools</h2>
+
+<p>The MCP server provides the following tools for interacting with Figma:</p>
+
+<h3 id="document--selection">Document &amp; Selection</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">get_document_info</code> - Get information about the current Figma document</li>
+  <li><code class="language-plaintext highlighter-rouge">get_selection</code> - Get information about the current selection</li>
+  <li><code class="language-plaintext highlighter-rouge">read_my_design</code> - Get detailed node information about the current selection without parameters</li>
+  <li><code class="language-plaintext highlighter-rouge">get_node_info</code> - Get detailed information about a specific node</li>
+  <li><code class="language-plaintext highlighter-rouge">get_nodes_info</code> - Get detailed information about multiple nodes by providing an array of node IDs</li>
+</ul>
+
+<h3 id="annotations">Annotations</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">get_annotations</code> - Get all annotations in the current document or specific node</li>
+  <li><code class="language-plaintext highlighter-rouge">set_annotation</code> - Create or update an annotation with markdown support</li>
+  <li><code class="language-plaintext highlighter-rouge">set_multiple_annotations</code> - Batch create/update multiple annotations efficiently</li>
+  <li><code class="language-plaintext highlighter-rouge">scan_nodes_by_types</code> - Scan for nodes with specific types (useful for finding annotation targets)</li>
+</ul>
+
+<h3 id="prototyping--connections">Prototyping &amp; Connections</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">get_reactions</code> - Get all prototype reactions from nodes with visual highlight animation</li>
+  <li><code class="language-plaintext highlighter-rouge">set_default_connector</code> - Set a copied FigJam connector as the default connector style for creating connections (must be set before creating connections)</li>
+  <li><code class="language-plaintext highlighter-rouge">create_connections</code> - Create FigJam connector lines between nodes, based on prototype flows or custom mapping</li>
+</ul>
+
+<h3 id="creating-elements">Creating Elements</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">create_rectangle</code> - Create a new rectangle with position, size, and optional name</li>
+  <li><code class="language-plaintext highlighter-rouge">create_frame</code> - Create a new frame with position, size, and optional name</li>
+  <li><code class="language-plaintext highlighter-rouge">create_text</code> - Create a new text node with customizable font properties</li>
+</ul>
+
+<h3 id="modifying-text-content">Modifying text content</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">scan_text_nodes</code> - Scan text nodes with intelligent chunking for large designs</li>
+  <li><code class="language-plaintext highlighter-rouge">set_text_content</code> - Set the text content of a single text node</li>
+  <li><code class="language-plaintext highlighter-rouge">set_multiple_text_contents</code> - Batch update multiple text nodes efficiently</li>
+</ul>
+
+<h3 id="auto-layout--spacing">Auto Layout &amp; Spacing</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">set_layout_mode</code> - Set the layout mode and wrap behavior of a frame (NONE, HORIZONTAL, VERTICAL)</li>
+  <li><code class="language-plaintext highlighter-rouge">set_padding</code> - Set padding values for an auto-layout frame (top, right, bottom, left)</li>
+  <li><code class="language-plaintext highlighter-rouge">set_axis_align</code> - Set primary and counter axis alignment for auto-layout frames</li>
+  <li><code class="language-plaintext highlighter-rouge">set_layout_sizing</code> - Set horizontal and vertical sizing modes for auto-layout frames (FIXED, HUG, FILL)</li>
+  <li><code class="language-plaintext highlighter-rouge">set_item_spacing</code> - Set distance between children in an auto-layout frame</li>
+</ul>
+
+<h3 id="styling">Styling</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">set_fill_color</code> - Set the fill color of a node (RGBA)</li>
+  <li><code class="language-plaintext highlighter-rouge">set_stroke_color</code> - Set the stroke color and weight of a node</li>
+  <li><code class="language-plaintext highlighter-rouge">set_corner_radius</code> - Set the corner radius of a node with optional per-corner control</li>
+</ul>
+
+<h3 id="layout--organization">Layout &amp; Organization</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">move_node</code> - Move a node to a new position</li>
+  <li><code class="language-plaintext highlighter-rouge">resize_node</code> - Resize a node with new dimensions</li>
+  <li><code class="language-plaintext highlighter-rouge">delete_node</code> - Delete a node</li>
+  <li><code class="language-plaintext highlighter-rouge">delete_multiple_nodes</code> - Delete multiple nodes at once efficiently</li>
+  <li><code class="language-plaintext highlighter-rouge">clone_node</code> - Create a copy of an existing node with optional position offset</li>
+</ul>
+
+<h3 id="components--styles">Components &amp; Styles</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">get_styles</code> - Get information about local styles</li>
+  <li><code class="language-plaintext highlighter-rouge">get_local_components</code> - Get information about local components</li>
+  <li><code class="language-plaintext highlighter-rouge">create_component_instance</code> - Create an instance of a component</li>
+  <li><code class="language-plaintext highlighter-rouge">get_instance_overrides</code> - Extract override properties from a selected component instance</li>
+  <li><code class="language-plaintext highlighter-rouge">set_instance_overrides</code> - Apply extracted overrides to target instances</li>
+</ul>
+
+<h3 id="export--advanced">Export &amp; Advanced</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">export_node_as_image</code> - Export a node as an image (PNG, JPG, SVG, or PDF) - limited support on image currently returning base64 as text</li>
+</ul>
+
+<h3 id="connection-management">Connection Management</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">join_channel</code> - Join a specific channel to communicate with Figma</li>
+</ul>
+
+<h3 id="mcp-prompts">MCP Prompts</h3>
+
+<p>The MCP server includes several helper prompts to guide you through complex design tasks:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">design_strategy</code> - Best practices for working with Figma designs</li>
+  <li><code class="language-plaintext highlighter-rouge">read_design_strategy</code> - Best practices for reading Figma designs</li>
+  <li><code class="language-plaintext highlighter-rouge">text_replacement_strategy</code> - Systematic approach for replacing text in Figma designs</li>
+  <li><code class="language-plaintext highlighter-rouge">annotation_conversion_strategy</code> - Strategy for converting manual annotations to Figma’s native annotations</li>
+  <li><code class="language-plaintext highlighter-rouge">swap_overrides_instances</code> - Strategy for transferring overrides between component instances in Figma</li>
+  <li><code class="language-plaintext highlighter-rouge">reaction_to_connector_strategy</code> - Strategy for converting Figma prototype reactions to connector lines using the output of ‘get_reactions’, and guiding the use ‘create_connections’ in sequence</li>
+</ul>
+
+<h2 id="development">Development</h2>
+
+<h3 id="building-the-figma-plugin">Building the Figma Plugin</h3>
+
+<ol>
+  <li>
+    <p>Navigate to the Figma plugin directory:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd src/cursor_mcp_plugin
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Edit code.js and ui.html</p>
+  </li>
+</ol>
+
+<h2 id="best-practices">Best Practices</h2>
+
+<p>When working with the Figma MCP:</p>
+
+<ol>
+  <li>Always join a channel before sending commands</li>
+  <li>Get document overview using <code class="language-plaintext highlighter-rouge">get_document_info</code> first</li>
+  <li>Check current selection with <code class="language-plaintext highlighter-rouge">get_selection</code> before modifications</li>
+  <li>Use appropriate creation tools based on needs:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">create_frame</code> for containers</li>
+      <li><code class="language-plaintext highlighter-rouge">create_rectangle</code> for basic shapes</li>
+      <li><code class="language-plaintext highlighter-rouge">create_text</code> for text elements</li>
+    </ul>
+  </li>
+  <li>Verify changes using <code class="language-plaintext highlighter-rouge">get_node_info</code></li>
+  <li>Use component instances when possible for consistency</li>
+  <li>Handle errors appropriately as all commands can throw exceptions</li>
+  <li>For large designs:
+    <ul>
+      <li>Use chunking parameters in <code class="language-plaintext highlighter-rouge">scan_text_nodes</code></li>
+      <li>Monitor progress through WebSocket updates</li>
+      <li>Implement appropriate error handling</li>
+    </ul>
+  </li>
+  <li>For text operations:
+    <ul>
+      <li>Use batch operations when possible</li>
+      <li>Consider structural relationships</li>
+      <li>Verify changes with targeted exports</li>
+    </ul>
+  </li>
+  <li>For converting legacy annotations:
+    <ul>
+      <li>Scan text nodes to identify numbered markers and descriptions</li>
+      <li>Use <code class="language-plaintext highlighter-rouge">scan_nodes_by_types</code> to find UI elements that annotations refer to</li>
+      <li>Match markers with their target elements using path, name, or proximity</li>
+      <li>Categorize annotations appropriately with <code class="language-plaintext highlighter-rouge">get_annotations</code></li>
+      <li>Create native annotations with <code class="language-plaintext highlighter-rouge">set_multiple_annotations</code> in batches</li>
+      <li>Verify all annotations are properly linked to their targets</li>
+      <li>Delete legacy annotation nodes after successful conversion</li>
+    </ul>
+  </li>
+  <li>Visualize prototype noodles as FigJam connectors:</li>
+</ol>
+
+<ul>
+  <li>Use <code class="language-plaintext highlighter-rouge">get_reactions</code> to extract prototype flows,</li>
+  <li>set a default connector with <code class="language-plaintext highlighter-rouge">set_default_connector</code>,</li>
+  <li>and generate connector lines with <code class="language-plaintext highlighter-rouge">create_connections</code> for clear visual flow mapping.</li>
+</ul>
+
+<h2 id="license">License</h2>
+
+<p>MIT</p>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">안녕하세요 김인주 입니다.</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

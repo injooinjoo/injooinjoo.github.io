@@ -1,0 +1,24 @@
+# main links
+main:
+  - title: "홈"
+    url: "#cover-page"
+  - title: "프로필 요약"
+    url: "#profile-summary"
+  - title: "스킬셋"
+    url: "#skillset"
+  - title: "경력 타임라인"
+    url: "#career-timeline"
+  - title: "프로젝트 하이라이트"
+    url: "#project-highlights"
+  - title: "교육 및 인증"
+    url: "#education-certifications"
+  - title: "연락처"
+    url: "#end-page"
+  # - title: "About"
+  #   url: https://mmistakes.github.io/minimal-mistakes/about/
+  # - title: "Sample Posts"
+  #   url: /year-archive/
+  # - title: "Sample Collections"
+  #   url: /collection-archive/
+  # - title: "Sitemap"
+  #   url: /sitemap/
