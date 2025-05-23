@@ -3,8 +3,11 @@ import React from 'react';
 import Navigation from '../components/Navigation';
 import HeroSection from '../components/HeroSection';
 import AboutSection from '../components/AboutSection';
-import ProjectsSection from '../components/ProjectsSection';
 import SkillsSection from '../components/SkillsSection';
+import ExperienceSection from '../components/ExperienceSection';
+import ProjectsSection from '../components/ProjectsSection';
+import EducationSection from '../components/EducationSection';
+import GlobalExperienceSection from '../components/GlobalExperienceSection';
 import ContactSection from '../components/ContactSection';
 
 const Index = () => {
@@ -13,8 +16,11 @@ const Index = () => {
       <Navigation />
       <HeroSection />
       <AboutSection />
-      <ProjectsSection />
       <SkillsSection />
+      <ExperienceSection />
+      <ProjectsSection />
+      <EducationSection />
+      <GlobalExperienceSection />
       <ContactSection />
     </div>
   );
