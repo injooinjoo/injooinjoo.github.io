@@ -1,97 +1,98 @@
 
 import React from 'react';
 import ScrollSection from './ScrollSection';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
 const EducationSection = () => {
   const educations = [
     {
-      title: "Harvard ALM Data Science",
-      period: "현재",
-      type: "석사 과정",
-      details: "데이터 사이언스 전공"
+      institution: "국가평생교육진흥원",
+      degree: "학사 (B.S.), 컴퓨터 공학 & 경영학",
+      period: "2018",
+      description: "복수 전공: 컴퓨터 공학 및 경영학"
     },
     {
-      title: "MITx MicroMasters",
-      period: "수료",
-      type: "Data Science & Statistics",
-      details: "데이터 분석 및 통계학 과정 이수"
-    },
-    {
-      title: "학점은행제",
-      period: "학사",
-      type: "컴퓨터공학 및 경영학",
-      details: "학사 학위 취득"
-    },
-    {
-      title: "UCI Japanese Language",
-      period: "",
-      type: "어학과정",
-      details: "일본어 과정 이수"
+      institution: "University of California, Irvine",
+      degree: "인문학부 (School of Humanities)",
+      period: "2009",
+      description: "중퇴 (dropout)"
     }
   ];
 
   const certifications = [
-    "MITx MicroMasters 수료",
-    "내부 우수 프로젝트상",
-    "베스트 운영 혁신상"
+    {
+      title: "Google Data Analytics Professional",
+      issuer: "Google",
+      date: "2022"
+    },
+    {
+      title: "Google Business Analytics",
+      issuer: "Google",
+      date: "2022"
+    }
   ];
 
   return (
     <section id="education" className="min-h-screen py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <ScrollSection>
-          <h2 className="text-5xl md:text-6xl font-thin text-gray-900 text-center mb-20">
-            Education & Certifications
+        <ScrollSection className="mb-16">
+          <h2 className="text-5xl md:text-6xl font-thin text-gray-900 text-center mb-4">
+            Education
           </h2>
         </ScrollSection>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <ScrollSection delay={200}>
-            <div className="lg:col-span-2">
-              <h3 className="text-3xl font-thin text-gray-900 mb-8 border-b pb-2">Education</h3>
-              <div className="space-y-10">
-                {educations.map((edu, index) => (
-                  <div key={edu.title} className="flex gap-6">
-                    <div className="w-2 h-2 rounded-full bg-[#007ACC] mt-3 flex-shrink-0"></div>
-                    <div>
-                      <h4 className="text-xl font-medium text-gray-900">{edu.title}</h4>
-                      <p className="text-[#007ACC] font-medium">{edu.type}</p>
-                      {edu.period && <p className="text-gray-500">{edu.period}</p>}
-                      <p className="text-gray-600 mt-2">{edu.details}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </ScrollSection>
-          
-          <ScrollSection delay={400}>
-            <div className="bg-gray-50 rounded-3xl p-8">
-              <h3 className="text-3xl font-thin text-gray-900 mb-8 border-b pb-2">Certifications & Awards</h3>
-              <ScrollArea className="h-[300px] pr-4">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div>
+            <ScrollSection delay={200} direction="up" speed={0.5}>
+              <h3 className="text-3xl font-thin text-gray-900 mb-8 border-b pb-4 border-gray-200">
+                Academic Background
+              </h3>
+              
+              <ScrollArea className="h-[400px] pr-4">
                 <div className="space-y-6">
-                  {certifications.map((cert, index) => (
-                    <div key={index} className="flex items-start gap-4">
-                      <div className="w-8 h-8 bg-[#007ACC] text-white rounded-full flex items-center justify-center flex-shrink-0">
-                        {index + 1}
-                      </div>
-                      <div className="pt-1">
-                        <p className="text-gray-900">{cert}</p>
-                      </div>
-                    </div>
+                  {educations.map((edu, i) => (
+                    <Card key={i} className="hover:shadow-md transition-shadow duration-300">
+                      <CardHeader className="bg-gradient-to-r from-gray-50 to-white">
+                        <CardTitle>{edu.institution}</CardTitle>
+                        <CardDescription>{edu.degree}</CardDescription>
+                      </CardHeader>
+                      <CardContent className="pt-4">
+                        <div className="flex justify-between items-center mb-4">
+                          <span className="text-[#007ACC] font-medium">{edu.period}</span>
+                        </div>
+                        <p className="text-gray-700">{edu.description}</p>
+                      </CardContent>
+                    </Card>
                   ))}
-                  
-                  <div className="pt-4">
-                    <h4 className="text-xl font-medium text-gray-900 mb-3">컨퍼런스 참가 경험</h4>
-                    <p className="text-gray-600">
-                      다양한 산업 컨퍼런스 및 세미나 참가를 통한 최신 트렌드 습득 및 네트워킹
-                    </p>
-                  </div>
                 </div>
               </ScrollArea>
-            </div>
-          </ScrollSection>
+            </ScrollSection>
+          </div>
+          
+          <div>
+            <ScrollSection delay={400} direction="up" speed={0.5}>
+              <h3 className="text-3xl font-thin text-gray-900 mb-8 border-b pb-4 border-gray-200">
+                Certifications
+              </h3>
+              
+              <ScrollArea className="h-[400px] pr-4">
+                <div className="space-y-6">
+                  {certifications.map((cert, i) => (
+                    <Card key={i} className="hover:shadow-md transition-shadow duration-300">
+                      <CardHeader>
+                        <CardTitle>{cert.title}</CardTitle>
+                        <CardDescription>{cert.issuer}</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-[#007ACC]">{cert.date}</p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </ScrollArea>
+            </ScrollSection>
+          </div>
         </div>
       </div>
     </section>

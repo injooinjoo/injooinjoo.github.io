@@ -1,29 +1,52 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import ScrollSection from './ScrollSection';
 import { ArrowDown } from 'lucide-react';
 
 const HeroSection = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!containerRef.current) return;
+      const scrollY = window.scrollY;
+      const heroHeight = containerRef.current.offsetHeight;
+      
+      // Only apply effects when in the hero section
+      if (scrollY <= heroHeight) {
+        const parallaxElements = containerRef.current.querySelectorAll('.parallax-item');
+        parallaxElements.forEach((el, index) => {
+          const speed = 0.2 + (index * 0.1);
+          const yPos = -(scrollY * speed);
+          (el as HTMLElement).style.transform = `translateY(${yPos}px)`;
+        });
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section id="hero" className="h-screen flex items-center justify-center bg-white">
-      <div className="max-w-7xl mx-auto px-6 text-center flex flex-col items-center">
-        <ScrollSection delay={200} className="animate-bounce-slow">
-          <div className="mb-10">
+    <section ref={containerRef} id="hero" className="h-screen flex items-center justify-center bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 text-center flex flex-col items-center relative">
+        <ScrollSection className="parallax-item" delay={100} direction="down" speed={0.5}>
+          <div className="mb-16 relative z-10">
             <img 
               src="/lovable-uploads/1eb87e2a-f1e2-41cc-8f4f-29a1df05fe8e.png" 
               alt="김인주 (InJoo Kim)" 
-              className="w-80 h-80 rounded-full object-cover mx-auto shadow-lg transition-transform hover:scale-105 duration-500"
+              className="w-96 h-96 rounded-full object-cover mx-auto shadow-lg transition-transform duration-500"
             />
           </div>
         </ScrollSection>
         
-        <ScrollSection delay={400} className="animate-slide-in-bottom">
+        <ScrollSection delay={400} direction="up" speed={0.8} className="parallax-item z-20">
           <h1 className="text-5xl md:text-6xl font-thin tracking-tight text-gray-900 mb-4">
             김인주 <span className="text-3xl md:text-4xl">(InJoo Kim)</span>
           </h1>
         </ScrollSection>
         
-        <ScrollSection delay={600} className="animate-slide-in-right">
+        <ScrollSection delay={600} direction="up" speed={1} className="parallax-item z-20">
           <p className="text-xl md:text-2xl font-light text-[#007ACC] max-w-3xl mx-auto leading-relaxed mb-4">
             데이터와 전략으로 성장시키는 콘텐츠 플랫폼 PM
           </p>
@@ -32,7 +55,7 @@ const HeroSection = () => {
           </p>
         </ScrollSection>
 
-        <ScrollSection delay={700} className="animate-float">
+        <ScrollSection delay={700} direction="right" speed={0.3} className="parallax-item">
           <div className="flex flex-wrap justify-center gap-3 my-4">
             <span className="px-4 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">콘텐츠 플랫폼</span>
             <span className="px-4 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">전략기획</span>
@@ -40,7 +63,7 @@ const HeroSection = () => {
           </div>
         </ScrollSection>
         
-        <ScrollSection delay={800} className="animate-fade-in">
+        <ScrollSection delay={800} direction="left" speed={0.3} className="parallax-item">
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 text-sm mt-8">
             <a href="mailto:ink595@g.harvard.edu" className="hover:text-[#007ACC] transition-colors">
               ink595@g.harvard.edu

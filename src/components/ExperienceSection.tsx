@@ -21,6 +21,17 @@ const ExperienceSection = () => {
       ]
     },
     {
+      company: "MMXXII",
+      period: "2021.01 ~ 2024.01",
+      position: "Founder",
+      details: [
+        "REST API 기반 재고 동기화 기능을 갖춘 완전 통합형 이커머스 플랫폼 출시 및 운영",
+        "1인 기업가로서 월 최대 10만 달러 매출 달성",
+        "제품 소싱, Node.js 개발, 웹 스크래핑(Golang/Python), MongoDB 관리, 통관/세금 처리, 회계, 고객 지원, 소셜 미디어 마케팅 등 전반적인 운영 총괄",
+        "Python을 사용하여 70% 이상의 프로세스 자동화, 수동 작업량 대폭 감소"
+      ]
+    },
+    {
       company: "팝조이(주)",
       period: "2015.02 ~ 2016.02",
       position: "글로벌 마케팅 PM",
@@ -62,7 +73,7 @@ const ExperienceSection = () => {
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-200"></div>
           
           {experiences.map((exp, index) => (
-            <ScrollSection key={exp.company} delay={index * 300} className="animate-scale-in">
+            <ScrollSection key={exp.company} delay={index * 300} direction={index % 2 === 0 ? 'left' : 'right'} speed={0.5} className="animate-scale-in">
               <div className={`flex items-center mb-20 ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
                 <div className={`w-full md:w-5/12 ${index % 2 === 1 ? 'md:order-2' : ''}`}>
                   <Card className="overflow-hidden shadow-md hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2">
