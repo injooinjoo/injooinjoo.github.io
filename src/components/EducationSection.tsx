@@ -7,6 +7,12 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 const EducationSection = () => {
   const educations = [
     {
+      institution: "Harvard University",
+      degree: "Candidate of Master of Liberal Arts in Data Science, Extension Studies",
+      period: "2024-Present",
+      description: "Graduate degree pursuit focused on data science and analytics"
+    },
+    {
       institution: "국가평생교육진흥원",
       degree: "학사 (B.S.), 컴퓨터 공학 & 경영학",
       period: "2018",
@@ -21,6 +27,11 @@ const EducationSection = () => {
   ];
 
   const certifications = [
+    {
+      title: "MITx MicroMasters in Data Science",
+      issuer: "MIT",
+      date: "2023"
+    },
     {
       title: "Google Data Analytics Professional",
       issuer: "Google",
@@ -49,7 +60,7 @@ const EducationSection = () => {
                 Academic Background
               </h3>
               
-              <ScrollArea className="h-[400px] pr-4">
+              <ScrollArea className="h-[500px] pr-4">
                 <div className="space-y-6">
                   {educations.map((edu, i) => (
                     <Card key={i} className="hover:shadow-md transition-shadow duration-300">
@@ -76,7 +87,7 @@ const EducationSection = () => {
                 Certifications
               </h3>
               
-              <ScrollArea className="h-[400px] pr-4">
+              <ScrollArea className="h-[500px] pr-4">
                 <div className="space-y-6">
                   {certifications.map((cert, i) => (
                     <Card key={i} className="hover:shadow-md transition-shadow duration-300">

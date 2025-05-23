@@ -19,9 +19,6 @@ const AboutSection = () => {
                 경력: 총 12년 4개월
               </p>
               <p>
-                현 직책: SOOP Co., Ltd.(Formerly AfreecaTV) Streamer Ops. Lead (Game)
-              </p>
-              <p>
                 데이터 분석 기반 문제 해결 및 플랫폼 성장 전략 전문가
               </p>
               <p>

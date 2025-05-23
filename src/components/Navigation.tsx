@@ -1,15 +1,30 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Moon, Sun, Globe } from 'lucide-react';
+import { Switch } from "@/components/ui/switch";
+import { Toggle } from "@/components/ui/toggle";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isEnglish, setIsEnglish] = useState(true);
+  const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+      
+      // Find the current section
+      const sections = ['hero', 'about', 'skills', 'experience', 'projects', 'education', 'contact'];
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section && section.getBoundingClientRect().top <= 100) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -24,6 +39,19 @@ const Navigation = () => {
     setIsMenuOpen(false);
   };
 
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+    if (isDarkMode) {
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
+    }
+  };
+
+  const toggleLanguage = () => {
+    setIsEnglish(!isEnglish);
+  };
+
   const menuItems = [
     { id: 'hero', label: 'Home' },
     { id: 'about', label: 'Profile' },
@@ -31,19 +59,18 @@ const Navigation = () => {
     { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
     { id: 'education', label: 'Education' },
-    { id: 'global', label: 'Global' },
     { id: 'contact', label: 'Contact' },
   ];
 
   return (
     <>
       <nav className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-12",
-        isScrolled ? "bg-white/90 backdrop-blur-md border-b border-gray-200/20 shadow-sm" : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        isScrolled ? "bg-white/90 backdrop-blur-md border-b border-gray-200/20 shadow-sm h-16" : "bg-transparent h-20"
       )}>
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between h-12">
-            <div className="text-xs font-medium tracking-wide">
+          <div className="flex items-center justify-between h-full">
+            <div className="text-sm font-medium tracking-wide">
               김인주 (InJoo Kim)
             </div>
             
@@ -52,11 +79,38 @@ const Navigation = () => {
                 <button 
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-xs font-normal hover:text-[#007ACC] transition-colors"
+                  className={cn(
+                    "text-xs font-normal transition-colors relative",
+                    activeSection === item.id ? "text-[#007ACC]" : "hover:text-[#007ACC]"
+                  )}
                 >
                   {item.label}
+                  {activeSection === item.id && (
+                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#007ACC] rounded-full"></span>
+                  )}
                 </button>
               ))}
+            </div>
+
+            <div className="hidden md:flex items-center space-x-4">
+              <Toggle 
+                pressed={isDarkMode}
+                onPressedChange={toggleDarkMode}
+                aria-label="Toggle dark mode"
+                className="rounded-full p-2"
+              >
+                {isDarkMode ? <Moon size={16} /> : <Sun size={16} />}
+              </Toggle>
+              
+              <Toggle 
+                pressed={!isEnglish}
+                onPressedChange={toggleLanguage}
+                aria-label="Toggle language"
+                className="rounded-full p-2"
+              >
+                <Globe size={16} />
+                <span className="ml-1 text-xs">{isEnglish ? 'EN' : 'KO'}</span>
+              </Toggle>
             </div>
             
             <button 
@@ -66,6 +120,16 @@ const Navigation = () => {
               <Menu size={18} />
             </button>
           </div>
+        </div>
+        
+        {/* Indicator for current section on small scroll */}
+        <div className="h-1 w-full bg-transparent">
+          <div 
+            className="h-full bg-[#007ACC] transition-all duration-300" 
+            style={{ 
+              width: activeSection ? `${(menuItems.findIndex(item => item.id === activeSection) + 1) / menuItems.length * 100}%` : '0%'
+            }}
+          ></div>
         </div>
       </nav>
       
@@ -78,12 +142,33 @@ const Navigation = () => {
           <div className="text-sm font-medium">
             Menu
           </div>
-          <button 
-            onClick={() => setIsMenuOpen(false)}
-            className="text-gray-700"
-          >
-            <X size={18} />
-          </button>
+          <div className="flex items-center space-x-4">
+            <Toggle 
+              pressed={isDarkMode}
+              onPressedChange={toggleDarkMode}
+              aria-label="Toggle dark mode"
+              className="rounded-full p-2"
+            >
+              {isDarkMode ? <Moon size={16} /> : <Sun size={16} />}
+            </Toggle>
+            
+            <Toggle 
+              pressed={!isEnglish}
+              onPressedChange={toggleLanguage}
+              aria-label="Toggle language"
+              className="rounded-full p-2"
+            >
+              <Globe size={16} />
+              <span className="ml-1 text-xs">{isEnglish ? 'EN' : 'KO'}</span>
+            </Toggle>
+            
+            <button 
+              onClick={() => setIsMenuOpen(false)}
+              className="text-gray-700"
+            >
+              <X size={18} />
+            </button>
+          </div>
         </div>
         
         <div className="flex flex-col p-6 space-y-6">
@@ -91,7 +176,7 @@ const Navigation = () => {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className="text-left py-2 text-gray-900 hover:text-[#007ACC] transition-colors"
+              className={`text-left py-2 ${activeSection === item.id ? "text-[#007ACC]" : "text-gray-900 hover:text-[#007ACC]"} transition-colors`}
             >
               {item.label}
             </button>

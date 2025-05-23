@@ -1,8 +1,7 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import ScrollSection from './ScrollSection';
 import ProjectCard from './ProjectCard';
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { 
   Carousel,
   CarouselContent,
@@ -12,6 +11,8 @@ import {
 } from "@/components/ui/carousel";
 
 const ProjectsSection = () => {
+  const [expandedProject, setExpandedProject] = useState<number | null>(null);
+
   const projects = [
     {
       title: "베스트 BJ 신청 페이지 개편",
@@ -107,21 +108,22 @@ const ProjectsSection = () => {
           </p>
         </ScrollSection>
         
-        <Carousel className="w-full">
-          <CarouselContent>
-            {projects.map((project, index) => (
-              <CarouselItem key={project.title} className="md:basis-full">
-                <div className="p-1 h-[80vh] flex items-center">
-                  <ProjectCard {...project} index={index} />
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <div className="flex justify-center mt-8 gap-4">
-            <CarouselPrevious className="relative static left-auto translate-y-0 mr-2" />
-            <CarouselNext className="relative static right-auto translate-y-0 ml-2" />
-          </div>
-        </Carousel>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
+            <ScrollSection key={project.title} delay={index * 100} direction={index % 3 === 0 ? 'up' : index % 3 === 1 ? 'left' : 'right'} speed={0.8} opacity={true}>
+              <div 
+                className="cursor-pointer relative"
+                onClick={() => setExpandedProject(expandedProject === index ? null : index)}
+              >
+                <ProjectCard 
+                  {...project} 
+                  index={index} 
+                  isExpanded={expandedProject === index}
+                />
+              </div>
+            </ScrollSection>
+          ))}
+        </div>
       </div>
     </section>
   );

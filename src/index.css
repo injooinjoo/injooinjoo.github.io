@@ -107,6 +107,35 @@
     scroll-behavior: smooth;
   }
 
+  /* Apple-style scroll animations */
+  .sticky-section {
+    @apply sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden;
+  }
+
+  .parallax-section {
+    @apply relative min-h-screen overflow-hidden;
+  }
+
+  .parallax-bg {
+    @apply absolute top-0 left-0 w-full min-h-[130vh] bg-cover bg-center bg-no-repeat;
+    transform: translateY(calc(var(--scrollY) * -0.1px));
+    will-change: transform;
+  }
+
+  .parallax-content {
+    @apply absolute top-0 left-0 w-full h-full flex items-center justify-center;
+    transform: translateY(calc(var(--scrollY) * 0.05px));
+    will-change: transform;
+  }
+
+  .scroll-text {
+    will-change: transform, opacity;
+  }
+
+  .scroll-image {
+    will-change: transform, opacity;
+  }
+
   /* Enhanced animations for scroll reveal */
   .animate-slide-up {
     animation: slideUp 0.8s ease-out forwards;
@@ -225,3 +254,72 @@
     }
   }
 }
+
+/* Apple-style section transitions */
+.section-transition {
+  transition: background-color 0.8s ease-in-out;
+}
+
+section {
+  transition: background-color 0.8s ease-in-out;
+}
+
+/* For Apple-style parallax scrolling */
+.sticky-container {
+  height: 400vh;
+}
+
+.sticky-element {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Custom card styles for project gallery */
+.project-card {
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.project-card.expanded {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  border-radius: 0;
+  margin: 0;
+  max-width: 100%;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Theme section colors */
+.theme-white {
+  background-color: white;
+  color: #333;
+}
+
+.theme-light-gray {
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+.theme-dark {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+.theme-accent {
+  background-color: #007ACC;
+  color: white;
+}
+

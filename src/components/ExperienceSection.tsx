@@ -1,6 +1,7 @@
 
 import React from 'react';
 import ScrollSection from './ScrollSection';
+import AppleScrollEffect from './AppleScrollEffect';
 import { 
   Card,
   CardContent,
@@ -57,6 +58,14 @@ const ExperienceSection = () => {
     }
   ];
 
+  const sectionColors = [
+    "bg-gradient-to-b from-white to-gray-50",
+    "bg-gradient-to-b from-gray-50 to-blue-50",
+    "bg-gradient-to-b from-blue-50 to-gray-100",
+    "bg-gradient-to-b from-gray-100 to-blue-100",
+    "bg-gradient-to-b from-blue-100 to-white",
+  ];
+
   return (
     <section id="experience" className="min-h-screen py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6">
@@ -73,28 +82,30 @@ const ExperienceSection = () => {
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-200"></div>
           
           {experiences.map((exp, index) => (
-            <ScrollSection key={exp.company} delay={index * 300} direction={index % 2 === 0 ? 'left' : 'right'} speed={0.5} className="animate-scale-in">
-              <div className={`flex items-center mb-20 ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
-                <div className={`w-full md:w-5/12 ${index % 2 === 1 ? 'md:order-2' : ''}`}>
-                  <Card className="overflow-hidden shadow-md hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2">
-                    <CardHeader className="bg-gradient-to-r from-gray-100 to-white">
-                      <CardTitle className="text-2xl font-medium">{exp.company}</CardTitle>
-                      <CardDescription className="text-md text-[#007ACC] font-medium">{exp.position}</CardDescription>
-                      <CardDescription>{exp.period}</CardDescription>
-                    </CardHeader>
-                    <CardContent className="pt-6">
-                      <ul className="space-y-3">
-                        {exp.details.map((detail, i) => (
-                          <li key={i} className="text-gray-700 leading-relaxed">{detail}</li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
+            <AppleScrollEffect key={exp.company}>
+              <ScrollSection delay={index * 300} direction={index % 2 === 0 ? 'left' : 'right'} speed={0.5} className={`animate-scale-in ${index < sectionColors.length ? sectionColors[index] : ''}`}>
+                <div className={`flex items-center mb-20 ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
+                  <div className={`w-full md:w-5/12 ${index % 2 === 1 ? 'md:order-2' : ''}`}>
+                    <Card className="overflow-hidden shadow-md hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2">
+                      <CardHeader className="bg-gradient-to-r from-gray-100 to-white">
+                        <CardTitle className="text-2xl font-medium">{exp.company}</CardTitle>
+                        <CardDescription className="text-md text-[#007ACC] font-medium">{exp.position}</CardDescription>
+                        <CardDescription>{exp.period}</CardDescription>
+                      </CardHeader>
+                      <CardContent className="pt-6">
+                        <ul className="space-y-3">
+                          {exp.details.map((detail, i) => (
+                            <li key={i} className="text-gray-700 leading-relaxed">{detail}</li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  </div>
+                  
+                  <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-[#007ACC] border-4 border-white shadow-md"></div>
                 </div>
-                
-                <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-[#007ACC] border-4 border-white shadow-md"></div>
-              </div>
-            </ScrollSection>
+              </ScrollSection>
+            </AppleScrollEffect>
           ))}
         </div>
       </div>
