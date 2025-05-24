@@ -12,17 +12,19 @@ interface ProjectCardProps {
   color: string;
   index: number;
   isExpanded?: boolean;
+  onToggle?: () => void;
 }
 
-const ProjectCard = ({ title, description, details, role, results, color, index, isExpanded = false }: ProjectCardProps) => {
+const ProjectCard = ({ title, description, details, role, results, color, index, isExpanded = false, onToggle }: ProjectCardProps) => {
   return (
     <div 
       className={cn(
         "bg-gradient-to-br", 
         color, 
-        "rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2",
-        isExpanded ? "min-h-[600px] absolute z-10 left-0 right-0 top-0" : "min-h-[350px] h-full"
+        "rounded-3xl overflow-hidden shadow-md transition-all duration-500 transform",
+        isExpanded ? "min-h-[600px] w-full absolute z-10 left-0 right-0 top-0" : "min-h-[350px] h-full hover:shadow-xl hover:-translate-y-2"
       )}
+      onClick={onToggle}
     >
       <div className="p-8 md:p-10 h-full flex flex-col justify-between">
         <div>

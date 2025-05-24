@@ -1,10 +1,11 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ScrollSection from './ScrollSection';
 import ProjectCard from './ProjectCard';
 
 const ProjectsSection = () => {
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
+  const [expandedHeight, setExpandedHeight] = useState<number>(0);
 
   const projects = [
     {
@@ -89,8 +90,22 @@ const ProjectsSection = () => {
     }
   ];
 
+  // Calculate space needed for expanded card
+  useEffect(() => {
+    if (expandedProject !== null) {
+      // Add some extra space for padding
+      setExpandedHeight(700);
+    } else {
+      setExpandedHeight(0);
+    }
+  }, [expandedProject]);
+
+  const toggleProject = (index: number) => {
+    setExpandedProject(expandedProject === index ? null : index);
+  };
+
   return (
-    <section id="projects" className="min-h-screen py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="projects" className="min-h-screen py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-6">
         <ScrollSection>
           <h2 className="text-5xl md:text-6xl font-thin text-gray-900 dark:text-gray-100 text-center mb-10">
@@ -101,45 +116,28 @@ const ProjectsSection = () => {
           </p>
         </ScrollSection>
         
-        <div className="relative min-h-[800px]">
-          <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500 ${expandedProject !== null ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+        <div className="relative">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, index) => (
               <ScrollSection key={project.title} delay={index * 100} direction={index % 3 === 0 ? 'up' : index % 3 === 1 ? 'left' : 'right'} speed={0.8} opacity={true}>
-                <div 
-                  className="cursor-pointer relative"
-                  onClick={() => setExpandedProject(index)}
-                >
+                <div className={`relative cursor-pointer ${expandedProject !== null && expandedProject !== index ? 'opacity-30' : 'opacity-100'} transition-opacity duration-500`}>
                   <ProjectCard 
                     {...project} 
                     index={index} 
-                    isExpanded={false}
+                    isExpanded={expandedProject === index}
+                    onToggle={() => toggleProject(index)}
                   />
                 </div>
               </ScrollSection>
             ))}
           </div>
           
+          {/* Spacer div that provides room for the expanded card */}
           {expandedProject !== null && (
-            <div className="absolute top-0 left-0 right-0 min-h-[800px] z-10">
-              <div className="relative">
-                <button 
-                  onClick={() => setExpandedProject(null)} 
-                  className="absolute -top-10 right-0 bg-gray-700 text-white p-2 rounded-full z-20 hover:bg-gray-600 transition-colors"
-                >
-                  Close
-                </button>
-                <div 
-                  className="cursor-pointer"
-                  onClick={() => setExpandedProject(null)}
-                >
-                  <ProjectCard 
-                    {...projects[expandedProject]} 
-                    index={expandedProject} 
-                    isExpanded={true}
-                  />
-                </div>
-              </div>
-            </div>
+            <div 
+              className="transition-all duration-500 ease-in-out" 
+              style={{ height: expandedHeight }}
+            ></div>
           )}
         </div>
       </div>

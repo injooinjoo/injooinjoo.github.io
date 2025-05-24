@@ -16,9 +16,11 @@
                     if (currentLang === 'en') {
                         document.documentElement.lang = 'ko';
                         toggleKorean();
+                        langToggle.textContent = '한/영';
                     } else {
                         document.documentElement.lang = 'en';
                         toggleEnglish();
+                        langToggle.textContent = 'KOR/ENG';
                     }
                 });
             }
@@ -55,7 +57,7 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to InJoo Kim's GitHub Page!</h1>
+        <h1>Welcome to InJoo Kim's Portfolio!</h1>
     </header>
     <nav>
         <a href="#about" data-en="About" data-ko="소개">About</a>
