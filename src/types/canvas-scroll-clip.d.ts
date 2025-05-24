@@ -1,3 +1,4 @@
+
 declare module 'canvas-scroll-clip' {
   interface ScrollAnimationKeyframe {
     offset: number;
@@ -21,10 +22,8 @@ declare module 'canvas-scroll-clip' {
     debug?: boolean;
   }
 
-  class CanvasScrollClip {
+  export default class CanvasScrollClip {
     constructor(options: CanvasScrollClipOptions);
     destroy(): void;
   }
-
-  export default CanvasScrollClip;
-} 
+}
