@@ -5,15 +5,11 @@ import { Menu, X, Moon, Sun, Globe } from 'lucide-react';
 import { Switch } from "@/components/ui/switch";
 import { Toggle } from "@/components/ui/toggle";
 
-interface NavigationProps {
-  isEnglish: boolean;
-  setIsEnglish: (value: boolean) => void;
-}
-
-const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
+const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isEnglish, setIsEnglish] = useState(true);
   const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
@@ -33,15 +29,6 @@ const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    // Set initial dark mode based on system preference
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    setIsDarkMode(prefersDark);
-    if (prefersDark) {
-      document.documentElement.classList.add('dark');
-    }
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -66,24 +53,24 @@ const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
   };
 
   const menuItems = [
-    { id: 'hero', label: isEnglish ? 'Home' : 'Home' },
-    { id: 'about', label: isEnglish ? 'Profile' : 'Profile' },
-    { id: 'skills', label: isEnglish ? 'Skills' : 'Skills' },
-    { id: 'experience', label: isEnglish ? 'Experience' : 'Experience' },
-    { id: 'projects', label: isEnglish ? 'Projects' : 'Projects' },
-    { id: 'education', label: isEnglish ? 'Education' : 'Education' },
-    { id: 'contact', label: isEnglish ? 'Contact' : 'Contact' },
+    { id: 'hero', label: 'Home' },
+    { id: 'about', label: 'Profile' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'education', label: 'Education' },
+    { id: 'contact', label: 'Contact' },
   ];
 
   return (
     <>
       <nav className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200/20 dark:border-gray-700/20 shadow-sm h-16" : "bg-transparent h-20"
+        isScrolled ? "bg-white/90 backdrop-blur-md border-b border-gray-200/20 shadow-sm h-16" : "bg-transparent h-20"
       )}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-full">
-            <div className="text-sm font-medium tracking-wide dark:text-white">
+            <div className="text-sm font-medium tracking-wide">
               김인주 (InJoo Kim)
             </div>
             
@@ -93,13 +80,13 @@ const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className={cn(
-                    "text-xs font-normal transition-colors relative dark:text-gray-200",
-                    activeSection === item.id ? "text-[#007ACC] dark:text-[#3b9ede]" : "hover:text-[#007ACC] dark:hover:text-[#3b9ede]"
+                    "text-xs font-normal transition-colors relative",
+                    activeSection === item.id ? "text-[#007ACC]" : "hover:text-[#007ACC]"
                   )}
                 >
                   {item.label}
                   {activeSection === item.id && (
-                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#007ACC] dark:bg-[#3b9ede] rounded-full"></span>
+                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#007ACC] rounded-full"></span>
                   )}
                 </button>
               ))}
@@ -110,7 +97,7 @@ const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
                 pressed={isDarkMode}
                 onPressedChange={toggleDarkMode}
                 aria-label="Toggle dark mode"
-                className="rounded-full p-2 dark:bg-gray-800 dark:text-white"
+                className="rounded-full p-2"
               >
                 {isDarkMode ? <Moon size={16} /> : <Sun size={16} />}
               </Toggle>
@@ -119,7 +106,7 @@ const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
                 pressed={!isEnglish}
                 onPressedChange={toggleLanguage}
                 aria-label="Toggle language"
-                className="rounded-full p-2 dark:bg-gray-800 dark:text-white"
+                className="rounded-full p-2"
               >
                 <Globe size={16} />
                 <span className="ml-1 text-xs">{isEnglish ? 'EN' : 'KO'}</span>
@@ -127,7 +114,7 @@ const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
             </div>
             
             <button 
-              className="md:hidden text-gray-700 dark:text-gray-200"
+              className="md:hidden text-gray-700"
               onClick={() => setIsMenuOpen(true)}
             >
               <Menu size={18} />
@@ -138,7 +125,7 @@ const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
         {/* Indicator for current section on small scroll */}
         <div className="h-1 w-full bg-transparent">
           <div 
-            className="h-full bg-[#007ACC] dark:bg-[#3b9ede] transition-all duration-300" 
+            className="h-full bg-[#007ACC] transition-all duration-300" 
             style={{ 
               width: activeSection ? `${(menuItems.findIndex(item => item.id === activeSection) + 1) / menuItems.length * 100}%` : '0%'
             }}
@@ -148,11 +135,11 @@ const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
       
       {/* Mobile Menu */}
       <div className={cn(
-        "fixed inset-0 bg-white dark:bg-gray-900 z-50 flex flex-col transition-transform duration-300 ease-in-out transform",
+        "fixed inset-0 bg-white z-50 flex flex-col transition-transform duration-300 ease-in-out transform",
         isMenuOpen ? "translate-x-0" : "translate-x-full"
       )}>
-        <div className="flex justify-between items-center p-6 border-b dark:border-gray-700">
-          <div className="text-sm font-medium dark:text-white">
+        <div className="flex justify-between items-center p-6 border-b">
+          <div className="text-sm font-medium">
             Menu
           </div>
           <div className="flex items-center space-x-4">
@@ -160,7 +147,7 @@ const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
               pressed={isDarkMode}
               onPressedChange={toggleDarkMode}
               aria-label="Toggle dark mode"
-              className="rounded-full p-2 dark:bg-gray-800 dark:text-white"
+              className="rounded-full p-2"
             >
               {isDarkMode ? <Moon size={16} /> : <Sun size={16} />}
             </Toggle>
@@ -169,7 +156,7 @@ const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
               pressed={!isEnglish}
               onPressedChange={toggleLanguage}
               aria-label="Toggle language"
-              className="rounded-full p-2 dark:bg-gray-800 dark:text-white"
+              className="rounded-full p-2"
             >
               <Globe size={16} />
               <span className="ml-1 text-xs">{isEnglish ? 'EN' : 'KO'}</span>
@@ -177,7 +164,7 @@ const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
             
             <button 
               onClick={() => setIsMenuOpen(false)}
-              className="text-gray-700 dark:text-gray-200"
+              className="text-gray-700"
             >
               <X size={18} />
             </button>
@@ -189,7 +176,7 @@ const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`text-left py-2 ${activeSection === item.id ? "text-[#007ACC] dark:text-[#3b9ede]" : "text-gray-900 dark:text-gray-200 hover:text-[#007ACC] dark:hover:text-[#3b9ede]"} transition-colors`}
+              className={`text-left py-2 ${activeSection === item.id ? "text-[#007ACC]" : "text-gray-900 hover:text-[#007ACC]"} transition-colors`}
             >
               {item.label}
             </button>

@@ -106,20 +106,6 @@
   html {
     scroll-behavior: smooth;
   }
-  
-  /* Add this to fix dark mode for various sections */
-  .dark {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-  }
-  
-  .dark section {
-    background-color: hsl(var(--background));
-  }
-  
-  .dark .bg-gray-50 {
-    background-color: hsl(var(--background));
-  }
 
   /* Apple-style scroll animations */
   .sticky-section {
@@ -337,9 +323,3 @@ section {
   color: white;
 }
 
-/* Dark mode overrides */
-.dark .theme-white,
-.dark .theme-light-gray {
-  background-color: #1a1a1a;
-  color: white;
-}
