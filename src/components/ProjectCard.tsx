@@ -1,6 +1,5 @@
 
 import React from 'react';
-import ScrollSection from './ScrollSection';
 import { ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -42,14 +41,14 @@ const ProjectCard = ({ title, description, details, role, results, color, index,
             
             {role && (
               <div>
-                <h4 className="text-white text-xl mb-2 font-medium">역할</h4>
+                <h4 className="text-white text-xl mb-2 font-medium">Role</h4>
                 <p>{role}</p>
               </div>
             )}
             
             {results && (
               <div>
-                <h4 className="text-white text-xl mb-2 font-medium">성과</h4>
+                <h4 className="text-white text-xl mb-2 font-medium">Results</h4>
                 <p>{results}</p>
               </div>
             )}
