@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { cn } from '@/lib/utils';
-import ScrollSection from './ScrollSection';
 import { ArrowUpRight } from 'lucide-react';
 import { LanguageProps } from '../types';
 
@@ -14,6 +13,7 @@ interface ProjectCardProps extends LanguageProps {
   color: string;
   index: number;
   isExpanded?: boolean;
+  onClose?: () => void;
 }
 
 const ProjectCard = ({ 
@@ -25,7 +25,8 @@ const ProjectCard = ({
   color, 
   index, 
   isExpanded = false,
-  isEnglish
+  isEnglish,
+  onClose
 }: ProjectCardProps) => {
   return (
     <div 
@@ -33,7 +34,7 @@ const ProjectCard = ({
         "bg-gradient-to-br", 
         color, 
         "rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2",
-        isExpanded ? "min-h-[600px] fixed inset-0 z-[999] m-4 md:m-8 lg:m-16" : "min-h-[350px] h-full"
+        isExpanded ? "fixed inset-0 z-[999] m-4 md:m-8 lg:m-16" : "min-h-[350px] h-full"
       )}
     >
       <div className="p-8 md:p-10 h-full flex flex-col justify-between">
@@ -72,10 +73,13 @@ const ProjectCard = ({
         </div>
         
         <div className="mt-8 flex justify-end">
-          <div className={cn(
-            "p-3 rounded-full bg-white bg-opacity-20 transition-all", 
-            isExpanded ? "bg-opacity-30 rotate-45" : "hover:bg-opacity-30"
-          )}>
+          <div 
+            onClick={isExpanded ? onClose : undefined}
+            className={cn(
+              "p-3 rounded-full bg-white bg-opacity-20 transition-all cursor-pointer", 
+              isExpanded ? "bg-opacity-30 rotate-45" : "hover:bg-opacity-30"
+            )}
+          >
             <ArrowUpRight className="text-white" size={20} />
           </div>
         </div>

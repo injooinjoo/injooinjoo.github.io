@@ -14,7 +14,7 @@ const queryClient = new QueryClient();
 // Properly define App as a React function component
 const App: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isEnglish, setIsEnglish] = useState(true);
+  const [isEnglish, setIsEnglish] = useState(false); // Default to Korean
   
   // Check for user preference on initial load
   useEffect(() => {

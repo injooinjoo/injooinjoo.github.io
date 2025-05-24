@@ -1,21 +1,28 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import ScrollSection from './ScrollSection';
 import ProjectCard from './ProjectCard';
 import { LanguageProps } from '../types';
-import { 
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious 
-} from "@/components/ui/carousel";
 
 interface ProjectsSectionProps extends LanguageProps {}
 
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isEnglish }) => {
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
+  const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+
+  // Prevent scrolling when a project is expanded
+  useEffect(() => {
+    if (expandedProject !== null) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [expandedProject]);
 
   const projects = [
     {
@@ -100,6 +107,16 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isEnglish }) => {
     }
   ];
 
+  const handleCloseProject = () => {
+    setExpandedProject(null);
+    setIsOverlayVisible(false);
+  };
+
+  const handleProjectClick = (index: number) => {
+    setExpandedProject(index);
+    setIsOverlayVisible(true);
+  };
+
   return (
     <section id="projects" className="min-h-screen py-20 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-6">
@@ -119,19 +136,33 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isEnglish }) => {
             <ScrollSection key={project.title} delay={index * 100} direction={index % 3 === 0 ? 'up' : index % 3 === 1 ? 'left' : 'right'} speed={0.8} opacity={true}>
               <div 
                 className="cursor-pointer relative"
-                onClick={() => setExpandedProject(expandedProject === index ? null : index)}
+                onClick={() => handleProjectClick(index)}
               >
                 <ProjectCard 
                   {...project} 
                   index={index} 
-                  isExpanded={expandedProject === index}
                   isEnglish={isEnglish}
+                  isExpanded={false}
                 />
               </div>
             </ScrollSection>
           ))}
         </div>
       </div>
+      
+      {expandedProject !== null && isOverlayVisible && (
+        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black bg-opacity-50" onClick={handleCloseProject}>
+          <div className="w-full h-full flex items-center justify-center p-4" onClick={(e) => e.stopPropagation()}>
+            <ProjectCard 
+              {...projects[expandedProject]} 
+              index={expandedProject} 
+              isExpanded={true}
+              isEnglish={isEnglish}
+              onClose={handleCloseProject}
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 };
