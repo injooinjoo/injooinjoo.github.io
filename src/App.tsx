@@ -1,43 +1,33 @@
 
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React, { useState, useEffect } from "react";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
+import React, { useState } from 'react';
+import Navigation from './components/Navigation';
+import HeroSection from './components/HeroSection';
+import AboutSection from './components/AboutSection';
+import SkillsSection from './components/SkillsSection';
+import ExperienceSection from './components/ExperienceSection';
+import ProjectsSection from './components/ProjectsSection';
+import EducationSection from './components/EducationSection';
+import ContactSection from './components/ContactSection';
+import AppleScrollEffect from './components/AppleScrollEffect';
 
-// Create the QueryClient instance outside the component
-const queryClient = new QueryClient();
-
-// Properly define App as a React function component
-const App: React.FC = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  
-  // Check for user preference on initial load
-  useEffect(() => {
-    const darkModePreference = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (darkModePreference) {
-      setIsDarkMode(true);
-      document.documentElement.classList.add('dark');
-    }
-  }, []);
+function App() {
+  const [isEnglish, setIsEnglish] = useState<boolean>(true);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <div className="flex flex-col min-h-screen">
+      <Navigation isEnglish={isEnglish} setIsEnglish={setIsEnglish} />
+      
+      <main className="flex-grow">
+        <HeroSection isEnglish={isEnglish} />
+        <AboutSection isEnglish={isEnglish} />
+        <SkillsSection isEnglish={isEnglish} />
+        <ExperienceSection isEnglish={isEnglish} />
+        <ProjectsSection isEnglish={isEnglish} />
+        <EducationSection isEnglish={isEnglish} />
+        <ContactSection isEnglish={isEnglish} />
+      </main>
+    </div>
   );
-};
+}
 
 export default App;
