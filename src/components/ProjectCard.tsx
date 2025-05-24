@@ -1,5 +1,6 @@
 
 import React from 'react';
+import ScrollSection from './ScrollSection';
 import { ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -12,19 +13,17 @@ interface ProjectCardProps {
   color: string;
   index: number;
   isExpanded?: boolean;
-  onToggle?: () => void;
 }
 
-const ProjectCard = ({ title, description, details, role, results, color, index, isExpanded = false, onToggle }: ProjectCardProps) => {
+const ProjectCard = ({ title, description, details, role, results, color, index, isExpanded = false }: ProjectCardProps) => {
   return (
     <div 
       className={cn(
         "bg-gradient-to-br", 
         color, 
-        "rounded-3xl overflow-hidden shadow-md transition-all duration-500 transform",
-        isExpanded ? "min-h-[600px] w-full absolute z-10 left-0 right-0 top-0" : "min-h-[350px] h-full hover:shadow-xl hover:-translate-y-2"
+        "rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2",
+        isExpanded ? "min-h-[600px] absolute z-10 left-0 right-0 top-0" : "min-h-[350px] h-full"
       )}
-      onClick={onToggle}
     >
       <div className="p-8 md:p-10 h-full flex flex-col justify-between">
         <div>
@@ -43,14 +42,14 @@ const ProjectCard = ({ title, description, details, role, results, color, index,
             
             {role && (
               <div>
-                <h4 className="text-white text-xl mb-2 font-medium">Role</h4>
+                <h4 className="text-white text-xl mb-2 font-medium">역할</h4>
                 <p>{role}</p>
               </div>
             )}
             
             {results && (
               <div>
-                <h4 className="text-white text-xl mb-2 font-medium">Results</h4>
+                <h4 className="text-white text-xl mb-2 font-medium">성과</h4>
                 <p>{results}</p>
               </div>
             )}

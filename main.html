@@ -1,87 +1,36 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InJoo Kim - Portfolio</title>
-    <link rel="stylesheet" href="./styles.css">
-    <script>
-        // Simple language toggle functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const langToggle = document.getElementById('lang-toggle');
-            if (langToggle) {
-                langToggle.addEventListener('click', function() {
-                    const currentLang = document.documentElement.lang;
-                    if (currentLang === 'en') {
-                        document.documentElement.lang = 'ko';
-                        toggleKorean();
-                        langToggle.textContent = '한/영';
-                    } else {
-                        document.documentElement.lang = 'en';
-                        toggleEnglish();
-                        langToggle.textContent = 'KOR/ENG';
-                    }
-                });
-            }
-            
-            // Check for dark mode preference
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if (prefersDark) {
-                document.documentElement.classList.add('dark');
-            }
-            
-            // Dark mode toggle
-            const darkModeToggle = document.getElementById('dark-mode-toggle');
-            if (darkModeToggle) {
-                darkModeToggle.addEventListener('click', function() {
-                    document.documentElement.classList.toggle('dark');
-                });
-            }
-        });
-        
-        function toggleKorean() {
-            // Implement Korean language translations
-            document.querySelectorAll('[data-en]').forEach(el => {
-                el.innerText = el.getAttribute('data-ko') || el.innerText;
-            });
-        }
-        
-        function toggleEnglish() {
-            // Reset to English
-            document.querySelectorAll('[data-en]').forEach(el => {
-                el.innerText = el.getAttribute('data-en') || el.innerText;
-            });
-        }
-    </script>
+    <title>Your Page Title Here</title>
 </head>
 <body>
     <header>
-        <h1>Welcome to InJoo Kim's Portfolio!</h1>
+        <h1>Welcome to My GitHub Page!</h1>
     </header>
     <nav>
-        <a href="#about" data-en="About" data-ko="소개">About</a>
-        <a href="#projects" data-en="Projects" data-ko="프로젝트">Projects</a>
-        <a href="#contact" data-en="Contact" data-ko="연락처">Contact</a>
-        <button id="lang-toggle" data-en="KOR/ENG" data-ko="한/영">KOR/ENG</button>
-        <button id="dark-mode-toggle" data-en="Dark Mode" data-ko="다크모드">Dark Mode</button>
+        <!-- Navigation links can be added here -->
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
     </nav>
     <main>
         <section id="about">
-            <h2 data-en="About Me" data-ko="소개">About Me</h2>
-            <p data-en="This is a section about me. Add your own text here to introduce yourself." data-ko="이것은 저에 대한 섹션입니다. 자기 소개를 하기 위해 이곳에 텍스트를 추가하세요.">This is a section about me. Add your own text here to introduce yourself.</p>
+            <h2>About Me</h2>
+            <p>This is a section about me. Add your own text here to introduce yourself.</p>
         </section>
         <section id="projects">
-            <h2 data-en="Projects" data-ko="프로젝트">Projects</h2>
-            <p data-en="Details about my projects. List your projects or showcase your work here." data-ko="내 프로젝트에 대한 세부 정보. 여기에 프로젝트를 나열하거나 작업을 선보이세요.">Details about my projects. List your projects or showcase your work here.</p>
+            <h2>Projects</h2>
+            <p>Details about my projects. List your projects or showcase your work here.</p>
         </section>
         <section id="contact">
-            <h2 data-en="Contact" data-ko="연락처">Contact</h2>
-            <p data-en="How to reach me. Provide your contact information or link to your social media profiles." data-ko="나에게 연락하는 방법. 연락처 정보나 소셜 미디어 프로필 링크를 제공하세요.">How to reach me. Provide your contact information or link to your social media profiles.</p>
+            <h2>Contact</h2>
+            <p>How to reach me. Provide your contact ss information or link to your social media profiles.</p>
         </section>
     </main>
     <footer>
-        <p>Copyright &copy; 2024 by InJoo Kim</p>
+        <p>Copyright &copy; 2024 by Your Name</p>
     </footer>
 </body>
 </html>
