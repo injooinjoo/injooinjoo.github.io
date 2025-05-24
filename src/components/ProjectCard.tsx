@@ -1,10 +1,11 @@
 
 import React from 'react';
+import { cn } from '@/lib/utils';
 import ScrollSection from './ScrollSection';
 import { ArrowUpRight } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { LanguageProps } from '../types';
 
-interface ProjectCardProps {
+interface ProjectCardProps extends LanguageProps {
   title: string;
   description: string;
   details: string;
@@ -15,14 +16,24 @@ interface ProjectCardProps {
   isExpanded?: boolean;
 }
 
-const ProjectCard = ({ title, description, details, role, results, color, index, isExpanded = false }: ProjectCardProps) => {
+const ProjectCard = ({ 
+  title, 
+  description, 
+  details, 
+  role, 
+  results, 
+  color, 
+  index, 
+  isExpanded = false,
+  isEnglish
+}: ProjectCardProps) => {
   return (
     <div 
       className={cn(
         "bg-gradient-to-br", 
         color, 
         "rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2",
-        isExpanded ? "min-h-[600px] absolute z-10 left-0 right-0 top-0" : "min-h-[350px] h-full"
+        isExpanded ? "min-h-[600px] fixed inset-0 z-[999] m-4 md:m-8 lg:m-16" : "min-h-[350px] h-full"
       )}
     >
       <div className="p-8 md:p-10 h-full flex flex-col justify-between">
@@ -42,14 +53,18 @@ const ProjectCard = ({ title, description, details, role, results, color, index,
             
             {role && (
               <div>
-                <h4 className="text-white text-xl mb-2 font-medium">역할</h4>
+                <h4 className="text-white text-xl mb-2 font-medium">
+                  {isEnglish ? "Role" : "역할"}
+                </h4>
                 <p>{role}</p>
               </div>
             )}
             
             {results && (
               <div>
-                <h4 className="text-white text-xl mb-2 font-medium">성과</h4>
+                <h4 className="text-white text-xl mb-2 font-medium">
+                  {isEnglish ? "Results" : "성과"}
+                </h4>
                 <p>{results}</p>
               </div>
             )}

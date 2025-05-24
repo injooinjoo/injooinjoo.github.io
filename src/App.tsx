@@ -14,6 +14,7 @@ const queryClient = new QueryClient();
 // Properly define App as a React function component
 const App: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isEnglish, setIsEnglish] = useState(true);
   
   // Check for user preference on initial load
   useEffect(() => {
@@ -31,7 +32,7 @@ const App: React.FC = () => {
         <Sonner />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Index />} />
+            <Route path="/" element={<Index isEnglish={isEnglish} setIsEnglish={setIsEnglish} />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

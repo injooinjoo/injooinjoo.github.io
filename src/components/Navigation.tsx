@@ -4,12 +4,14 @@ import { cn } from '@/lib/utils';
 import { Menu, X, Moon, Sun, Globe } from 'lucide-react';
 import { Switch } from "@/components/ui/switch";
 import { Toggle } from "@/components/ui/toggle";
+import { LanguageProps } from '../types';
 
-const Navigation = () => {
+interface NavigationProps extends LanguageProps {}
+
+const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isEnglish, setIsEnglish] = useState(true);
   const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
@@ -49,28 +51,30 @@ const Navigation = () => {
   };
 
   const toggleLanguage = () => {
-    setIsEnglish(!isEnglish);
+    if (setIsEnglish) {
+      setIsEnglish(!isEnglish);
+    }
   };
 
   const menuItems = [
-    { id: 'hero', label: 'Home' },
-    { id: 'about', label: 'Profile' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'education', label: 'Education' },
-    { id: 'contact', label: 'Contact' },
+    { id: 'hero', label: isEnglish ? 'Home' : '홈' },
+    { id: 'about', label: isEnglish ? 'Profile' : '프로필' },
+    { id: 'skills', label: isEnglish ? 'Skills' : '기술' },
+    { id: 'experience', label: isEnglish ? 'Experience' : '경력' },
+    { id: 'projects', label: isEnglish ? 'Projects' : '프로젝트' },
+    { id: 'education', label: isEnglish ? 'Education' : '교육' },
+    { id: 'contact', label: isEnglish ? 'Contact' : '연락처' },
   ];
 
   return (
     <>
       <nav className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "bg-white/90 backdrop-blur-md border-b border-gray-200/20 shadow-sm h-16" : "bg-transparent h-20"
+        isScrolled ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200/20 shadow-sm h-16" : "bg-transparent h-20"
       )}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-full">
-            <div className="text-sm font-medium tracking-wide">
+            <div className="text-sm font-medium tracking-wide dark:text-white">
               김인주 (InJoo Kim)
             </div>
             
@@ -80,7 +84,7 @@ const Navigation = () => {
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className={cn(
-                    "text-xs font-normal transition-colors relative",
+                    "text-xs font-normal transition-colors relative dark:text-white",
                     activeSection === item.id ? "text-[#007ACC]" : "hover:text-[#007ACC]"
                   )}
                 >
@@ -114,7 +118,7 @@ const Navigation = () => {
             </div>
             
             <button 
-              className="md:hidden text-gray-700"
+              className="md:hidden text-gray-700 dark:text-white"
               onClick={() => setIsMenuOpen(true)}
             >
               <Menu size={18} />
@@ -135,12 +139,12 @@ const Navigation = () => {
       
       {/* Mobile Menu */}
       <div className={cn(
-        "fixed inset-0 bg-white z-50 flex flex-col transition-transform duration-300 ease-in-out transform",
+        "fixed inset-0 bg-white dark:bg-gray-900 dark:text-white z-50 flex flex-col transition-transform duration-300 ease-in-out transform",
         isMenuOpen ? "translate-x-0" : "translate-x-full"
       )}>
-        <div className="flex justify-between items-center p-6 border-b">
+        <div className="flex justify-between items-center p-6 border-b dark:border-gray-700">
           <div className="text-sm font-medium">
-            Menu
+            {isEnglish ? 'Menu' : '메뉴'}
           </div>
           <div className="flex items-center space-x-4">
             <Toggle 
@@ -164,7 +168,7 @@ const Navigation = () => {
             
             <button 
               onClick={() => setIsMenuOpen(false)}
-              className="text-gray-700"
+              className="text-gray-700 dark:text-white"
             >
               <X size={18} />
             </button>
@@ -176,7 +180,7 @@ const Navigation = () => {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`text-left py-2 ${activeSection === item.id ? "text-[#007ACC]" : "text-gray-900 hover:text-[#007ACC]"} transition-colors`}
+              className={`text-left py-2 ${activeSection === item.id ? "text-[#007ACC]" : "text-gray-900 dark:text-white hover:text-[#007ACC]"} transition-colors`}
             >
               {item.label}
             </button>

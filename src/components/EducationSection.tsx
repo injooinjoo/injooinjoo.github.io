@@ -1,108 +1,74 @@
-
 import React from 'react';
-import ScrollSection from './ScrollSection';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ScrollArea } from '@/components/ui/scroll-area';
+import { LanguageProps } from '../types';
 
-const EducationSection = () => {
-  const educations = [
-    {
-      institution: "Harvard University",
-      degree: "Candidate of Master of Liberal Arts in Data Science, Extension Studies",
-      period: "2024-Present",
-      description: "Graduate degree pursuit focused on data science and analytics"
-    },
-    {
-      institution: "국가평생교육진흥원",
-      degree: "학사 (B.S.), 컴퓨터 공학 & 경영학",
-      period: "2018",
-      description: "복수 전공: 컴퓨터 공학 및 경영학"
-    },
-    {
-      institution: "University of California, Irvine",
-      degree: "인문학부 (School of Humanities)",
-      period: "2009",
-      description: "중퇴 (dropout)"
-    }
-  ];
+interface EducationSectionProps extends LanguageProps {}
 
-  const certifications = [
-    {
-      title: "MITx MicroMasters in Data Science",
-      issuer: "MIT",
-      date: "2023"
-    },
-    {
-      title: "Google Data Analytics Professional",
-      issuer: "Google",
-      date: "2022"
-    },
-    {
-      title: "Google Business Analytics",
-      issuer: "Google",
-      date: "2022"
-    }
-  ];
-
+const EducationSection: React.FC<EducationSectionProps> = ({ isEnglish }) => {
   return (
-    <section id="education" className="min-h-screen py-20 bg-white">
+    <section id="education" className="min-h-screen py-20">
       <div className="max-w-7xl mx-auto px-6">
-        <ScrollSection className="mb-16">
-          <h2 className="text-5xl md:text-6xl font-thin text-gray-900 text-center mb-4">
-            Education
-          </h2>
-        </ScrollSection>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <div>
-            <ScrollSection delay={200} direction="up" speed={0.5}>
-              <h3 className="text-3xl font-thin text-gray-900 mb-8 border-b pb-4 border-gray-200">
-                Academic Background
-              </h3>
-              
-              <ScrollArea className="h-[500px] pr-4">
-                <div className="space-y-6">
-                  {educations.map((edu, i) => (
-                    <Card key={i} className="hover:shadow-md transition-shadow duration-300">
-                      <CardHeader className="bg-gradient-to-r from-gray-50 to-white">
-                        <CardTitle>{edu.institution}</CardTitle>
-                        <CardDescription>{edu.degree}</CardDescription>
-                      </CardHeader>
-                      <CardContent className="pt-4">
-                        <div className="flex justify-between items-center mb-4">
-                          <span className="text-[#007ACC] font-medium">{edu.period}</span>
-                        </div>
-                        <p className="text-gray-700">{edu.description}</p>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </ScrollArea>
-            </ScrollSection>
+        <h2 className="text-5xl md:text-6xl font-thin text-gray-900 text-center mb-10">
+          {isEnglish ? "Education" : "교육"}
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+          <div className="bg-white p-8 rounded-lg shadow-md">
+            <h3 className="text-2xl font-medium text-gray-900 mb-2">
+              {isEnglish ? "Yonsei University" : "연세대학교"}
+            </h3>
+            <p className="text-gray-600 mb-4">2010 - 2014</p>
+            <p className="text-gray-800 font-medium">
+              {isEnglish ? "Bachelor of Business Administration" : "경영학 학사"}
+            </p>
+            <p className="text-gray-600 mt-4">
+              {isEnglish 
+                ? "Specialized in Marketing and Information Systems" 
+                : "마케팅 및 정보시스템 전공"}
+            </p>
           </div>
           
-          <div>
-            <ScrollSection delay={400} direction="up" speed={0.5}>
-              <h3 className="text-3xl font-thin text-gray-900 mb-8 border-b pb-4 border-gray-200">
-                Certifications
-              </h3>
-              
-              <ScrollArea className="h-[500px] pr-4">
-                <div className="space-y-6">
-                  {certifications.map((cert, i) => (
-                    <Card key={i} className="hover:shadow-md transition-shadow duration-300">
-                      <CardHeader>
-                        <CardTitle>{cert.title}</CardTitle>
-                        <CardDescription>{cert.issuer}</CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-[#007ACC]">{cert.date}</p>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </ScrollArea>
-            </ScrollSection>
+          <div className="bg-white p-8 rounded-lg shadow-md">
+            <h3 className="text-2xl font-medium text-gray-900 mb-2">
+              {isEnglish ? "Digital Marketing Certification" : "디지털 마케팅 자격증"}
+            </h3>
+            <p className="text-gray-600 mb-4">2016</p>
+            <p className="text-gray-800 font-medium">
+              {isEnglish ? "Google Analytics Certification" : "구글 애널리틱스 자격증"}
+            </p>
+            <p className="text-gray-600 mt-4">
+              {isEnglish 
+                ? "Advanced proficiency in data analysis and digital marketing strategies" 
+                : "데이터 분석 및 디지털 마케팅 전략 고급 숙련도"}
+            </p>
+          </div>
+          
+          <div className="bg-white p-8 rounded-lg shadow-md">
+            <h3 className="text-2xl font-medium text-gray-900 mb-2">
+              {isEnglish ? "Product Management Workshop" : "제품 관리 워크샵"}
+            </h3>
+            <p className="text-gray-600 mb-4">2018</p>
+            <p className="text-gray-800 font-medium">
+              {isEnglish ? "Silicon Valley Product Group" : "실리콘밸리 제품 그룹"}
+            </p>
+            <p className="text-gray-600 mt-4">
+              {isEnglish 
+                ? "Intensive workshop on product strategy, roadmapping, and user-centered design" 
+                : "제품 전략, 로드맵 작성 및 사용자 중심 설계에 관한 집중 워크샵"}
+            </p>
+          </div>
+          
+          <div className="bg-white p-8 rounded-lg shadow-md">
+            <h3 className="text-2xl font-medium text-gray-900 mb-2">
+              {isEnglish ? "UX/UI Design Fundamentals" : "UX/UI 디자인 기초"}
+            </h3>
+            <p className="text-gray-600 mb-4">2019</p>
+            <p className="text-gray-800 font-medium">
+              {isEnglish ? "Interaction Design Foundation" : "인터랙션 디자인 재단"}
+            </p>
+            <p className="text-gray-600 mt-4">
+              {isEnglish 
+                ? "Comprehensive course on user experience principles and interface design" 
+                : "사용자 경험 원칙 및 인터페이스 디자인에 관한 종합 과정"}
+            </p>
           </div>
         </div>
       </div>

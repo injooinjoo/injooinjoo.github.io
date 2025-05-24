@@ -8,18 +8,19 @@ import ExperienceSection from '../components/ExperienceSection';
 import ProjectsSection from '../components/ProjectsSection';
 import EducationSection from '../components/EducationSection';
 import ContactSection from '../components/ContactSection';
+import { LanguageProps } from '../types';
 
-const Index = () => {
+const Index: React.FC<LanguageProps> = ({ isEnglish, setIsEnglish }) => {
   return (
     <div className="min-h-screen">
-      <Navigation />
-      <HeroSection />
-      <AboutSection />
-      <SkillsSection />
-      <ExperienceSection />
-      <ProjectsSection />
-      <EducationSection />
-      <ContactSection />
+      <Navigation isEnglish={isEnglish} setIsEnglish={setIsEnglish} />
+      <HeroSection isEnglish={isEnglish} />
+      <AboutSection isEnglish={isEnglish} />
+      <SkillsSection isEnglish={isEnglish} />
+      <ExperienceSection isEnglish={isEnglish} />
+      <ProjectsSection isEnglish={isEnglish} />
+      <EducationSection isEnglish={isEnglish} />
+      <ContactSection isEnglish={isEnglish} />
     </div>
   );
 };
