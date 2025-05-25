@@ -122,7 +122,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isEnglish }) => {
       <div className="max-w-7xl mx-auto px-6">
         <ScrollSection>
           <h2 className="text-5xl md:text-6xl font-thin text-gray-900 dark:text-white text-center mb-10">
-            {isEnglish ? "Projects" : "프로젝트"}
+            Projects
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 text-center mb-16 max-w-3xl mx-auto">
             {isEnglish 

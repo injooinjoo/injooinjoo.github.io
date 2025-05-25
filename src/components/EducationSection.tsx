@@ -6,10 +6,10 @@ interface EducationSectionProps extends LanguageProps {}
 
 const EducationSection: React.FC<EducationSectionProps> = ({ isEnglish }) => {
   return (
-    <section id="education" className="min-h-screen py-20">
+    <section id="education" className="min-h-screen py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-5xl md:text-6xl font-thin text-gray-900 dark:text-white text-center mb-10">
-          {isEnglish ? "Education" : "교육"}
+          Education
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
           <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">

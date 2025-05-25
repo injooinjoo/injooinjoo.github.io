@@ -6,10 +6,10 @@ interface ContactSectionProps extends LanguageProps {}
 
 const ContactSection: React.FC<ContactSectionProps> = ({ isEnglish }) => {
   return (
-    <section id="contact" className="min-h-screen py-20">
+    <section id="contact" className="min-h-screen py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-5xl md:text-6xl font-thin text-gray-900 dark:text-white text-center mb-10">
-          {isEnglish ? "Contact" : "연락처"}
+          Contact
         </h2>
         <p className="text-lg text-gray-600 dark:text-gray-300 text-center mb-16 max-w-3xl mx-auto">
           {isEnglish 

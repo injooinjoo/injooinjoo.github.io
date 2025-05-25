@@ -42,11 +42,12 @@ const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
   };
 
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    if (isDarkMode) {
-      document.documentElement.classList.remove('dark');
-    } else {
+    const newDarkMode = !isDarkMode;
+    setIsDarkMode(newDarkMode);
+    if (newDarkMode) {
       document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
     }
   };
 
@@ -57,24 +58,24 @@ const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
   };
 
   const menuItems = [
-    { id: 'hero', label: isEnglish ? 'Home' : '홈' },
-    { id: 'about', label: isEnglish ? 'Profile' : '프로필' },
-    { id: 'skills', label: isEnglish ? 'Skills' : '기술' },
-    { id: 'experience', label: isEnglish ? 'Experience' : '경력' },
-    { id: 'projects', label: isEnglish ? 'Projects' : '프로젝트' },
-    { id: 'education', label: isEnglish ? 'Education' : '교육' },
-    { id: 'contact', label: isEnglish ? 'Contact' : '연락처' },
+    { id: 'hero', label: 'Home' },
+    { id: 'about', label: 'Profile' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'education', label: 'Education' },
+    { id: 'contact', label: 'Contact' },
   ];
 
   return (
     <>
       <nav className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200/20 shadow-sm h-16" : "bg-transparent h-20"
+        isScrolled ? "bg-white/90 backdrop-blur-md border-b border-gray-200/20 shadow-sm h-16" : "bg-transparent h-20"
       )}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-full">
-            <div className="text-sm font-medium tracking-wide dark:text-white">
+            <div className="text-sm font-medium tracking-wide">
               김인주 (InJoo Kim)
             </div>
             
@@ -84,7 +85,7 @@ const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className={cn(
-                    "text-xs font-normal transition-colors relative dark:text-white",
+                    "text-xs font-normal transition-colors relative",
                     activeSection === item.id ? "text-[#007ACC]" : "hover:text-[#007ACC]"
                   )}
                 >
@@ -118,7 +119,7 @@ const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
             </div>
             
             <button 
-              className="md:hidden text-gray-700 dark:text-white"
+              className="md:hidden text-gray-700"
               onClick={() => setIsMenuOpen(true)}
             >
               <Menu size={18} />
@@ -139,12 +140,12 @@ const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
       
       {/* Mobile Menu */}
       <div className={cn(
-        "fixed inset-0 bg-white dark:bg-gray-900 dark:text-white z-50 flex flex-col transition-transform duration-300 ease-in-out transform",
+        "fixed inset-0 bg-white z-50 flex flex-col transition-transform duration-300 ease-in-out transform",
         isMenuOpen ? "translate-x-0" : "translate-x-full"
       )}>
-        <div className="flex justify-between items-center p-6 border-b dark:border-gray-700">
+        <div className="flex justify-between items-center p-6 border-b">
           <div className="text-sm font-medium">
-            {isEnglish ? 'Menu' : '메뉴'}
+            Menu
           </div>
           <div className="flex items-center space-x-4">
             <Toggle 
@@ -168,7 +169,7 @@ const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
             
             <button 
               onClick={() => setIsMenuOpen(false)}
-              className="text-gray-700 dark:text-white"
+              className="text-gray-700"
             >
               <X size={18} />
             </button>
@@ -180,7 +181,7 @@ const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`text-left py-2 ${activeSection === item.id ? "text-[#007ACC]" : "text-gray-900 dark:text-white hover:text-[#007ACC]"} transition-colors`}
+              className={`text-left py-2 ${activeSection === item.id ? "text-[#007ACC]" : "text-gray-900 hover:text-[#007ACC]"} transition-colors`}
             >
               {item.label}
             </button>

@@ -11,7 +11,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isEnglish }) => {
         <div className="flex flex-col items-center text-center">
           <div className="mb-6">
             <img 
-              src="/lovable-uploads/1eb87e2a-f1e2-41cc-8f4f-29a1df05fe8e.png" 
+              src="/lovable-uploads/48ab067c-482e-4339-a265-75f0f4ec8ed9.png" 
               alt={isEnglish ? "InJoo Kim" : "김인주"}
               className="w-48 h-48 rounded-full object-cover shadow-lg mb-4"
             />
