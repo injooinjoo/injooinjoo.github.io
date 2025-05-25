@@ -2,11 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X, Moon, Sun, Globe } from 'lucide-react';
-import { Switch } from "@/components/ui/switch";
 import { Toggle } from "@/components/ui/toggle";
 import { LanguageProps } from '../types';
 
-interface NavigationProps extends LanguageProps {}
+interface NavigationProps {
+  isEnglish: boolean;
+  setIsEnglish: (value: boolean) => void;
+}
 
 const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -52,9 +54,7 @@ const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
   };
 
   const toggleLanguage = () => {
-    if (setIsEnglish) {
-      setIsEnglish(!isEnglish);
-    }
+    setIsEnglish(!isEnglish);
   };
 
   const menuItems = [
@@ -127,7 +127,7 @@ const Navigation: React.FC<NavigationProps> = ({ isEnglish, setIsEnglish }) => {
           </div>
         </div>
         
-        {/* Indicator for current section on small scroll */}
+        {/* Progress indicator */}
         <div className="h-1 w-full bg-transparent">
           <div 
             className="h-full bg-[#007ACC] transition-all duration-300" 

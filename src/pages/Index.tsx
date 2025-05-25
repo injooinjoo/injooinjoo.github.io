@@ -8,9 +8,13 @@ import ExperienceSection from '../components/ExperienceSection';
 import ProjectsSection from '../components/ProjectsSection';
 import EducationSection from '../components/EducationSection';
 import ContactSection from '../components/ContactSection';
-import { LanguageProps } from '../types';
 
-const Index: React.FC<LanguageProps> = ({ isEnglish, setIsEnglish }) => {
+interface IndexProps {
+  isEnglish: boolean;
+  setIsEnglish: (value: boolean) => void;
+}
+
+const Index: React.FC<IndexProps> = ({ isEnglish, setIsEnglish }) => {
   return (
     <div className="min-h-screen">
       <Navigation isEnglish={isEnglish} setIsEnglish={setIsEnglish} />
