@@ -1,0 +1,85 @@
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(250, 251, 252, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 1000;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.app-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.app-logo a {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.app-logo a:hover {
+  color: #3b82f6;
+}
+
+.app-nav {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.app-nav-link {
+  color: #6b7280;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.app-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #3b82f6;
+  transition: width 0.2s ease;
+}
+
+.app-nav-link:hover {
+  color: #374151;
+}
+
+.app-nav-link:hover::after {
+  width: 100%;
+}
+
+/* Add top padding to app content to account for fixed header */
+.app {
+  padding-top: 60px;
+}
+
+@media (max-width: 768px) {
+  .app-nav {
+    gap: 16px;
+  }
+  
+  .app-nav-link {
+    font-size: 14px;
+  }
+  
+  .app-logo a {
+    font-size: 16px;
+  }
+}
