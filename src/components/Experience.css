@@ -69,12 +69,14 @@
 }
 
 .experience-video-element {
-  width: 100%;
+  width: 640px;
+  max-width: 100%;
   height: auto;
   aspect-ratio: 881 / 477;
   object-fit: cover;
   display: block;
   pointer-events: none;
+  border: 2px solid #e5e7eb;
 }
 
 .experience-video-element::-webkit-media-controls {
@@ -90,6 +92,34 @@
 }
 
 .experience-video-element::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}
+
+.experience-video-element::-webkit-media-controls-timeline {
+  display: none !important;
+}
+
+.experience-video-element::-webkit-media-controls-current-time-display {
+  display: none !important;
+}
+
+.experience-video-element::-webkit-media-controls-time-remaining-display {
+  display: none !important;
+}
+
+.experience-video-element::-webkit-media-controls-mute-button {
+  display: none !important;
+}
+
+.experience-video-element::-webkit-media-controls-volume-slider {
+  display: none !important;
+}
+
+.experience-video-element::-webkit-media-controls-fullscreen-button {
+  display: none !important;
+}
+
+.experience-video-element::-webkit-media-controls-picture-in-picture-button {
   display: none !important;
 }
 

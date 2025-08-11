@@ -42,8 +42,7 @@ const Experience: React.FC = () => {
         "Built automation pipelines with Python & MongoDB, saving 200+ hours/month in operations"
       ],
       skills: ["Entrepreneurship", "E-commerce", "SEO/SEM", "Python", "MongoDB", "Business Development"],
-      color: "#f3e8ff",
-      videoUrl: "/videos/entrepreneur-demo.mp4"
+      color: "#f3e8ff"
     },
     {
       company: "POPJOY",
