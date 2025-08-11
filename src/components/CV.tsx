@@ -21,8 +21,8 @@ const CV: React.FC = () => {
           
           <div className="cv-job">
             <div className="cv-job-header">
-              <h3 className="cv-job-title">Live-streaming Ecosystem (Game) Lead</h3>
-              <span className="cv-job-period">2025년 7월 - 현재 (2개월)</span>
+              <h3 className="cv-job-title">Live-streaming Ecosystem Lead / Community Manager</h3>
+              <span className="cv-job-period">2016년 2월 - 현재 (9년 7개월)</span>
             </div>
             <h4 className="cv-company">SOOP Co., Ltd. (formerly AfreecaTV)</h4>
             <ul className="cv-job-details">
@@ -30,35 +30,10 @@ const CV: React.FC = () => {
               <li>Increased active creator engagement by 170% through targeted acquisition programs</li>
               <li>Enhanced homepage CTR by 2.3x via data-driven algorithm optimization</li>
               <li>Directed large-scale creator events (G-Star), boosting participation rates by 60%</li>
-              <li>Engineered scalable creator monetization models and performance dashboards</li>
-            </ul>
-          </div>
-
-          <div className="cv-job">
-            <div className="cv-job-header">
-              <h3 className="cv-job-title">Community Manager Lead</h3>
-              <span className="cv-job-period">2023년 7월 - 2025년 6월 (2년)</span>
-            </div>
-            <h4 className="cv-company">SOOP Co., Ltd. (formerly AfreecaTV)</h4>
-            <ul className="cv-job-details">
-              <li>Managed day-to-day creator ecosystem operations</li>
-              <li>Maintained double-digit engagement growth year-over-year</li>
-              <li>Partnered with cross-functional teams for analytics-driven platform features</li>
-              <li>Launched incentive programs improving content output quality and frequency</li>
-            </ul>
-          </div>
-
-          <div className="cv-job">
-            <div className="cv-job-header">
-              <h3 className="cv-job-title">Community Manager</h3>
-              <span className="cv-job-period">2016년 2월 - 2023년 6월 (7년 5개월)</span>
-            </div>
-            <h4 className="cv-company">SOOP Co., Ltd. (formerly AfreecaTV)</h4>
-            <ul className="cv-job-details">
               <li>Built and nurtured thriving live-streaming community with top-tier creators</li>
               <li>Developed creator support programs, increasing retention rates by over 30%</li>
-              <li>Managed communication channels and resolved community escalations</li>
-              <li>Organized online/offline promotional events boosting visibility and interaction</li>
+              <li>Engineered scalable creator monetization models and performance dashboards</li>
+              <li>Managed communication channels and cross-functional team collaboration</li>
             </ul>
           </div>
 

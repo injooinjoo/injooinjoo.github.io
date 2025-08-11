@@ -15,46 +15,20 @@ const Experience: React.FC = () => {
   const experiences: ExperienceItem[] = [
     {
       company: "SOOP Co., Ltd. (formerly AfreecaTV)",
-      role: "Live-streaming Ecosystem (Game) Lead",
-      period: "2025년 7월 - 현재 (2개월)",
+      role: "Live-streaming Ecosystem Lead / Community Manager",
+      period: "2016년 2월 - 현재 (9년 7개월)",
       description: [
         "Lead growth and operational strategy for a 5,000+ creator ecosystem, driving platform engagement, monetization, and community health",
         "Increased active creator engagement by 170% through targeted acquisition, onboarding, and retention programs",
         "Enhanced homepage CTR by 2.3x via data-driven algorithm optimization and improved user funnels",
         "Directed large-scale creator events & partnerships (e.g., G-Star), boosting participation rates by 60%",
-        "Engineered scalable creator monetization models and performance dashboards, improving ROI and leadership decision-making"
-      ],
-      skills: ["PowerPoint", "Marketing", "Growth Strategy", "Creator Ecosystem", "Data Analytics", "Event Management"],
-      color: "#e0f2fe",
-      videoUrl: "/videos/soop-lead-demo.mp4"
-    },
-    {
-      company: "SOOP Co., Ltd. (formerly AfreecaTV)",
-      role: "Community Manager Lead",
-      period: "2023년 7월 - 2025년 6월 (2년)",
-      description: [
-        "Managed day-to-day creator ecosystem operations, optimizing engagement and monetization strategies",
-        "Implemented acquisition and retention initiatives, maintaining double-digit engagement growth year-over-year",
-        "Partnered with cross-functional teams to integrate analytics-driven platform features",
-        "Launched incentive programs and creator tools that improved content output quality and frequency"
-      ],
-      skills: ["Python", "SQL", "Analytics", "Creator Management", "Cross-functional Collaboration"],
-      color: "#e8f4fd",
-      videoUrl: "/videos/soop-lead-demo.mp4"
-    },
-    {
-      company: "SOOP Co., Ltd. (formerly AfreecaTV)",
-      role: "Community Manager",
-      period: "2016년 2월 - 2023년 6월 (7년 5개월)",
-      description: [
-        "Built and nurtured a thriving live-streaming community, managing relationships with top-tier creators",
+        "Built and nurtured thriving live-streaming community, managing relationships with top-tier creators",
         "Developed creator support programs, increasing satisfaction and retention rates by over 30%",
-        "Managed communication channels and resolved community escalations",
-        "Organized and executed online/offline promotional events to boost visibility and interaction"
+        "Engineered scalable creator monetization models and performance dashboards for leadership decision-making"
       ],
-      skills: ["Community Relations", "Event Management", "Creator Support", "Communication"],
-      color: "#f0f8ff",
-      videoUrl: "/videos/soop-community-demo.mp4"
+      skills: ["Growth Strategy", "Creator Ecosystem", "Data Analytics", "Event Management", "Community Relations", "Python", "SQL"],
+      color: "#e0f2fe",
+      videoUrl: "/videos/soop-demo.mp4"
     },
     {
       company: "MMXXII (자영업/개인사업)",
