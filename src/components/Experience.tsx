@@ -14,46 +14,99 @@ interface ExperienceItem {
 const Experience: React.FC = () => {
   const experiences: ExperienceItem[] = [
     {
-      company: "SOOP (formerly AfreecaTV)",
-      role: "Project Manager",
-      period: "2012 - Present",
+      company: "SOOP Co., Ltd. (formerly AfreecaTV)",
+      role: "Live-streaming Ecosystem (Game) Lead",
+      period: "2025년 7월 - 현재 (2개월)",
       description: [
-        "Leading initiatives in platform growth, creator monetization, and user engagement",
-        "Over 12 years of experience in product planning and growth strategy",
-        "Specialized in creator ecosystem operations and data-driven decision making",
-        "Managed multiple high-impact projects serving millions of users"
+        "Lead growth and operational strategy for a 5,000+ creator ecosystem, driving platform engagement, monetization, and community health",
+        "Increased active creator engagement by 170% through targeted acquisition, onboarding, and retention programs",
+        "Enhanced homepage CTR by 2.3x via data-driven algorithm optimization and improved user funnels",
+        "Directed large-scale creator events & partnerships (e.g., G-Star), boosting participation rates by 60%",
+        "Engineered scalable creator monetization models and performance dashboards, improving ROI and leadership decision-making"
       ],
-      skills: ["Product Planning", "Growth Strategy", "Creator Monetization", "Data Analytics", "Project Management"],
+      skills: ["PowerPoint", "Marketing", "Growth Strategy", "Creator Ecosystem", "Data Analytics", "Event Management"],
       color: "#e0f2fe",
-      videoUrl: "/videos/soop-demo.mp4"
+      videoUrl: "/videos/soop-lead-demo.mp4"
     },
     {
-      company: "Harvard Extension School",
-      role: "ALM in Data Science (Student)",
-      period: "2023 - Present",
+      company: "SOOP Co., Ltd. (formerly AfreecaTV)",
+      role: "Community Manager Lead",
+      period: "2023년 7월 - 2025년 6월 (2년)",
       description: [
-        "Currently pursuing Advanced Liberal Arts Master's degree in Data Science",
-        "Focusing on advanced statistical methods and machine learning applications",
-        "Developing expertise in Python, R, and statistical modeling",
-        "Applying data science principles to real-world business problems"
+        "Managed day-to-day creator ecosystem operations, optimizing engagement and monetization strategies",
+        "Implemented acquisition and retention initiatives, maintaining double-digit engagement growth year-over-year",
+        "Partnered with cross-functional teams to integrate analytics-driven platform features",
+        "Launched incentive programs and creator tools that improved content output quality and frequency"
       ],
-      skills: ["Data Science", "Statistical Analysis", "Python", "R", "Machine Learning"],
-      color: "#fef3e8",
-      videoUrl: "/videos/harvard-demo.mp4"
+      skills: ["Python", "SQL", "Analytics", "Creator Management", "Cross-functional Collaboration"],
+      color: "#e8f4fd",
+      videoUrl: "/videos/soop-lead-demo.mp4"
     },
     {
-      company: "MITx",
-      role: "MicroMasters in Statistics and Data Science",
-      period: "2022 - 2023",
+      company: "SOOP Co., Ltd. (formerly AfreecaTV)",
+      role: "Community Manager",
+      period: "2016년 2월 - 2023년 6월 (7년 5개월)",
       description: [
-        "Completed comprehensive program in Statistics and Data Science",
-        "Gained expertise in probability, statistical inference, and machine learning",
-        "Developed skills in data analysis using Python and statistical software",
-        "Applied statistical methods to solve complex business problems"
+        "Built and nurtured a thriving live-streaming community, managing relationships with top-tier creators",
+        "Developed creator support programs, increasing satisfaction and retention rates by over 30%",
+        "Managed communication channels and resolved community escalations",
+        "Organized and executed online/offline promotional events to boost visibility and interaction"
       ],
-      skills: ["Statistics", "Data Science", "Python", "Statistical Inference", "Probability"],
+      skills: ["Community Relations", "Event Management", "Creator Support", "Communication"],
+      color: "#f0f8ff",
+      videoUrl: "/videos/soop-community-demo.mp4"
+    },
+    {
+      company: "MMXXII (자영업/개인사업)",
+      role: "Founder",
+      period: "2021년 1월 - 2024년 1월 (3년 1개월)",
+      description: [
+        "Founded and scaled an e-commerce venture from zero to six-figure monthly revenue",
+        "Achieved $100K/month revenue through multi-channel growth strategies (Ads, SEO/SEM, influencer collaborations)",
+        "Ranked 1st page for 15+ target keywords on Naver/Google",
+        "Improved conversion rates by 32% using A/B testing and segmented user targeting",
+        "Built automation pipelines with Python & MongoDB, saving 200+ hours/month in operations"
+      ],
+      skills: ["Entrepreneurship", "E-commerce", "SEO/SEM", "Python", "MongoDB", "Business Development"],
       color: "#f3e8ff",
-      videoUrl: "/videos/mit-demo.mp4"
+      videoUrl: "/videos/entrepreneur-demo.mp4"
+    },
+    {
+      company: "POPJOY",
+      role: "Marketing Manager",
+      period: "2015년 4월 - 2016년 1월 (10개월)",
+      description: [
+        "Led app review processes for Android/iOS, optimizing UX and engagement strategies",
+        "Planned and executed targeted in-game events based on behavioral analytics",
+        "Managed paid ad campaigns with optimization and A/B testing to maximize ROI"
+      ],
+      skills: ["Mobile Marketing", "UX Optimization", "A/B Testing", "Paid Advertising", "Analytics"],
+      color: "#ecfdf5",
+      videoUrl: "/videos/popjoy-demo.mp4"
+    },
+    {
+      company: "highbrow, Inc.",
+      role: "Project Manager",
+      period: "2014년 8월 - 2014년 12월 (5개월)",
+      description: [
+        "Coordinated updates and promotions with global game publishers",
+        "Secured new publisher contracts and managed G-Star booth operations"
+      ],
+      skills: ["Project Management", "Publisher Relations", "Event Operations", "Contract Negotiation"],
+      color: "#fef3e8",
+      videoUrl: "/videos/highbrow-demo.mp4"
+    },
+    {
+      company: "Ntreev Soft.",
+      role: "Project Manager",
+      period: "2012년 3월 - 2013년 6월 (1년 4개월)",
+      description: [
+        "Managed global publishing for 'Pangya' (Thailand & U.S.)",
+        "Designed localized in-game events (e.g., Songkran festival), increasing performance by 130% over previous benchmarks"
+      ],
+      skills: ["Global Publishing", "Localization", "Event Design", "Market Analysis"],
+      color: "#fff7ed",
+      videoUrl: "/videos/ntreev-demo.mp4"
     }
   ];
 

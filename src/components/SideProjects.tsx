@@ -14,98 +14,98 @@ const SideProjects: React.FC = () => {
   const projects: ProjectItem[] = [
     {
       title: "Creator Monetization Mission System",
-      description: "Developed comprehensive mission-based monetization system for content creators, enabling structured reward programs and engagement-driven revenue streams.",
+      description: "Mission-based monetization system for content creators to enhance engagement and revenue generation.",
       tech: ["Product Management", "Analytics", "User Experience"],
       status: "completed",
       year: "2024"
     },
     {
       title: "Homepage Personalization Algorithm",
-      description: "Implemented machine learning-driven personalization algorithm for homepage content recommendation, significantly improving user engagement and retention rates.",
+      description: "Personalization algorithm for homepage content recommendation to improve user engagement.",
       tech: ["Machine Learning", "Data Analytics", "A/B Testing"],
       status: "completed",
       year: "2024"
     },
     {
       title: "Operations Automation & Efficiency Platform",
-      description: "Built comprehensive automation platform to streamline operational processes, reducing manual work and improving team efficiency across multiple departments.",
+      description: "Automation platform to streamline operational processes and improve team efficiency.",
       tech: ["Process Automation", "Analytics", "Operations"],
       status: "completed",
       year: "2023"
     },
     {
       title: "Creator Subscription Service Platform Renewal",
-      description: "Led complete renewal of creator subscription platform, enhancing user experience and payment systems to better serve creators and subscribers.",
+      description: "Complete renewal of creator subscription platform with enhanced user experience.",
       tech: ["Product Strategy", "Payment Systems", "UX Design"],
       status: "completed",
       year: "2023"
     },
     {
       title: "Content Attribute Tagging System",
-      description: "Developed intelligent content tagging and categorization system to improve content discovery and recommendation accuracy.",
+      description: "Intelligent content tagging and categorization system for improved content discovery.",
       tech: ["Data Science", "Content Management", "Search Optimization"],
       status: "completed",
       year: "2023"
     },
     {
       title: "TTS & Voice Integration Upgrade",
-      description: "Implemented advanced text-to-speech and voice integration features to enhance accessibility and user experience on the platform.",
+      description: "Text-to-speech and voice integration features to enhance platform accessibility.",
       tech: ["Voice Technology", "Accessibility", "Integration"],
       status: "completed",
       year: "2023"
     },
     {
       title: "BJ Match - Creator Growth Tournament Platform",
-      description: "Created competitive tournament platform for content creators to showcase talents and grow their audience through structured competitions.",
+      description: "Competitive tournament platform for content creators to showcase talents and grow audience.",
       tech: ["Platform Development", "Gaming", "Community Building"],
       status: "completed",
       year: "2022"
     },
     {
       title: "Digital Contract Management System",
-      description: "Developed digital contract management system to streamline creator partnerships and business agreements with automated workflows.",
+      description: "Digital contract management system for streamlined creator partnerships and business agreements.",
       tech: ["Contract Management", "Automation", "Legal Tech"],
       status: "completed",
       year: "2022"
     },
     {
       title: "G-Star Event Management",
-      description: "Managed large-scale gaming event operations at G-Star, coordinating multiple stakeholders and ensuring successful event execution.",
+      description: "Large-scale gaming event operations management at G-Star with multi-stakeholder coordination.",
       tech: ["Event Management", "Coordination", "Gaming Industry"],
       status: "completed",
       year: "2022"
     },
     {
       title: "SOOP Global Platform Launch & Creator Acquisition",
-      description: "Led global expansion initiative for SOOP platform, developing creator acquisition strategies and international market entry plans.",
+      description: "Global expansion initiative for SOOP platform with creator acquisition strategies.",
       tech: ["Global Strategy", "Market Expansion", "Creator Relations"],
       status: "completed",
       year: "2022"
     },
     {
       title: "Mobile App Growth Hacking",
-      description: "Implemented comprehensive growth hacking strategies for mobile application, achieving significant increases in user acquisition and retention.",
+      description: "Growth strategies for mobile application focusing on user acquisition and retention.",
       tech: ["Growth Strategy", "Mobile Analytics", "User Acquisition"],
       status: "completed",
       year: "2021"
     },
     {
       title: "User Segmentation & Personalization",
-      description: "Developed advanced user segmentation models and personalization systems to deliver tailored experiences for different user groups.",
+      description: "User segmentation models and personalization systems for tailored user experiences.",
       tech: ["Data Science", "User Analytics", "Personalization"],
       status: "completed",
       year: "2021"
     },
     {
       title: "Machine Learning-based User Churn Prediction",
-      description: "Built machine learning models to predict user churn patterns, enabling proactive retention strategies and improved user lifetime value.",
+      description: "Machine learning models for user churn prediction and retention strategies.",
       tech: ["Machine Learning", "Predictive Analytics", "Data Science"],
       status: "completed",
       year: "2020"
     },
     {
       title: "Strategic Data Partnership with Nexon",
-      description: "Established and managed strategic data partnership with Nexon, creating synergies between gaming and streaming platforms.",
+      description: "Strategic data partnership management creating synergies between gaming and streaming platforms.",
       tech: ["Partnership Strategy", "Data Integration", "Business Development"],
       status: "completed",
       year: "2020"
