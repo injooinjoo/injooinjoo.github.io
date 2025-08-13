@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev:*)",
+      "Bash(npm run build:*)",
+      "WebFetch(domain:hongbeepark.com)",
+      "Bash(mkdir:*)",
+      "WebFetch(domain:www.injookim.com)",
+      "Bash(git add:*)",
+      "Bash(git reset:*)",
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "Bash(move:*)",
+      "Bash(mv:*)",
+      "Bash(git lfs track:*)",
+      "Bash(python:*)"
+    ],
+    "deny": []
+  }
+}
