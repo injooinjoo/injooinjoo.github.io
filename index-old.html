@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InJoo Kim - Project Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            padding: 60px 0;
+            text-align: center;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 30px;
+            object-fit: cover;
+            border: 4px solid #f0f0f0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .bio {
+            max-width: 600px;
+            margin: 0 auto;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+        }
+
+        .contact-info a {
+            color: #0066cc;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #0052a3;
+        }
+
+        /* Navigation */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .nav-tab {
+            padding: 15px 30px;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-tab:hover {
+            color: #0066cc;
+        }
+
+        .nav-tab.active {
+            color: #0066cc;
+        }
+
+        .nav-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #0066cc;
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        /* Experience Cards */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .experience-card {
+            background: #f8f8f8;
+            border-radius: 12px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .experience-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .company {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .period {
+            color: #999;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* Projects */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        /* Video Section */
+        .video-container {
+            margin: 30px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px 0;
+        }
+
+        .skill-tag {
+            background: #e8f0fe;
+            color: #1967d2;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 50px 0;
+            color: #999;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 80px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .nav-tab {
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+
+            .experience-grid,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 40px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .close-modal:hover {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <img src="/profile-image.jpg" alt="InJoo Kim" class="profile-img">
+            <h1>InJoo Kim</h1>
+            <p class="subtitle">Project Manager</p>
+            <p class="bio">
+                Project Manager with over 12 years of experience in product planning, growth strategy, 
+                and creator ecosystem operations at SOOP (formerly AfreecaTV). Currently pursuing Data Science, 
+                Master of Liberal Arts in Extension Studies at Harvard University. Completed MITx MicroMasters 
+                in Statistics and Data Science.
+            </p>
+            <div class="contact-info">
+                <a href="mailto:ink595@g.harvard.edu">Email</a>
+                <a href="https://linkedin.com/in/jooooo" target="_blank">LinkedIn</a>
+                <a href="tel:+821050606843">Phone</a>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('experience')">Experience</button>
+            <button class="nav-tab" onclick="showSection('projects')">Projects</button>
+            <button class="nav-tab" onclick="showSection('education')">Education</button>
+        </nav>
+
+        <!-- Content Sections -->
+        <div id="experience" class="content-section active">
+            <div class="experience-grid">
+                <div class="experience-card" onclick="showDetails('soop')">
+                    <h3>Live-streaming Ecosystem Lead / Community Manager</h3>
+                    <p class="company">SOOP Co., Ltd. (formerly AfreecaTV)</p>
+                    <p class="period">2016 - Present</p>
+                    <p class="description">
+                        Lead growth and operational strategy for a 5,000+ creator ecosystem, driving platform 
+                        engagement, monetization, and community health.
+                    </p>
+                </div>
+
+                <div class="experience-card" onclick="showDetails('mmxxii')">
+                    <h3>Founder</h3>
+                    <p class="company">MMXXII (자영업/개인사업)</p>
+                    <p class="period">2021 - 2024</p>
+                    <p class="description">
+                        Founded and scaled an e-commerce venture from zero to six-figure monthly revenue through 
+                        multi-channel growth strategies and automation.
+                    </p>
+                </div>
+
+                <div class="experience-card" onclick="showDetails('popjoy')">
+                    <h3>Marketing Manager</h3>
+                    <p class="company">POPJOY</p>
+                    <p class="period">2015 - 2016</p>
+                    <p class="description">
+                        Led app review processes for Android/iOS, optimizing UX and engagement strategies 
+                        through behavioral analytics and A/B testing.
+                    </p>
+                </div>
+
+                <div class="experience-card" onclick="showDetails('highbrow')">
+                    <h3>Project Manager</h3>
+                    <p class="company">highbrow, Inc.</p>
+                    <p class="period">2014</p>
+                    <p class="description">
+                        Coordinated updates and promotions with global game publishers, secured new contracts 
+                        and managed G-Star booth operations.
+                    </p>
+                </div>
+
+                <div class="experience-card" onclick="showDetails('ntreev')">
+                    <h3>Project Manager</h3>
+                    <p class="company">Ntreev Soft.</p>
+                    <p class="period">2012 - 2013</p>
+                    <p class="description">
+                        Managed global publishing for 'Pangya' (Thailand & U.S.), designed localized in-game 
+                        events increasing performance by 130%.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="projects" class="content-section">
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Creator Monetization Mission System</h3>
+                    <p>Mission-based monetization system for content creators to enhance engagement and revenue generation.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>Homepage Personalization Algorithm</h3>
+                    <p>Personalization algorithm for homepage content recommendation to improve user engagement.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>Operations Automation Platform</h3>
+                    <p>Automation platform to streamline operational processes and improve team efficiency.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>Creator Subscription Service Renewal</h3>
+                    <p>Complete renewal of creator subscription platform with enhanced user experience.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>Content Attribute Tagging System</h3>
+                    <p>Intelligent content tagging and categorization system for improved content discovery.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>TTS & Voice Integration</h3>
+                    <p>Text-to-speech and voice integration features to enhance platform accessibility.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>BJ Match Tournament Platform</h3>
+                    <p>Competitive tournament platform for content creators to showcase talents and grow audience.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>Digital Contract Management</h3>
+                    <p>Digital contract management system for streamlined creator partnerships and agreements.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>G-Star Event Management</h3>
+                    <p>Large-scale gaming event operations management with multi-stakeholder coordination.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>SOOP Global Platform Launch</h3>
+                    <p>Global expansion initiative for SOOP platform with creator acquisition strategies.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>Mobile App Growth Hacking</h3>
+                    <p>Growth strategies for mobile application focusing on user acquisition and retention.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>User Segmentation & Personalization</h3>
+                    <p>User segmentation models and personalization systems for tailored user experiences.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>ML-based Churn Prediction</h3>
+                    <p>Machine learning models for user churn prediction and retention strategies.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>Strategic Data Partnership with Nexon</h3>
+                    <p>Strategic data partnership creating synergies between gaming and streaming platforms.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="education" class="content-section">
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <h3>Harvard Extension School</h3>
+                    <p class="company">ALM in Data Science</p>
+                    <p class="period">In Progress</p>
+                    <p class="description">
+                        Currently pursuing Master's degree in Data Science, focusing on advanced statistical methods, 
+                        machine learning applications, and data-driven business strategy.
+                    </p>
+                </div>
+
+                <div class="experience-card">
+                    <h3>MITx</h3>
+                    <p class="company">MicroMasters in Statistics and Data Science</p>
+                    <p class="period">Completed 2024</p>
+                    <p class="description">
+                        Comprehensive program covering probability, statistics, machine learning, and data analysis 
+                        with Python and R. Completed four graduate-level courses with distinction.
+                    </p>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 40px; margin-bottom: 20px;">Technical Skills</h2>
+            <div class="skills-container">
+                <span class="skill-tag">Product Planning</span>
+                <span class="skill-tag">Growth Strategy</span>
+                <span class="skill-tag">Creator Ecosystem</span>
+                <span class="skill-tag">Data Analytics</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag">A/B Testing</span>
+                <span class="skill-tag">SEO/SEM</span>
+                <span class="skill-tag">E-commerce</span>
+                <span class="skill-tag">Event Management</span>
+                <span class="skill-tag">Community Management</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 InJoo Kim. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Tab Navigation
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Modal Functions
+        function showDetails(company) {
+            const modal = document.getElementById('modal');
+            const modalBody = document.getElementById('modal-body');
+            
+            const details = {
+                soop: {
+                    title: 'SOOP - Live-streaming Ecosystem Lead',
+                    content: `
+                        <h2>SOOP Co., Ltd. (formerly AfreecaTV)</h2>
+                        <h3>Live-streaming Ecosystem Lead / Community Manager</h3>
+                        <p><strong>Duration:</strong> 2016 - Present</p>
+                        <p><strong>Location:</strong> Seoul, Korea</p>
+                        
+                        <h4>Key Achievements:</h4>
+                        <ul>
+                            <li>Increased active creator engagement by 170% through targeted acquisition and retention programs</li>
+                            <li>Enhanced homepage CTR by 2.3x via data-driven algorithm optimization</li>
+                            <li>Directed large-scale creator events & partnerships (e.g., G-Star), boosting participation by 60%</li>
+                            <li>Built thriving live-streaming community managing 5,000+ creators</li>
+                            <li>Developed creator support programs increasing satisfaction rates by 30%</li>
+                            <li>Engineered scalable creator monetization models and performance dashboards</li>
+                        </ul>
+                        
+                        <h4>Technologies:</h4>
+                        <p>Growth Strategy, Data Analytics, Python, SQL, Event Management, Community Relations</p>
+                    `
+                },
+                mmxxii: {
+                    title: 'MMXXII - Founder',
+                    content: `
+                        <h2>MMXXII (자영업/개인사업)</h2>
+                        <h3>Founder</h3>
+                        <p><strong>Duration:</strong> 2021 - 2024</p>
+                        <p><strong>Location:</strong> Seoul, Korea</p>
+                        
+                        <h4>Key Achievements:</h4>
+                        <ul>
+                            <li>Achieved $100K/month revenue through multi-channel growth strategies</li>
+                            <li>Ranked 1st page for 15+ target keywords on Naver/Google</li>
+                            <li>Improved conversion rates by 32% using A/B testing</li>
+                            <li>Built automation pipelines with Python & MongoDB, saving 200+ hours/month</li>
+                            <li>Negotiated and secured 8 major B2B contracts</li>
+                        </ul>
+                        
+                        <h4>Technologies:</h4>
+                        <p>E-commerce, SEO/SEM, Python, MongoDB, Business Development</p>
+                    `
+                },
+                popjoy: {
+                    title: 'POPJOY - Marketing Manager',
+                    content: `
+                        <h2>POPJOY</h2>
+                        <h3>Marketing Manager</h3>
+                        <p><strong>Duration:</strong> 2015 - 2016</p>
+                        <p><strong>Location:</strong> Seoul, Korea</p>
+                        
+                        <h4>Key Achievements:</h4>
+                        <ul>
+                            <li>Led app review processes for Android/iOS optimizing UX</li>
+                            <li>Planned and executed targeted in-game events based on behavioral analytics</li>
+                            <li>Managed paid ad campaigns with optimization and A/B testing</li>
+                        </ul>
+                        
+                        <h4>Technologies:</h4>
+                        <p>Mobile Marketing, UX Optimization, A/B Testing, Analytics</p>
+                    `
+                },
+                highbrow: {
+                    title: 'highbrow, Inc. - Project Manager',
+                    content: `
+                        <h2>highbrow, Inc.</h2>
+                        <h3>Project Manager</h3>
+                        <p><strong>Duration:</strong> 2014</p>
+                        <p><strong>Location:</strong> Seoul, Korea</p>
+                        
+                        <h4>Key Achievements:</h4>
+                        <ul>
+                            <li>Coordinated updates and promotions with global game publishers</li>
+                            <li>Secured new publisher contracts</li>
+                            <li>Managed G-Star booth operations</li>
+                        </ul>
+                        
+                        <h4>Technologies:</h4>
+                        <p>Project Management, Publisher Relations, Event Operations</p>
+                    `
+                },
+                ntreev: {
+                    title: 'Ntreev Soft - Project Manager',
+                    content: `
+                        <h2>Ntreev Soft.</h2>
+                        <h3>Project Manager</h3>
+                        <p><strong>Duration:</strong> 2012 - 2013</p>
+                        <p><strong>Location:</strong> Seoul, Korea</p>
+                        
+                        <h4>Key Achievements:</h4>
+                        <ul>
+                            <li>Managed global publishing for 'Pangya' (Thailand & U.S.)</li>
+                            <li>Designed localized in-game events (e.g., Songkran festival)</li>
+                            <li>Increased performance by 130% over previous benchmarks</li>
+                        </ul>
+                        
+                        <h4>Technologies:</h4>
+                        <p>Global Publishing, Localization, Event Design, Market Analysis</p>
+                    `
+                }
+            };
+            
+            if (details[company]) {
+                modalBody.innerHTML = details[company].content;
+                modal.classList.add('active');
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add page load animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s';
+            setTimeout(function() {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

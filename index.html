@@ -12,52 +12,79 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: -apple-system, 'SF Pro Display', BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #000;
             background: #fff;
             overflow-x: hidden;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
 
         /* Header */
         .header {
-            padding: 60px 0;
+            padding: 80px 0 60px;
             text-align: center;
             animation: fadeInUp 0.8s ease;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            padding: 20px 0;
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             margin-bottom: 30px;
             object-fit: cover;
-            border: 4px solid #f0f0f0;
+            border: 3px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled .profile-img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 10px;
-            font-weight: 700;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .header.scrolled h1 {
+            font-size: 1.8rem;
         }
 
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #666;
             margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .header.scrolled .subtitle {
+            font-size: 1rem;
         }
 
         .bio {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             color: #555;
             line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .header.scrolled .bio {
+            display: none;
         }
 
         .contact-info {
@@ -69,168 +96,252 @@
             text-decoration: none;
             margin: 0 15px;
             transition: color 0.3s;
+            font-size: 0.95rem;
         }
 
         .contact-info a:hover {
             color: #0052a3;
         }
 
+        .header.scrolled .contact-info {
+            margin-top: 10px;
+        }
+
         /* Navigation */
+        .nav-wrapper {
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .nav-wrapper.fixed {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
         .nav-tabs {
             display: flex;
             justify-content: center;
-            margin: 50px 0;
-            border-bottom: 2px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
         }
 
         .nav-tab {
-            padding: 15px 30px;
+            padding: 18px 35px;
             background: none;
             border: none;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            font-weight: 500;
             cursor: pointer;
             transition: all 0.3s;
             position: relative;
+            color: #666;
         }
 
         .nav-tab:hover {
-            color: #0066cc;
+            color: #000;
         }
 
         .nav-tab.active {
-            color: #0066cc;
+            color: #000;
         }
 
         .nav-tab.active::after {
             content: '';
             position: absolute;
-            bottom: -2px;
+            bottom: -1px;
             left: 0;
             right: 0;
             height: 2px;
-            background: #0066cc;
+            background: #000;
         }
 
         /* Content Sections */
         .content-section {
             display: none;
             animation: fadeIn 0.5s ease;
+            padding: 60px 0;
         }
 
         .content-section.active {
             display: block;
         }
 
-        /* Experience Cards */
-        .experience-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        /* Experience Cards - New Design */
+        .experience-list {
+            display: flex;
+            flex-direction: column;
             gap: 30px;
-            margin: 40px 0;
         }
 
-        .experience-card {
-            background: #f8f8f8;
+        .experience-item {
+            display: flex;
+            gap: 25px;
+            padding: 35px;
+            background: #fff;
+            border: 1px solid #e5e5e5;
             border-radius: 12px;
-            padding: 30px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s ease;
             cursor: pointer;
         }
 
-        .experience-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        .experience-item:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
         }
 
-        .experience-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            color: #333;
+        .company-logo {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
         }
 
-        .company {
-            color: #666;
+        .experience-content {
+            flex: 1;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .experience-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .experience-company {
             font-size: 1.1rem;
+            color: #666;
             margin-bottom: 8px;
         }
 
-        .period {
-            color: #999;
+        .experience-period {
             font-size: 0.95rem;
-            margin-bottom: 15px;
+            color: #999;
         }
 
-        .description {
-            color: #555;
+        .experience-description {
+            color: #444;
             line-height: 1.7;
+            margin-top: 15px;
         }
 
-        /* Projects */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
+        .experience-achievements {
+            margin-top: 15px;
+            padding-left: 20px;
         }
 
-        .project-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 12px;
-            padding: 25px;
-            transition: transform 0.3s;
-        }
-
-        .project-card:hover {
-            transform: scale(1.05);
-        }
-
-        .project-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-
-        .project-card p {
-            opacity: 0.95;
+        .experience-achievements li {
+            color: #555;
+            margin-bottom: 8px;
             line-height: 1.6;
         }
 
-        /* Video Section */
-        .video-container {
-            margin: 30px 0;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        /* Projects - New Design */
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
-        .video-container video {
-            width: 100%;
-            height: auto;
+        .project-item {
+            padding: 25px;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .project-item:hover {
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-tag {
+            background: #f0f0f0;
+            color: #555;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        /* CV Section */
+        .cv-section {
+            margin-bottom: 60px;
+        }
+
+        .cv-section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #000;
         }
 
         /* Skills */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
             margin: 30px 0;
         }
 
         .skill-tag {
-            background: #e8f0fe;
-            color: #1967d2;
-            padding: 8px 16px;
-            border-radius: 20px;
+            background: #f5f5f5;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 25px;
             font-size: 0.95rem;
+            font-weight: 500;
+            border: 1px solid #e0e0e0;
+            transition: all 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            background: #000;
+            color: #fff;
         }
 
         /* Footer */
         .footer {
             text-align: center;
-            padding: 50px 0;
+            padding: 60px 0;
             color: #999;
             border-top: 1px solid #e0e0e0;
-            margin-top: 80px;
+            margin-top: 100px;
+            font-size: 0.9rem;
         }
 
         /* Animations */
@@ -256,18 +367,27 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
             h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
             .nav-tab {
-                padding: 12px 20px;
-                font-size: 1rem;
+                padding: 15px 20px;
+                font-size: 0.95rem;
             }
 
-            .experience-grid,
-            .project-grid {
-                grid-template-columns: 1fr;
+            .experience-item {
+                flex-direction: column;
+                padding: 25px;
+            }
+
+            .company-logo {
+                width: 45px;
+                height: 45px;
             }
         }
 
@@ -279,7 +399,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.9);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -316,7 +436,7 @@
 <body>
     <div class="container">
         <!-- Header -->
-        <header class="header">
+        <header class="header" id="header">
             <img src="/profile-image.jpg" alt="InJoo Kim" class="profile-img">
             <h1>InJoo Kim</h1>
             <p class="subtitle">Project Manager</p>
@@ -334,121 +454,464 @@
         </header>
 
         <!-- Navigation -->
-        <nav class="nav-tabs">
-            <button class="nav-tab active" onclick="showSection('experience')">Experience</button>
-            <button class="nav-tab" onclick="showSection('projects')">Projects</button>
-            <button class="nav-tab" onclick="showSection('education')">Education</button>
-        </nav>
+        <div class="nav-wrapper" id="nav-wrapper">
+            <nav class="nav-tabs">
+                <button class="nav-tab active" onclick="showSection('experience')">Experience</button>
+                <button class="nav-tab" onclick="showSection('projects')">Projects</button>
+                <button class="nav-tab" onclick="showSection('cv')">CV</button>
+            </nav>
+        </div>
 
         <!-- Content Sections -->
         <div id="experience" class="content-section active">
-            <div class="experience-grid">
-                <div class="experience-card" onclick="showDetails('scale')">
-                    <h3>Gen AI Product Growth</h3>
-                    <p class="company">Scale AI</p>
-                    <p class="period">2024 - Present</p>
-                    <p class="description">
-                        Leading product initiatives for generative AI applications, focusing on scalable 
-                        solutions for enterprise clients and improving model performance metrics.
-                    </p>
+            <div class="experience-list">
+                <div class="experience-item" onclick="showDetails('soop')">
+                    <div class="company-logo">S</div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <div>
+                                <div class="experience-title">Live-streaming Ecosystem Lead</div>
+                                <div class="experience-company">SOOP Co., Ltd. (formerly AfreecaTV)</div>
+                            </div>
+                            <div class="experience-period">2016 - Present</div>
+                        </div>
+                        <div class="experience-description">
+                            Lead growth and operational strategy for a 5,000+ creator ecosystem, driving platform 
+                            engagement, monetization, and community health through data-driven initiatives.
+                        </div>
+                        <ul class="experience-achievements">
+                            <li>Increased active creator engagement by 170% through targeted acquisition programs</li>
+                            <li>Enhanced homepage CTR by 2.3x via algorithm optimization</li>
+                            <li>Directed large-scale creator events boosting participation by 60%</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="experience-card" onclick="showDetails('toss')">
-                    <h3>Growth Domain Leader</h3>
-                    <p class="company">Toss</p>
-                    <p class="period">2023 - 2024</p>
-                    <p class="description">
-                        Drove user acquisition and engagement strategies for Korea's leading fintech platform,
-                        achieving 30% growth in active users through data-driven product improvements.
-                    </p>
+                <div class="experience-item" onclick="showDetails('mmxxii')">
+                    <div class="company-logo">M</div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <div>
+                                <div class="experience-title">Founder</div>
+                                <div class="experience-company">MMXXII (자영업/개인사업)</div>
+                            </div>
+                            <div class="experience-period">2021 - 2024</div>
+                        </div>
+                        <div class="experience-description">
+                            Founded and scaled an e-commerce venture from zero to six-figure monthly revenue through 
+                            multi-channel growth strategies and automation.
+                        </div>
+                        <ul class="experience-achievements">
+                            <li>Achieved $100K/month revenue through multi-channel growth strategies</li>
+                            <li>Ranked 1st page for 15+ target keywords on Naver/Google</li>
+                            <li>Built automation pipelines saving 200+ hours/month</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="experience-card" onclick="showDetails('gov')">
-                    <h3>Product Leader</h3>
-                    <p class="company">Government of Democratic Korea</p>
-                    <p class="period">2022 - 2023</p>
-                    <p class="description">
-                        Led digital transformation initiatives for government services, improving citizen 
-                        engagement and streamlining bureaucratic processes through technology.
-                    </p>
+                <div class="experience-item" onclick="showDetails('popjoy')">
+                    <div class="company-logo">P</div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <div>
+                                <div class="experience-title">Marketing Manager</div>
+                                <div class="experience-company">POPJOY</div>
+                            </div>
+                            <div class="experience-period">2015 - 2016</div>
+                        </div>
+                        <div class="experience-description">
+                            Led app review processes for Android/iOS, optimizing UX and engagement strategies 
+                            through behavioral analytics and A/B testing.
+                        </div>
+                    </div>
                 </div>
 
-                <div class="experience-card" onclick="showDetails('lg')">
-                    <h3>Product Manager</h3>
-                    <p class="company">LG Fashion Corp</p>
-                    <p class="period">2020 - 2022</p>
-                    <p class="description">
-                        Managed e-commerce platform development and digital retail strategies, increasing 
-                        online revenue by 45% through improved user experience and personalization.
-                    </p>
+                <div class="experience-item" onclick="showDetails('highbrow')">
+                    <div class="company-logo">H</div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <div>
+                                <div class="experience-title">Project Manager</div>
+                                <div class="experience-company">highbrow, Inc.</div>
+                            </div>
+                            <div class="experience-period">2014</div>
+                        </div>
+                        <div class="experience-description">
+                            Coordinated updates and promotions with global game publishers, secured new contracts 
+                            and managed G-Star booth operations.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-item" onclick="showDetails('ntreev')">
+                    <div class="company-logo">N</div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <div>
+                                <div class="experience-title">Project Manager</div>
+                                <div class="experience-company">Ntreev Soft.</div>
+                            </div>
+                            <div class="experience-period">2012 - 2013</div>
+                        </div>
+                        <div class="experience-description">
+                            Managed global publishing for 'Pangya' (Thailand & U.S.), designed localized in-game 
+                            events increasing performance by 130%.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div id="projects" class="content-section">
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>Anthropic Campus Ambassador</h3>
-                    <p>Leading AI education initiatives and workshops for students, promoting responsible AI development and applications.</p>
+            <div class="project-list">
+                <div class="project-item">
+                    <div class="project-title">Creator Monetization Mission System</div>
+                    <div class="project-description">
+                        Mission-based monetization system for content creators to enhance engagement and revenue generation 
+                        through gamified achievement tracking and reward distribution.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Product Strategy</span>
+                        <span class="tech-tag">Analytics</span>
+                        <span class="tech-tag">Gamification</span>
+                    </div>
                 </div>
 
-                <div class="project-card">
-                    <h3>Harvard XR Student Club President</h3>
-                    <p>Founded and led the Extended Reality club, organizing hackathons and demos for VR/AR applications in education.</p>
+                <div class="project-item">
+                    <div class="project-title">Homepage Personalization Algorithm</div>
+                    <div class="project-description">
+                        Developed and implemented personalization algorithm for homepage content recommendation, 
+                        improving user engagement metrics and content discovery.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">A/B Testing</span>
+                        <span class="tech-tag">Data Analytics</span>
+                    </div>
                 </div>
 
-                <div class="project-card">
-                    <h3>Medly - Health Tech App</h3>
-                    <p>Developed a medication management app helping patients track prescriptions and improve adherence rates.</p>
+                <div class="project-item">
+                    <div class="project-title">Operations Automation Platform</div>
+                    <div class="project-description">
+                        Built comprehensive automation platform to streamline operational processes, reducing manual 
+                        work and improving team efficiency across departments.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Process Automation</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
                 </div>
 
-                <div class="project-card">
-                    <h3>ChoLab</h3>
-                    <p>Research lab focused on computational linguistics and natural language processing for Korean language models.</p>
+                <div class="project-item">
+                    <div class="project-title">Creator Subscription Service Renewal</div>
+                    <div class="project-description">
+                        Complete renewal of creator subscription platform with enhanced user experience, 
+                        payment processing, and creator dashboard features.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Product Design</span>
+                        <span class="tech-tag">Payment Systems</span>
+                        <span class="tech-tag">UX Research</span>
+                    </div>
                 </div>
 
-                <div class="project-card">
-                    <h3>AIRQUA</h3>
-                    <p>Environmental monitoring platform providing real-time air quality data and health recommendations.</p>
+                <div class="project-item">
+                    <div class="project-title">Content Attribute Tagging System</div>
+                    <div class="project-description">
+                        Intelligent content tagging and categorization system using NLP and machine learning 
+                        for improved content discovery and recommendation.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">Content Management</span>
+                        <span class="tech-tag">Search Optimization</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">TTS & Voice Integration</div>
+                    <div class="project-description">
+                        Text-to-speech and voice integration features to enhance platform accessibility 
+                        and enable new content creation possibilities.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Voice Technology</span>
+                        <span class="tech-tag">Accessibility</span>
+                        <span class="tech-tag">API Integration</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">BJ Match Tournament Platform</div>
+                    <div class="project-description">
+                        Competitive tournament platform for content creators to showcase talents, compete 
+                        for prizes, and grow their audience through structured events.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Platform Development</span>
+                        <span class="tech-tag">Gaming</span>
+                        <span class="tech-tag">Community Building</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">Digital Contract Management</div>
+                    <div class="project-description">
+                        Digital contract management system for streamlined creator partnerships, automated 
+                        workflows, and compliance tracking.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Contract Management</span>
+                        <span class="tech-tag">Automation</span>
+                        <span class="tech-tag">Legal Tech</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">G-Star Event Management</div>
+                    <div class="project-description">
+                        Large-scale gaming event operations management with multi-stakeholder coordination, 
+                        booth design, and creator showcase programs.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Event Management</span>
+                        <span class="tech-tag">Partnership</span>
+                        <span class="tech-tag">Gaming Industry</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">SOOP Global Platform Launch</div>
+                    <div class="project-description">
+                        Global expansion initiative for SOOP platform including localization, creator 
+                        acquisition strategies, and market entry planning.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Global Strategy</span>
+                        <span class="tech-tag">Market Expansion</span>
+                        <span class="tech-tag">Localization</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">Mobile App Growth Hacking</div>
+                    <div class="project-description">
+                        Growth strategies for mobile application focusing on user acquisition, retention 
+                        optimization, and viral growth mechanics.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Growth Hacking</span>
+                        <span class="tech-tag">Mobile Analytics</span>
+                        <span class="tech-tag">User Acquisition</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">User Segmentation & Personalization</div>
+                    <div class="project-description">
+                        Advanced user segmentation models and personalization systems for tailored user 
+                        experiences and targeted marketing campaigns.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Data Science</span>
+                        <span class="tech-tag">User Analytics</span>
+                        <span class="tech-tag">Personalization</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">ML-based Churn Prediction</div>
+                    <div class="project-description">
+                        Machine learning models for user churn prediction enabling proactive retention 
+                        strategies and personalized re-engagement campaigns.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Predictive Analytics</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">Strategic Data Partnership with Nexon</div>
+                    <div class="project-description">
+                        Strategic data partnership creating synergies between gaming and streaming platforms 
+                        through shared insights and cross-promotion opportunities.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Partnership Strategy</span>
+                        <span class="tech-tag">Data Integration</span>
+                        <span class="tech-tag">Business Development</span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div id="education" class="content-section">
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <h3>Harvard University</h3>
-                    <p class="company">Master of Science in Computer Science</p>
-                    <p class="period">2018 - 2020</p>
-                    <p class="description">
-                        Focused on artificial intelligence, machine learning, and human-computer interaction.
-                        Thesis on improving neural network interpretability for healthcare applications.
-                    </p>
-                </div>
+        <div id="cv" class="content-section">
+            <div class="cv-section">
+                <h2 class="cv-section-title">Work Experience</h2>
+                <div class="experience-list">
+                    <div class="experience-item">
+                        <div class="company-logo">S</div>
+                        <div class="experience-content">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="experience-title">Live-streaming Ecosystem Lead</div>
+                                    <div class="experience-company">SOOP Co., Ltd. (formerly AfreecaTV)</div>
+                                </div>
+                                <div class="experience-period">2016 - Present</div>
+                            </div>
+                            <div class="experience-description">
+                                Lead growth and operational strategy for a 5,000+ creator ecosystem, driving platform 
+                                engagement, monetization, and community health.
+                            </div>
+                            <ul class="experience-achievements">
+                                <li>Increased active creator engagement by <strong>170%</strong> through targeted acquisition programs</li>
+                                <li>Enhanced homepage CTR by <strong>2.3x</strong> via data-driven algorithm optimization</li>
+                                <li>Directed large-scale creator events & partnerships, boosting participation by <strong>60%</strong></li>
+                                <li>Built thriving live-streaming community managing relationships with top-tier creators</li>
+                                <li>Developed creator support programs increasing satisfaction rates by over <strong>30%</strong></li>
+                                <li>Engineered scalable creator monetization models and performance dashboards</li>
+                            </ul>
+                        </div>
+                    </div>
 
-                <div class="experience-card">
-                    <h3>Seoul National University</h3>
-                    <p class="company">Bachelor of Science in Computer Engineering</p>
-                    <p class="period">2014 - 2018</p>
-                    <p class="description">
-                        Graduated magna cum laude. Specialized in software engineering and data structures.
-                        Led multiple student projects in mobile app development.
-                    </p>
+                    <div class="experience-item">
+                        <div class="company-logo">M</div>
+                        <div class="experience-content">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="experience-title">Founder</div>
+                                    <div class="experience-company">MMXXII (자영업/개인사업)</div>
+                                </div>
+                                <div class="experience-period">2021 - 2024</div>
+                            </div>
+                            <div class="experience-description">
+                                Founded and scaled an e-commerce venture from zero to six-figure monthly revenue.
+                            </div>
+                            <ul class="experience-achievements">
+                                <li>Achieved <strong>$100K/month revenue</strong> through multi-channel growth strategies</li>
+                                <li>Ranked <strong>1st page for 15+ keywords</strong> on Naver/Google</li>
+                                <li>Improved conversion rates by <strong>32%</strong> using A/B testing</li>
+                                <li>Built automation pipelines with Python & MongoDB, saving <strong>200+ hours/month</strong></li>
+                                <li>Negotiated and secured <strong>8 major B2B contracts</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="company-logo">P</div>
+                        <div class="experience-content">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="experience-title">Marketing Manager</div>
+                                    <div class="experience-company">POPJOY</div>
+                                </div>
+                                <div class="experience-period">2015 - 2016</div>
+                            </div>
+                            <ul class="experience-achievements">
+                                <li>Led app review processes for Android/iOS optimizing UX and engagement</li>
+                                <li>Planned and executed targeted in-game events based on behavioral analytics</li>
+                                <li>Managed paid ad campaigns with optimization and A/B testing to maximize ROI</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="company-logo">H</div>
+                        <div class="experience-content">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="experience-title">Project Manager</div>
+                                    <div class="experience-company">highbrow, Inc.</div>
+                                </div>
+                                <div class="experience-period">2014</div>
+                            </div>
+                            <ul class="experience-achievements">
+                                <li>Coordinated updates and promotions with global game publishers</li>
+                                <li>Secured new publisher contracts and managed G-Star booth operations</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="company-logo">N</div>
+                        <div class="experience-content">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="experience-title">Project Manager</div>
+                                    <div class="experience-company">Ntreev Soft.</div>
+                                </div>
+                                <div class="experience-period">2012 - 2013</div>
+                            </div>
+                            <ul class="experience-achievements">
+                                <li>Managed global publishing for 'Pangya' (Thailand & U.S.)</li>
+                                <li>Designed localized in-game events increasing performance by <strong>130%</strong></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <h2 style="margin-top: 40px; margin-bottom: 20px;">Technical Skills</h2>
-            <div class="skills-container">
-                <span class="skill-tag">Product Management</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">Machine Learning</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">React</span>
-                <span class="skill-tag">Data Analysis</span>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">Agile/Scrum</span>
-                <span class="skill-tag">UI/UX Design</span>
-                <span class="skill-tag">TensorFlow</span>
+            <div class="cv-section">
+                <h2 class="cv-section-title">Education</h2>
+                <div class="experience-list">
+                    <div class="experience-item">
+                        <div class="company-logo">H</div>
+                        <div class="experience-content">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="experience-title">ALM in Data Science</div>
+                                    <div class="experience-company">Harvard Extension School</div>
+                                </div>
+                                <div class="experience-period">In Progress</div>
+                            </div>
+                            <div class="experience-description">
+                                Currently pursuing Master's degree in Data Science, focusing on advanced statistical methods, 
+                                machine learning applications, and data-driven business strategy.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="company-logo">M</div>
+                        <div class="experience-content">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="experience-title">MicroMasters in Statistics and Data Science</div>
+                                    <div class="experience-company">MITx</div>
+                                </div>
+                                <div class="experience-period">Completed 2024</div>
+                            </div>
+                            <div class="experience-description">
+                                Comprehensive program covering probability, statistics, machine learning, and data analysis 
+                                with Python and R. Completed four graduate-level courses with distinction.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="cv-section-title">Skills & Expertise</h2>
+                <div class="skills-container">
+                    <span class="skill-tag">Product Planning</span>
+                    <span class="skill-tag">Growth Strategy</span>
+                    <span class="skill-tag">Creator Ecosystem</span>
+                    <span class="skill-tag">Data Analytics</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">A/B Testing</span>
+                    <span class="skill-tag">SEO/SEM</span>
+                    <span class="skill-tag">E-commerce</span>
+                    <span class="skill-tag">Event Management</span>
+                    <span class="skill-tag">Community Management</span>
+                    <span class="skill-tag">Business Development</span>
+                    <span class="skill-tag">Project Management</span>
+                </div>
             </div>
         </div>
     </div>
@@ -484,90 +947,128 @@
             event.target.classList.add('active');
         }
 
+        // Scroll Animation for Navigation
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            const navWrapper = document.getElementById('nav-wrapper');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                header.classList.add('scrolled');
+                navWrapper.classList.add('fixed');
+            } else {
+                header.classList.remove('scrolled');
+                navWrapper.classList.remove('fixed');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
         // Modal Functions
         function showDetails(company) {
             const modal = document.getElementById('modal');
             const modalBody = document.getElementById('modal-body');
             
             const details = {
-                scale: {
-                    title: 'Scale AI - Gen AI Product Growth',
+                soop: {
+                    title: 'SOOP - Live-streaming Ecosystem Lead',
                     content: `
-                        <h2>Scale AI</h2>
-                        <h3>Gen AI Product Growth Lead</h3>
-                        <p><strong>Duration:</strong> 2024 - Present</p>
-                        <p><strong>Location:</strong> San Francisco, CA</p>
+                        <h2>SOOP Co., Ltd. (formerly AfreecaTV)</h2>
+                        <h3>Live-streaming Ecosystem Lead / Community Manager</h3>
+                        <p><strong>Duration:</strong> 2016 - Present</p>
+                        <p><strong>Location:</strong> Seoul, Korea</p>
                         
                         <h4>Key Achievements:</h4>
                         <ul>
-                            <li>Led product strategy for enterprise AI solutions serving Fortune 500 clients</li>
-                            <li>Increased model accuracy by 25% through improved data labeling workflows</li>
-                            <li>Managed cross-functional team of 15+ engineers and designers</li>
-                            <li>Launched 3 major product features resulting in $5M+ ARR</li>
+                            <li>Increased active creator engagement by 170% through targeted acquisition and retention programs</li>
+                            <li>Enhanced homepage CTR by 2.3x via data-driven algorithm optimization</li>
+                            <li>Directed large-scale creator events & partnerships (e.g., G-Star), boosting participation by 60%</li>
+                            <li>Built thriving live-streaming community managing 5,000+ creators</li>
+                            <li>Developed creator support programs increasing satisfaction rates by 30%</li>
+                            <li>Engineered scalable creator monetization models and performance dashboards</li>
                         </ul>
                         
                         <h4>Technologies:</h4>
-                        <p>Python, TensorFlow, PyTorch, AWS, Kubernetes, React</p>
+                        <p>Growth Strategy, Data Analytics, Python, SQL, Event Management, Community Relations</p>
                     `
                 },
-                toss: {
-                    title: 'Toss - Growth Domain Leader',
+                mmxxii: {
+                    title: 'MMXXII - Founder',
                     content: `
-                        <h2>Toss</h2>
-                        <h3>Growth Domain Leader</h3>
-                        <p><strong>Duration:</strong> 2023 - 2024</p>
-                        <p><strong>Location:</strong> Seoul, South Korea</p>
+                        <h2>MMXXII (자영업/개인사업)</h2>
+                        <h3>Founder</h3>
+                        <p><strong>Duration:</strong> 2021 - 2024</p>
+                        <p><strong>Location:</strong> Seoul, Korea</p>
                         
                         <h4>Key Achievements:</h4>
                         <ul>
-                            <li>Increased monthly active users from 10M to 13M</li>
-                            <li>Implemented A/B testing framework improving conversion by 40%</li>
-                            <li>Led product launch of Toss Securities mobile trading platform</li>
-                            <li>Reduced user churn by 15% through personalized engagement strategies</li>
+                            <li>Achieved $100K/month revenue through multi-channel growth strategies</li>
+                            <li>Ranked 1st page for 15+ target keywords on Naver/Google</li>
+                            <li>Improved conversion rates by 32% using A/B testing</li>
+                            <li>Built automation pipelines with Python & MongoDB, saving 200+ hours/month</li>
+                            <li>Negotiated and secured 8 major B2B contracts</li>
                         </ul>
                         
                         <h4>Technologies:</h4>
-                        <p>React Native, Node.js, PostgreSQL, Redis, Kafka</p>
+                        <p>E-commerce, SEO/SEM, Python, MongoDB, Business Development</p>
                     `
                 },
-                gov: {
-                    title: 'Government - Product Leader',
+                popjoy: {
+                    title: 'POPJOY - Marketing Manager',
                     content: `
-                        <h2>Government of Democratic Korea</h2>
-                        <h3>Product Leader - Digital Services</h3>
-                        <p><strong>Duration:</strong> 2022 - 2023</p>
-                        <p><strong>Location:</strong> Seoul, South Korea</p>
+                        <h2>POPJOY</h2>
+                        <h3>Marketing Manager</h3>
+                        <p><strong>Duration:</strong> 2015 - 2016</p>
+                        <p><strong>Location:</strong> Seoul, Korea</p>
                         
                         <h4>Key Achievements:</h4>
                         <ul>
-                            <li>Led digital transformation of 5 major government services</li>
-                            <li>Reduced average processing time from 7 days to 24 hours</li>
-                            <li>Improved citizen satisfaction scores by 35%</li>
-                            <li>Managed $10M budget for technology modernization</li>
+                            <li>Led app review processes for Android/iOS optimizing UX</li>
+                            <li>Planned and executed targeted in-game events based on behavioral analytics</li>
+                            <li>Managed paid ad campaigns with optimization and A/B testing</li>
                         </ul>
                         
                         <h4>Technologies:</h4>
-                        <p>Java Spring, React, Oracle, Docker, Jenkins</p>
+                        <p>Mobile Marketing, UX Optimization, A/B Testing, Analytics</p>
                     `
                 },
-                lg: {
-                    title: 'LG Fashion - Product Manager',
+                highbrow: {
+                    title: 'highbrow, Inc. - Project Manager',
                     content: `
-                        <h2>LG Fashion Corp</h2>
-                        <h3>Product Manager - E-commerce</h3>
-                        <p><strong>Duration:</strong> 2020 - 2022</p>
-                        <p><strong>Location:</strong> Seoul, South Korea</p>
+                        <h2>highbrow, Inc.</h2>
+                        <h3>Project Manager</h3>
+                        <p><strong>Duration:</strong> 2014</p>
+                        <p><strong>Location:</strong> Seoul, Korea</p>
                         
                         <h4>Key Achievements:</h4>
                         <ul>
-                            <li>Launched mobile-first e-commerce platform with 500K+ users</li>
-                            <li>Increased online sales revenue by 45% YoY</li>
-                            <li>Implemented AI-powered recommendation engine</li>
-                            <li>Reduced cart abandonment rate by 20%</li>
+                            <li>Coordinated updates and promotions with global game publishers</li>
+                            <li>Secured new publisher contracts</li>
+                            <li>Managed G-Star booth operations</li>
                         </ul>
                         
                         <h4>Technologies:</h4>
-                        <p>Vue.js, Python Django, MySQL, ElasticSearch, AWS</p>
+                        <p>Project Management, Publisher Relations, Event Operations</p>
+                    `
+                },
+                ntreev: {
+                    title: 'Ntreev Soft - Project Manager',
+                    content: `
+                        <h2>Ntreev Soft.</h2>
+                        <h3>Project Manager</h3>
+                        <p><strong>Duration:</strong> 2012 - 2013</p>
+                        <p><strong>Location:</strong> Seoul, Korea</p>
+                        
+                        <h4>Key Achievements:</h4>
+                        <ul>
+                            <li>Managed global publishing for 'Pangya' (Thailand & U.S.)</li>
+                            <li>Designed localized in-game events (e.g., Songkran festival)</li>
+                            <li>Increased performance by 130% over previous benchmarks</li>
+                        </ul>
+                        
+                        <h4>Technologies:</h4>
+                        <p>Global Publishing, Localization, Event Design, Market Analysis</p>
                     `
                 }
             };
@@ -599,15 +1100,6 @@
                     behavior: 'smooth'
                 });
             });
-        });
-
-        // Add page load animation
-        window.addEventListener('load', function() {
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.5s';
-            setTimeout(function() {
-                document.body.style.opacity = '1';
-            }, 100);
         });
     </script>
 </body>
