@@ -45,7 +45,7 @@ const Experience: React.FC = () => {
       color: "#f3e8ff"
     },
     {
-      company: "POPJOY",
+      company: "ParanoidJoy",
       role: "Marketing Manager",
       period: "2015년 4월 - 2016년 1월 (10개월)",
       description: [

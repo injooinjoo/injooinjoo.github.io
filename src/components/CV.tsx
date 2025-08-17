@@ -94,7 +94,7 @@ const CV: React.FC = () => {
               </div>
               <div className="cv-experience-content">
                 <div className="cv-experience-main">
-                  <h3 className="cv-company-name">POPJOY</h3>
+                  <h3 className="cv-company-name">ParanoidJoy</h3>
                 </div>
                 <div className="cv-experience-details">
                   <div className="cv-role-period">

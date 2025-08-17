@@ -13,7 +13,9 @@
       "Bash(move:*)",
       "Bash(mv:*)",
       "Bash(git lfs track:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(cp:*)",
+      "Bash(rm:*)"
     ],
     "deny": []
   }

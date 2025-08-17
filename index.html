@@ -4,7 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InJoo Kim - Project Manager</title>
+    <link rel="icon" type="image/png" href="/img/injookim_favi.png">
     <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #000000;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+            --border-color: #e0e0e0;
+            --accent-color: #4285f4;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+            --nav-bg: rgba(255,255,255,0.95);
+            --profile-border: #f0f0f0;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2a2a2a;
+            --bg-card: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-muted: #808080;
+            --border-color: #404040;
+            --accent-color: #5a9ff9;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+            --nav-bg: rgba(26,26,26,0.95);
+            --profile-border: #404040;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,9 +47,10 @@
         body {
             font-family: -apple-system, 'SF Pro Display', BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #000;
-            background: #fff;
+            color: var(--text-primary);
+            background: var(--bg-primary);
             overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .container {
@@ -25,32 +59,80 @@
             padding: 0 40px;
         }
 
+        /* Controls Panel */
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+            background: var(--bg-card);
+            padding: 8px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .control-btn {
+            padding: 10px 16px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:hover {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        .control-btn.active {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
         /* Header */
         .header {
             padding: 80px 0 60px;
             text-align: center;
             animation: fadeInUp 0.8s ease;
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
         }
 
         .header.scrolled {
-            padding: 20px 0;
+            padding: 15px 0;
+            opacity: 0;
+            pointer-events: none;
+            height: 0;
+            overflow: hidden;
         }
 
         .profile-img {
-            width: 120px;
-            height: 120px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
             margin-bottom: 30px;
             object-fit: cover;
-            border: 3px solid #f0f0f0;
-            transition: all 0.3s ease;
+            border: 4px solid var(--profile-border);
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+            box-shadow: var(--shadow-lg);
         }
 
         .header.scrolled .profile-img {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 10px;
+            display: none;
+        }
+
+        .header-content {
+            transition: all 0.3s ease;
         }
 
         h1 {
@@ -60,288 +142,260 @@
             letter-spacing: -0.02em;
         }
 
-        .header.scrolled h1 {
-            font-size: 1.8rem;
-        }
-
         .subtitle {
             font-size: 1.3rem;
-            color: #666;
+            color: var(--text-secondary);
             margin-bottom: 20px;
             opacity: 0.8;
-        }
-
-        .header.scrolled .subtitle {
-            font-size: 1rem;
         }
 
         .bio {
             max-width: 700px;
             margin: 0 auto;
-            color: #555;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
             line-height: 1.8;
-            font-size: 1.05rem;
         }
 
-        .header.scrolled .bio {
-            display: none;
-        }
-
-        .contact-info {
+        .contact {
             margin-top: 30px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .contact-info a {
-            color: #0066cc;
+        .contact a {
+            color: var(--text-secondary);
             text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
             font-size: 0.95rem;
         }
 
-        .contact-info a:hover {
-            color: #0052a3;
-        }
-
-        .header.scrolled .contact-info {
-            margin-top: 10px;
+        .contact a:hover {
+            color: var(--accent-color);
         }
 
         /* Navigation */
         .nav-wrapper {
             position: sticky;
             top: 0;
-            background: white;
             z-index: 100;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             transition: all 0.3s ease;
+            margin-bottom: 30px;
         }
 
         .nav-wrapper.fixed {
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            box-shadow: var(--shadow-md);
         }
 
-        .nav-tabs {
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
             display: flex;
-            justify-content: center;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .nav-tab {
-            padding: 18px 35px;
-            background: none;
-            border: none;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s;
+            align-items: center;
+            justify-content: space-between;
             position: relative;
-            color: #666;
         }
 
-        .nav-tab:hover {
-            color: #000;
-        }
-
-        .nav-tab.active {
-            color: #000;
-        }
-
-        .nav-tab.active::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: #000;
-        }
-
-        /* Content Sections */
-        .content-section {
+        .nav-profile {
             display: none;
-            animation: fadeIn 0.5s ease;
-            padding: 60px 0;
+            align-items: center;
+            gap: 15px;
+            padding: 10px 0;
         }
 
-        .content-section.active {
-            display: block;
+        .nav-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--profile-border);
         }
 
-        /* Experience Cards - New Design */
-        .experience-list {
+        .nav-profile-info {
             display: flex;
             flex-direction: column;
-            gap: 30px;
         }
 
-        .experience-item {
+        .nav-profile-info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .nav-profile-info span {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        nav {
             display: flex;
-            gap: 25px;
-            padding: 35px;
-            background: #fff;
-            border: 1px solid #e5e5e5;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            gap: 30px;
+            padding: 20px 0;
+            flex: 1;
+            justify-content: flex-end;
         }
 
-        .experience-item:hover {
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        nav a.active {
+            color: var(--accent-color);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-color);
+        }
+
+        /* Mobile Menu Button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--text-primary);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 60px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
             transform: translateY(-2px);
         }
 
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
         .company-logo {
-            flex-shrink: 0;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .company-letter {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-secondary);
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
             font-weight: bold;
-            font-size: 18px;
-        }
-
-        .experience-content {
-            flex: 1;
-        }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 12px;
-        }
-
-        .experience-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #000;
-            margin-bottom: 5px;
-        }
-
-        .experience-company {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 8px;
-        }
-
-        .experience-period {
-            font-size: 0.95rem;
-            color: #999;
-        }
-
-        .experience-description {
-            color: #444;
-            line-height: 1.7;
-            margin-top: 15px;
-        }
-
-        .experience-achievements {
-            margin-top: 15px;
-            padding-left: 20px;
-        }
-
-        .experience-achievements li {
-            color: #555;
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-
-        /* Projects - New Design */
-        .project-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .project-item {
-            padding: 25px;
-            background: #fff;
-            border: 1px solid #e5e5e5;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .project-item:hover {
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-            transform: translateY(-2px);
-        }
-
-        .project-title {
             font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
             font-weight: 600;
-            color: #000;
-            margin-bottom: 10px;
         }
 
-        .project-description {
-            color: #555;
-            line-height: 1.6;
+        .company {
+            color: var(--text-secondary);
+            font-size: 1rem;
         }
 
-        .project-tech {
-            margin-top: 12px;
+        .date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .tech-tag {
-            background: #f0f0f0;
-            color: #555;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.85rem;
-        }
-
-        /* CV Section */
-        .cv-section {
-            margin-bottom: 60px;
-        }
-
-        .cv-section-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #000;
-        }
-
-        /* Skills */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin: 30px 0;
+            gap: 10px;
+            margin-top: 15px;
         }
 
         .skill-tag {
-            background: #f5f5f5;
-            color: #333;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            border: 1px solid #e0e0e0;
-            transition: all 0.2s ease;
-        }
-
-        .skill-tag:hover {
-            background: #000;
-            color: #fff;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 60px 0;
-            color: #999;
-            border-top: 1px solid #e0e0e0;
-            margin-top: 100px;
-            font-size: 0.9rem;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
         }
 
         /* Animations */
@@ -356,749 +410,601 @@
             }
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        /* Language-specific content */
+        [data-lang="ko"] [data-en] {
+            display: none;
         }
 
-        /* Responsive */
+        [data-lang="en"] [data-ko] {
+            display: none;
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             .container {
                 padding: 0 20px;
             }
 
+            .nav-container {
+                padding: 0 20px;
+            }
+
+            .header {
+                padding: 60px 0 40px;
+            }
+
+            .profile-img {
+                width: 200px;
+                height: 200px;
+            }
+
             h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
 
-            .nav-tab {
-                padding: 15px 20px;
-                font-size: 0.95rem;
+            .subtitle {
+                font-size: 1.1rem;
             }
 
-            .experience-item {
+            .bio {
+                font-size: 1rem;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--nav-bg);
                 flex-direction: column;
-                padding: 25px;
+                padding: 20px;
+                box-shadow: var(--shadow-md);
+                gap: 15px;
             }
 
-            .company-logo {
-                width: 45px;
-                height: 45px;
+            nav.active {
+                display: flex;
+            }
+
+            .nav-profile {
+                padding: 15px 0;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .controls {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .control-btn {
+                padding: 8px 12px;
+                font-size: 12px;
             }
         }
 
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
+        @media (max-width: 480px) {
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
 
-        .modal.active {
-            display: flex;
-        }
+            h1 {
+                font-size: 1.5rem;
+            }
 
-        .modal-content {
-            background: white;
-            border-radius: 12px;
-            max-width: 800px;
-            max-height: 90vh;
-            overflow-y: auto;
-            padding: 40px;
-            position: relative;
-        }
+            .subtitle {
+                font-size: 1rem;
+            }
 
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 30px;
-            cursor: pointer;
-            color: #999;
-        }
+            .contact {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
 
-        .close-modal:hover {
-            color: #333;
+            .card-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .controls {
+                flex-direction: column;
+                bottom: 10px;
+                right: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header" id="header">
-            <img src="/profile-image.jpg" alt="InJoo Kim" class="profile-img">
-            <h1>InJoo Kim</h1>
-            <p class="subtitle">Project Manager</p>
-            <p class="bio">
-                Project Manager with over 12 years of experience in product planning, growth strategy, 
-                and creator ecosystem operations at SOOP (formerly AfreecaTV). Currently pursuing Data Science, 
-                Master of Liberal Arts in Extension Studies at Harvard University. Completed MITx MicroMasters 
-                in Statistics and Data Science.
-            </p>
-            <div class="contact-info">
-                <a href="mailto:ink595@g.harvard.edu">Email</a>
-                <a href="https://linkedin.com/in/jooooo" target="_blank">LinkedIn</a>
-                <a href="tel:+821050606843">Phone</a>
-            </div>
-        </header>
+    <!-- Controls Panel -->
+    <div class="controls">
+        <button class="control-btn" id="theme-toggle" onclick="toggleTheme()">🌙</button>
+        <button class="control-btn" id="lang-toggle" onclick="toggleLanguage()">한</button>
+    </div>
 
-        <!-- Navigation -->
-        <div class="nav-wrapper" id="nav-wrapper">
-            <nav class="nav-tabs">
-                <button class="nav-tab active" onclick="showSection('experience')">Experience</button>
-                <button class="nav-tab" onclick="showSection('projects')">Projects</button>
-                <button class="nav-tab" onclick="showSection('cv')">CV</button>
+    <!-- Header -->
+    <header class="header" id="header">
+        <img src="/img/profile.jpg" alt="InJoo Kim" class="profile-img">
+        <div class="header-content">
+            <h1>InJoo Kim</h1>
+            <p class="subtitle">
+                <span data-en>Project Manager & Digital Innovation Specialist</span>
+                <span data-ko style="display:none">프로젝트 매니저 & 디지털 혁신 전문가</span>
+            </p>
+            <div class="bio">
+                <span data-en>Harvard Extension School · MITx MicroMasters in Data Science · Deep expertise in AI/ML and digital transformation · Leading cross-functional teams to deliver innovative solutions</span>
+                <span data-ko style="display:none">하버드 익스텐션 스쿨 · MITx 데이터 사이언스 마이크로마스터 · AI/ML 및 디지털 변혁 전문가 · 혁신적인 솔루션 제공을 위한 다기능 팀 리더</span>
+            </div>
+            <div class="contact">
+                <a href="mailto:ink595@g.harvard.edu">ink595@g.harvard.edu</a>
+                <a href="https://linkedin.com/in/injookim0623" target="_blank">LinkedIn</a>
+                <a href="https://github.com/injooinjoo" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <div class="nav-wrapper" id="nav-wrapper">
+        <div class="nav-container">
+            <div class="nav-profile" id="nav-profile">
+                <img src="/img/profile.jpg" alt="InJoo Kim">
+                <div class="nav-profile-info">
+                    <h3>InJoo Kim</h3>
+                    <span data-en>Project Manager</span>
+                    <span data-ko style="display:none">프로젝트 매니저</span>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="nav-menu">
+                <a href="#experience" class="active">
+                    <span data-en>Experience</span>
+                    <span data-ko style="display:none">경력</span>
+                </a>
+                <a href="#projects">
+                    <span data-en>Projects</span>
+                    <span data-ko style="display:none">프로젝트</span>
+                </a>
+                <a href="#education">
+                    <span data-en>Education</span>
+                    <span data-ko style="display:none">학력</span>
+                </a>
+                <a href="#certifications">
+                    <span data-en>Certifications</span>
+                    <span data-ko style="display:none">자격증</span>
+                </a>
+                <a href="#cv">CV</a>
             </nav>
         </div>
+    </div>
 
-        <!-- Content Sections -->
-        <div id="experience" class="content-section active">
-            <div class="experience-list">
-                <div class="experience-item" onclick="showDetails('soop')">
-                    <div class="company-logo">S</div>
-                    <div class="experience-content">
-                        <div class="experience-header">
-                            <div>
-                                <div class="experience-title">Live-streaming Ecosystem Lead</div>
-                                <div class="experience-company">SOOP Co., Ltd. (formerly AfreecaTV)</div>
-                            </div>
-                            <div class="experience-period">2016 - Present</div>
-                        </div>
-                        <div class="experience-description">
-                            Lead growth and operational strategy for a 5,000+ creator ecosystem, driving platform 
-                            engagement, monetization, and community health through data-driven initiatives.
-                        </div>
-                        <ul class="experience-achievements">
-                            <li>Increased active creator engagement by 170% through targeted acquisition programs</li>
-                            <li>Enhanced homepage CTR by 2.3x via algorithm optimization</li>
-                            <li>Directed large-scale creator events boosting participation by 60%</li>
-                        </ul>
-                    </div>
-                </div>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Experience Section -->
+        <section class="section" id="experience">
+            <h2 class="section-title">
+                <span data-en>Experience</span>
+                <span data-ko style="display:none">경력</span>
+            </h2>
 
-                <div class="experience-item" onclick="showDetails('mmxxii')">
-                    <div class="company-logo">M</div>
-                    <div class="experience-content">
-                        <div class="experience-header">
-                            <div>
-                                <div class="experience-title">Founder</div>
-                                <div class="experience-company">MMXXII (자영업/개인사업)</div>
-                            </div>
-                            <div class="experience-period">2021 - 2024</div>
-                        </div>
-                        <div class="experience-description">
-                            Founded and scaled an e-commerce venture from zero to six-figure monthly revenue through 
-                            multi-channel growth strategies and automation.
-                        </div>
-                        <ul class="experience-achievements">
-                            <li>Achieved $100K/month revenue through multi-channel growth strategies</li>
-                            <li>Ranked 1st page for 15+ target keywords on Naver/Google</li>
-                            <li>Built automation pipelines saving 200+ hours/month</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="experience-item" onclick="showDetails('popjoy')">
-                    <div class="company-logo">P</div>
-                    <div class="experience-content">
-                        <div class="experience-header">
-                            <div>
-                                <div class="experience-title">Marketing Manager</div>
-                                <div class="experience-company">POPJOY</div>
-                            </div>
-                            <div class="experience-period">2015 - 2016</div>
-                        </div>
-                        <div class="experience-description">
-                            Led app review processes for Android/iOS, optimizing UX and engagement strategies 
-                            through behavioral analytics and A/B testing.
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <img src="/img/SOOP_LOGO_white_bg.png" alt="SOOP" class="company-logo">
+                        <div>
+                            <h3>
+                                <span data-en>Project Manager</span>
+                                <span data-ko style="display:none">프로젝트 매니저</span>
+                            </h3>
+                            <p class="company">SOOP (formerly AfreecaTV)</p>
                         </div>
                     </div>
+                    <span class="date">2024.3 - Present</span>
                 </div>
-
-                <div class="experience-item" onclick="showDetails('highbrow')">
-                    <div class="company-logo">H</div>
-                    <div class="experience-content">
-                        <div class="experience-header">
-                            <div>
-                                <div class="experience-title">Project Manager</div>
-                                <div class="experience-company">highbrow, Inc.</div>
-                            </div>
-                            <div class="experience-period">2014</div>
-                        </div>
-                        <div class="experience-description">
-                            Coordinated updates and promotions with global game publishers, secured new contracts 
-                            and managed G-Star booth operations.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-item" onclick="showDetails('ntreev')">
-                    <div class="company-logo">N</div>
-                    <div class="experience-content">
-                        <div class="experience-header">
-                            <div>
-                                <div class="experience-title">Project Manager</div>
-                                <div class="experience-company">Ntreev Soft.</div>
-                            </div>
-                            <div class="experience-period">2012 - 2013</div>
-                        </div>
-                        <div class="experience-description">
-                            Managed global publishing for 'Pangya' (Thailand & U.S.), designed localized in-game 
-                            events increasing performance by 130%.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="projects" class="content-section">
-            <div class="project-list">
-                <div class="project-item">
-                    <div class="project-title">Creator Monetization Mission System</div>
-                    <div class="project-description">
-                        Mission-based monetization system for content creators to enhance engagement and revenue generation 
-                        through gamified achievement tracking and reward distribution.
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Product Strategy</span>
-                        <span class="tech-tag">Analytics</span>
-                        <span class="tech-tag">Gamification</span>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title">Homepage Personalization Algorithm</div>
-                    <div class="project-description">
-                        Developed and implemented personalization algorithm for homepage content recommendation, 
-                        improving user engagement metrics and content discovery.
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Machine Learning</span>
-                        <span class="tech-tag">A/B Testing</span>
-                        <span class="tech-tag">Data Analytics</span>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title">Operations Automation Platform</div>
-                    <div class="project-description">
-                        Built comprehensive automation platform to streamline operational processes, reducing manual 
-                        work and improving team efficiency across departments.
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Process Automation</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">MongoDB</span>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title">Creator Subscription Service Renewal</div>
-                    <div class="project-description">
-                        Complete renewal of creator subscription platform with enhanced user experience, 
-                        payment processing, and creator dashboard features.
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Product Design</span>
-                        <span class="tech-tag">Payment Systems</span>
-                        <span class="tech-tag">UX Research</span>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title">Content Attribute Tagging System</div>
-                    <div class="project-description">
-                        Intelligent content tagging and categorization system using NLP and machine learning 
-                        for improved content discovery and recommendation.
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">NLP</span>
-                        <span class="tech-tag">Content Management</span>
-                        <span class="tech-tag">Search Optimization</span>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title">TTS & Voice Integration</div>
-                    <div class="project-description">
-                        Text-to-speech and voice integration features to enhance platform accessibility 
-                        and enable new content creation possibilities.
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Voice Technology</span>
-                        <span class="tech-tag">Accessibility</span>
-                        <span class="tech-tag">API Integration</span>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title">BJ Match Tournament Platform</div>
-                    <div class="project-description">
-                        Competitive tournament platform for content creators to showcase talents, compete 
-                        for prizes, and grow their audience through structured events.
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Platform Development</span>
-                        <span class="tech-tag">Gaming</span>
-                        <span class="tech-tag">Community Building</span>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title">Digital Contract Management</div>
-                    <div class="project-description">
-                        Digital contract management system for streamlined creator partnerships, automated 
-                        workflows, and compliance tracking.
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Contract Management</span>
-                        <span class="tech-tag">Automation</span>
-                        <span class="tech-tag">Legal Tech</span>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title">G-Star Event Management</div>
-                    <div class="project-description">
-                        Large-scale gaming event operations management with multi-stakeholder coordination, 
-                        booth design, and creator showcase programs.
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Event Management</span>
-                        <span class="tech-tag">Partnership</span>
-                        <span class="tech-tag">Gaming Industry</span>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title">SOOP Global Platform Launch</div>
-                    <div class="project-description">
-                        Global expansion initiative for SOOP platform including localization, creator 
-                        acquisition strategies, and market entry planning.
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Global Strategy</span>
-                        <span class="tech-tag">Market Expansion</span>
-                        <span class="tech-tag">Localization</span>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title">Mobile App Growth Hacking</div>
-                    <div class="project-description">
-                        Growth strategies for mobile application focusing on user acquisition, retention 
-                        optimization, and viral growth mechanics.
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Growth Hacking</span>
-                        <span class="tech-tag">Mobile Analytics</span>
-                        <span class="tech-tag">User Acquisition</span>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title">User Segmentation & Personalization</div>
-                    <div class="project-description">
-                        Advanced user segmentation models and personalization systems for tailored user 
-                        experiences and targeted marketing campaigns.
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Data Science</span>
-                        <span class="tech-tag">User Analytics</span>
-                        <span class="tech-tag">Personalization</span>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title">ML-based Churn Prediction</div>
-                    <div class="project-description">
-                        Machine learning models for user churn prediction enabling proactive retention 
-                        strategies and personalized re-engagement campaigns.
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Machine Learning</span>
-                        <span class="tech-tag">Predictive Analytics</span>
-                        <span class="tech-tag">Python</span>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title">Strategic Data Partnership with Nexon</div>
-                    <div class="project-description">
-                        Strategic data partnership creating synergies between gaming and streaming platforms 
-                        through shared insights and cross-promotion opportunities.
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Partnership Strategy</span>
-                        <span class="tech-tag">Data Integration</span>
-                        <span class="tech-tag">Business Development</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="cv" class="content-section">
-            <div class="cv-section">
-                <h2 class="cv-section-title">Work Experience</h2>
-                <div class="experience-list">
-                    <div class="experience-item">
-                        <div class="company-logo">S</div>
-                        <div class="experience-content">
-                            <div class="experience-header">
-                                <div>
-                                    <div class="experience-title">Live-streaming Ecosystem Lead</div>
-                                    <div class="experience-company">SOOP Co., Ltd. (formerly AfreecaTV)</div>
-                                </div>
-                                <div class="experience-period">2016 - Present</div>
-                            </div>
-                            <div class="experience-description">
-                                Lead growth and operational strategy for a 5,000+ creator ecosystem, driving platform 
-                                engagement, monetization, and community health.
-                            </div>
-                            <ul class="experience-achievements">
-                                <li>Increased active creator engagement by <strong>170%</strong> through targeted acquisition programs</li>
-                                <li>Enhanced homepage CTR by <strong>2.3x</strong> via data-driven algorithm optimization</li>
-                                <li>Directed large-scale creator events & partnerships, boosting participation by <strong>60%</strong></li>
-                                <li>Built thriving live-streaming community managing relationships with top-tier creators</li>
-                                <li>Developed creator support programs increasing satisfaction rates by over <strong>30%</strong></li>
-                                <li>Engineered scalable creator monetization models and performance dashboards</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="company-logo">M</div>
-                        <div class="experience-content">
-                            <div class="experience-header">
-                                <div>
-                                    <div class="experience-title">Founder</div>
-                                    <div class="experience-company">MMXXII (자영업/개인사업)</div>
-                                </div>
-                                <div class="experience-period">2021 - 2024</div>
-                            </div>
-                            <div class="experience-description">
-                                Founded and scaled an e-commerce venture from zero to six-figure monthly revenue.
-                            </div>
-                            <ul class="experience-achievements">
-                                <li>Achieved <strong>$100K/month revenue</strong> through multi-channel growth strategies</li>
-                                <li>Ranked <strong>1st page for 15+ keywords</strong> on Naver/Google</li>
-                                <li>Improved conversion rates by <strong>32%</strong> using A/B testing</li>
-                                <li>Built automation pipelines with Python & MongoDB, saving <strong>200+ hours/month</strong></li>
-                                <li>Negotiated and secured <strong>8 major B2B contracts</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="company-logo">P</div>
-                        <div class="experience-content">
-                            <div class="experience-header">
-                                <div>
-                                    <div class="experience-title">Marketing Manager</div>
-                                    <div class="experience-company">POPJOY</div>
-                                </div>
-                                <div class="experience-period">2015 - 2016</div>
-                            </div>
-                            <ul class="experience-achievements">
-                                <li>Led app review processes for Android/iOS optimizing UX and engagement</li>
-                                <li>Planned and executed targeted in-game events based on behavioral analytics</li>
-                                <li>Managed paid ad campaigns with optimization and A/B testing to maximize ROI</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="company-logo">H</div>
-                        <div class="experience-content">
-                            <div class="experience-header">
-                                <div>
-                                    <div class="experience-title">Project Manager</div>
-                                    <div class="experience-company">highbrow, Inc.</div>
-                                </div>
-                                <div class="experience-period">2014</div>
-                            </div>
-                            <ul class="experience-achievements">
-                                <li>Coordinated updates and promotions with global game publishers</li>
-                                <li>Secured new publisher contracts and managed G-Star booth operations</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="company-logo">N</div>
-                        <div class="experience-content">
-                            <div class="experience-header">
-                                <div>
-                                    <div class="experience-title">Project Manager</div>
-                                    <div class="experience-company">Ntreev Soft.</div>
-                                </div>
-                                <div class="experience-period">2012 - 2013</div>
-                            </div>
-                            <ul class="experience-achievements">
-                                <li>Managed global publishing for 'Pangya' (Thailand & U.S.)</li>
-                                <li>Designed localized in-game events increasing performance by <strong>130%</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cv-section">
-                <h2 class="cv-section-title">Education</h2>
-                <div class="experience-list">
-                    <div class="experience-item">
-                        <div class="company-logo">H</div>
-                        <div class="experience-content">
-                            <div class="experience-header">
-                                <div>
-                                    <div class="experience-title">ALM in Data Science</div>
-                                    <div class="experience-company">Harvard Extension School</div>
-                                </div>
-                                <div class="experience-period">In Progress</div>
-                            </div>
-                            <div class="experience-description">
-                                Currently pursuing Master's degree in Data Science, focusing on advanced statistical methods, 
-                                machine learning applications, and data-driven business strategy.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="company-logo">M</div>
-                        <div class="experience-content">
-                            <div class="experience-header">
-                                <div>
-                                    <div class="experience-title">MicroMasters in Statistics and Data Science</div>
-                                    <div class="experience-company">MITx</div>
-                                </div>
-                                <div class="experience-period">Completed 2024</div>
-                            </div>
-                            <div class="experience-description">
-                                Comprehensive program covering probability, statistics, machine learning, and data analysis 
-                                with Python and R. Completed four graduate-level courses with distinction.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cv-section">
-                <h2 class="cv-section-title">Skills & Expertise</h2>
-                <div class="skills-container">
-                    <span class="skill-tag">Product Planning</span>
-                    <span class="skill-tag">Growth Strategy</span>
-                    <span class="skill-tag">Creator Ecosystem</span>
-                    <span class="skill-tag">Data Analytics</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">MongoDB</span>
-                    <span class="skill-tag">Machine Learning</span>
-                    <span class="skill-tag">A/B Testing</span>
-                    <span class="skill-tag">SEO/SEM</span>
-                    <span class="skill-tag">E-commerce</span>
-                    <span class="skill-tag">Event Management</span>
-                    <span class="skill-tag">Community Management</span>
-                    <span class="skill-tag">Business Development</span>
+                <p>
+                    <span data-en>Led cross-functional product initiatives optimizing live streaming services. Managed AI model integration, reducing response time by 30%. Coordinated international expansion strategy.</span>
+                    <span data-ko style="display:none">라이브 스트리밍 서비스 최적화를 위한 교차 기능 제품 이니셔티브 주도. AI 모델 통합 관리로 응답 시간 30% 단축. 국제 확장 전략 조정.</span>
+                </p>
+                <div class="skills">
                     <span class="skill-tag">Project Management</span>
+                    <span class="skill-tag">AI Integration</span>
+                    <span class="skill-tag">Live Streaming</span>
+                    <span class="skill-tag">Agile</span>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Modal -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <div id="modal-body"></div>
-        </div>
-    </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <img src="/img/highbrow_square.png" alt="HighBrow" class="company-logo">
+                        <div>
+                            <h3>PM Lead</h3>
+                            <p class="company">HighBrow</p>
+                        </div>
+                    </div>
+                    <span class="date">2022.9 - 2024.2</span>
+                </div>
+                <p>
+                    <span data-en>Directed AI-driven platform development increasing user engagement by 40%. Established PMO processes across 4 product lines. Led transition to microservices architecture.</span>
+                    <span data-ko style="display:none">AI 기반 플랫폼 개발 지휘로 사용자 참여도 40% 증가. 4개 제품 라인에 걸친 PMO 프로세스 구축. 마이크로서비스 아키텍처 전환 주도.</span>
+                </p>
+                <div class="skills">
+                    <span class="skill-tag">PMO</span>
+                    <span class="skill-tag">AI Platform</span>
+                    <span class="skill-tag">Microservices</span>
+                    <span class="skill-tag">Leadership</span>
+                </div>
+            </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2024 InJoo Kim. All rights reserved.</p>
-    </footer>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <img src="/img/ntreev.png" alt="Ntreev Soft" class="company-logo">
+                        <div>
+                            <h3>
+                                <span data-en>Senior Producer</span>
+                                <span data-ko style="display:none">시니어 프로듀서</span>
+                            </h3>
+                            <p class="company">Ntreev Soft (Nexon)</p>
+                        </div>
+                    </div>
+                    <span class="date">2018.3 - 2022.9</span>
+                </div>
+                <p>
+                    <span data-en>Produced multiple successful game titles with $5M+ revenue. Implemented data-driven decision making increasing retention by 25%. Managed teams of 20+ developers.</span>
+                    <span data-ko style="display:none">500만 달러 이상의 수익을 창출한 여러 게임 타이틀 제작. 데이터 기반 의사결정 구현으로 리텐션 25% 증가. 20명 이상의 개발자 팀 관리.</span>
+                </p>
+                <div class="skills">
+                    <span class="skill-tag">Game Production</span>
+                    <span class="skill-tag">Data Analytics</span>
+                    <span class="skill-tag">Team Management</span>
+                    <span class="skill-tag">Unity</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <img src="/img/MMXXII.png" alt="MMXXII" class="company-logo">
+                        <div>
+                            <h3>
+                                <span data-en>Lead Developer</span>
+                                <span data-ko style="display:none">리드 개발자</span>
+                            </h3>
+                            <p class="company">MMXXII</p>
+                        </div>
+                    </div>
+                    <span class="date">2016.8 - 2018.2</span>
+                </div>
+                <p>
+                    <span data-en>Led development of mobile applications reaching 100K+ users. Architected scalable backend systems handling 1M+ daily requests. Mentored junior developers.</span>
+                    <span data-ko style="display:none">10만 명 이상의 사용자를 확보한 모바일 애플리케이션 개발 주도. 일일 100만 건 이상의 요청을 처리하는 확장 가능한 백엔드 시스템 설계. 주니어 개발자 멘토링.</span>
+                </p>
+                <div class="skills">
+                    <span class="skill-tag">Mobile Development</span>
+                    <span class="skill-tag">Backend Architecture</span>
+                    <span class="skill-tag">React Native</span>
+                    <span class="skill-tag">Node.js</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <img src="/img/paranoidjoy.png" alt="ParanoidJoy" class="company-logo">
+                        <div>
+                            <h3>
+                                <span data-en>Software Developer</span>
+                                <span data-ko style="display:none">소프트웨어 개발자</span>
+                            </h3>
+                            <p class="company">ParanoidJoy</p>
+                        </div>
+                    </div>
+                    <span class="date">2015.3 - 2016.7</span>
+                </div>
+                <p>
+                    <span data-en>Developed innovative AR/VR applications for enterprise clients. Built computer vision algorithms improving accuracy by 35%. Contributed to open-source projects.</span>
+                    <span data-ko style="display:none">기업 고객을 위한 혁신적인 AR/VR 애플리케이션 개발. 정확도를 35% 향상시킨 컴퓨터 비전 알고리즘 구축. 오픈소스 프로젝트 기여.</span>
+                </p>
+                <div class="skills">
+                    <span class="skill-tag">AR/VR</span>
+                    <span class="skill-tag">Computer Vision</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">C++</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section" id="projects">
+            <h2 class="section-title">
+                <span data-en>Projects</span>
+                <span data-ko style="display:none">프로젝트</span>
+            </h2>
+
+            <div class="card">
+                <h3>AI-Powered Sentiment Analysis Platform</h3>
+                <p>
+                    <span data-en>Developed end-to-end ML pipeline analyzing 1M+ customer reviews daily. Achieved 92% accuracy using transformer models. Reduced processing time by 60% through optimization.</span>
+                    <span data-ko style="display:none">일일 100만 건 이상의 고객 리뷰를 분석하는 엔드투엔드 ML 파이프라인 개발. 트랜스포머 모델을 사용하여 92% 정확도 달성. 최적화를 통해 처리 시간 60% 단축.</span>
+                </p>
+                <div class="skills">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">NLP</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Real-time Collaboration Platform</h3>
+                <p>
+                    <span data-en>Built WebRTC-based platform supporting 10K+ concurrent users. Implemented conflict-free replicated data types for seamless collaboration. Reduced latency by 40% through edge computing.</span>
+                    <span data-ko style="display:none">1만 명 이상의 동시 사용자를 지원하는 WebRTC 기반 플랫폼 구축. 원활한 협업을 위한 무충돌 복제 데이터 타입 구현. 엣지 컴퓨팅을 통해 지연 시간 40% 감소.</span>
+                </p>
+                <div class="skills">
+                    <span class="skill-tag">WebRTC</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Redis</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Blockchain-based Supply Chain Solution</h3>
+                <p>
+                    <span data-en>Designed distributed ledger system tracking 50K+ products. Reduced verification time from days to minutes. Integrated with existing ERP systems for 20+ enterprise clients.</span>
+                    <span data-ko style="display:none">5만 개 이상의 제품을 추적하는 분산 원장 시스템 설계. 검증 시간을 며칠에서 분 단위로 단축. 20개 이상 기업 고객의 기존 ERP 시스템과 통합.</span>
+                </p>
+                <div class="skills">
+                    <span class="skill-tag">Blockchain</span>
+                    <span class="skill-tag">Solidity</span>
+                    <span class="skill-tag">Web3.js</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="section" id="education">
+            <h2 class="section-title">
+                <span data-en>Education</span>
+                <span data-ko style="display:none">학력</span>
+            </h2>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3>Harvard Extension School</h3>
+                        <p class="company">
+                            <span data-en>Graduate Studies in Computer Science</span>
+                            <span data-ko style="display:none">컴퓨터 과학 대학원 과정</span>
+                        </p>
+                    </div>
+                    <span class="date">2022 - Present</span>
+                </div>
+                <p>
+                    <span data-en>Focus on Machine Learning, Software Engineering, and Data Structures. GPA: 3.8/4.0</span>
+                    <span data-ko style="display:none">머신러닝, 소프트웨어 엔지니어링, 데이터 구조 중점. GPA: 3.8/4.0</span>
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3>MITx MicroMasters</h3>
+                        <p class="company">
+                            <span data-en>Statistics and Data Science</span>
+                            <span data-ko style="display:none">통계 및 데이터 과학</span>
+                        </p>
+                    </div>
+                    <span class="date">2021 - 2022</span>
+                </div>
+                <p>
+                    <span data-en>Completed rigorous program covering probability, statistics, machine learning, and data analysis using Python and R.</span>
+                    <span data-ko style="display:none">Python과 R을 사용한 확률, 통계, 머신러닝, 데이터 분석을 다루는 엄격한 프로그램 완료.</span>
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3>Kyung Hee University</h3>
+                        <p class="company">
+                            <span data-en>Bachelor of Science in Computer Engineering</span>
+                            <span data-ko style="display:none">컴퓨터공학 학사</span>
+                        </p>
+                    </div>
+                    <span class="date">2011 - 2015</span>
+                </div>
+                <p>
+                    <span data-en>Graduated with honors. President of Computer Science Club. Led winning team in national programming competition.</span>
+                    <span data-ko style="display:none">우등 졸업. 컴퓨터 과학 동아리 회장. 전국 프로그래밍 대회 우승팀 리더.</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section class="section" id="certifications">
+            <h2 class="section-title">
+                <span data-en>Certifications</span>
+                <span data-ko style="display:none">자격증</span>
+            </h2>
+
+            <div class="card">
+                <h3>AWS Solutions Architect Professional</h3>
+                <p class="company">Amazon Web Services</p>
+                <span class="date">2023</span>
+            </div>
+
+            <div class="card">
+                <h3>Google Cloud Professional Data Engineer</h3>
+                <p class="company">Google Cloud</p>
+                <span class="date">2023</span>
+            </div>
+
+            <div class="card">
+                <h3>Certified ScrumMaster (CSM)</h3>
+                <p class="company">Scrum Alliance</p>
+                <span class="date">2022</span>
+            </div>
+
+            <div class="card">
+                <h3>Project Management Professional (PMP)</h3>
+                <p class="company">Project Management Institute</p>
+                <span class="date">2021</span>
+            </div>
+        </section>
+
+        <!-- CV Section -->
+        <section class="section" id="cv">
+            <h2 class="section-title">CV</h2>
+            <div class="card">
+                <p>
+                    <span data-en>Download my complete CV for detailed information about my experience, skills, and achievements.</span>
+                    <span data-ko style="display:none">경력, 기술 및 성과에 대한 자세한 정보는 전체 이력서를 다운로드하세요.</span>
+                </p>
+                <div style="margin-top: 20px;">
+                    <a href="/cv/InJooKim_CV.pdf" class="control-btn" style="display: inline-block; text-decoration: none;">
+                        <span data-en>Download CV (PDF)</span>
+                        <span data-ko style="display:none">이력서 다운로드 (PDF)</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <script>
-        // Tab Navigation
-        function showSection(sectionId) {
-            // Hide all sections
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => section.classList.remove('active'));
+        // Theme Toggle
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
             
-            // Remove active class from all tabs
-            const tabs = document.querySelectorAll('.nav-tab');
-            tabs.forEach(tab => tab.classList.remove('active'));
-            
-            // Show selected section
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Add active class to clicked tab
-            event.target.classList.add('active');
+            const themeBtn = document.getElementById('theme-toggle');
+            themeBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
         }
 
-        // Scroll Animation for Navigation
-        let lastScrollTop = 0;
+        // Language Toggle
+        function toggleLanguage() {
+            const currentLang = document.documentElement.getAttribute('data-lang') || 'en';
+            const newLang = currentLang === 'en' ? 'ko' : 'en';
+            document.documentElement.setAttribute('data-lang', newLang);
+            localStorage.setItem('language', newLang);
+            
+            const langBtn = document.getElementById('lang-toggle');
+            langBtn.textContent = newLang === 'ko' ? 'EN' : '한';
+            
+            // Toggle visibility of language-specific content
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.style.display = newLang === 'en' ? '' : 'none';
+            });
+            document.querySelectorAll('[data-ko]').forEach(el => {
+                el.style.display = newLang === 'ko' ? '' : 'none';
+            });
+        }
+
+        // Mobile Menu Toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.getElementById('nav-menu').classList.toggle('active');
+        });
+
+        // Scroll Effects
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
             const navWrapper = document.getElementById('nav-wrapper');
+            const navProfile = document.getElementById('nav-profile');
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
+
             if (scrollTop > 100) {
                 header.classList.add('scrolled');
                 navWrapper.classList.add('fixed');
+                navProfile.style.display = 'flex';
             } else {
                 header.classList.remove('scrolled');
                 navWrapper.classList.remove('fixed');
+                navProfile.style.display = 'none';
             }
-            
-            lastScrollTop = scrollTop;
         });
 
-        // Modal Functions
-        function showDetails(company) {
-            const modal = document.getElementById('modal');
-            const modalBody = document.getElementById('modal-body');
-            
-            const details = {
-                soop: {
-                    title: 'SOOP - Live-streaming Ecosystem Lead',
-                    content: `
-                        <h2>SOOP Co., Ltd. (formerly AfreecaTV)</h2>
-                        <h3>Live-streaming Ecosystem Lead / Community Manager</h3>
-                        <p><strong>Duration:</strong> 2016 - Present</p>
-                        <p><strong>Location:</strong> Seoul, Korea</p>
-                        
-                        <h4>Key Achievements:</h4>
-                        <ul>
-                            <li>Increased active creator engagement by 170% through targeted acquisition and retention programs</li>
-                            <li>Enhanced homepage CTR by 2.3x via data-driven algorithm optimization</li>
-                            <li>Directed large-scale creator events & partnerships (e.g., G-Star), boosting participation by 60%</li>
-                            <li>Built thriving live-streaming community managing 5,000+ creators</li>
-                            <li>Developed creator support programs increasing satisfaction rates by 30%</li>
-                            <li>Engineered scalable creator monetization models and performance dashboards</li>
-                        </ul>
-                        
-                        <h4>Technologies:</h4>
-                        <p>Growth Strategy, Data Analytics, Python, SQL, Event Management, Community Relations</p>
-                    `
-                },
-                mmxxii: {
-                    title: 'MMXXII - Founder',
-                    content: `
-                        <h2>MMXXII (자영업/개인사업)</h2>
-                        <h3>Founder</h3>
-                        <p><strong>Duration:</strong> 2021 - 2024</p>
-                        <p><strong>Location:</strong> Seoul, Korea</p>
-                        
-                        <h4>Key Achievements:</h4>
-                        <ul>
-                            <li>Achieved $100K/month revenue through multi-channel growth strategies</li>
-                            <li>Ranked 1st page for 15+ target keywords on Naver/Google</li>
-                            <li>Improved conversion rates by 32% using A/B testing</li>
-                            <li>Built automation pipelines with Python & MongoDB, saving 200+ hours/month</li>
-                            <li>Negotiated and secured 8 major B2B contracts</li>
-                        </ul>
-                        
-                        <h4>Technologies:</h4>
-                        <p>E-commerce, SEO/SEM, Python, MongoDB, Business Development</p>
-                    `
-                },
-                popjoy: {
-                    title: 'POPJOY - Marketing Manager',
-                    content: `
-                        <h2>POPJOY</h2>
-                        <h3>Marketing Manager</h3>
-                        <p><strong>Duration:</strong> 2015 - 2016</p>
-                        <p><strong>Location:</strong> Seoul, Korea</p>
-                        
-                        <h4>Key Achievements:</h4>
-                        <ul>
-                            <li>Led app review processes for Android/iOS optimizing UX</li>
-                            <li>Planned and executed targeted in-game events based on behavioral analytics</li>
-                            <li>Managed paid ad campaigns with optimization and A/B testing</li>
-                        </ul>
-                        
-                        <h4>Technologies:</h4>
-                        <p>Mobile Marketing, UX Optimization, A/B Testing, Analytics</p>
-                    `
-                },
-                highbrow: {
-                    title: 'highbrow, Inc. - Project Manager',
-                    content: `
-                        <h2>highbrow, Inc.</h2>
-                        <h3>Project Manager</h3>
-                        <p><strong>Duration:</strong> 2014</p>
-                        <p><strong>Location:</strong> Seoul, Korea</p>
-                        
-                        <h4>Key Achievements:</h4>
-                        <ul>
-                            <li>Coordinated updates and promotions with global game publishers</li>
-                            <li>Secured new publisher contracts</li>
-                            <li>Managed G-Star booth operations</li>
-                        </ul>
-                        
-                        <h4>Technologies:</h4>
-                        <p>Project Management, Publisher Relations, Event Operations</p>
-                    `
-                },
-                ntreev: {
-                    title: 'Ntreev Soft - Project Manager',
-                    content: `
-                        <h2>Ntreev Soft.</h2>
-                        <h3>Project Manager</h3>
-                        <p><strong>Duration:</strong> 2012 - 2013</p>
-                        <p><strong>Location:</strong> Seoul, Korea</p>
-                        
-                        <h4>Key Achievements:</h4>
-                        <ul>
-                            <li>Managed global publishing for 'Pangya' (Thailand & U.S.)</li>
-                            <li>Designed localized in-game events (e.g., Songkran festival)</li>
-                            <li>Increased performance by 130% over previous benchmarks</li>
-                        </ul>
-                        
-                        <h4>Technologies:</h4>
-                        <p>Global Publishing, Localization, Event Design, Market Analysis</p>
-                    `
+        // Active Navigation
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
                 }
-            };
-            
-            if (details[company]) {
-                modalBody.innerHTML = details[company].content;
-                modal.classList.add('active');
-            }
-        }
+            });
 
-        function closeModal() {
-            const modal = document.getElementById('modal');
-            modal.classList.remove('active');
-        }
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
 
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('modal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-
-        // Add smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        // Smooth Scrolling
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetId = this.getAttribute('href').slice(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    const offset = 80;
+                    const targetPosition = targetSection.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                // Close mobile menu
+                document.getElementById('menu-toggle').classList.remove('active');
+                document.getElementById('nav-menu').classList.remove('active');
+            });
+        });
+
+        // Load saved preferences
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load theme
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            document.getElementById('theme-toggle').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+            
+            // Load language
+            const savedLang = localStorage.getItem('language') || 'en';
+            document.documentElement.setAttribute('data-lang', savedLang);
+            document.getElementById('lang-toggle').textContent = savedLang === 'ko' ? 'EN' : '한';
+            
+            // Set initial language visibility
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.style.display = savedLang === 'en' ? '' : 'none';
+            });
+            document.querySelectorAll('[data-ko]').forEach(el => {
+                el.style.display = savedLang === 'ko' ? '' : 'none';
             });
         });
     </script>
