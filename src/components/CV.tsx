@@ -14,7 +14,7 @@ const CV: React.FC = () => {
             <span>•</span>
             <span>82)10-5060-6843</span>
             <span>•</span>
-            <span>ink595@harvard.edu</span>
+            <span>ink595@g.harvard.edu</span>
             <span>•</span>
             <a href="https://linkedin.com/in/jooooo" target="_blank" rel="noopener noreferrer">
               linkedin.com/in/jooooo

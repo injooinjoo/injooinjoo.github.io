@@ -21,7 +21,7 @@ const ProfileHeader: React.FC = () => {
           in Statistics and Data Science.
         </p>
         <div className="profile-links">
-          <a href="mailto:ink595@harvard.edu" className="profile-link">
+          <a href="mailto:ink595@g.harvard.edu" className="profile-link">
             Email
           </a>
           <a href="https://linkedin.com/in/jooooo" target="_blank" rel="noopener noreferrer" className="profile-link">
