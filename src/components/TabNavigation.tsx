@@ -1,7 +1,7 @@
 import React from 'react';
 import './TabNavigation.css';
 
-type TabType = 'experience' | 'side-projects' | 'cv';
+type TabType = 'experience' | 'side-projects' | 'certifications' | 'cv';
 
 interface TabNavigationProps {
   activeTab: TabType;
@@ -12,6 +12,7 @@ const TabNavigation: React.FC<TabNavigationProps> = ({ activeTab, onTabChange })
   const tabs = [
     { id: 'experience' as TabType, label: 'Experience', icon: '💼' },
     { id: 'side-projects' as TabType, label: 'Side Projects', icon: '🚀' },
+    { id: 'certifications' as TabType, label: 'Certifications', icon: '🎓' },
     { id: 'cv' as TabType, label: 'CV', icon: '📄' }
   ];
 

@@ -4,11 +4,12 @@ import ProfileHeader from './components/ProfileHeader';
 import TabNavigation from './components/TabNavigation';
 import Experience from './components/Experience';
 import SideProjects from './components/SideProjects';
+import Certifications from './components/Certifications';
 import CV from './components/CV';
 import Footer from './components/Footer';
 import './App.css';
 
-type TabType = 'experience' | 'side-projects' | 'cv';
+type TabType = 'experience' | 'side-projects' | 'certifications' | 'cv';
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('experience');
@@ -19,6 +20,8 @@ const App: React.FC = () => {
         return <Experience />;
       case 'side-projects':
         return <SideProjects />;
+      case 'certifications':
+        return <Certifications />;
       case 'cv':
         return <CV />;
       default:

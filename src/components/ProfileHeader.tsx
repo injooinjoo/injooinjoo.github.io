@@ -17,7 +17,8 @@ const ProfileHeader: React.FC = () => {
         <p className="profile-bio">
           Project Manager with over 12 years of experience in product planning, growth strategy, 
           and creator ecosystem operations at SOOP (formerly AfreecaTV). Currently pursuing Data Science, 
-          Master of Liberal Arts in Extension Studies at Harvard University.
+          Master of Liberal Arts in Extension Studies at Harvard University. Completed MITx MicroMasters 
+          in Statistics and Data Science.
         </p>
         <div className="profile-links">
           <a href="mailto:ink595@harvard.edu" className="profile-link">
