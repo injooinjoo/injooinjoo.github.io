@@ -203,10 +203,20 @@
         }
 
         .nav-profile {
-            display: none;
+            display: flex;
             align-items: center;
             gap: 15px;
             padding: 10px 0;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .nav-profile.visible {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: auto;
         }
 
         .nav-profile img {
@@ -471,7 +481,7 @@
                 display: flex;
             }
 
-            .nav-profile {
+            .nav-profile.visible {
                 padding: 15px 0;
             }
 
@@ -607,127 +617,31 @@
                     <div class="card-title">
                         <img src="/img/SOOP_LOGO_white_bg.png" alt="SOOP" class="company-logo">
                         <div>
-                            <h3>
+                            <h3>SOOP (formerly AfreecaTV)</h3>
+                            <p class="company">
                                 <span data-en>Project Manager</span>
                                 <span data-ko style="display:none">프로젝트 매니저</span>
-                            </h3>
-                            <p class="company">SOOP (formerly AfreecaTV)</p>
+                            </p>
                         </div>
                     </div>
-                    <span class="date">2024.3 - Present</span>
+                    <span class="date">2023 - Present</span>
                 </div>
                 <p>
-                    <span data-en>Led cross-functional product initiatives optimizing live streaming services. Managed AI model integration, reducing response time by 30%. Coordinated international expansion strategy.</span>
-                    <span data-ko style="display:none">라이브 스트리밍 서비스 최적화를 위한 교차 기능 제품 이니셔티브 주도. AI 모델 통합 관리로 응답 시간 30% 단축. 국제 확장 전략 조정.</span>
+                    <span data-en>Leading platform growth, creator monetization, and user engagement through data-driven strategies. Managed Creator Monetization Mission System achieving 82% participation and 42% monthly revenue growth. Developed Homepage Personalization Algorithm improving CTR by 2.3x.</span>
+                    <span data-ko style="display:none">데이터 기반 전략을 통한 플랫폼 성장, 크리에이터 수익화 및 사용자 참여 주도. 82% 참여율과 월 42% 수익 성장을 달성한 크리에이터 수익화 미션 시스템 관리. CTR을 2.3배 개선한 홈페이지 개인화 알고리즘 개발.</span>
                 </p>
                 <div class="skills">
-                    <span class="skill-tag">Project Management</span>
-                    <span class="skill-tag">AI Integration</span>
-                    <span class="skill-tag">Live Streaming</span>
-                    <span class="skill-tag">Agile</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">
-                        <img src="/img/highbrow_square.png" alt="HighBrow" class="company-logo">
-                        <div>
-                            <h3>PM Lead</h3>
-                            <p class="company">HighBrow</p>
-                        </div>
-                    </div>
-                    <span class="date">2022.9 - 2024.2</span>
-                </div>
-                <p>
-                    <span data-en>Directed AI-driven platform development increasing user engagement by 40%. Established PMO processes across 4 product lines. Led transition to microservices architecture.</span>
-                    <span data-ko style="display:none">AI 기반 플랫폼 개발 지휘로 사용자 참여도 40% 증가. 4개 제품 라인에 걸친 PMO 프로세스 구축. 마이크로서비스 아키텍처 전환 주도.</span>
-                </p>
-                <div class="skills">
-                    <span class="skill-tag">PMO</span>
-                    <span class="skill-tag">AI Platform</span>
-                    <span class="skill-tag">Microservices</span>
-                    <span class="skill-tag">Leadership</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">
-                        <img src="/img/ntreev.png" alt="Ntreev Soft" class="company-logo">
-                        <div>
-                            <h3>
-                                <span data-en>Senior Producer</span>
-                                <span data-ko style="display:none">시니어 프로듀서</span>
-                            </h3>
-                            <p class="company">Ntreev Soft (Nexon)</p>
-                        </div>
-                    </div>
-                    <span class="date">2018.3 - 2022.9</span>
-                </div>
-                <p>
-                    <span data-en>Produced multiple successful game titles with $5M+ revenue. Implemented data-driven decision making increasing retention by 25%. Managed teams of 20+ developers.</span>
-                    <span data-ko style="display:none">500만 달러 이상의 수익을 창출한 여러 게임 타이틀 제작. 데이터 기반 의사결정 구현으로 리텐션 25% 증가. 20명 이상의 개발자 팀 관리.</span>
-                </p>
-                <div class="skills">
-                    <span class="skill-tag">Game Production</span>
-                    <span class="skill-tag">Data Analytics</span>
-                    <span class="skill-tag">Team Management</span>
-                    <span class="skill-tag">Unity</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">
-                        <img src="/img/MMXXII.png" alt="MMXXII" class="company-logo">
-                        <div>
-                            <h3>
-                                <span data-en>Lead Developer</span>
-                                <span data-ko style="display:none">리드 개발자</span>
-                            </h3>
-                            <p class="company">MMXXII</p>
-                        </div>
-                    </div>
-                    <span class="date">2016.8 - 2018.2</span>
-                </div>
-                <p>
-                    <span data-en>Led development of mobile applications reaching 100K+ users. Architected scalable backend systems handling 1M+ daily requests. Mentored junior developers.</span>
-                    <span data-ko style="display:none">10만 명 이상의 사용자를 확보한 모바일 애플리케이션 개발 주도. 일일 100만 건 이상의 요청을 처리하는 확장 가능한 백엔드 시스템 설계. 주니어 개발자 멘토링.</span>
-                </p>
-                <div class="skills">
-                    <span class="skill-tag">Mobile Development</span>
-                    <span class="skill-tag">Backend Architecture</span>
-                    <span class="skill-tag">React Native</span>
-                    <span class="skill-tag">Node.js</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">
-                        <img src="/img/paranoidjoy.png" alt="ParanoidJoy" class="company-logo">
-                        <div>
-                            <h3>
-                                <span data-en>Software Developer</span>
-                                <span data-ko style="display:none">소프트웨어 개발자</span>
-                            </h3>
-                            <p class="company">ParanoidJoy</p>
-                        </div>
-                    </div>
-                    <span class="date">2015.3 - 2016.7</span>
-                </div>
-                <p>
-                    <span data-en>Developed innovative AR/VR applications for enterprise clients. Built computer vision algorithms improving accuracy by 35%. Contributed to open-source projects.</span>
-                    <span data-ko style="display:none">기업 고객을 위한 혁신적인 AR/VR 애플리케이션 개발. 정확도를 35% 향상시킨 컴퓨터 비전 알고리즘 구축. 오픈소스 프로젝트 기여.</span>
-                </p>
-                <div class="skills">
-                    <span class="skill-tag">AR/VR</span>
-                    <span class="skill-tag">Computer Vision</span>
                     <span class="skill-tag">Python</span>
-                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Firebase</span>
+                    <span class="skill-tag">A/B Testing</span>
+                    <span class="skill-tag">BigQuery</span>
                 </div>
             </div>
+
+
+
+
         </section>
 
         <!-- Projects Section -->
@@ -738,44 +652,72 @@
             </h2>
 
             <div class="card">
-                <h3>AI-Powered Sentiment Analysis Platform</h3>
+                <h3>Creator Monetization Mission System</h3>
                 <p>
-                    <span data-en>Developed end-to-end ML pipeline analyzing 1M+ customer reviews daily. Achieved 92% accuracy using transformer models. Reduced processing time by 60% through optimization.</span>
-                    <span data-ko style="display:none">일일 100만 건 이상의 고객 리뷰를 분석하는 엔드투엔드 ML 파이프라인 개발. 트랜스포머 모델을 사용하여 92% 정확도 달성. 최적화를 통해 처리 시간 60% 단축.</span>
+                    <span data-en>Designed and implemented gamified mission system for content creators. Achieved 82% mission participation rate and drove 42% monthly revenue growth. Built using Python, SQL, and Firebase with comprehensive A/B testing framework.</span>
+                    <span data-ko style="display:none">콘텐츠 크리에이터를 위한 게이미파이드 미션 시스템 설계 및 구현. 82% 미션 참여율 달성 및 월 42% 수익 성장 주도. Python, SQL, Firebase를 사용하여 포괄적인 A/B 테스트 프레임워크로 구축.</span>
                 </p>
                 <div class="skills">
                     <span class="skill-tag">Python</span>
-                    <span class="skill-tag">TensorFlow</span>
-                    <span class="skill-tag">AWS</span>
-                    <span class="skill-tag">NLP</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Firebase</span>
+                    <span class="skill-tag">A/B Testing</span>
                 </div>
             </div>
 
             <div class="card">
-                <h3>Real-time Collaboration Platform</h3>
+                <h3>Homepage Personalization Algorithm</h3>
                 <p>
-                    <span data-en>Built WebRTC-based platform supporting 10K+ concurrent users. Implemented conflict-free replicated data types for seamless collaboration. Reduced latency by 40% through edge computing.</span>
-                    <span data-ko style="display:none">1만 명 이상의 동시 사용자를 지원하는 WebRTC 기반 플랫폼 구축. 원활한 협업을 위한 무충돌 복제 데이터 타입 구현. 엣지 컴퓨팅을 통해 지연 시간 40% 감소.</span>
+                    <span data-en>Developed ML-based content recommendation system for platform homepage. Improved Click-Through Rate by 2.3x through personalized content delivery. Utilized Python, BigQuery, and machine learning models for real-time personalization.</span>
+                    <span data-ko style="display:none">플랫폼 홈페이지를 위한 ML 기반 콘텐츠 추천 시스템 개발. 개인화된 콘텐츠 제공을 통해 클릭률 2.3배 개선. 실시간 개인화를 위해 Python, BigQuery 및 머신러닝 모델 활용.</span>
                 </p>
                 <div class="skills">
-                    <span class="skill-tag">WebRTC</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">BigQuery</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Operations Automation Platform</h3>
+                <p>
+                    <span data-en>Built comprehensive automation platform reducing manual operations from 200+ hours to less than 1 hour monthly. Implemented using Python, GCP, Supabase, and REST APIs. Streamlined workflows across multiple departments.</span>
+                    <span data-ko style="display:none">수동 작업을 월 200시간 이상에서 1시간 미만으로 줄인 포괄적인 자동화 플랫폼 구축. Python, GCP, Supabase 및 REST API를 사용하여 구현. 여러 부서에 걸쳐 워크플로우 간소화.</span>
+                </p>
+                <div class="skills">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">GCP</span>
+                    <span class="skill-tag">Supabase</span>
+                    <span class="skill-tag">REST APIs</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Creator Subscription Service</h3>
+                <p>
+                    <span data-en>Launched subscription-based monetization feature for content creators. Achieved 31% increase in paid conversions through iterative UX improvements. Built with Payment APIs, React, Node.js, and PostgreSQL.</span>
+                    <span data-ko style="display:none">콘텐츠 크리에이터를 위한 구독 기반 수익화 기능 출시. 반복적인 UX 개선을 통해 유료 전환율 31% 증가 달성. Payment API, React, Node.js 및 PostgreSQL로 구축.</span>
+                </p>
+                <div class="skills">
+                    <span class="skill-tag">Payment APIs</span>
                     <span class="skill-tag">React</span>
                     <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">Redis</span>
+                    <span class="skill-tag">PostgreSQL</span>
                 </div>
             </div>
 
             <div class="card">
-                <h3>Blockchain-based Supply Chain Solution</h3>
+                <h3>Global Expansion Strategy</h3>
                 <p>
-                    <span data-en>Designed distributed ledger system tracking 50K+ products. Reduced verification time from days to minutes. Integrated with existing ERP systems for 20+ enterprise clients.</span>
-                    <span data-ko style="display:none">5만 개 이상의 제품을 추적하는 분산 원장 시스템 설계. 검증 시간을 며칠에서 분 단위로 단축. 20개 이상 기업 고객의 기존 ERP 시스템과 통합.</span>
+                    <span data-en>Led international business development initiatives entering 5+ new markets. Achieved 25% international revenue growth through localization and partnership strategies. Coordinated cross-cultural teams and stakeholders.</span>
+                    <span data-ko style="display:none">5개 이상의 신규 시장 진출 국제 비즈니스 개발 이니셔티브 주도. 현지화 및 파트너십 전략을 통해 국제 수익 25% 성장 달성. 다문화 팀 및 이해관계자 조정.</span>
                 </p>
                 <div class="skills">
-                    <span class="skill-tag">Blockchain</span>
-                    <span class="skill-tag">Solidity</span>
-                    <span class="skill-tag">Web3.js</span>
-                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">Business Development</span>
+                    <span class="skill-tag">Market Analysis</span>
+                    <span class="skill-tag">Partnership Management</span>
+                    <span class="skill-tag">Localization</span>
                 </div>
             </div>
         </section>
@@ -789,54 +731,52 @@
 
             <div class="card">
                 <div class="card-header">
-                    <div>
-                        <h3>Harvard Extension School</h3>
-                        <p class="company">
-                            <span data-en>Graduate Studies in Computer Science</span>
-                            <span data-ko style="display:none">컴퓨터 과학 대학원 과정</span>
-                        </p>
+                    <div class="card-title">
+                        <img src="/img/harvard_logo.png" alt="Harvard" class="company-logo">
+                        <div>
+                            <h3>Harvard University</h3>
+                            <p class="company">
+                                <span data-en>Master of Liberal Arts in Extension Studies</span>
+                                <span data-ko style="display:none">Master of Liberal Arts in Extension Studies</span>
+                            </p>
+                            <p class="company">
+                                <span data-en>Major: Data Science</span>
+                                <span data-ko style="display:none">전공: 데이터 사이언스</span>
+                            </p>
+                        </div>
                     </div>
                     <span class="date">2022 - Present</span>
                 </div>
                 <p>
-                    <span data-en>Focus on Machine Learning, Software Engineering, and Data Structures. GPA: 3.8/4.0</span>
-                    <span data-ko style="display:none">머신러닝, 소프트웨어 엔지니어링, 데이터 구조 중점. GPA: 3.8/4.0</span>
+                    <span data-en>Currently pursuing ALM degree with focus on Machine Learning, Statistical Analysis, and Data Engineering. Building expertise in advanced analytics and AI applications.</span>
+                    <span data-ko style="display:none">머신러닝, 통계 분석 및 데이터 엔지니어링에 중점을 둔 ALM 학위 과정 이수 중. 고급 분석 및 AI 응용 분야 전문성 구축.</span>
                 </p>
             </div>
 
             <div class="card">
                 <div class="card-header">
-                    <div>
-                        <h3>MITx MicroMasters</h3>
-                        <p class="company">
-                            <span data-en>Statistics and Data Science</span>
-                            <span data-ko style="display:none">통계 및 데이터 과학</span>
-                        </p>
+                    <div class="card-title">
+                        <img src="/img/mit_logo.png" alt="MIT" class="company-logo">
+                        <div>
+                            <h3>Massachusetts Institute of Technology</h3>
+                            <p class="company">
+                                <span data-en>MicroMasters Program</span>
+                                <span data-ko style="display:none">마이크로마스터스 프로그램</span>
+                            </p>
+                            <p class="company">
+                                <span data-en>Statistics and Data Science</span>
+                                <span data-ko style="display:none">통계 및 데이터 과학</span>
+                            </p>
+                        </div>
                     </div>
                     <span class="date">2021 - 2022</span>
                 </div>
                 <p>
-                    <span data-en>Completed rigorous program covering probability, statistics, machine learning, and data analysis using Python and R.</span>
-                    <span data-ko style="display:none">Python과 R을 사용한 확률, 통계, 머신러닝, 데이터 분석을 다루는 엄격한 프로그램 완료.</span>
+                    <span data-en>Completed rigorous graduate-level program covering probability, statistics, machine learning, and data analysis using Python and R. Earned MicroMasters credential with distinction.</span>
+                    <span data-ko style="display:none">Python과 R을 사용한 확률, 통계, 머신러닝, 데이터 분석을 다루는 엄격한 대학원 수준 프로그램 완료. 우수한 성적으로 마이크로마스터스 자격증 취득.</span>
                 </p>
             </div>
 
-            <div class="card">
-                <div class="card-header">
-                    <div>
-                        <h3>Kyung Hee University</h3>
-                        <p class="company">
-                            <span data-en>Bachelor of Science in Computer Engineering</span>
-                            <span data-ko style="display:none">컴퓨터공학 학사</span>
-                        </p>
-                    </div>
-                    <span class="date">2011 - 2015</span>
-                </div>
-                <p>
-                    <span data-en>Graduated with honors. President of Computer Science Club. Led winning team in national programming competition.</span>
-                    <span data-ko style="display:none">우등 졸업. 컴퓨터 과학 동아리 회장. 전국 프로그래밍 대회 우승팀 리더.</span>
-                </p>
-            </div>
         </section>
 
         <!-- Certifications Section -->
@@ -926,23 +866,54 @@
             document.getElementById('nav-menu').classList.toggle('active');
         });
 
-        // Scroll Effects
-        window.addEventListener('scroll', function() {
+        // Debounce function
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Scroll state tracking
+        let isScrolled = false;
+        let lastScrollTop = 0;
+
+        // Scroll Effects with hysteresis
+        const handleScroll = debounce(function() {
             const header = document.getElementById('header');
             const navWrapper = document.getElementById('nav-wrapper');
             const navProfile = document.getElementById('nav-profile');
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-            if (scrollTop > 100) {
+            
+            // Determine scroll direction
+            const scrollingDown = scrollTop > lastScrollTop;
+            lastScrollTop = scrollTop;
+            
+            // Apply hysteresis: different thresholds for showing/hiding
+            const showThreshold = 120; // Show when scrolling past this
+            const hideThreshold = 80;  // Hide when scrolling back up past this
+            
+            if (!isScrolled && scrollTop > showThreshold) {
+                // Transition to scrolled state
+                isScrolled = true;
                 header.classList.add('scrolled');
                 navWrapper.classList.add('fixed');
-                navProfile.style.display = 'flex';
-            } else {
+                navProfile.classList.add('visible');
+            } else if (isScrolled && scrollTop < hideThreshold) {
+                // Transition back to normal state
+                isScrolled = false;
                 header.classList.remove('scrolled');
                 navWrapper.classList.remove('fixed');
-                navProfile.style.display = 'none';
+                navProfile.classList.remove('visible');
             }
-        });
+        }, 10);
+
+        window.addEventListener('scroll', handleScroll);
 
         // Active Navigation
         const sections = document.querySelectorAll('.section');
