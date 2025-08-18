@@ -22,7 +22,10 @@
       "Bash(dir:*)",
       "Bash(git lfs:*)",
       "Bash(git rm:*)",
-      "Bash(ffmpeg:*)"
+      "Bash(ffmpeg:*)",
+      "Bash(cat:*)",
+      "Bash(git check-attr:*)",
+      "WebFetch(domain:api.github.com)"
     ],
     "deny": []
   }
