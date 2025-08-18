@@ -15,7 +15,10 @@
       "Bash(git lfs track:*)",
       "Bash(python:*)",
       "Bash(cp:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(git pull:*)",
+      "Bash(xcopy:*)",
+      "Bash(powershell:*)"
     ],
     "deny": []
   }

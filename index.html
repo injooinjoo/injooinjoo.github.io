@@ -4,38 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InJoo Kim - Project Manager</title>
-    <link rel="icon" type="image/png" href="/img/injookim_favi.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
     <style>
         :root {
             --bg-primary: #ffffff;
+            --bg-primary-rgb: 255, 255, 255;
             --bg-secondary: #f8f9fa;
             --bg-card: #ffffff;
             --text-primary: #000000;
             --text-secondary: #666666;
             --text-muted: #999999;
             --border-color: #e0e0e0;
+            --border-color-rgb: 224, 224, 224;
             --accent-color: #4285f4;
             --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
             --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
             --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
             --nav-bg: rgba(255,255,255,0.95);
+            --nav-bg-opacity: 0.95;
             --profile-border: #f0f0f0;
+            --profile-border-rgb: 240, 240, 240;
         }
 
         [data-theme="dark"] {
             --bg-primary: #1a1a1a;
+            --bg-primary-rgb: 26, 26, 26;
             --bg-secondary: #2a2a2a;
             --bg-card: #2d2d2d;
             --text-primary: #ffffff;
             --text-secondary: #b0b0b0;
             --text-muted: #808080;
             --border-color: #404040;
+            --border-color-rgb: 64, 64, 64;
             --accent-color: #5a9ff9;
             --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
             --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
             --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
             --nav-bg: rgba(26,26,26,0.95);
+            --nav-bg-opacity: 0.95;
             --profile-border: #404040;
+            --profile-border-rgb: 64, 64, 64;
         }
 
         * {
@@ -101,20 +109,15 @@
             padding: 80px 0 60px;
             text-align: center;
             animation: fadeInUp 0.8s ease;
-            transition: all 0.3s ease;
+            transition: none; /* Disable CSS transitions for JS control */
             display: flex;
             flex-direction: column;
             align-items: center;
             position: relative;
+            will-change: padding, opacity;
         }
 
-        .header.scrolled {
-            padding: 15px 0;
-            opacity: 0;
-            pointer-events: none;
-            height: 0;
-            overflow: hidden;
-        }
+        /* Header transitions handled by JavaScript now */
 
         .profile-img {
             width: 300px;
@@ -123,16 +126,17 @@
             margin-bottom: 30px;
             object-fit: cover;
             border: 4px solid var(--profile-border);
-            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+            transition: none; /* Disable CSS transitions for JS control */
             box-shadow: var(--shadow-lg);
+            will-change: transform, opacity;
+            transform-origin: center center;
         }
 
-        .header.scrolled .profile-img {
-            display: none;
-        }
+        /* Profile image transitions handled by JavaScript */
 
         .header-content {
-            transition: all 0.3s ease;
+            transition: none; /* Disable CSS transitions for JS control */
+            will-change: transform, opacity;
         }
 
         h1 {
@@ -181,16 +185,16 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: var(--nav-bg);
+            background: rgba(var(--bg-primary-rgb), var(--nav-bg-opacity));
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            transition: none; /* Disable CSS transitions for JS control */
             margin-bottom: 30px;
+            will-change: box-shadow, background;
+            border-bottom: 1px solid transparent; /* Controlled by JS */
         }
 
-        .nav-wrapper.fixed {
-            box-shadow: var(--shadow-md);
-        }
+        /* Nav wrapper fixed state handled by JavaScript */
 
         .nav-container {
             max-width: 900px;
@@ -207,17 +211,11 @@
             align-items: center;
             gap: 15px;
             padding: 10px 0;
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            pointer-events: none;
+            transition: none; /* Disable CSS transitions for JS control */
+            will-change: transform, opacity;
         }
 
-        .nav-profile.visible {
-            opacity: 1;
-            transform: translateX(0);
-            pointer-events: auto;
-        }
+        /* Nav profile visibility handled by JavaScript */
 
         .nav-profile img {
             width: 40px;
@@ -805,25 +803,145 @@
                     <div class="card-title">
                         <img src="/img/SOOP_LOGO_white_bg.png" alt="SOOP" class="company-logo">
                         <div>
-                            <h3>SOOP (formerly AfreecaTV)</h3>
+                            <h3>SOOP Co., Ltd. (formerly AfreecaTV)</h3>
+                            <p class="company">
+                                <span data-en>Live-streaming Ecosystem Lead</span>
+                                <span data-ko style="display:none">라이브 스트리밍 에코시스템 리드</span>
+                            </p>
+                        </div>
+                    </div>
+                    <span class="date">2016.2 - Present (9+ years)</span>
+                </div>
+                <video autoplay muted loop playsinline style="width: 100%; border-radius: 12px; margin: 20px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <source src="/videos/soop-demo.mp4" type="video/mp4">
+                </video>
+                <p>
+                    <span data-en>Lead growth and operational strategy for a 5,000+ creator ecosystem. Increased active creator engagement by 170% through targeted acquisition and retention programs. Enhanced homepage CTR by 2.3x via data-driven algorithm optimization. Directed large-scale creator events & partnerships (G-Star), boosting participation by 60%.</span>
+                    <span data-ko style="display:none">5,000명 이상의 크리에이터 에코시스템 성장 및 운영 전략 주도. 타겟 획득 및 리텐션 프로그램을 통해 크리에이터 참여도 170% 증가. 데이터 기반 알고리즘 최적화로 홈페이지 CTR 2.3배 향상. G-Star 등 대규모 크리에이터 이벤트 및 파트너십 주도로 참여율 60% 증가.</span>
+                </p>
+                <div class="skills">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Marketing</span>
+                    <span class="skill-tag">Community Management</span>
+                    <span class="skill-tag">Data Analytics</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <img src="/img/MMXXII.png" alt="MMXXII" class="company-logo">
+                        <div>
+                            <h3>MMXXII</h3>
+                            <p class="company">
+                                <span data-en>Founder</span>
+                                <span data-ko style="display:none">창업자</span>
+                            </p>
+                        </div>
+                    </div>
+                    <span class="date">2021.1 - 2024.1</span>
+                </div>
+                <video autoplay muted loop playsinline style="width: 100%; border-radius: 12px; margin: 20px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <source src="/videos/mmxxii.mp4" type="video/mp4">
+                </video>
+                <p>
+                    <span data-en>Founded and scaled an e-commerce venture from zero to $100K/month revenue. Ranked 1st page for 15+ target keywords on Naver/Google. Improved conversion rates by 32% using A/B testing. Built automation pipelines with Python & MongoDB, saving 200+ hours/month.</span>
+                    <span data-ko style="display:none">이커머스 벤처를 창업하여 0에서 월 $100K 매출로 성장. 네이버/구글에서 15개 이상 타겟 키워드 1페이지 랭크. A/B 테스팅으로 전환율 32% 개선. Python & MongoDB로 자동화 파이프라인 구축, 월 200시간 이상 절약.</span>
+                </p>
+                <div class="skills">
+                    <span class="skill-tag">E-commerce</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">SEO/SEM</span>
+                    <span class="skill-tag">Business</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <img src="/img/paranoidjoy.png" alt="POPJOY" class="company-logo">
+                        <div>
+                            <h3>POPJOY</h3>
+                            <p class="company">
+                                <span data-en>Marketing Manager</span>
+                                <span data-ko style="display:none">마케팅 매니저</span>
+                            </p>
+                        </div>
+                    </div>
+                    <span class="date">2015.4 - 2016.1</span>
+                </div>
+                <video autoplay muted loop playsinline style="width: 100%; border-radius: 12px; margin: 20px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <source src="/videos/popjoy-demo.mp4" type="video/mp4">
+                </video>
+                <p>
+                    <span data-en>Led app review processes for Android/iOS, optimizing UX and engagement strategies. Planned and executed targeted in-game events based on behavioral analytics. Managed paid ad campaigns with optimization and A/B testing to maximize ROI.</span>
+                    <span data-ko style="display:none">Android/iOS 앱 리뷰 프로세스를 주도하여 UX 및 참여 전략 최적화. 행동 분석에 기반한 타겟 인게임 이벤트 기획 및 실행. ROI 최대화를 위한 최적화 및 A/B 테스팅으로 유료 광고 캐페인 관리.</span>
+                </p>
+                <div class="skills">
+                    <span class="skill-tag">Marketing</span>
+                    <span class="skill-tag">B2B Marketing</span>
+                    <span class="skill-tag">Advertising</span>
+                    <span class="skill-tag">A/B Testing</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <img src="/img/highbrow_square.png" alt="HighBrow" class="company-logo">
+                        <div>
+                            <h3>highbrow, Inc.</h3>
                             <p class="company">
                                 <span data-en>Project Manager</span>
                                 <span data-ko style="display:none">프로젝트 매니저</span>
                             </p>
                         </div>
                     </div>
-                    <span class="date">2023 - Present</span>
+                    <span class="date">2014.8 - 2014.12</span>
                 </div>
+                <video autoplay muted loop playsinline style="width: 100%; border-radius: 12px; margin: 20px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <source src="/videos/highbrow-demo.mp4" type="video/mp4">
+                </video>
                 <p>
-                    <span data-en>Leading platform growth, creator monetization, and user engagement through data-driven strategies. Managed Creator Monetization Mission System achieving 82% participation and 42% monthly revenue growth. Developed Homepage Personalization Algorithm improving CTR by 2.3x.</span>
-                    <span data-ko style="display:none">데이터 기반 전략을 통한 플랫폼 성장, 크리에이터 수익화 및 사용자 참여 주도. 82% 참여율과 월 42% 수익 성장을 달성한 크리에이터 수익화 미션 시스템 관리. CTR을 2.3배 개선한 홈페이지 개인화 알고리즘 개발.</span>
+                    <span data-en>Coordinated updates and promotions with global game publishers. Secured new publisher contracts and managed G-Star booth operations for maximum brand exposure.</span>
+                    <span data-ko style="display:none">글로벌 게임 퍼블리셔와의 업데이트 및 프로모션 조정. 신규 퍼블리셔 계약 확보 및 최대 브랜드 노출을 위한 G-Star 부스 운영 관리.</span>
                 </p>
                 <div class="skills">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">Firebase</span>
-                    <span class="skill-tag">A/B Testing</span>
-                    <span class="skill-tag">BigQuery</span>
+                    <span class="skill-tag">Business Development</span>
+                    <span class="skill-tag">Social Media</span>
+                    <span class="skill-tag">Event Management</span>
+                    <span class="skill-tag">Publishing</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <img src="/img/ntreev.png" alt="Ntreev Soft" class="company-logo">
+                        <div>
+                            <h3>Ntreev Soft.</h3>
+                            <p class="company">
+                                <span data-en>Project Manager</span>
+                                <span data-ko style="display:none">프로젝트 매니저</span>
+                            </p>
+                        </div>
+                    </div>
+                    <span class="date">2012.3 - 2013.6</span>
+                </div>
+                <video autoplay muted loop playsinline style="width: 100%; border-radius: 12px; margin: 20px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <source src="/videos/ntreev-demo.mp4" type="video/mp4">
+                </video>
+                <p>
+                    <span data-en>Managed global publishing for 'Pangya' (Thailand & U.S.). Designed localized in-game events (e.g., Songkran festival), increasing performance by 130% over previous benchmarks.</span>
+                    <span data-ko style="display:none">'Pangya' 글로벌 퍼블리싱 관리 (태국 & 미국). 현지화된 인게임 이벤트 설계 (송크란 축제 등)로 이전 벤치마크 대비 130% 성과 향상.</span>
+                </p>
+                <div class="skills">
+                    <span class="skill-tag">Business Development</span>
+                    <span class="skill-tag">Spreadsheets</span>
+                    <span class="skill-tag">Global Publishing</span>
+                    <span class="skill-tag">Event Planning</span>
                 </div>
             </div>
 
@@ -1096,40 +1214,147 @@
         }
 
         // Scroll state tracking
-        let isScrolled = false;
         let lastScrollTop = 0;
+        let animationFrame = null;
+        const TRANSITION_START = 0;
+        const TRANSITION_END = 150;
+        const FIXED_THRESHOLD = 120; // When nav becomes fixed
 
-        // Scroll Effects with hysteresis
-        const handleScroll = debounce(function() {
+        // Progressive scroll animation
+        function updateScrollProgress() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             const header = document.getElementById('header');
             const navWrapper = document.getElementById('nav-wrapper');
             const navProfile = document.getElementById('nav-profile');
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const profileImg = document.querySelector('.profile-img');
+            const headerContent = document.querySelector('.header-content');
             
-            // Determine scroll direction
-            const scrollingDown = scrollTop > lastScrollTop;
-            lastScrollTop = scrollTop;
+            // Calculate progress (0 to 1) over transition range
+            const progress = Math.min(Math.max((scrollTop - TRANSITION_START) / (TRANSITION_END - TRANSITION_START), 0), 1);
             
-            // Apply hysteresis: different thresholds for showing/hiding
-            const showThreshold = 120; // Show when scrolling past this
-            const hideThreshold = 80;  // Hide when scrolling back up past this
+            // Easing function for smoother animation
+            const easeInOutCubic = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            const easedProgress = easeInOutCubic(progress);
             
-            if (!isScrolled && scrollTop > showThreshold) {
-                // Transition to scrolled state
-                isScrolled = true;
-                header.classList.add('scrolled');
-                navWrapper.classList.add('fixed');
-                navProfile.classList.add('visible');
-            } else if (isScrolled && scrollTop < hideThreshold) {
-                // Transition back to normal state
-                isScrolled = false;
-                header.classList.remove('scrolled');
-                navWrapper.classList.remove('fixed');
-                navProfile.classList.remove('visible');
+            // Profile image transformations
+            if (profileImg) {
+                const startSize = 300;
+                const endSize = 40;
+                const currentSize = startSize - (startSize - endSize) * easedProgress;
+                const scale = currentSize / startSize;
+                
+                // Calculate position transition - move to nav bar position
+                const viewportWidth = window.innerWidth;
+                const containerPadding = viewportWidth > 900 ? 40 : 20;
+                const targetX = -(viewportWidth / 2 - containerPadding - 70); // Move to left side of nav
+                const currentX = targetX * easedProgress;
+                
+                const targetY = -120; // Move up to nav bar height
+                const currentY = targetY * easedProgress;
+                
+                // Apply transforms
+                profileImg.style.transform = `translate(${currentX}px, ${currentY}px) scale(${scale})`;
+                profileImg.style.zIndex = progress > 0.01 ? '101' : 'auto'; // Above nav during transition
+                
+                // Fade out border as it transitions
+                const borderOpacity = 1 - easedProgress;
+                const borderRgb = getComputedStyle(document.documentElement).getPropertyValue('--profile-border-rgb');
+                profileImg.style.borderColor = `rgba(${borderRgb}, ${borderOpacity})`;
             }
-        }, 10);
+            
+            // Header content fade and scale
+            if (headerContent) {
+                const opacity = Math.max(0, 1 - progress * 1.5); // Fade out faster
+                const scale = 1 - (easedProgress * 0.08); // More subtle scale
+                const translateY = easedProgress * -20; // More upward movement
+                
+                headerContent.style.opacity = opacity;
+                headerContent.style.transform = `translateY(${translateY}px) scale(${scale})`;
+                headerContent.style.pointerEvents = opacity > 0.1 ? 'auto' : 'none';
+            }
+            
+            // Header height and padding with smooth transition
+            if (header) {
+                const startPaddingTop = 80;
+                const startPaddingBottom = 60;
+                const endPadding = 0;
+                
+                const currentPaddingTop = startPaddingTop - (startPaddingTop - endPadding) * easedProgress;
+                const currentPaddingBottom = startPaddingBottom - (startPaddingBottom - endPadding) * easedProgress;
+                
+                header.style.paddingTop = `${currentPaddingTop}px`;
+                header.style.paddingBottom = `${currentPaddingBottom}px`;
+                
+                // Smooth height transition
+                const startHeight = header.scrollHeight;
+                const minHeight = Math.max(0, startHeight * (1 - easedProgress));
+                header.style.minHeight = progress > 0.98 ? '0' : 'auto';
+                
+                // Final fade out
+                const headerOpacity = progress < 0.9 ? 1 : Math.max(0, 1 - ((progress - 0.9) / 0.1) * 2);
+                header.style.opacity = headerOpacity;
+                header.style.pointerEvents = headerOpacity > 0.1 ? 'auto' : 'none';
+                header.style.overflow = progress > 0.9 ? 'hidden' : 'visible';
+            }
+            
+            // Navigation wrapper transitions
+            if (navWrapper) {
+                // Smooth background opacity transition
+                const navBgOpacity = Math.min(0.95, easedProgress * 0.95);
+                navWrapper.style.setProperty('--nav-bg-opacity', navBgOpacity);
+                
+                // Progressive shadow
+                const shadowOpacity = easedProgress * 0.15;
+                const shadowBlur = easedProgress * 12;
+                navWrapper.style.boxShadow = `0 2px ${shadowBlur}px rgba(0, 0, 0, ${shadowOpacity})`;
+                
+                // Smooth border opacity
+                const borderOpacity = easedProgress;
+                const borderRgb = getComputedStyle(document.documentElement).getPropertyValue('--border-color-rgb');
+                navWrapper.style.borderBottomColor = `rgba(${borderRgb}, ${borderOpacity})`;
+                
+                // Fixed positioning at threshold with smooth transition
+                if (scrollTop > FIXED_THRESHOLD && !navWrapper.classList.contains('fixed')) {
+                    navWrapper.classList.add('fixed');
+                } else if (scrollTop <= FIXED_THRESHOLD && navWrapper.classList.contains('fixed')) {
+                    navWrapper.classList.remove('fixed');
+                }
+            }
+            
+            // Nav profile visibility with smooth entrance
+            if (navProfile) {
+                // Delay nav profile appearance until second half of scroll
+                const navProgress = Math.max(0, (progress - 0.4) / 0.6);
+                const navEasedProgress = easeInOutCubic(navProgress);
+                
+                navProfile.style.opacity = navEasedProgress;
+                navProfile.style.transform = `translateX(${(1 - navEasedProgress) * -30}px)`;
+                navProfile.style.pointerEvents = navEasedProgress > 0.1 ? 'auto' : 'none';
+            }
+            
+            lastScrollTop = scrollTop;
+        }
+
+        // Optimized scroll handler using requestAnimationFrame
+        function handleScroll() {
+            if (!animationFrame) {
+                animationFrame = requestAnimationFrame(() => {
+                    updateScrollProgress();
+                    animationFrame = null;
+                });
+            }
+        }
 
         window.addEventListener('scroll', handleScroll);
+        
+        // Initial state
+        updateScrollProgress();
+
+        // Navigation offset calculation
+        function getNavOffset() {
+            const navWrapper = document.getElementById('nav-wrapper');
+            return navWrapper ? navWrapper.offsetHeight + 20 : 100; // nav height + padding
+        }
 
         // Active Navigation
         const sections = document.querySelectorAll('.section');
@@ -1137,10 +1362,15 @@
 
         window.addEventListener('scroll', () => {
             let current = '';
+            const scrollPosition = window.scrollY;
+            const offset = getNavOffset();
+            
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
+                // Check if scroll position is within this section
+                if (scrollPosition >= (sectionTop - offset) && 
+                    scrollPosition < (sectionTop + sectionHeight - offset)) {
                     current = section.getAttribute('id');
                 }
             });
@@ -1160,7 +1390,7 @@
                 const targetId = this.getAttribute('href').slice(1);
                 const targetSection = document.getElementById(targetId);
                 if (targetSection) {
-                    const offset = 80;
+                    const offset = getNavOffset();
                     const targetPosition = targetSection.offsetTop - offset;
                     window.scrollTo({
                         top: targetPosition,
