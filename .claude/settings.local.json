@@ -25,7 +25,10 @@
       "Bash(ffmpeg:*)",
       "Bash(cat:*)",
       "Bash(git check-attr:*)",
-      "WebFetch(domain:api.github.com)"
+      "WebFetch(domain:api.github.com)",
+      "Bash(curl:*)",
+      "WebFetch(domain:sites.google.com)",
+      "WebFetch(domain:www.linkedin.com)"
     ],
     "deny": []
   }

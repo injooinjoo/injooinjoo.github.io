@@ -1054,6 +1054,47 @@
                     <span class="skill-tag">Push Notifications</span>
                 </div>
             </div>
+
+            <div class="card project-card" onclick="openProjectModal(7)">
+                <h3>Homepage Personalization Algorithm</h3>
+                <p>
+                    <span data-en>Revamped content recommendation algorithm achieving 2.3x CTR improvement. Enhanced mid-tier creator visibility through ML-based personalization.</span>
+                    <span data-ko style="display:none">콘텐츠 추천 알고리즘을 개선하여 CTR 2.3배 향상 달성. ML 기반 개인화를 통해 중간 티어 크리에이터 가시성 향상.</span>
+                </p>
+                <div class="skills">
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">BigQuery</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">A/B Testing</span>
+                </div>
+            </div>
+
+            <div class="card project-card" onclick="openProjectModal(8)">
+                <h3>TTS & Voice Integration Upgrade</h3>
+                <p>
+                    <span data-en>Enhanced text-to-speech and voice interaction system improving user engagement and session length.</span>
+                    <span data-ko style="display:none">텍스트 음성 변환 및 음성 상호작용 시스템을 개선하여 사용자 참여도와 세션 시간 향상.</span>
+                </p>
+                <div class="skills">
+                    <span class="skill-tag">Voice AI</span>
+                    <span class="skill-tag">NLP APIs</span>
+                    <span class="skill-tag">User Experience</span>
+                </div>
+            </div>
+
+            <div class="card project-card" onclick="openProjectModal(9)">
+                <h3>BJ Match - Creator Tournament Platform</h3>
+                <p>
+                    <span data-en>Competitive tournament platform for creators with 60% increase in content participation and engagement.</span>
+                    <span data-ko style="display:none">크리에이터를 위한 경쟁 토너먼트 플랫폼으로 콘텐츠 참여도 60% 증가.</span>
+                </p>
+                <div class="skills">
+                    <span class="skill-tag">Real-time Database</span>
+                    <span class="skill-tag">WebSocket</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Gamification</span>
+                </div>
+            </div>
         </section>
 
         <!-- Education Section -->
@@ -1121,27 +1162,9 @@
             </h2>
 
             <div class="card">
-                <h3>AWS Solutions Architect Professional</h3>
-                <p class="company">Amazon Web Services</p>
+                <h3>Google Analytics Individual Qualification (IQ)</h3>
+                <p class="company">Google</p>
                 <span class="date">2023</span>
-            </div>
-
-            <div class="card">
-                <h3>Google Cloud Professional Data Engineer</h3>
-                <p class="company">Google Cloud</p>
-                <span class="date">2023</span>
-            </div>
-
-            <div class="card">
-                <h3>Certified ScrumMaster (CSM)</h3>
-                <p class="company">Scrum Alliance</p>
-                <span class="date">2022</span>
-            </div>
-
-            <div class="card">
-                <h3>Project Management Professional (PMP)</h3>
-                <p class="company">Project Management Institute</p>
-                <span class="date">2021</span>
             </div>
         </section>
 
@@ -1649,6 +1672,102 @@
                 role: {
                     en: "Growth Product Manager driving mobile acquisition strategy. Designed experiments, analyzed user behavior, optimized conversion funnels, and scaled successful initiatives.",
                     ko: "모바일 획득 전략을 주도하는 그로스 제품 관리자. 실험을 설계하고, 사용자 행동을 분석하며, 전환 퍼널을 최적화하고, 성공적인 이니셔티브를 확장했습니다."
+                }
+            },
+            {
+                title: {
+                    en: "Homepage Personalization Algorithm",
+                    ko: "홈페이지 개인화 알고리즘"
+                },
+                subtitle: {
+                    en: "ML-based Content Recommendation System",
+                    ko: "ML 기반 콘텐츠 추천 시스템"
+                },
+                problem: {
+                    en: "Homepage showed generic content leading to low engagement rates. Mid-tier creators struggled to gain visibility against top creators.",
+                    ko: "홈페이지가 일반적인 콘텐츠를 표시하여 낮은 참여율을 보였습니다. 중간 티어 크리에이터들이 상위 크리에이터에 비해 가시성을 확보하기 어려웠습니다."
+                },
+                solution: {
+                    en: "Developed ML-based personalization algorithm analyzing user behavior patterns to deliver tailored content recommendations. Balanced exposure between popular and emerging creators.",
+                    ko: "사용자 행동 패턴을 분석하여 맞춤형 콘텐츠 추천을 제공하는 ML 기반 개인화 알고리즘 개발. 인기 크리에이터와 신흥 크리에이터 간 균형잡힌 노출."
+                },
+                features: {
+                    en: ["Real-time behavior analysis", "Collaborative filtering implementation", "Content-based filtering", "Hybrid recommendation system", "A/B testing framework"],
+                    ko: ["실시간 행동 분석", "협업 필터링 구현", "콘텐츠 기반 필터링", "하이브리드 추천 시스템", "A/B 테스팅 프레임워크"]
+                },
+                metrics: {
+                    ctr: "2.3x",
+                    engagement: "+45%",
+                    diversity: "+60%"
+                },
+                tech: ["Python", "Machine Learning", "BigQuery", "TensorFlow", "A/B Testing"],
+                role: {
+                    en: "PM & Data Analyst designing and implementing recommendation algorithm. Analyzed user data, developed ML models, and optimized for business metrics.",
+                    ko: "추천 알고리즘을 설계하고 구현하는 PM 및 데이터 분석가. 사용자 데이터 분석, ML 모델 개발, 비즈니스 지표 최적화."
+                }
+            },
+            {
+                title: {
+                    en: "TTS & Voice Integration Upgrade",
+                    ko: "TTS 및 음성 통합 업그레이드"
+                },
+                subtitle: {
+                    en: "Enhanced Voice Interaction System",
+                    ko: "향상된 음성 상호작용 시스템"
+                },
+                problem: {
+                    en: "Limited voice interaction capabilities reducing accessibility and user engagement. Text-to-speech quality was poor, affecting content consumption experience.",
+                    ko: "제한된 음성 상호작용 기능으로 접근성과 사용자 참여도가 감소. 텍스트 음성 변환 품질이 낮아 콘텐츠 소비 경험에 영향."
+                },
+                solution: {
+                    en: "Integrated advanced TTS engines and voice AI capabilities. Implemented natural-sounding voice synthesis and improved voice command recognition.",
+                    ko: "고급 TTS 엔진과 음성 AI 기능 통합. 자연스러운 음성 합성 구현 및 음성 명령 인식 개선."
+                },
+                features: {
+                    en: ["Multiple voice options", "Natural language processing", "Real-time voice synthesis", "Voice command system", "Accessibility improvements"],
+                    ko: ["다양한 음성 옵션", "자연어 처리", "실시간 음성 합성", "음성 명령 시스템", "접근성 개선"]
+                },
+                metrics: {
+                    usage: "+120%",
+                    satisfaction: "4.5/5",
+                    session: "+25min"
+                },
+                tech: ["Voice AI", "NLP APIs", "Python", "Audio Processing", "Cloud TTS"],
+                role: {
+                    en: "Product Owner leading voice feature development. Managed vendor relationships, defined requirements, and ensured accessibility compliance.",
+                    ko: "음성 기능 개발을 주도하는 제품 소유자. 벤더 관계 관리, 요구사항 정의, 접근성 규정 준수 보장."
+                }
+            },
+            {
+                title: {
+                    en: "BJ Match - Creator Tournament Platform",
+                    ko: "BJ Match - 크리에이터 토너먼트 플랫폼"
+                },
+                subtitle: {
+                    en: "Competitive Gaming & Content Creation Platform",
+                    ko: "경쟁 게이밍 및 콘텐츠 제작 플랫폼"
+                },
+                problem: {
+                    en: "Creators lacked structured competitive opportunities. No systematic way to showcase skills and grow audience through competitions.",
+                    ko: "크리에이터들에게 체계적인 경쟁 기회가 부족. 경쟁을 통해 기술을 선보이고 청중을 늘릴 체계적인 방법이 없음."
+                },
+                solution: {
+                    en: "Built tournament platform with real-time matchmaking, bracket systems, and live streaming integration. Created seasonal leagues and championship events.",
+                    ko: "실시간 매치메이킹, 토너먼트 브래킷 시스템, 라이브 스트리밍 통합을 갖춘 토너먼트 플랫폼 구축. 시즌 리그와 챔피언십 이벤트 개최."
+                },
+                features: {
+                    en: ["Real-time tournament brackets", "Automated matchmaking", "Live streaming integration", "Prize pool management", "Spectator mode"],
+                    ko: ["실시간 토너먼트 브래킷", "자동화된 매치메이킹", "라이브 스트리밍 통합", "상금 풀 관리", "관전 모드"]
+                },
+                metrics: {
+                    participation: "+60%",
+                    viewership: "+200%",
+                    revenue: "+$500K"
+                },
+                tech: ["Real-time Database", "WebSocket", "React", "Node.js", "Streaming APIs"],
+                role: {
+                    en: "Product Manager designing tournament ecosystem. Coordinated with esports teams, managed prize distributions, and optimized competitive formats.",
+                    ko: "토너먼트 생태계를 설계하는 제품 관리자. e스포츠 팀과 조정, 상금 분배 관리, 경쟁 형식 최적화."
                 }
             }
         ];
