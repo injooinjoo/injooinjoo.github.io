@@ -18,7 +18,11 @@
       "Bash(rm:*)",
       "Bash(git pull:*)",
       "Bash(xcopy:*)",
-      "Bash(powershell:*)"
+      "Bash(powershell:*)",
+      "Bash(dir:*)",
+      "Bash(git lfs:*)",
+      "Bash(git rm:*)",
+      "Bash(ffmpeg:*)"
     ],
     "deny": []
   }
