@@ -1306,6 +1306,174 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Experience Section Styles */
+        .experience-section {
+            background: var(--bg-primary);
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .experience-header {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+        }
+
+        .company-info {
+            text-align: center;
+        }
+
+        .company-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .job-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+        }
+
+        .employment-period {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .company-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .experience-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-block {
+            margin-bottom: 50px;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .achievements-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .achievement-item {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .achievement-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .achievement-header span:first-child {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .impact-metric {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            background: var(--accent-color-alpha);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        .achievement-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .result-item {
+            text-align: center;
+            background: var(--bg-card);
+            padding: 25px 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .result-number {
+            display: block;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+        }
+
+        .result-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-tag {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .company-name {
+                font-size: 2rem;
+            }
+            
+            .job-title {
+                font-size: 1.3rem;
+            }
+
+            .achievement-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1441,242 +1609,113 @@
 
     <!-- Main Content -->
     <div class="container">
-        <!-- SOOP Hero Product Section -->
-        <section class="product-hero" id="soop-hero">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span data-en>Scaling Creator Ecosystems</span>
-                    <span data-ko style="display:none">크리에이터 생태계 확장</span>
-                </h1>
-                <p class="hero-subtitle">
-                    <span data-en>Transforming how 5,000+ creators connect, grow, and monetize on Korea's leading live-streaming platform.</span>
-                    <span data-ko style="display:none">한국 최고의 라이브 스트리밍 플랫폼에서 5,000명 이상의 크리에이터가 연결, 성장, 수익화하는 방식을 혁신합니다.</span>
-                </p>
-                <div class="hero-visual">
-                    <video autoplay muted loop playsinline class="hero-video">
-                        <source src="/videos/soop-demo.mp4" type="video/mp4">
-                    </video>
+        <!-- SOOP Experience Section -->
+        <section class="experience-section" id="soop-hero">
+            <div class="experience-header">
+                <div class="company-info">
+                    <h2 class="company-name">SOOP Co., Ltd.</h2>
+                    <h3 class="job-title">
+                        <span data-en>Live-streaming Ecosystem Lead</span>
+                        <span data-ko style="display:none">라이브 스트리밍 생태계 리드</span>
+                    </h3>
+                    <p class="employment-period">2016.2 - Present (9+ years)</p>
+                    <p class="company-description">
+                        <span data-en>Korea's leading live-streaming platform serving 5,000+ creators</span>
+                        <span data-ko style="display:none">5,000명 이상의 크리에이터를 지원하는 한국 최고의 라이브 스트리밍 플랫폼</span>
+                    </p>
                 </div>
             </div>
-        </section>
 
-        <!-- SOOP Problem Section -->
-        <section class="product-section problem-section">
-            <div class="section-content">
-                <h2 class="section-title">
-                    <span data-en>The Challenge</span>
-                    <span data-ko style="display:none">과제</span>
-                </h2>
-                <div class="problem-grid">
-                    <div class="problem-item reveal-on-scroll">
-                        <h3>
-                            <span data-en>Discovery Gap</span>
-                            <span data-ko style="display:none">발견 격차</span>
-                        </h3>
-                        <p>
-                            <span data-en>Mid-tier creators struggled to reach their audience through traditional homepage algorithms</span>
-                            <span data-ko style="display:none">중간 규모 크리에이터들이 기존 홈페이지 알고리즘으로 청중에게 도달하기 어려웠음</span>
-                        </p>
-                    </div>
-                    <div class="problem-item reveal-on-scroll">
-                        <h3>
-                            <span data-en>Engagement Plateau</span>
-                            <span data-ko style="display:none">참여도 정체</span>
-                        </h3>
-                        <p>
-                            <span data-en>Creator retention rates stagnated as competition intensified across the platform</span>
-                            <span data-ko style="display:none">플랫폼 내 경쟁 심화로 크리에이터 리텐션율이 정체됨</span>
-                        </p>
-                    </div>
-                    <div class="problem-item reveal-on-scroll">
-                        <h3>
-                            <span data-en>Monetization Barriers</span>
-                            <span data-ko style="display:none">수익화 장벽</span>
-                        </h3>
-                        <p>
-                            <span data-en>Limited pathways for creators to build sustainable revenue beyond basic donations</span>
-                            <span data-ko style="display:none">기본 후원 외 크리에이터들이 지속가능한 수익을 구축할 경로 제한</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SOOP Role Section -->
-        <section class="product-section role-section">
-            <div class="section-content">
-                <h2 class="section-title">
-                    <span data-en>My Role</span>
-                    <span data-ko style="display:none">나의 역할</span>
-                </h2>
-                <div class="role-content">
-                    <div class="role-overview">
-                        <h3>
-                            <span data-en>Live-streaming Ecosystem Lead</span>
-                            <span data-ko style="display:none">라이브 스트리밍 생태계 리드</span>
-                        </h3>
-                        <p class="role-period">2016.2 - Present (9+ years) • SOOP Co., Ltd.</p>
-                    </div>
-                    <div class="role-responsibilities">
-                        <div class="responsibility-item">
-                            <span data-en>Product Strategy & Growth</span>
-                            <span data-ko style="display:none">제품 전략 및 성장</span>
+            <div class="experience-content">
+                <!-- Key Responsibilities & Achievements -->
+                <div class="section-block">
+                    <h4 class="section-subtitle">
+                        <span data-en>Key Responsibilities & Achievements</span>
+                        <span data-ko style="display:none">주요 업무 및 성과</span>
+                    </h4>
+                    <div class="achievements-list">
+                        <div class="achievement-item">
+                            <div class="achievement-header">
+                                <span data-en>Personalized Homepage Algorithm</span>
+                                <span data-ko style="display:none">개인화된 홈페이지 알고리즘</span>
+                                <span class="impact-metric">2.3× CTR improvement</span>
+                            </div>
+                            <p class="achievement-description">
+                                <span data-en>Redesigned algorithm to surface relevant creators based on viewing history and engagement patterns, solving discovery gap for mid-tier creators</span>
+                                <span data-ko style="display:none">시청 기록과 참여 패턴을 기반으로 관련 크리에이터를 노출하는 알고리즘 재설계, 중간 규모 크리에이터 발견 문제 해결</span>
+                            </p>
                         </div>
-                        <div class="responsibility-item">
-                            <span data-en>Creator Operations & Community</span>
-                            <span data-ko style="display:none">크리에이터 운영 및 커뮤니티</span>
+                        <div class="achievement-item">
+                            <div class="achievement-header">
+                                <span data-en>Creator Acquisition & Retention Programs</span>
+                                <span data-ko style="display:none">크리에이터 확보 및 리텐션 프로그램</span>
+                                <span class="impact-metric">170% engagement boost</span>
+                            </div>
+                            <p class="achievement-description">
+                                <span data-en">Developed targeted retention strategies and onboarding flows for mid-tier creators, including analytics dashboard and community management</span>
+                                <span data-ko style="display:none">중간 규모 크리에이터를 위한 타겟 리텐션 전략 및 온보딩 플로우 개발, 분석 대시보드 및 커뮤니티 관리 포함</span>
+                            </p>
                         </div>
-                        <div class="responsibility-item">
-                            <span data-en>Data-Driven Algorithm Optimization</span>
-                            <span data-ko style="display:none">데이터 기반 알고리즘 최적화</span>
+                        <div class="achievement-item">
+                            <div class="achievement-header">
+                                <span data-en>Large-scale Event Partnerships</span>
+                                <span data-ko style="display:none">대규모 이벤트 파트너십</span>
+                                <span class="impact-metric">60% participation increase</span>
+                            </div>
+                            <p class="achievement-description">
+                                <span data-en">Orchestrated large-scale creator events like G-Star to boost platform engagement and create monetization opportunities</span>
+                                <span data-ko style="display:none">G-Star와 같은 대규모 크리에이터 이벤트 기획으로 플랫폼 참여도 증대 및 수익화 기회 창출</span>
+                            </p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- SOOP Features Section -->
-        <section class="product-section features-section">
-            <div class="section-content">
-                <h2 class="section-title">
-                    <span data-en>Key Features</span>
-                    <span data-ko style="display:none">주요 기능</span>
-                </h2>
-                <div class="features-grid">
-                    <div class="feature-card reveal-on-scroll">
-                        <div class="feature-icon">🎯</div>
-                        <h3>
-                            <span data-en>Personalized Homepage</span>
-                            <span data-ko style="display:none">개인화된 홈페이지</span>
-                        </h3>
-                        <p class="feature-outcome">2.3× CTR improvement</p>
-                        <p>
-                            <span data-en>Redesigned algorithm to surface relevant creators based on viewing history and engagement patterns</span>
-                            <span data-ko style="display:none">시청 기록과 참여 패턴을 기반으로 관련 크리에이터를 노출하는 알고리즘 재설계</span>
-                        </p>
-                        <span class="feature-proof">A/B Testing & Data Analysis</span>
-                    </div>
-                    <div class="feature-card reveal-on-scroll">
-                        <div class="feature-icon">📈</div>
-                        <h3>
-                            <span data-en>Creator Acquisition Programs</span>
-                            <span data-ko style="display:none">크리에이터 확보 프로그램</span>
-                        </h3>
-                        <p class="feature-outcome">170% engagement boost</p>
-                        <p>
-                            <span data-en>Developed targeted retention strategies and onboarding flows for mid-tier creators</span>
-                            <span data-ko style="display:none">중간 규모 크리에이터를 위한 타겟 리텐션 전략 및 온보딩 플로우 개발</span>
-                        </p>
-                        <span class="feature-proof">Creator Analytics Dashboard</span>
-                    </div>
-                    <div class="feature-card reveal-on-scroll">
-                        <div class="feature-icon">🎪</div>
-                        <h3>
-                            <span data-en>Event Partnerships</span>
-                            <span data-ko style="display:none">이벤트 파트너십</span>
-                        </h3>
-                        <p class="feature-outcome">60% participation increase</p>
-                        <p>
-                            <span data-en>Orchestrated large-scale creator events like G-Star to boost platform engagement</span>
-                            <span data-ko style="display:none">G-Star와 같은 대규모 크리에이터 이벤트 기획으로 플랫폼 참여도 증대</span>
-                        </p>
-                        <span class="feature-proof">Event Analytics & ROI Tracking</span>
+                <!-- Key Results -->
+                <div class="section-block">
+                    <h4 class="section-subtitle">
+                        <span data-en>Key Results</span>
+                        <span data-ko style="display:none">주요 결과</span>
+                    </h4>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <span class="result-number">5,000+</span>
+                            <span class="result-label">
+                                <span data-en>Active Creators</span>
+                                <span data-ko style="display:none">활성 크리에이터</span>
+                            </span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-number">#1</span>
+                            <span class="result-label">
+                                <span data-en">Live Platform KR</span>
+                                <span data-ko style="display:none">국내 라이브 플랫폼</span>
+                            </span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-number">9+</span>
+                            <span class="result-label">
+                                <span data-en">Years Leading</span>
+                                <span data-ko style="display:none">리더십 경험</span>
+                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- SOOP Impact Section -->
-        <section class="product-section impact-section">
-            <div class="section-content">
-                <h2 class="section-title">
-                    <span data-en>Impact & Results</span>
-                    <span data-ko style="display:none">임팩트 및 결과</span>
-                </h2>
-                <div class="impact-grid">
-                    <div class="impact-card reveal-on-scroll">
-                        <div class="before-after">
-                            <div class="before">
-                                <span class="label">Before</span>
-                                <span class="value">Standard Algorithm</span>
-                            </div>
-                            <div class="arrow">→</div>
-                            <div class="after">
-                                <span class="label">After</span>
-                                <span class="value">2.3× CTR</span>
-                            </div>
-                        </div>
-                        <p class="impact-description">Homepage personalization transformation</p>
-                    </div>
-                    <div class="impact-card reveal-on-scroll">
-                        <div class="before-after">
-                            <div class="before">
-                                <span class="label">Before</span>
-                                <span class="value">Declining Retention</span>
-                            </div>
-                            <div class="arrow">→</div>
-                            <div class="after">
-                                <span class="label">After</span>
-                                <span class="value">170% Engagement</span>
-                            </div>
-                        </div>
-                        <p class="impact-description">Creator acquisition & retention programs</p>
-                    </div>
-                    <div class="impact-card reveal-on-scroll">
-                        <div class="before-after">
-                            <div class="before">
-                                <span class="label">Before</span>
-                                <span class="value">Limited Events</span>
-                            </div>
-                            <div class="arrow">→</div>
-                            <div class="after">
-                                <span class="label">After</span>
-                                <span class="value">60% Participation</span>
-                            </div>
-                        </div>
-                        <p class="impact-description">Large-scale event partnerships</p>
-                    </div>
-                </div>
-                <div class="ecosystem-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">5,000+</span>
-                        <span class="stat-label">Active Creators</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">9+</span>
-                        <span class="stat-label">Years Leading</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">#1</span>
-                        <span class="stat-label">Live Platform KR</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SOOP Tech Stack Section -->
-        <section class="product-section tech-section">
-            <div class="section-content">
-                <h2 class="section-title">
-                    <span data-en>Technology & Tools</span>
-                    <span data-ko style="display:none">기술 및 도구</span>
-                </h2>
-                <div class="tech-grid">
-                    <div class="tech-category">
-                        <h4>Data & Analytics</h4>
-                        <div class="tech-items">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">SQL</span>
-                            <span class="tech-tag">Data Analytics</span>
-                        </div>
-                    </div>
-                    <div class="tech-category">
-                        <h4>Growth & Community</h4>
-                        <div class="tech-items">
-                            <span class="tech-tag">Marketing</span>
-                            <span class="tech-tag">Community Management</span>
-                            <span class="tech-tag">Creator Operations</span>
-                        </div>
+                <!-- Technologies Used -->
+                <div class="section-block">
+                    <h4 class="section-subtitle">
+                        <span data-en">Technologies & Skills</span>
+                        <span data-ko style="display:none">기술 및 역량</span>
+                    </h4>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">Data Analytics</span>
+                        <span class="tech-tag">A/B Testing</span>
+                        <span class="tech-tag">Product Strategy</span>
+                        <span class="tech-tag">Creator Operations</span>
+                        <span class="tech-tag">Community Management</span>
+                        <span class="tech-tag">Event Management</span>
                     </div>
                 </div>
             </div>
