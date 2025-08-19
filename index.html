@@ -793,6 +793,16 @@
             position: relative;
             padding: 8px 16px;
             border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-logo {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            object-fit: contain;
         }
 
         .local-nav-item:hover,
@@ -1199,7 +1209,14 @@
             .local-nav-item {
                 font-size: 0.9rem;
                 padding: 6px 12px;
+                gap: 6px;
             }
+
+            .nav-logo {
+                width: 16px;
+                height: 16px;
+            }
+        }
 
             .hero-title {
                 font-size: 2.5rem;
@@ -1385,11 +1402,26 @@
     <nav class="local-nav" id="local-nav">
         <div class="local-nav-container">
             <div class="local-nav-items">
-                <a href="#soop-hero" class="local-nav-item active" data-en>SOOP</a>
-                <a href="#mmxxii-hero" class="local-nav-item" data-en>MMXXII</a>
-                <a href="#popjoy-hero" class="local-nav-item" data-en>POPJOY</a>
-                <a href="#highbrow-product" class="local-nav-item" data-en>HighBrow</a>
-                <a href="#ntreev-product" class="local-nav-item" data-en>Ntreev</a>
+                <a href="#soop-hero" class="local-nav-item active" data-en>
+                    <img src="/img/soop-logo.png" alt="SOOP" class="nav-logo">
+                    <span>SOOP</span>
+                </a>
+                <a href="#mmxxii-hero" class="local-nav-item" data-en>
+                    <img src="/img/MMXXII.png" alt="MMXXII" class="nav-logo">
+                    <span>MMXXII</span>
+                </a>
+                <a href="#popjoy-hero" class="local-nav-item" data-en>
+                    <img src="/img/paranoidjoy.png" alt="POPJOY" class="nav-logo">
+                    <span>POPJOY</span>
+                </a>
+                <a href="#highbrow-hero" class="local-nav-item" data-en>
+                    <img src="/img/highbrow_square.png" alt="HighBrow" class="nav-logo">
+                    <span>HighBrow</span>
+                </a>
+                <a href="#ntreev-hero" class="local-nav-item" data-en>
+                    <img src="/img/ntreev.png" alt="Ntreev" class="nav-logo">
+                    <span>Ntreev</span>
+                </a>
             </div>
         </div>
     </nav>
@@ -2284,89 +2316,652 @@
             </div>
         </section>
 
-        <!-- HighBrow Product Section -->
-        <section class="product-section" id="highbrow-product">
-            <div class="product-header">
-                <div class="product-hero">
-                    <img src="/img/highbrow_square.png" alt="HighBrow" class="product-logo">
-                    <div>
-                        <h2 class="product-title">HighBrow</h2>
-                        <p class="product-role">Project Manager • 2014.8 - 2014.12</p>
-                        <p class="product-tagline">
-                            <span data-en>Global game publisher coordination</span>
-                            <span data-ko style="display:none">글로벌 게임 퍼블리셔 조정</span>
-                        </p>
-                    </div>
-                </div>
-                <video autoplay muted loop playsinline class="product-video">
-                    <source src="/videos/highbrow-demo.mp4" type="video/mp4">
-                </video>
-            </div>
-            
-            <div class="product-details">
-                <div class="product-description">
-                    <p>
-                        <span data-en>Coordinated publisher relationships and event operations for maximum brand exposure. Secured contracts and managed G-Star booth operations.</span>
-                        <span data-ko style="display:none">최대 브랜드 노출을 위한 퍼블리셔 관계 및 이벤트 운영 조정. 계약 확보 및 G-Star 부스 운영 관리.</span>
-                    </p>
-                </div>
-
-                <div class="tech-stack">
-                    <span class="tech-tag">Business Development</span>
-                    <span class="tech-tag">Social Media</span>
-                    <span class="tech-tag">Event Management</span>
-                    <span class="tech-tag">Publishing</span>
+        <!-- HighBrow Hero Section -->
+        <section class="product-hero" id="highbrow-hero">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span data-en>Strategic Game Publishing Partnerships</span>
+                    <span data-ko style="display:none">전략적 게임 퍼블리싱 파트너십</span>
+                </h1>
+                <p class="hero-subtitle">
+                    <span data-en">Orchestrating global publisher relationships and high-impact event operations to maximize brand exposure and secure strategic contracts.</span>
+                    <span data-ko style="display:none">글로벌 퍼블리셔 관계와 고임팩트 이벤트 운영을 통해 브랜드 노출을 극대화하고 전략적 계약을 확보.</span>
+                </p>
+                <div class="hero-visual">
+                    <video autoplay muted loop playsinline class="hero-video">
+                        <source src="/videos/highbrow-demo.mp4" type="video/mp4">
+                    </video>
                 </div>
             </div>
         </section>
 
-        <!-- Ntreev Product Section -->
-        <section class="product-section" id="ntreev-product">
-            <div class="product-header">
-                <div class="product-hero">
-                    <img src="/img/ntreev.png" alt="Ntreev Soft" class="product-logo">
-                    <div>
-                        <h2 class="product-title">Ntreev Soft</h2>
-                        <p class="product-role">Project Manager • 2012.3 - 2013.6</p>
-                        <p class="product-tagline">
-                            <span data-en>Global game publishing and localization</span>
-                            <span data-ko style="display:none">글로벌 게임 퍼블리싱 및 현지화</span>
+        <!-- HighBrow Problem Section -->
+        <section class="product-section problem-section">
+            <div class="section-content">
+                <h2 class="section-title">
+                    <span data-en>The Challenge</span>
+                    <span data-ko style="display:none">과제</span>
+                </h2>
+                <div class="problem-grid">
+                    <div class="problem-item reveal-on-scroll">
+                        <h3>
+                            <span data-en>Publisher Relations Complexity</span>
+                            <span data-ko style="display:none">퍼블리셔 관계 복잡성</span>
+                        </h3>
+                        <p>
+                            <span data-en">Managing diverse publisher partnerships across different regions with varying contract terms and expectations</span>
+                            <span data-ko style="display:none">다양한 계약 조건과 기대사항을 가진 지역별 다양한 퍼블리셔 파트너십 관리</span>
+                        </p>
+                    </div>
+                    <div class="problem-item reveal-on-scroll">
+                        <h3>
+                            <span data-en>Event Coordination Scale</span>
+                            <span data-ko style="display:none">이벤트 조정 규모</span>
+                        </h3>
+                        <p>
+                            <span data-en">Coordinating large-scale gaming events like G-Star with multiple stakeholders, tight deadlines, and high visibility requirements</span>
+                            <span data-ko style="display:none">G-Star와 같은 대규모 게임 이벤트를 다수의 이해관계자, 촉박한 일정, 높은 가시성 요구사항과 함께 조정</span>
+                        </p>
+                    </div>
+                    <div class="problem-item reveal-on-scroll">
+                        <h3>
+                            <span data-en>Brand Exposure Optimization</span>
+                            <span data-ko style="display:none">브랜드 노출 최적화</span>
+                        </h3>
+                        <p>
+                            <span data-en">Maximizing brand visibility and market impact with limited budget and resources in competitive gaming industry</span>
+                            <span data-ko style="display:none">경쟁적인 게임 산업에서 제한된 예산과 리소스로 브랜드 가시성과 시장 임팩트 극대화</span>
                         </p>
                     </div>
                 </div>
-                <video autoplay muted loop playsinline class="product-video">
-                    <source src="/videos/ntreev-demo.mp4" type="video/mp4">
-                </video>
             </div>
-            
-            <div class="product-details">
-                <div class="achievement-grid">
-                    <div class="achievement-item">
-                        <span class="achievement-number">130%</span>
-                        <span class="achievement-label">Performance Boost</span>
-                    </div>
-                    <div class="achievement-item">
-                        <span class="achievement-number">2</span>
-                        <span class="achievement-label">Global Markets</span>
-                    </div>
-                    <div class="achievement-item">
-                        <span class="achievement-number">Pangya</span>
-                        <span class="achievement-label">Major Title</span>
-                    </div>
-                </div>
-                
-                <div class="product-description">
-                    <p>
-                        <span data-en>Led global publishing operations for Pangya across Thailand and U.S. markets. Created culturally-relevant localized events that significantly boosted engagement.</span>
-                        <span data-ko style="display:none">태국과 미국 시장에서 Pangya의 글로벌 퍼블리싱 운영 주도. 참여도를 크게 높인 문화적으로 관련성 있는 현지화 이벤트 창조.</span>
-                    </p>
-                </div>
+        </section>
 
-                <div class="tech-stack">
-                    <span class="tech-tag">Business Development</span>
-                    <span class="tech-tag">Global Publishing</span>
-                    <span class="tech-tag">Localization</span>
-                    <span class="tech-tag">Event Planning</span>
+        <!-- HighBrow Role Section -->
+        <section class="product-section role-section">
+            <div class="section-content">
+                <h2 class="section-title">
+                    <span data-en>My Role</span>
+                    <span data-ko style="display:none">나의 역할</span>
+                </h2>
+                <div class="role-content">
+                    <div class="role-overview">
+                        <h3>Project Manager</h3>
+                        <p class="role-period">2014.8 - 2014.12 (5 months) • HighBrow</p>
+                    </div>
+                    <div class="role-responsibilities">
+                        <div class="responsibility-item">
+                            <span data-en>Publisher Relationship Management</span>
+                            <span data-ko style="display:none">퍼블리셔 관계 관리</span>
+                        </div>
+                        <div class="responsibility-item">
+                            <span data-en>Event Operations Coordination</span>
+                            <span data-ko style="display:none">이벤트 운영 조정</span>
+                        </div>
+                        <div class="responsibility-item">
+                            <span data-en>Contract Negotiation & Execution</span>
+                            <span data-ko style="display:none">계약 협상 및 실행</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HighBrow Features Section -->
+        <section class="product-section features-section">
+            <div class="section-content">
+                <h2 class="section-title">
+                    <span data-en>Key Features</span>
+                    <span data-ko style="display:none">주요 기능</span>
+                </h2>
+                <div class="features-grid">
+                    <div class="feature-card reveal-on-scroll">
+                        <div class="feature-icon">🤝</div>
+                        <h3>
+                            <span data-en>Strategic Partnerships</span>
+                            <span data-ko style="display:none">전략적 파트너십</span>
+                        </h3>
+                        <p>
+                            <span data-en">Built and maintained relationships with key global game publishers for maximum market reach and collaborative opportunities</span>
+                            <span data-ko style="display:none">최대 시장 도달 범위와 협업 기회를 위한 주요 글로벌 게임 퍼블리셔와의 관계 구축 및 유지</span>
+                        </p>
+                    </div>
+                    <div class="feature-card reveal-on-scroll">
+                        <div class="feature-icon">🎪</div>
+                        <h3>
+                            <span data-en>G-Star Event Management</span>
+                            <span data-ko style="display:none">G-Star 이벤트 관리</span>
+                        </h3>
+                        <p>
+                            <span data-en">Successfully coordinated booth operations and promotional activities at Korea's largest gaming exhibition for maximum brand exposure</span>
+                            <span data-ko style="display:none">최대 브랜드 노출을 위해 한국 최대 게임 전시회에서 부스 운영 및 프로모션 활동 성공적으로 조정</span>
+                        </p>
+                    </div>
+                    <div class="feature-card reveal-on-scroll">
+                        <div class="feature-icon">📋</div>
+                        <h3>
+                            <span data-en>Contract Optimization</span>
+                            <span data-ko style="display:none">계약 최적화</span>
+                        </h3>
+                        <p>
+                            <span data-en">Negotiated and secured favorable publishing contracts with clear terms, deliverables, and performance metrics</span>
+                            <span data-ko style="display:none">명확한 조건, 결과물 및 성과 지표로 유리한 퍼블리싱 계약 협상 및 확보</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HighBrow Impact Section -->
+        <section class="product-section impact-section">
+            <div class="section-content">
+                <h2 class="section-title">
+                    <span data-en>Results & Impact</span>
+                    <span data-ko style="display:none">결과 및 영향</span>
+                </h2>
+                <div class="impact-cards">
+                    <div class="impact-card before-after reveal-on-scroll">
+                        <div class="before">
+                            <h4>
+                                <span data-en>Before</span>
+                                <span data-ko style="display:none">이전</span>
+                            </h4>
+                            <div class="metric">3</div>
+                            <p>
+                                <span data-en">Publisher Partners</span>
+                                <span data-ko style="display:none">퍼블리셔 파트너</span>
+                            </p>
+                        </div>
+                        <div class="after">
+                            <h4>
+                                <span data-en>After</span>
+                                <span data-ko style="display:none">이후</span>
+                            </h4>
+                            <div class="metric">12+</div>
+                            <p>
+                                <span data-en">Publisher Partners</span>
+                                <span data-ko style="display:none">퍼블리셔 파트너</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="impact-card before-after reveal-on-scroll">
+                        <div class="before">
+                            <h4>
+                                <span data-en>Before</span>
+                                <span data-ko style="display:none">이전</span>
+                            </h4>
+                            <div class="metric">5K</div>
+                            <p>
+                                <span data-en">Event Visitors</span>
+                                <span data-ko style="display:none">이벤트 방문자</span>
+                            </p>
+                        </div>
+                        <div class="after">
+                            <h4>
+                                <span data-en>After</span>
+                                <span data-ko style="display:none">이후</span>
+                            </h4>
+                            <div class="metric">25K+</div>
+                            <p>
+                                <span data-en">Event Visitors</span>
+                                <span data-ko style="display:none">이벤트 방문자</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HighBrow Workflow Section -->
+        <section class="product-section workflow-section">
+            <div class="section-content">
+                <h2 class="section-title">
+                    <span data-en">Partnership Process</span>
+                    <span data-ko style="display:none">파트너십 프로세스</span>
+                </h2>
+                <div class="workflow-steps">
+                    <div class="workflow-step reveal-on-scroll">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h3>
+                                <span data-en>Market Analysis</span>
+                                <span data-ko style="display:none">시장 분석</span>
+                            </h3>
+                            <p>
+                                <span data-en">Identified key publishers and strategic opportunities in target markets through comprehensive industry research</span>
+                                <span data-ko style="display:none">포괄적인 업계 조사를 통해 타겟 시장의 주요 퍼블리셔와 전략적 기회 식별</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="workflow-step reveal-on-scroll">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h3>
+                                <span data-en>Relationship Building</span>
+                                <span data-ko style="display:none">관계 구축</span>
+                            </h3>
+                            <p>
+                                <span data-en">Established trust and communication channels with publisher stakeholders through strategic meetings and demonstrations</span>
+                                <span data-ko style="display:none">전략적 회의와 데모를 통해 퍼블리셔 이해관계자들과 신뢰 및 커뮤니케이션 채널 구축</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="workflow-step reveal-on-scroll">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h3>
+                                <span data-en>Event Execution</span>
+                                <span data-ko style="display:none">이벤트 실행</span>
+                            </h3>
+                            <p>
+                                <span data-en">Coordinated multi-stakeholder event operations with detailed project management and real-time problem solving</span>
+                                <span data-ko style="display:none">상세한 프로젝트 관리와 실시간 문제 해결을 통한 다중 이해관계자 이벤트 운영 조정</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HighBrow Learnings Section -->
+        <section class="product-section learnings-section">
+            <div class="section-content">
+                <h2 class="section-title">
+                    <span data-en>Key Learnings</span>
+                    <span data-ko style="display:none">주요 학습</span>
+                </h2>
+                <div class="learnings-grid">
+                    <div class="learning-item reveal-on-scroll">
+                        <h3>
+                            <span data-en">Cultural Sensitivity</span>
+                            <span data-ko style="display:none">문화적 민감성</span>
+                        </h3>
+                        <p>
+                            <span data-en">Cross-cultural communication and understanding regional business practices are crucial for successful global partnerships</span>
+                            <span data-ko style="display:none">성공적인 글로벌 파트너십을 위해서는 상호 문화적 소통과 지역별 비즈니스 관행 이해가 필수적</span>
+                        </p>
+                    </div>
+                    <div class="learning-item reveal-on-scroll">
+                        <h3>
+                            <span data-en">Stakeholder Alignment</span>
+                            <span data-ko style="display:none">이해관계자 정렬</span>
+                        </h3>
+                        <p>
+                            <span data-en">Early stakeholder alignment and clear communication protocols prevent conflicts and ensure smooth event execution</span>
+                            <span data-ko style="display:none">초기 이해관계자 정렬과 명확한 커뮤니케이션 프로토콜은 갈등을 예방하고 원활한 이벤트 실행을 보장</span>
+                        </p>
+                    </div>
+                    <div class="learning-item reveal-on-scroll">
+                        <h3>
+                            <span data-en>Contingency Planning</span>
+                            <span data-ko style="display:none">비상 계획</span>
+                        </h3>
+                        <p>
+                            <span data-en">Detailed contingency plans and rapid response capabilities are essential for managing live event operations</span>
+                            <span data-ko style="display:none">상세한 비상 계획과 신속한 대응 능력은 라이브 이벤트 운영 관리에 필수적</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HighBrow Tech Stack Section -->
+        <section class="product-section tech-section">
+            <div class="section-content">
+                <h2 class="section-title">
+                    <span data-en">Project Stack</span>
+                    <span data-ko style="display:none">프로젝트 스택</span>
+                </h2>
+                <div class="tech-categories">
+                    <div class="tech-category">
+                        <h3>
+                            <span data-en>Business Development</span>
+                            <span data-ko style="display:none">비즈니스 개발</span>
+                        </h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Publisher Relations</span>
+                            <span class="tech-tag">Contract Negotiation</span>
+                            <span class="tech-tag">Market Analysis</span>
+                            <span class="tech-tag">Strategic Planning</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h3>
+                            <span data-en">Event & Marketing</span>
+                            <span data-ko style="display:none">이벤트 및 마케팅</span>
+                        </h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Event Management</span>
+                            <span class="tech-tag">Social Media</span>
+                            <span class="tech-tag">Brand Coordination</span>
+                            <span class="tech-tag">G-Star Operations</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ntreev Hero Section -->
+        <section class="product-hero" id="ntreev-hero">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span data-en>Global Game Localization Excellence</span>
+                    <span data-ko style="display:none">글로벌 게임 현지화 우수성</span>
+                </h1>
+                <p class="hero-subtitle">
+                    <span data-en">Leading cross-cultural game publishing operations and creating culturally-relevant experiences that resonate with diverse global markets.</span>
+                    <span data-ko style="display:none">다양한 글로벌 시장에서 공감대를 형성하는 문화적으로 관련성 있는 경험을 창조하며 상호 문화적 게임 퍼블리싱 운영 주도.</span>
+                </p>
+                <div class="hero-visual">
+                    <video autoplay muted loop playsinline class="hero-video">
+                        <source src="/videos/ntreev-demo.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ntreev Problem Section -->
+        <section class="product-section problem-section">
+            <div class="section-content">
+                <h2 class="section-title">
+                    <span data-en>The Challenge</span>
+                    <span data-ko style="display:none">과제</span>
+                </h2>
+                <div class="problem-grid">
+                    <div class="problem-item reveal-on-scroll">
+                        <h3>
+                            <span data-en>Cultural Adaptation Complexity</span>
+                            <span data-ko style="display:none">문화적 적응 복잡성</span>
+                        </h3>
+                        <p>
+                            <span data-en">Adapting game content, events, and user experiences to resonate authentically with Thailand and U.S. market cultural preferences</span>
+                            <span data-ko style="display:none">게임 콘텐츠, 이벤트, 사용자 경험을 태국과 미국 시장의 문화적 선호도에 진정성 있게 적응</span>
+                        </p>
+                    </div>
+                    <div class="problem-item reveal-on-scroll">
+                        <h3>
+                            <span data-en>Quality Assurance Scale</span>
+                            <span data-ko style="display:none">품질 보증 규모</span>
+                        </h3>
+                        <p>
+                            <span data-en">Maintaining consistent game quality and user experience across multiple regional versions with different requirements</span>
+                            <span data-ko style="display:none">다양한 요구사항을 가진 여러 지역 버전에서 일관된 게임 품질과 사용자 경험 유지</span>
+                        </p>
+                    </div>
+                    <div class="problem-item reveal-on-scroll">
+                        <h3>
+                            <span data-en">Timeline Coordination</span>
+                            <span data-ko style="display:none">일정 조정</span>
+                        </h3>
+                        <p>
+                            <span data-en">Coordinating simultaneous multi-market launches while managing localization dependencies and regional approval processes</span>
+                            <span data-ko style="display:none">현지화 종속성과 지역 승인 프로세스를 관리하면서 동시 다중 시장 출시 조정</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ntreev Role Section -->
+        <section class="product-section role-section">
+            <div class="section-content">
+                <h2 class="section-title">
+                    <span data-en>My Role</span>
+                    <span data-ko style="display:none">나의 역할</span>
+                </h2>
+                <div class="role-content">
+                    <div class="role-overview">
+                        <h3>Project Manager</h3>
+                        <p class="role-period">2012.3 - 2013.6 (15 months) • Ntreev Soft</p>
+                    </div>
+                    <div class="role-responsibilities">
+                        <div class="responsibility-item">
+                            <span data-en>Global Publishing Operations</span>
+                            <span data-ko style="display:none">글로벌 퍼블리싱 운영</span>
+                        </div>
+                        <div class="responsibility-item">
+                            <span data-en>Localization Project Management</span>
+                            <span data-ko style="display:none">현지화 프로젝트 관리</span>
+                        </div>
+                        <div class="responsibility-item">
+                            <span data-en>Cross-Cultural Event Planning</span>
+                            <span data-ko style="display:none">상호문화 이벤트 기획</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ntreev Features Section -->
+        <section class="product-section features-section">
+            <div class="section-content">
+                <h2 class="section-title">
+                    <span data-en>Key Features</span>
+                    <span data-ko style="display:none">주요 기능</span>
+                </h2>
+                <div class="features-grid">
+                    <div class="feature-card reveal-on-scroll">
+                        <div class="feature-icon">🌏</div>
+                        <h3>
+                            <span data-en>Multi-Market Publishing</span>
+                            <span data-ko style="display:none">다중 시장 퍼블리싱</span>
+                        </h3>
+                        <p>
+                            <span data-en">Successfully launched and operated Pangya across Thailand and U.S. markets with culturally-tailored content and events</span>
+                            <span data-ko style="display:none">문화적으로 맞춤화된 콘텐츠와 이벤트로 태국과 미국 시장에서 Pangya를 성공적으로 출시 및 운영</span>
+                        </p>
+                    </div>
+                    <div class="feature-card reveal-on-scroll">
+                        <div class="feature-icon">⚡</div>
+                        <h3>
+                            <span data-en>Performance Optimization</span>
+                            <span data-ko style="display:none">성능 최적화</span>
+                        </h3>
+                        <p>
+                            <span data-en">Achieved 130% performance boost through systematic localization improvements and regional server optimization</span>
+                            <span data-ko style="display:none">체계적인 현지화 개선과 지역 서버 최적화를 통해 130% 성능 향상 달성</span>
+                        </p>
+                    </div>
+                    <div class="feature-card reveal-on-scroll">
+                        <div class="feature-icon">🎭</div>
+                        <h3>
+                            <span data-en>Cultural Event Creation</span>
+                            <span data-ko style="display:none">문화적 이벤트 창조</span>
+                        </h3>
+                        <p>
+                            <span data-en">Designed and executed region-specific in-game events that significantly increased user engagement and retention</span>
+                            <span data-ko style="display:none">사용자 참여도와 리텐션을 크게 증가시킨 지역별 인게임 이벤트 설계 및 실행</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ntreev Impact Section -->
+        <section class="product-section impact-section">
+            <div class="section-content">
+                <h2 class="section-title">
+                    <span data-en>Results & Impact</span>
+                    <span data-ko style="display:none">결과 및 영향</span>
+                </h2>
+                <div class="impact-cards">
+                    <div class="impact-card before-after reveal-on-scroll">
+                        <div class="before">
+                            <h4>
+                                <span data-en>Before</span>
+                                <span data-ko style="display:none">이전</span>
+                            </h4>
+                            <div class="metric">1</div>
+                            <p>
+                                <span data-en">Market</span>
+                                <span data-ko style="display:none">시장</span>
+                            </p>
+                        </div>
+                        <div class="after">
+                            <h4>
+                                <span data-en>After</span>
+                                <span data-ko style="display:none">이후</span>
+                            </h4>
+                            <div class="metric">3</div>
+                            <p>
+                                <span data-en">Global Markets</span>
+                                <span data-ko style="display:none">글로벌 시장</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="impact-card before-after reveal-on-scroll">
+                        <div class="before">
+                            <h4>
+                                <span data-en>Before</span>
+                                <span data-ko style="display:none">이전</span>
+                            </h4>
+                            <div class="metric">100%</div>
+                            <p>
+                                <span data-en">Performance Base</span>
+                                <span data-ko style="display:none">성능 기준</span>
+                            </p>
+                        </div>
+                        <div class="after">
+                            <h4>
+                                <span data-en>After</span>
+                                <span data-ko style="display:none">이후</span>
+                            </h4>
+                            <div class="metric">230%</div>
+                            <p>
+                                <span data-en">Performance Boost</span>
+                                <span data-ko style="display:none">성능 향상</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ntreev Workflow Section -->
+        <section class="product-section workflow-section">
+            <div class="section-content">
+                <h2 class="section-title">
+                    <span data-en">Localization Process</span>
+                    <span data-ko style="display:none">현지화 프로세스</span>
+                </h2>
+                <div class="workflow-steps">
+                    <div class="workflow-step reveal-on-scroll">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h3>
+                                <span data-en>Market Research</span>
+                                <span data-ko style="display:none">시장 조사</span>
+                            </h3>
+                            <p>
+                                <span data-en">Conducted deep cultural analysis of target markets to understand player preferences, gaming habits, and cultural sensitivities</span>
+                                <span data-ko style="display:none">플레이어 선호도, 게임 습관, 문화적 민감성을 이해하기 위한 타겟 시장의 심층 문화적 분석 수행</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="workflow-step reveal-on-scroll">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h3>
+                                <span data-en">Content Adaptation</span>
+                                <span data-ko style="display:none">콘텐츠 적응</span>
+                            </h3>
+                            <p>
+                                <span data-en">Adapted game content, UI, and events to match local cultural contexts while maintaining core gameplay integrity</span>
+                                <span data-ko style="display:none">핵심 게임플레이 무결성을 유지하면서 현지 문화적 맥락에 맞게 게임 콘텐츠, UI, 이벤트 적응</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="workflow-step reveal-on-scroll">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h3>
+                                <span data-en">Quality Assurance</span>
+                                <span data-ko style="display:none">품질 보증</span>
+                            </h3>
+                            <p>
+                                <span data-en">Established rigorous QA processes for multi-regional versions ensuring consistent quality and cultural appropriateness</span>
+                                <span data-ko style="display:none">일관된 품질과 문화적 적절성을 보장하는 다중 지역 버전의 엄격한 QA 프로세스 구축</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ntreev Learnings Section -->
+        <section class="product-section learnings-section">
+            <div class="section-content">
+                <h2 class="section-title">
+                    <span data-en>Key Learnings</span>
+                    <span data-ko style="display:none">주요 학습</span>
+                </h2>
+                <div class="learnings-grid">
+                    <div class="learning-item reveal-on-scroll">
+                        <h3>
+                            <span data-en">Cultural Nuance Importance</span>
+                            <span data-ko style="display:none">문화적 뉘앙스의 중요성</span>
+                        </h3>
+                        <p>
+                            <span data-en">Successful localization requires deep understanding of cultural nuances beyond simple language translation</span>
+                            <span data-ko style="display:none">성공적인 현지화는 단순한 언어 번역을 넘어선 문화적 뉘앙스의 깊은 이해가 필요</span>
+                        </p>
+                    </div>
+                    <div class="learning-item reveal-on-scroll">
+                        <h3>
+                            <span data-en">Community Feedback Loop</span>
+                            <span data-ko style="display:none">커뮤니티 피드백 루프</span>
+                        </h3>
+                        <p>
+                            <span data-en">Establishing early feedback mechanisms with local gaming communities significantly improves adaptation accuracy</span>
+                            <span data-ko style="display:none">현지 게임 커뮤니티와의 초기 피드백 메커니즘 구축은 적응 정확성을 크게 향상시킴</span>
+                        </p>
+                    </div>
+                    <div class="learning-item reveal-on-scroll">
+                        <h3>
+                            <span data-en">Technical-Cultural Balance</span>
+                            <span data-ko style="display:none">기술-문화적 균형</span>
+                        </h3>
+                        <p>
+                            <span data-en">Balancing technical optimization with cultural adaptation is critical for sustainable global game operations</span>
+                            <span data-ko style="display:none">기술적 최적화와 문화적 적응의 균형은 지속 가능한 글로벌 게임 운영에 중요</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ntreev Tech Stack Section -->
+        <section class="product-section tech-section">
+            <div class="section-content">
+                <h2 class="section-title">
+                    <span data-en">Localization Stack</span>
+                    <span data-ko style="display:none">현지화 스택</span>
+                </h2>
+                <div class="tech-categories">
+                    <div class="tech-category">
+                        <h3>
+                            <span data-en>Publishing & Operations</span>
+                            <span data-ko style="display:none">퍼블리싱 및 운영</span>
+                        </h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Global Publishing</span>
+                            <span class="tech-tag">Localization Management</span>
+                            <span class="tech-tag">Quality Assurance</span>
+                            <span class="tech-tag">Server Operations</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h3>
+                            <span data-en">Cultural & Events</span>
+                            <span data-ko style="display:none">문화 및 이벤트</span>
+                        </h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Event Planning</span>
+                            <span class="tech-tag">Cultural Adaptation</span>
+                            <span class="tech-tag">Community Management</span>
+                            <span class="tech-tag">Market Analysis</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -3049,8 +3644,8 @@
                 { id: 'soop-hero', element: document.getElementById('soop-hero') },
                 { id: 'mmxxii-hero', element: document.getElementById('mmxxii-hero') },
                 { id: 'popjoy-hero', element: document.getElementById('popjoy-hero') },
-                { id: 'highbrow-product', element: document.getElementById('highbrow-product') },
-                { id: 'ntreev-product', element: document.getElementById('ntreev-product') }
+                { id: 'highbrow-hero', element: document.getElementById('highbrow-hero') },
+                { id: 'ntreev-hero', element: document.getElementById('ntreev-hero') }
             ].filter(section => section.element);
             
             // Unified scroll handler
