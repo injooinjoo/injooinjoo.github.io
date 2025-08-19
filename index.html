@@ -243,6 +243,11 @@
             will-change: transform, opacity;
         }
 
+        .nav-profile:hover {
+            opacity: 0.8;
+            transform: scale(0.98);
+        }
+
         /* Nav profile visibility handled by JavaScript */
 
         .nav-profile img {
@@ -1354,7 +1359,7 @@
     <!-- Navigation -->
     <div class="nav-wrapper" id="nav-wrapper">
         <div class="nav-container">
-            <div class="nav-profile" id="nav-profile">
+            <div class="nav-profile" id="nav-profile" onclick="scrollToTop()" style="cursor: pointer;">
                 <img src="/img/profile.jpg" alt="InJoo Kim">
                 <div class="nav-profile-info">
                     <h3>InJoo Kim</h3>
@@ -1368,7 +1373,7 @@
                 <span></span>
             </button>
             <nav id="nav-menu">
-                <a href="#experience" class="active">
+                <a href="#soop-hero" class="active">
                     <span data-en>Experience</span>
                     <span data-ko style="display:none">경력</span>
                 </a>
@@ -3232,6 +3237,14 @@
     </div>
 
     <script>
+        // Scroll to Top Function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
         // Theme Toggle
         function toggleTheme() {
             const currentTheme = document.documentElement.getAttribute('data-theme');
