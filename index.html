@@ -2472,34 +2472,189 @@
             return navWrapper ? navWrapper.offsetHeight + 20 : 100; // nav height + padding
         }
 
-        // Active Navigation
-        const sections = document.querySelectorAll('.section');
-        const navLinks = document.querySelectorAll('nav a');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const scrollPosition = window.scrollY;
-            const offset = getNavOffset();
+        // Unified Navigation System
+        function initUnifiedNavigation() {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('nav a');
+            const localNav = document.getElementById('local-nav');
+            const localNavItems = document.querySelectorAll('.local-nav-item');
+            const navWrapper = document.getElementById('nav-wrapper');
             
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                // Check if scroll position is within this section
-                if (scrollPosition >= (sectionTop - offset) && 
-                    scrollPosition < (sectionTop + sectionHeight - offset)) {
-                    current = section.getAttribute('id');
+            // Navigation state
+            let currentMainSection = '';
+            let currentExperienceSection = '';
+            let lastScrollTop = 0;
+            
+            // Section definitions
+            const mainSections = ['about', 'experience', 'projects', 'education'];
+            const experienceSections = [
+                { id: 'soop-hero', element: document.getElementById('soop-hero') },
+                { id: 'mmxxii-product', element: document.getElementById('mmxxii-product') },
+                { id: 'popjoy-product', element: document.getElementById('popjoy-product') },
+                { id: 'highbrow-product', element: document.getElementById('highbrow-product') },
+                { id: 'ntreev-product', element: document.getElementById('ntreev-product') }
+            ].filter(section => section.element);
+            
+            // Unified scroll handler
+            function handleUnifiedScroll() {
+                const scrollPosition = window.scrollY;
+                const offset = getNavOffset();
+                const scrollDirection = scrollPosition > lastScrollTop ? 'down' : 'up';
+                lastScrollTop = scrollPosition;
+                
+                // Update main navigation
+                updateMainNavigation(scrollPosition, offset);
+                
+                // Update local navigation visibility and active states
+                updateLocalNavigation(scrollPosition);
+                
+                // Update local nav position
+                updateLocalNavPosition();
+            }
+            
+            function updateMainNavigation(scrollPosition, offset) {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    const adjustedTop = sectionTop - offset;
+                    
+                    if (scrollPosition >= adjustedTop && scrollPosition < adjustedTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                if (current !== currentMainSection) {
+                    currentMainSection = current;
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').slice(1) === current) {
+                            link.classList.add('active');
+                        }
+                    });
                 }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
+            }
+            
+            function updateLocalNavigation(scrollPosition) {
+                if (!localNav || experienceSections.length === 0) return;
+                
+                const firstSection = experienceSections[0].element;
+                const lastSection = experienceSections[experienceSections.length - 1].element;
+                
+                // Calculate experience section boundaries
+                // Show local nav from start of SOOP section (Experience section)
+                const experienceStart = firstSection.offsetTop - 150;
+                const experienceEnd = lastSection.offsetTop + lastSection.offsetHeight + 100;
+                
+                // Show/hide local navigation based on position
+                const shouldShowLocalNav = scrollPosition >= experienceStart && scrollPosition <= experienceEnd;
+                
+                if (shouldShowLocalNav && !localNav.classList.contains('visible')) {
+                    localNav.classList.add('visible');
+                } else if (!shouldShowLocalNav && localNav.classList.contains('visible')) {
+                    localNav.classList.remove('visible');
                 }
+                
+                // Update active experience section with hysteresis
+                if (shouldShowLocalNav) {
+                    updateActiveExperienceSection(scrollPosition);
+                }
+            }
+            
+            function updateActiveExperienceSection(scrollPosition) {
+                let newActive = '';
+                const hysteresis = 50; // Prevent flickering
+                
+                for (let i = 0; i < experienceSections.length; i++) {
+                    const section = experienceSections[i];
+                    const element = section.element;
+                    const sectionTop = element.offsetTop - 150;
+                    let sectionBottom;
+                    
+                    if (i < experienceSections.length - 1) {
+                        sectionBottom = experienceSections[i + 1].element.offsetTop - 150;
+                    } else {
+                        sectionBottom = sectionTop + element.clientHeight;
+                    }
+                    
+                    // Add hysteresis for smoother transitions
+                    const effectiveTop = currentExperienceSection === section.id ? sectionTop - hysteresis : sectionTop;
+                    const effectiveBottom = currentExperienceSection === section.id ? sectionBottom + hysteresis : sectionBottom;
+                    
+                    if (scrollPosition >= effectiveTop && scrollPosition < effectiveBottom) {
+                        newActive = section.id;
+                        break;
+                    }
+                }
+                
+                // Default to first section if none found but nav is visible
+                if (!newActive && localNav.classList.contains('visible')) {
+                    newActive = experienceSections[0].id;
+                }
+                
+                if (newActive !== currentExperienceSection) {
+                    currentExperienceSection = newActive;
+                    localNavItems.forEach(item => {
+                        item.classList.remove('active');
+                        const href = item.getAttribute('href').substring(1);
+                        if (href === newActive) {
+                            item.classList.add('active');
+                        }
+                    });
+                }
+            }
+            
+            function updateLocalNavPosition() {
+                if (navWrapper && localNav) {
+                    const navHeight = navWrapper.offsetHeight;
+                    localNav.style.top = `${navHeight}px`;
+                }
+            }
+            
+            // Throttled scroll handler for better performance
+            let ticking = false;
+            function onScroll() {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        handleUnifiedScroll();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+            
+            // Initialize
+            window.addEventListener('scroll', onScroll);
+            window.addEventListener('resize', updateLocalNavPosition);
+            
+            // Setup local nav smooth scrolling
+            localNavItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = item.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 120;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
             });
-        });
+            
+            // Initial setup
+            updateLocalNavPosition();
+            handleUnifiedScroll();
+        }
+        
+        // Initialize unified navigation system
+        initUnifiedNavigation();
 
         // Smooth Scrolling
+        const navLinks = document.querySelectorAll('nav a');
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -2522,125 +2677,7 @@
 
         // Apple-style Product Portfolio JavaScript
         
-        // Local Navigation Functionality
-        function initLocalNavigation() {
-            const localNav = document.getElementById('local-nav');
-            const localNavItems = document.querySelectorAll('.local-nav-item');
-            const navWrapper = document.getElementById('nav-wrapper');
-            
-            // Dynamically position local nav below GNB
-            function updateLocalNavPosition() {
-                if (navWrapper && localNav) {
-                    const navHeight = navWrapper.offsetHeight;
-                    localNav.style.top = `${navHeight}px`;
-                }
-            }
-            
-            // Show/hide local nav based on scroll position (Experience sections only)
-            function handleLocalNavScroll() {
-                const scrollPosition = window.scrollY;
-                const heroSection = document.getElementById('soop-hero');
-                const ntreevSection = document.getElementById('ntreev-product');
-                const projectsSection = document.getElementById('projects');
-                
-                // Update position dynamically
-                updateLocalNavPosition();
-                
-                if (heroSection && ntreevSection) {
-                    const experienceStart = heroSection.offsetTop + heroSection.offsetHeight;
-                    const experienceEnd = ntreevSection.offsetTop + ntreevSection.offsetHeight;
-                    
-                    // Show local nav only when in Experience sections (SOOP to Ntreev)
-                    if (scrollPosition > experienceStart - 300 && scrollPosition < experienceEnd + 200) {
-                        localNav.classList.add('visible');
-                    } else {
-                        localNav.classList.remove('visible');
-                    }
-                }
-            }
-            
-            // Update active nav item based on scroll position
-            function updateActiveNavItem() {
-                // Only track main company sections that have navigation items
-                const mainSections = [
-                    { id: 'soop-hero', element: document.getElementById('soop-hero') },
-                    { id: 'mmxxii-product', element: document.getElementById('mmxxii-product') },
-                    { id: 'popjoy-product', element: document.getElementById('popjoy-product') },
-                    { id: 'highbrow-product', element: document.getElementById('highbrow-product') },
-                    { id: 'ntreev-product', element: document.getElementById('ntreev-product') }
-                ].filter(section => section.element); // Filter out null elements
-                
-                let current = '';
-                const scrollPosition = window.scrollY;
-                
-                // Check each main section
-                for (let i = 0; i < mainSections.length; i++) {
-                    const section = mainSections[i];
-                    const sectionTop = section.element.offsetTop - 150;
-                    let sectionBottom;
-                    
-                    if (i < mainSections.length - 1) {
-                        // For SOOP, extend to the start of MMXXII
-                        // For other sections, use their individual height
-                        const nextSection = mainSections[i + 1];
-                        sectionBottom = nextSection.element.offsetTop - 150;
-                    } else {
-                        // For the last section, use its own height
-                        sectionBottom = sectionTop + section.element.clientHeight;
-                    }
-                    
-                    // Check if we're within this section's range
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                        current = section.id;
-                        break;
-                    }
-                }
-                
-                // If no current section, default to first section when nav is visible
-                if (!current && localNav.classList.contains('visible')) {
-                    current = 'soop-hero';
-                }
-                
-                localNavItems.forEach(item => {
-                    item.classList.remove('active');
-                    const href = item.getAttribute('href').substring(1);
-                    if (href === current) {
-                        item.classList.add('active');
-                    }
-                });
-            }
-            
-            // Smooth scroll to sections
-            localNavItems.forEach(item => {
-                item.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetId = item.getAttribute('href').substring(1);
-                    const targetSection = document.getElementById(targetId);
-                    
-                    if (targetSection) {
-                        const offsetTop = targetSection.offsetTop - 120;
-                        window.scrollTo({
-                            top: offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // Add scroll listeners
-            window.addEventListener('scroll', () => {
-                handleLocalNavScroll();
-                updateActiveNavItem();
-            });
-            
-            // Add resize listener for dynamic positioning
-            window.addEventListener('resize', updateLocalNavPosition);
-            
-            // Initial calls
-            updateLocalNavPosition();
-            handleLocalNavScroll();
-            updateActiveNavItem();
-        }
+        // Local navigation is now handled by Unified Navigation System
         
         // Scroll-triggered reveal animations
         function initRevealAnimations() {
@@ -2742,7 +2779,6 @@
             });
             
             // Initialize Apple-style Product Portfolio features
-            initLocalNavigation();
             initRevealAnimations();
             initStaggeredAnimations();
             initGradientText();
