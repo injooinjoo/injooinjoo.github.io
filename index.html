@@ -1277,34 +1277,102 @@
             const stage2Progress = Math.max(0, Math.min((progress - 0.33) * 3, 1)); // 33-66% of scroll
             const stage3Progress = Math.max(0, Math.min((progress - 0.66) * 3, 1)); // 66-100% of scroll
             
-            // Profile image transformations with delayed start
+            // Profile image 5-stage transformation animation
             if (profileImg) {
-                // Start transforming after initial header fade
-                const profileProgress = Math.max(0, (progress - 0.2) / 0.8); // Start at 20% of scroll
-                const profileEased = easeInOutCubic(profileProgress);
-                
-                const startSize = 300;
-                const endSize = 40;
-                const currentSize = startSize - (startSize - endSize) * profileEased;
-                const scale = currentSize / startSize;
-                
-                // Calculate position transition - move to nav bar position
                 const viewportWidth = window.innerWidth;
                 const containerPadding = viewportWidth > 900 ? 40 : 20;
-                const targetX = -(viewportWidth / 2 - containerPadding - 70);
-                const currentX = targetX * profileEased;
+                const finalX = -(viewportWidth / 2 - containerPadding - 70);
+                const finalY = -180;
                 
-                const targetY = -180; // Adjusted for smoother transition
-                const currentY = targetY * profileEased;
+                let currentX = 0;
+                let currentY = 0;
+                let currentSize = 300;
+                let borderOpacity = 1;
+                let shadowStrength = 1;
                 
-                // Apply transforms
+                // Stage 1: Float up slightly (0-20%)
+                if (progress <= 0.2) {
+                    const stage1Progress = progress / 0.2;
+                    const eased = easeOutCubic(stage1Progress);
+                    
+                    currentSize = 300; // Maintain original size
+                    currentX = 0;
+                    currentY = -10 * eased; // Slight upward float
+                    borderOpacity = 1;
+                    shadowStrength = 1 + (0.2 * eased); // Enhance shadow for floating effect
+                    
+                    profileImg.style.boxShadow = `0 ${4 + 4 * eased}px ${8 + 8 * eased}px rgba(0, 0, 0, ${0.1 * shadowStrength})`;
+                }
+                // Stage 2: Start shrinking (20-40%)
+                else if (progress <= 0.4) {
+                    const stage2Progress = (progress - 0.2) / 0.2;
+                    const eased = easeInOutQuad(stage2Progress);
+                    
+                    currentSize = 300 - (100 * eased); // 300 → 200
+                    currentX = -20 * eased; // Slight left movement
+                    currentY = -10 - (20 * eased); // -10 → -30
+                    borderOpacity = 1 - (0.3 * eased); // Start fading border
+                    shadowStrength = 1.2 - (0.4 * eased);
+                    
+                    profileImg.style.boxShadow = `0 ${8 - 4 * eased}px ${16 - 8 * eased}px rgba(0, 0, 0, ${0.12 * shadowStrength})`;
+                }
+                // Stage 3: Move left and continue shrinking (40-60%)
+                else if (progress <= 0.6) {
+                    const stage3Progress = (progress - 0.4) / 0.2;
+                    const eased = easeInOutCubic(stage3Progress);
+                    
+                    currentSize = 200 - (80 * eased); // 200 → 120
+                    // Create arc motion - move left with curve
+                    const arcX = -20 + (finalX * 0.4 - (-20)) * eased;
+                    const arcY = -30 + (finalY * 0.3 - (-30)) * eased;
+                    currentX = arcX;
+                    currentY = arcY + Math.sin(eased * Math.PI) * 20; // Add arc curve
+                    borderOpacity = 0.7 - (0.4 * eased);
+                    
+                    profileImg.style.boxShadow = `0 4px 8px rgba(0, 0, 0, ${0.08 * (1 - eased)})`;
+                }
+                // Stage 4: Approach nav position (60-80%)
+                else if (progress <= 0.8) {
+                    const stage4Progress = (progress - 0.6) / 0.2;
+                    const eased = easeInOutQuad(stage4Progress);
+                    
+                    currentSize = 120 - (60 * eased); // 120 → 60
+                    // Continue arc motion toward final position
+                    const prevX = finalX * 0.4;
+                    const prevY = finalY * 0.3;
+                    currentX = prevX + (finalX * 0.85 - prevX) * eased;
+                    currentY = prevY + (finalY * 0.85 - prevY) * eased;
+                    borderOpacity = 0.3 - (0.25 * eased);
+                    
+                    profileImg.style.boxShadow = `0 2px 4px rgba(0, 0, 0, ${0.04})`;
+                }
+                // Stage 5: Final positioning (80-100%)
+                else {
+                    const stage5Progress = (progress - 0.8) / 0.2;
+                    const eased = easeOutCubic(stage5Progress);
+                    
+                    currentSize = 60 - (20 * eased); // 60 → 40
+                    // Final smooth landing
+                    const prevX = finalX * 0.85;
+                    const prevY = finalY * 0.85;
+                    currentX = prevX + (finalX - prevX) * eased;
+                    currentY = prevY + (finalY - prevY) * eased;
+                    borderOpacity = 0.05 * (1 - eased);
+                    
+                    profileImg.style.boxShadow = 'none';
+                }
+                
+                // Apply all transformations
+                const scale = currentSize / 300;
                 profileImg.style.transform = `translate(${currentX}px, ${currentY}px) scale(${scale})`;
-                profileImg.style.zIndex = profileProgress > 0.01 ? '101' : 'auto';
+                profileImg.style.zIndex = progress > 0.01 ? '102' : 'auto'; // Always on top during animation
                 
-                // Gradual border fade
-                const borderOpacity = Math.max(0, 1 - profileProgress * 1.2);
+                // Apply border fade
                 const borderRgb = getComputedStyle(document.documentElement).getPropertyValue('--profile-border-rgb');
                 profileImg.style.borderColor = `rgba(${borderRgb}, ${borderOpacity})`;
+                
+                // Smooth transition for all properties
+                profileImg.style.transition = 'none'; // Use JS animation only
             }
             
             // Header content with gradual multi-stage fade
