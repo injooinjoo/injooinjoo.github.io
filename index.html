@@ -68,40 +68,86 @@
         }
 
         /* Controls Panel */
-        .controls {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
+        /* Navigation Controls - Toggle Switches */
+        .nav-controls {
             display: flex;
-            gap: 10px;
-            z-index: 1000;
-            background: var(--bg-card);
-            padding: 8px;
-            border-radius: 12px;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .control-btn {
-            padding: 10px 16px;
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
+            align-items: center;
+            gap: 15px;
+            margin-left: auto;
+            margin-right: 20px;
+            opacity: 0;
+            transform: translateY(-10px);
             transition: all 0.3s ease;
+            will-change: opacity, transform;
         }
 
-        .control-btn:hover {
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+            cursor: pointer;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 13px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 6px;
+        }
+
+        .toggle-slider::before {
+            content: '';
+            position: absolute;
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            bottom: 3px;
+            background: var(--text-primary);
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            z-index: 2;
+        }
+
+        .toggle-switch input:checked + .toggle-slider::before {
+            transform: translateX(24px);
+        }
+
+        .toggle-switch input:checked + .toggle-slider {
             background: var(--accent-color);
-            color: white;
             border-color: var(--accent-color);
         }
 
-        .control-btn.active {
-            background: var(--accent-color);
-            color: white;
-            border-color: var(--accent-color);
+        .toggle-icon, .toggle-text {
+            font-size: 11px;
+            z-index: 1;
+            color: var(--text-secondary);
+            pointer-events: none;
+            position: relative;
+        }
+
+        .toggle-icon:first-child, .toggle-text:first-child {
+            margin-right: 14px;
+        }
+
+        .toggle-switch input:checked + .toggle-slider .toggle-icon:last-child,
+        .toggle-switch input:checked + .toggle-slider .toggle-text:last-child {
+            color: var(--bg-primary);
         }
 
         /* Header */
@@ -491,14 +537,23 @@
                 font-size: 1.5rem;
             }
 
-            .controls {
-                bottom: 20px;
-                right: 20px;
+            .nav-controls {
+                gap: 10px;
+                margin-right: 15px;
             }
 
-            .control-btn {
-                padding: 8px 12px;
-                font-size: 12px;
+            .toggle-switch {
+                width: 45px;
+                height: 24px;
+            }
+
+            .toggle-slider::before {
+                height: 16px;
+                width: 16px;
+            }
+
+            .toggle-switch input:checked + .toggle-slider::before {
+                transform: translateX(21px);
             }
         }
 
@@ -527,10 +582,29 @@
                 gap: 10px;
             }
 
-            .controls {
-                flex-direction: column;
-                bottom: 10px;
-                right: 10px;
+            .nav-controls {
+                gap: 8px;
+                margin-right: 10px;
+            }
+
+            .toggle-switch {
+                width: 42px;
+                height: 22px;
+            }
+
+            .toggle-slider::before {
+                height: 14px;
+                width: 14px;
+                left: 3px;
+                bottom: 3px;
+            }
+
+            .toggle-switch input:checked + .toggle-slider::before {
+                transform: translateX(20px);
+            }
+
+            .toggle-icon, .toggle-text {
+                font-size: 10px;
             }
         }
 
@@ -724,12 +798,6 @@
         </div>
     </div>
 
-    <!-- Controls Panel -->
-    <div class="controls">
-        <button class="control-btn" id="theme-toggle" onclick="toggleTheme()">🌙</button>
-        <button class="control-btn" id="lang-toggle" onclick="toggleLanguage()">한</button>
-    </div>
-
     <!-- Header -->
     <header class="header" id="header">
         <img src="/img/profile.jpg" alt="InJoo Kim" class="profile-img">
@@ -773,6 +841,23 @@
                     <span data-en>Project Manager</span>
                     <span data-ko style="display:none">프로젝트 매니저</span>
                 </div>
+            </div>
+            <!-- Toggle Controls -->
+            <div class="nav-controls" id="nav-controls">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="theme-toggle-nav" onclick="toggleTheme()">
+                    <span class="toggle-slider">
+                        <span class="toggle-icon">🌙</span>
+                        <span class="toggle-icon">☀️</span>
+                    </span>
+                </label>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="lang-toggle-nav" onclick="toggleLanguage()">
+                    <span class="toggle-slider">
+                        <span class="toggle-text">한</span>
+                        <span class="toggle-text">EN</span>
+                    </span>
+                </label>
             </div>
             <button class="menu-toggle" id="menu-toggle">
                 <span></span>
@@ -1206,8 +1291,11 @@
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             
-            const themeBtn = document.getElementById('theme-toggle');
-            themeBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            // Update checkbox state
+            const themeToggle = document.getElementById('theme-toggle-nav');
+            if (themeToggle) {
+                themeToggle.checked = newTheme === 'light';
+            }
         }
 
         // Language Toggle
@@ -1217,8 +1305,11 @@
             document.documentElement.setAttribute('data-lang', newLang);
             localStorage.setItem('language', newLang);
             
-            const langBtn = document.getElementById('lang-toggle');
-            langBtn.textContent = newLang === 'ko' ? 'EN' : '한';
+            // Update checkbox state
+            const langToggle = document.getElementById('lang-toggle-nav');
+            if (langToggle) {
+                langToggle.checked = newLang === 'ko';
+            }
             
             // Toggle visibility of language-specific content
             document.querySelectorAll('[data-en]').forEach(el => {
@@ -1279,10 +1370,25 @@
             
             // Profile image 10-stage ultra-smooth transformation animation
             if (profileImg) {
-                const viewportWidth = window.innerWidth;
-                const containerPadding = viewportWidth > 900 ? 40 : 20;
-                const finalX = -(viewportWidth / 2 - containerPadding - 70);
-                const finalY = -180;
+                // Calculate exact position of nav profile image
+                const navProfileImg = document.querySelector('.nav-profile img');
+                let finalX = 0;
+                let finalY = 0;
+                
+                if (navProfileImg) {
+                    const headerRect = profileImg.getBoundingClientRect();
+                    const navRect = navProfileImg.getBoundingClientRect();
+                    
+                    // Calculate the distance from header profile to nav profile
+                    finalX = navRect.left - headerRect.left;
+                    finalY = navRect.top - headerRect.top;
+                } else {
+                    // Fallback calculation if nav image not found
+                    const viewportWidth = window.innerWidth;
+                    const containerPadding = viewportWidth > 900 ? 40 : 20;
+                    finalX = -(viewportWidth / 2 - containerPadding - 70);
+                    finalY = -240;
+                }
                 
                 let currentX = 0;
                 let currentY = 0;
@@ -1383,22 +1489,28 @@
                         break;
                         
                     case 8: // Stage 9 (80-90%): Near final position
-                        currentSize = 55 - (10 * easeInOutQuad(stageProgress));
-                        const bezierX9 = finalX * 0.92;
-                        const bezierX10 = finalX * 0.98;
+                        currentSize = 50 - (8 * easeInOutQuad(stageProgress));
+                        const bezierX9 = finalX * 0.85;
+                        const bezierX10 = finalX * 0.95;
                         currentX = bezierPoint(stageProgress, bezierX9, bezierX9 - 5, bezierX10 + 3, bezierX10);
-                        currentY = -150 - (25 * easeOutCubic(stageProgress));
+                        currentY = finalY * 0.7 + (finalY * 0.2) * easeOutCubic(stageProgress);
                         borderOpacity = 0.15 - (0.08 * stageProgress);
                         profileImg.style.boxShadow = `0 2px 3px rgba(0, 0, 0, ${0.03})`;
                         break;
                         
-                    case 9: // Stage 10 (90-100%): Final landing
-                        currentSize = 45 - (5 * easeOutCubic(stageProgress));
-                        const bezierX11 = finalX * 0.98;
-                        currentX = bezierX11 + (finalX - bezierX11) * easeOutCubic(stageProgress);
-                        currentY = -175 + (finalY + 175) * easeOutCubic(stageProgress);
-                        borderOpacity = 0.07 - (0.07 * stageProgress);
-                        profileImg.style.boxShadow = stageProgress > 0.8 ? 'none' : `0 1px 2px rgba(0, 0, 0, ${0.02})`;
+                    case 9: // Stage 10 (90-100%): Final landing at nav position
+                        currentSize = 42 - (2 * easeOutCubic(stageProgress));
+                        currentX = finalX * (0.95 + 0.05 * easeOutCubic(stageProgress));
+                        currentY = finalY * (0.9 + 0.1 * easeOutCubic(stageProgress));
+                        borderOpacity = 0.07 * (1 - stageProgress);
+                        profileImg.style.boxShadow = stageProgress > 0.5 ? 'none' : `0 1px 2px rgba(0, 0, 0, ${0.02})`;
+                        
+                        // When animation is complete, ensure exact position
+                        if (stageProgress > 0.95) {
+                            currentSize = 40;
+                            currentX = finalX;
+                            currentY = finalY;
+                        }
                         break;
                         
                     default: // Fallback for progress = 1
@@ -1414,6 +1526,15 @@
                 const scale = currentSize / 300;
                 profileImg.style.transform = `translate(${currentX}px, ${currentY}px) scale(${scale})`;
                 profileImg.style.zIndex = progress > 0.01 ? '102' : 'auto'; // Always on top during animation
+                
+                // Hide header image when it reaches final position
+                if (progress >= 0.98) {
+                    profileImg.style.opacity = '0';
+                    profileImg.style.pointerEvents = 'none';
+                } else {
+                    profileImg.style.opacity = '1';
+                    profileImg.style.pointerEvents = 'auto';
+                }
                 
                 // Apply border fade
                 const borderRgb = getComputedStyle(document.documentElement).getPropertyValue('--profile-border-rgb');
@@ -1518,14 +1639,17 @@
                 }
             }
             
-            // Nav profile with delayed and smooth entrance - hide image, show info only
+            // Nav profile with delayed and smooth entrance
             if (navProfile) {
                 const navProfileImg = navProfile.querySelector('img');
                 const navProfileInfo = navProfile.querySelector('.nav-profile-info');
                 
-                // Hide nav profile image completely (we're using the header image animation)
+                // Keep nav profile image in place but invisible initially
+                // It will become visible when header image reaches it
                 if (navProfileImg) {
-                    navProfileImg.style.display = 'none';
+                    // Keep opacity at 0 until header image arrives
+                    navProfileImg.style.opacity = progress > 0.95 ? 1 : 0;
+                    navProfileImg.style.visibility = 'visible'; // Keep position
                 }
                 
                 // Nav profile info appears in the last 10% of the scroll (stage 10)
@@ -1540,6 +1664,17 @@
                 // Show nav profile container once animation is nearly complete
                 navProfile.style.opacity = progress > 0.85 ? 1 : 0;
                 navProfile.style.pointerEvents = progress > 0.9 ? 'auto' : 'none';
+            }
+            
+            // Nav controls animation - appear with nav profile info
+            const navControls = document.getElementById('nav-controls');
+            if (navControls) {
+                const controlsProgress = Math.max(0, (progress - 0.9) / 0.1);
+                const controlsEased = easeOutCubic(controlsProgress);
+                
+                navControls.style.opacity = controlsEased;
+                navControls.style.transform = `translateY(${(1 - controlsEased) * -10}px)`;
+                navControls.style.pointerEvents = progress > 0.9 ? 'auto' : 'none';
             }
             
             lastScrollTop = scrollTop;
@@ -1619,12 +1754,20 @@
             // Load theme
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
-            document.getElementById('theme-toggle').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+            // Set checkbox state for theme toggle
+            const themeToggle = document.getElementById('theme-toggle-nav');
+            if (themeToggle) {
+                themeToggle.checked = savedTheme === 'light';
+            }
             
             // Load language
             const savedLang = localStorage.getItem('language') || 'en';
             document.documentElement.setAttribute('data-lang', savedLang);
-            document.getElementById('lang-toggle').textContent = savedLang === 'ko' ? 'EN' : '한';
+            // Set checkbox state for language toggle
+            const langToggle = document.getElementById('lang-toggle-nav');
+            if (langToggle) {
+                langToggle.checked = savedLang === 'ko';
+            }
             
             // Set initial language visibility
             document.querySelectorAll('[data-en]').forEach(el => {
