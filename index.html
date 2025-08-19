@@ -2599,25 +2599,40 @@
             
             // Update active nav item based on scroll position
             function updateActiveNavItem() {
-                const sections = document.querySelectorAll('.product-section, .product-hero');
+                // Only track main company sections that have navigation items
+                const mainSections = [
+                    { id: 'soop-hero', element: document.getElementById('soop-hero') },
+                    { id: 'mmxxii-product', element: document.getElementById('mmxxii-product') },
+                    { id: 'popjoy-product', element: document.getElementById('popjoy-product') },
+                    { id: 'highbrow-product', element: document.getElementById('highbrow-product') },
+                    { id: 'ntreev-product', element: document.getElementById('ntreev-product') }
+                ].filter(section => section.element); // Filter out null elements
+                
                 let current = '';
                 const scrollPosition = window.scrollY;
                 
-                sections.forEach((section, index) => {
-                    const sectionTop = section.offsetTop - 150;
-                    let sectionHeight = section.clientHeight;
+                // Check each main section
+                for (let i = 0; i < mainSections.length; i++) {
+                    const section = mainSections[i];
+                    const sectionTop = section.element.offsetTop - 150;
+                    let sectionBottom;
                     
-                    // Extend visibility for SOOP hero and first sections
-                    if (section.getAttribute('id') === 'soop-hero' && index < sections.length - 1) {
-                        const nextSection = sections[index + 1];
-                        sectionHeight = (nextSection.offsetTop + nextSection.clientHeight * 0.5) - sectionTop;
+                    if (i < mainSections.length - 1) {
+                        // For SOOP, extend to the start of MMXXII
+                        // For other sections, use their individual height
+                        const nextSection = mainSections[i + 1];
+                        sectionBottom = nextSection.element.offsetTop - 150;
+                    } else {
+                        // For the last section, use its own height
+                        sectionBottom = sectionTop + section.element.clientHeight;
                     }
                     
-                    // Check if we're in the extended section range
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        current = section.getAttribute('id');
+                    // Check if we're within this section's range
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        current = section.id;
+                        break;
                     }
-                });
+                }
                 
                 // If no current section, default to first section when nav is visible
                 if (!current && localNav.classList.contains('visible')) {
