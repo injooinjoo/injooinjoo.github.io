@@ -1252,10 +1252,10 @@
         let lastScrollTop = 0;
         let animationFrame = null;
         const TRANSITION_START = 0;
-        const TRANSITION_END = 150;
-        const FIXED_THRESHOLD = 120; // When nav becomes fixed
+        const TRANSITION_END = 300; // Extended for smoother transition
+        const FIXED_THRESHOLD = 250; // When nav becomes fixed
 
-        // Progressive scroll animation
+        // Progressive scroll animation with multiple stages
         function updateScrollProgress() {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             const header = document.getElementById('header');
@@ -1264,91 +1264,137 @@
             const profileImg = document.querySelector('.profile-img');
             const headerContent = document.querySelector('.header-content');
             
-            // Calculate progress (0 to 1) over transition range
+            // Calculate overall progress (0 to 1) over transition range
             const progress = Math.min(Math.max((scrollTop - TRANSITION_START) / (TRANSITION_END - TRANSITION_START), 0), 1);
             
-            // Easing function for smoother animation
+            // Different easing functions for different elements
+            const easeInOutQuad = (t) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+            const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
             const easeInOutCubic = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-            const easedProgress = easeInOutCubic(progress);
             
-            // Profile image transformations
+            // Calculate stage-based progress for different phases
+            const stage1Progress = Math.min(progress * 3, 1); // 0-33% of scroll
+            const stage2Progress = Math.max(0, Math.min((progress - 0.33) * 3, 1)); // 33-66% of scroll
+            const stage3Progress = Math.max(0, Math.min((progress - 0.66) * 3, 1)); // 66-100% of scroll
+            
+            // Profile image transformations with delayed start
             if (profileImg) {
+                // Start transforming after initial header fade
+                const profileProgress = Math.max(0, (progress - 0.2) / 0.8); // Start at 20% of scroll
+                const profileEased = easeInOutCubic(profileProgress);
+                
                 const startSize = 300;
                 const endSize = 40;
-                const currentSize = startSize - (startSize - endSize) * easedProgress;
+                const currentSize = startSize - (startSize - endSize) * profileEased;
                 const scale = currentSize / startSize;
                 
                 // Calculate position transition - move to nav bar position
                 const viewportWidth = window.innerWidth;
                 const containerPadding = viewportWidth > 900 ? 40 : 20;
-                const targetX = -(viewportWidth / 2 - containerPadding - 70); // Move to left side of nav
-                const currentX = targetX * easedProgress;
+                const targetX = -(viewportWidth / 2 - containerPadding - 70);
+                const currentX = targetX * profileEased;
                 
-                const targetY = -120; // Move up to nav bar height
-                const currentY = targetY * easedProgress;
+                const targetY = -180; // Adjusted for smoother transition
+                const currentY = targetY * profileEased;
                 
                 // Apply transforms
                 profileImg.style.transform = `translate(${currentX}px, ${currentY}px) scale(${scale})`;
-                profileImg.style.zIndex = progress > 0.01 ? '101' : 'auto'; // Above nav during transition
+                profileImg.style.zIndex = profileProgress > 0.01 ? '101' : 'auto';
                 
-                // Fade out border as it transitions
-                const borderOpacity = 1 - easedProgress;
+                // Gradual border fade
+                const borderOpacity = Math.max(0, 1 - profileProgress * 1.2);
                 const borderRgb = getComputedStyle(document.documentElement).getPropertyValue('--profile-border-rgb');
                 profileImg.style.borderColor = `rgba(${borderRgb}, ${borderOpacity})`;
             }
             
-            // Header content fade and scale
+            // Header content with gradual multi-stage fade
             if (headerContent) {
-                const opacity = Math.max(0, 1 - progress * 1.5); // Fade out faster
-                const scale = 1 - (easedProgress * 0.08); // More subtle scale
-                const translateY = easedProgress * -20; // More upward movement
+                // Stage 1: Slight fade (0-100px)
+                // Stage 2: Main fade (100-200px)
+                // Stage 3: Complete fade (200-300px)
+                let opacity = 1;
+                let scale = 1;
+                let translateY = 0;
                 
-                headerContent.style.opacity = opacity;
+                if (progress <= 0.33) {
+                    // First third: subtle changes
+                    opacity = 1 - stage1Progress * 0.3; // 1 → 0.7
+                    scale = 1 - stage1Progress * 0.02; // Very subtle scale
+                    translateY = stage1Progress * -5;
+                } else if (progress <= 0.66) {
+                    // Second third: main transition
+                    opacity = 0.7 - stage2Progress * 0.5; // 0.7 → 0.2
+                    scale = 0.98 - stage2Progress * 0.05;
+                    translateY = -5 - stage2Progress * 10;
+                } else {
+                    // Final third: fade out completely
+                    opacity = 0.2 - stage3Progress * 0.2; // 0.2 → 0
+                    scale = 0.93 - stage3Progress * 0.03;
+                    translateY = -15 - stage3Progress * 10;
+                }
+                
+                headerContent.style.opacity = Math.max(0, opacity);
                 headerContent.style.transform = `translateY(${translateY}px) scale(${scale})`;
                 headerContent.style.pointerEvents = opacity > 0.1 ? 'auto' : 'none';
             }
             
-            // Header height and padding with smooth transition
+            // Header height and padding with gradual reduction
             if (header) {
                 const startPaddingTop = 80;
                 const startPaddingBottom = 60;
-                const endPadding = 0;
                 
-                const currentPaddingTop = startPaddingTop - (startPaddingTop - endPadding) * easedProgress;
-                const currentPaddingBottom = startPaddingBottom - (startPaddingBottom - endPadding) * easedProgress;
+                // Gradual padding reduction based on stages
+                let currentPaddingTop, currentPaddingBottom;
                 
-                header.style.paddingTop = `${currentPaddingTop}px`;
-                header.style.paddingBottom = `${currentPaddingBottom}px`;
+                if (progress <= 0.5) {
+                    // First half: slow reduction
+                    const halfProgress = progress * 2;
+                    currentPaddingTop = startPaddingTop - (startPaddingTop * 0.3 * halfProgress);
+                    currentPaddingBottom = startPaddingBottom - (startPaddingBottom * 0.3 * halfProgress);
+                } else {
+                    // Second half: faster reduction
+                    const halfProgress = (progress - 0.5) * 2;
+                    currentPaddingTop = startPaddingTop * 0.7 - (startPaddingTop * 0.7 * halfProgress);
+                    currentPaddingBottom = startPaddingBottom * 0.7 - (startPaddingBottom * 0.7 * halfProgress);
+                }
                 
-                // Smooth height transition
-                const startHeight = header.scrollHeight;
-                const minHeight = Math.max(0, startHeight * (1 - easedProgress));
-                header.style.minHeight = progress > 0.98 ? '0' : 'auto';
+                header.style.paddingTop = `${Math.max(0, currentPaddingTop)}px`;
+                header.style.paddingBottom = `${Math.max(0, currentPaddingBottom)}px`;
                 
-                // Final fade out
-                const headerOpacity = progress < 0.9 ? 1 : Math.max(0, 1 - ((progress - 0.9) / 0.1) * 2);
+                // Header stays visible longer, only fades at the very end
+                const headerOpacity = progress < 0.85 ? 1 : Math.max(0, 1 - ((progress - 0.85) / 0.15) * 1.5);
                 header.style.opacity = headerOpacity;
                 header.style.pointerEvents = headerOpacity > 0.1 ? 'auto' : 'none';
-                header.style.overflow = progress > 0.9 ? 'hidden' : 'visible';
+                header.style.overflow = progress > 0.95 ? 'hidden' : 'visible';
             }
             
-            // Navigation wrapper transitions
+            // Navigation wrapper with progressive transitions
             if (navWrapper) {
-                // Smooth background opacity transition
-                const navBgOpacity = Math.min(0.95, easedProgress * 0.95);
+                // Very gradual background appearance
+                let navBgOpacity = 0;
+                if (progress <= 0.2) {
+                    navBgOpacity = 0; // No background initially
+                } else if (progress <= 0.5) {
+                    navBgOpacity = ((progress - 0.2) / 0.3) * 0.5; // 0 → 0.5
+                } else {
+                    navBgOpacity = 0.5 + ((progress - 0.5) / 0.5) * 0.45; // 0.5 → 0.95
+                }
                 navWrapper.style.setProperty('--nav-bg-opacity', navBgOpacity);
                 
-                // Progressive shadow
-                const shadowOpacity = easedProgress * 0.15;
-                const shadowBlur = easedProgress * 12;
-                navWrapper.style.boxShadow = `0 2px ${shadowBlur}px rgba(0, 0, 0, ${shadowOpacity})`;
+                // Progressive shadow that appears gradually
+                const shadowProgress = Math.max(0, (progress - 0.3) / 0.7);
+                const shadowOpacity = shadowProgress * 0.12;
+                const shadowBlur = shadowProgress * 10;
+                navWrapper.style.boxShadow = shadowOpacity > 0 ? 
+                    `0 2px ${shadowBlur}px rgba(0, 0, 0, ${shadowOpacity})` : 'none';
                 
-                // Smooth border opacity
-                const borderOpacity = easedProgress;
+                // Border appears late in the transition
+                const borderProgress = Math.max(0, (progress - 0.5) / 0.5);
+                const borderOpacity = borderProgress;
                 const borderRgb = getComputedStyle(document.documentElement).getPropertyValue('--border-color-rgb');
                 navWrapper.style.borderBottomColor = `rgba(${borderRgb}, ${borderOpacity})`;
                 
-                // Fixed positioning at threshold with smooth transition
+                // Fixed positioning at threshold
                 if (scrollTop > FIXED_THRESHOLD && !navWrapper.classList.contains('fixed')) {
                     navWrapper.classList.add('fixed');
                 } else if (scrollTop <= FIXED_THRESHOLD && navWrapper.classList.contains('fixed')) {
@@ -1356,15 +1402,15 @@
                 }
             }
             
-            // Nav profile visibility with smooth entrance
+            // Nav profile with delayed and smooth entrance
             if (navProfile) {
-                // Delay nav profile appearance until second half of scroll
-                const navProgress = Math.max(0, (progress - 0.4) / 0.6);
-                const navEasedProgress = easeInOutCubic(navProgress);
+                // Nav profile appears in the last 40% of the scroll
+                const navProgress = Math.max(0, (progress - 0.6) / 0.4);
+                const navEased = easeOutCubic(navProgress);
                 
-                navProfile.style.opacity = navEasedProgress;
-                navProfile.style.transform = `translateX(${(1 - navEasedProgress) * -30}px)`;
-                navProfile.style.pointerEvents = navEasedProgress > 0.1 ? 'auto' : 'none';
+                navProfile.style.opacity = navEased;
+                navProfile.style.transform = `translateX(${(1 - navEased) * -40}px)`;
+                navProfile.style.pointerEvents = navEased > 0.1 ? 'auto' : 'none';
             }
             
             lastScrollTop = scrollTop;
