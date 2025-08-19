@@ -28,7 +28,8 @@
       "WebFetch(domain:api.github.com)",
       "Bash(curl:*)",
       "WebFetch(domain:sites.google.com)",
-      "WebFetch(domain:www.linkedin.com)"
+      "WebFetch(domain:www.linkedin.com)",
+      "Bash(start index.html)"
     ],
     "deny": []
   }

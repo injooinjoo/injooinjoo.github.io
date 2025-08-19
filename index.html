@@ -68,86 +68,68 @@
         }
 
         /* Controls Panel */
-        /* Navigation Controls - Toggle Switches */
+        /* Navigation Controls - Circular Toggle Buttons */
         .nav-controls {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-left: auto;
-            margin-right: 20px;
+            gap: 8px;
+            margin-left: 15px;
             opacity: 0;
             transform: translateY(-10px);
             transition: all 0.3s ease;
             will-change: opacity, transform;
         }
 
-        .toggle-switch {
-            position: relative;
-            display: inline-block;
-            width: 50px;
-            height: 26px;
-            cursor: pointer;
-        }
-
-        .toggle-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .toggle-slider {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--bg-secondary);
+        .circle-toggle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
             border: 1px solid var(--border-color);
-            border-radius: 13px;
-            transition: all 0.3s ease;
+            background: var(--bg-secondary);
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 0 6px;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 14px;
         }
 
-        .toggle-slider::before {
-            content: '';
-            position: absolute;
-            height: 18px;
-            width: 18px;
-            left: 4px;
-            bottom: 3px;
-            background: var(--text-primary);
-            border-radius: 50%;
-            transition: transform 0.3s ease;
-            z-index: 2;
+        .circle-toggle:hover {
+            background: var(--bg-hover);
+            border-color: var(--accent-color);
+            transform: translateY(-1px);
         }
 
-        .toggle-switch input:checked + .toggle-slider::before {
-            transform: translateX(24px);
-        }
-
-        .toggle-switch input:checked + .toggle-slider {
+        .circle-toggle.active {
             background: var(--accent-color);
             border-color: var(--accent-color);
+            color: white;
         }
 
-        .toggle-icon, .toggle-text {
-            font-size: 11px;
-            z-index: 1;
-            color: var(--text-secondary);
-            pointer-events: none;
-            position: relative;
+        .circle-toggle .toggle-icon,
+        .circle-toggle .toggle-text {
+            font-size: 12px;
+            color: inherit;
+            transition: all 0.3s ease;
         }
 
-        .toggle-icon:first-child, .toggle-text:first-child {
-            margin-right: 14px;
+        /* Theme toggle states */
+        .circle-toggle#theme-toggle-nav.dark .toggle-icon::before {
+            content: '☀️';
         }
 
-        .toggle-switch input:checked + .toggle-slider .toggle-icon:last-child,
-        .toggle-switch input:checked + .toggle-slider .toggle-text:last-child {
-            color: var(--bg-primary);
+        .circle-toggle#theme-toggle-nav.light .toggle-icon::before {
+            content: '🌙';
+        }
+
+        /* Language toggle states */
+        .circle-toggle#lang-toggle-nav.korean .toggle-text::before {
+            content: 'EN';
+        }
+
+        .circle-toggle#lang-toggle-nav.english .toggle-text::before {
+            content: '한';
         }
 
         /* Header */
@@ -542,18 +524,13 @@
                 margin-right: 15px;
             }
 
-            .toggle-switch {
-                width: 45px;
-                height: 24px;
+            .circle-toggle {
+                width: 28px;
+                height: 28px;
             }
 
-            .toggle-slider::before {
-                height: 16px;
-                width: 16px;
-            }
-
-            .toggle-switch input:checked + .toggle-slider::before {
-                transform: translateX(21px);
+            .toggle-icon, .toggle-text {
+                font-size: 11px;
             }
         }
 
@@ -587,20 +564,9 @@
                 margin-right: 10px;
             }
 
-            .toggle-switch {
-                width: 42px;
-                height: 22px;
-            }
-
-            .toggle-slider::before {
-                height: 14px;
-                width: 14px;
-                left: 3px;
-                bottom: 3px;
-            }
-
-            .toggle-switch input:checked + .toggle-slider::before {
-                transform: translateX(20px);
+            .circle-toggle {
+                width: 26px;
+                height: 26px;
             }
 
             .toggle-icon, .toggle-text {
@@ -815,7 +781,7 @@
             display: flex;
             justify-content: center;
             gap: 25px;
-            padding: 8px 0;
+            padding: 4px 0;
         }
 
         .local-nav-item {
@@ -1227,7 +1193,7 @@
         @media (max-width: 768px) {
             .local-nav-items {
                 gap: 20px;
-                padding: 12px 0;
+                padding: 6px 0;
             }
 
             .local-nav-item {
@@ -1379,23 +1345,6 @@
                     <span data-ko style="display:none">프로젝트 매니저</span>
                 </div>
             </div>
-            <!-- Toggle Controls -->
-            <div class="nav-controls" id="nav-controls">
-                <label class="toggle-switch">
-                    <input type="checkbox" id="theme-toggle-nav" onclick="toggleTheme()">
-                    <span class="toggle-slider">
-                        <span class="toggle-icon">🌙</span>
-                        <span class="toggle-icon">☀️</span>
-                    </span>
-                </label>
-                <label class="toggle-switch">
-                    <input type="checkbox" id="lang-toggle-nav" onclick="toggleLanguage()">
-                    <span class="toggle-slider">
-                        <span class="toggle-text">한</span>
-                        <span class="toggle-text">EN</span>
-                    </span>
-                </label>
-            </div>
             <button class="menu-toggle" id="menu-toggle">
                 <span></span>
                 <span></span>
@@ -1420,6 +1369,15 @@
                 </a>
                 <a href="#cv">CV</a>
             </nav>
+            <!-- Toggle Controls - Moved to rightmost position -->
+            <div class="nav-controls" id="nav-controls">
+                <button class="circle-toggle" id="theme-toggle-nav" onclick="toggleTheme()" title="Toggle Theme">
+                    <span class="toggle-icon">🌙</span>
+                </button>
+                <button class="circle-toggle" id="lang-toggle-nav" onclick="toggleLanguage()" title="Toggle Language">
+                    <span class="toggle-text">한</span>
+                </button>
+            </div>
         </div>
     </div>
 
@@ -2578,18 +2536,22 @@
                 }
             }
             
-            // Show/hide local nav based on scroll position
+            // Show/hide local nav based on scroll position (Experience sections only)
             function handleLocalNavScroll() {
                 const scrollPosition = window.scrollY;
                 const heroSection = document.getElementById('soop-hero');
+                const ntreevSection = document.getElementById('ntreev-product');
+                const projectsSection = document.getElementById('projects');
                 
                 // Update position dynamically
                 updateLocalNavPosition();
                 
-                if (heroSection) {
-                    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+                if (heroSection && ntreevSection) {
+                    const experienceStart = heroSection.offsetTop + heroSection.offsetHeight;
+                    const experienceEnd = ntreevSection.offsetTop + ntreevSection.offsetHeight;
                     
-                    if (scrollPosition > heroBottom - 300) {
+                    // Show local nav only when in Experience sections (SOOP to Ntreev)
+                    if (scrollPosition > experienceStart - 300 && scrollPosition < experienceEnd + 200) {
                         localNav.classList.add('visible');
                     } else {
                         localNav.classList.remove('visible');
