@@ -787,7 +787,7 @@
         /* Floating Local Navigation */
         .local-nav {
             position: fixed;
-            top: 100px;
+            top: 0;
             left: 0;
             right: 0;
             z-index: 90;
@@ -797,6 +797,7 @@
             opacity: 0;
             transform: translateY(-20px);
             transition: all 0.3s ease;
+            /* Dynamic positioning handled by JavaScript */
         }
 
         .local-nav.visible {
@@ -813,8 +814,8 @@
         .local-nav-items {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            padding: 15px 0;
+            gap: 25px;
+            padding: 8px 0;
         }
 
         .local-nav-item {
@@ -1430,6 +1431,7 @@
                 <a href="#mmxxii-product" class="local-nav-item" data-en>MMXXII</a>
                 <a href="#popjoy-product" class="local-nav-item" data-en>POPJOY</a>
                 <a href="#highbrow-product" class="local-nav-item" data-en>HighBrow</a>
+                <a href="#ntreev-product" class="local-nav-item" data-en>Ntreev</a>
             </div>
         </div>
     </nav>
@@ -1802,34 +1804,56 @@
             </div>
         </section>
 
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">
-                        <img src="/img/ntreev.png" alt="Ntreev Soft" class="company-logo">
-                        <div>
-                            <h3>Ntreev Soft.</h3>
-                            <p class="company">
-                                <span data-en>Project Manager</span>
-                                <span data-ko style="display:none">프로젝트 매니저</span>
-                            </p>
-                        </div>
+        <!-- Ntreev Product Section -->
+        <section class="product-section" id="ntreev-product">
+            <div class="product-header">
+                <div class="product-hero">
+                    <img src="/img/ntreev.png" alt="Ntreev Soft" class="product-logo">
+                    <div>
+                        <h2 class="product-title">Ntreev Soft</h2>
+                        <p class="product-role">Project Manager • 2012.3 - 2013.6</p>
+                        <p class="product-tagline">
+                            <span data-en>Global game publishing and localization</span>
+                            <span data-ko style="display:none">글로벌 게임 퍼블리싱 및 현지화</span>
+                        </p>
                     </div>
-                    <span class="date">2012.3 - 2013.6</span>
                 </div>
-                <video autoplay muted loop playsinline style="width: 100%; border-radius: 12px; margin: 20px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <video autoplay muted loop playsinline class="product-video">
                     <source src="/videos/ntreev-demo.mp4" type="video/mp4">
                 </video>
-                <p>
-                    <span data-en>Managed global publishing for 'Pangya' (Thailand & U.S.). Designed localized in-game events (e.g., Songkran festival), increasing performance by 130% over previous benchmarks.</span>
-                    <span data-ko style="display:none">'Pangya' 글로벌 퍼블리싱 관리 (태국 & 미국). 현지화된 인게임 이벤트 설계 (송크란 축제 등)로 이전 벤치마크 대비 130% 성과 향상.</span>
-                </p>
-                <div class="skills">
-                    <span class="skill-tag">Business Development</span>
-                    <span class="skill-tag">Spreadsheets</span>
-                    <span class="skill-tag">Global Publishing</span>
-                    <span class="skill-tag">Event Planning</span>
+            </div>
+            
+            <div class="product-details">
+                <div class="achievement-grid">
+                    <div class="achievement-item">
+                        <span class="achievement-number">130%</span>
+                        <span class="achievement-label">Performance Boost</span>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="achievement-number">2</span>
+                        <span class="achievement-label">Global Markets</span>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="achievement-number">Pangya</span>
+                        <span class="achievement-label">Major Title</span>
+                    </div>
+                </div>
+                
+                <div class="product-description">
+                    <p>
+                        <span data-en>Led global publishing operations for Pangya across Thailand and U.S. markets. Created culturally-relevant localized events that significantly boosted engagement.</span>
+                        <span data-ko style="display:none">태국과 미국 시장에서 Pangya의 글로벌 퍼블리싱 운영 주도. 참여도를 크게 높인 문화적으로 관련성 있는 현지화 이벤트 창조.</span>
+                    </p>
+                </div>
+
+                <div class="tech-stack">
+                    <span class="tech-tag">Business Development</span>
+                    <span class="tech-tag">Global Publishing</span>
+                    <span class="tech-tag">Localization</span>
+                    <span class="tech-tag">Event Planning</span>
                 </div>
             </div>
+        </section>
 
 
 
@@ -2544,16 +2568,28 @@
         function initLocalNavigation() {
             const localNav = document.getElementById('local-nav');
             const localNavItems = document.querySelectorAll('.local-nav-item');
+            const navWrapper = document.getElementById('nav-wrapper');
+            
+            // Dynamically position local nav below GNB
+            function updateLocalNavPosition() {
+                if (navWrapper && localNav) {
+                    const navHeight = navWrapper.offsetHeight;
+                    localNav.style.top = `${navHeight}px`;
+                }
+            }
             
             // Show/hide local nav based on scroll position
             function handleLocalNavScroll() {
                 const scrollPosition = window.scrollY;
                 const heroSection = document.getElementById('soop-hero');
                 
+                // Update position dynamically
+                updateLocalNavPosition();
+                
                 if (heroSection) {
                     const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
                     
-                    if (scrollPosition > heroBottom - 200) {
+                    if (scrollPosition > heroBottom - 300) {
                         localNav.classList.add('visible');
                     } else {
                         localNav.classList.remove('visible');
@@ -2565,15 +2601,28 @@
             function updateActiveNavItem() {
                 const sections = document.querySelectorAll('.product-section, .product-hero');
                 let current = '';
+                const scrollPosition = window.scrollY;
                 
-                sections.forEach(section => {
+                sections.forEach((section, index) => {
                     const sectionTop = section.offsetTop - 150;
-                    const sectionHeight = section.clientHeight;
+                    let sectionHeight = section.clientHeight;
                     
-                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    // Extend visibility for SOOP hero and first sections
+                    if (section.getAttribute('id') === 'soop-hero' && index < sections.length - 1) {
+                        const nextSection = sections[index + 1];
+                        sectionHeight = (nextSection.offsetTop + nextSection.clientHeight * 0.5) - sectionTop;
+                    }
+                    
+                    // Check if we're in the extended section range
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                         current = section.getAttribute('id');
                     }
                 });
+                
+                // If no current section, default to first section when nav is visible
+                if (!current && localNav.classList.contains('visible')) {
+                    current = 'soop-hero';
+                }
                 
                 localNavItems.forEach(item => {
                     item.classList.remove('active');
@@ -2607,7 +2656,11 @@
                 updateActiveNavItem();
             });
             
+            // Add resize listener for dynamic positioning
+            window.addEventListener('resize', updateLocalNavPosition);
+            
             // Initial calls
+            updateLocalNavPosition();
             handleLocalNavScroll();
             updateActiveNavItem();
         }
