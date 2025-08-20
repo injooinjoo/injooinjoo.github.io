@@ -1474,6 +1474,86 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Progress Flow Styles */
+        .progress-section {
+            background: var(--bg-primary);
+            padding: 60px 0;
+        }
+
+        .progress-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .progress-stage {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .progress-stage h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .progress-stage.challenge h4 {
+            color: #e74c3c;
+        }
+
+        .progress-stage.solution h4 {
+            color: #3498db;
+        }
+
+        .progress-stage.result h4 {
+            color: #27ae60;
+        }
+
+        .progress-stage h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .progress-stage p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .progress-arrow {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .progress-item {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .progress-arrow {
+                transform: rotate(90deg);
+                font-size: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1624,6 +1704,11 @@
                         <span data-ko style="display:none">5,000명 이상의 크리에이터를 지원하는 한국 최고의 라이브 스트리밍 플랫폼</span>
                     </p>
                 </div>
+                <div class="hero-visual">
+                    <video autoplay muted loop playsinline class="hero-video">
+                        <source src="/videos/soop-demo.mp4" type="video/mp4">
+                    </video>
+                </div>
             </div>
 
             <div class="experience-content">
@@ -1740,43 +1825,153 @@
             </div>
         </section>
 
-        <!-- MMXXII Problem Section -->
-        <section class="product-section problem-section">
+        <!-- MMXXII Challenge → Solution → Results Section -->
+        <section class="product-section progress-section">
             <div class="section-content">
                 <h2 class="section-title">
-                    <span data-en>The Challenge</span>
-                    <span data-ko style="display:none">과제</span>
+                    <span data-en>Challenge → Solution → Impact</span>
+                    <span data-ko style="display:none">과제 → 해결책 → 성과</span>
                 </h2>
-                <div class="problem-grid">
-                    <div class="problem-item reveal-on-scroll">
-                        <h3>
-                            <span data-en>Manual Operations Bottleneck</span>
-                            <span data-ko style="display:none">수동 운영의 병목현상</span>
-                        </h3>
-                        <p>
-                            <span data-en>Spending 200+ hours monthly on repetitive tasks like inventory management, pricing updates, and customer service</span>
-                            <span data-ko style="display:none">재고 관리, 가격 업데이트, 고객 서비스 등 반복 업무에 월 200시간 이상 소요</span>
-                        </p>
+                <div class="progress-flow">
+                    <div class="progress-item reveal-on-scroll">
+                        <div class="progress-stage challenge">
+                            <h4>
+                                <span data-en">Challenge</span>
+                                <span data-ko style="display:none">과제</span>
+                            </h4>
+                            <h3>
+                                <span data-en">Manual Operations Bottleneck</span>
+                                <span data-ko style="display:none">수동 운영의 병목현상</span>
+                            </h3>
+                            <p>
+                                <span data-en">200+ hours monthly on repetitive tasks</span>
+                                <span data-ko style="display:none">월 200시간 이상의 반복 업무</span>
+                            </p>
+                        </div>
+                        <div class="progress-arrow">→</div>
+                        <div class="progress-stage solution">
+                            <h4>
+                                <span data-en">My Approach</span>
+                                <span data-ko style="display:none">내 접근법</span>
+                            </h4>
+                            <h3>
+                                <span data-en">Python Automation</span>
+                                <span data-ko style="display:none">Python 자동화</span>
+                            </h3>
+                            <p>
+                                <span data-en">Built comprehensive automation system</span>
+                                <span data-ko style="display:none">포괄적인 자동화 시스템 구축</span>
+                            </p>
+                        </div>
+                        <div class="progress-arrow">→</div>
+                        <div class="progress-stage result">
+                            <h4>
+                                <span data-en">Result</span>
+                                <span data-ko style="display:none">결과</span>
+                            </h4>
+                            <h3>
+                                <span data-en"><1 hour/month</span>
+                                <span data-ko style="display:none">월 1시간 미만</span>
+                            </h3>
+                            <p>
+                                <span data-en">99% process automation</span>
+                                <span data-ko style="display:none">99% 프로세스 자동화</span>
+                            </p>
+                        </div>
                     </div>
-                    <div class="problem-item reveal-on-scroll">
-                        <h3>
-                            <span data-en">SEO Competition</span>
-                            <span data-ko style="display:none">SEO 경쟁</span>
-                        </h3>
-                        <p>
-                            <span data-en">Competing with established brands in crowded e-commerce markets without significant marketing budget</span>
-                            <span data-ko style="display:none">상당한 마케팅 예산 없이 혼잡한 이커머스 시장에서 기존 브랜드와 경쟁</span>
-                        </p>
+                    
+                    <div class="progress-item reveal-on-scroll">
+                        <div class="progress-stage challenge">
+                            <h4>
+                                <span data-en">Challenge</span>
+                                <span data-ko style="display:none">과제</span>
+                            </h4>
+                            <h3>
+                                <span data-en">SEO Competition</span>
+                                <span data-ko style="display:none">SEO 경쟁</span>
+                            </h3>
+                            <p>
+                                <span data-en">No rankings vs established brands</span>
+                                <span data-ko style="display:none">기존 브랜드 대비 순위 없음</span>
+                            </p>
+                        </div>
+                        <div class="progress-arrow">→</div>
+                        <div class="progress-stage solution">
+                            <h4>
+                                <span data-en">My Approach</span>
+                                <span data-ko style="display:none">내 접근법</span>
+                            </h4>
+                            <h3>
+                                <span data-en">Technical SEO Strategy</span>
+                                <span data-ko style="display:none">기술 SEO 전략</span>
+                            </h3>
+                            <p>
+                                <span data-en">Long-tail keywords + technical optimization</span>
+                                <span data-ko style="display:none">롱테일 키워드 + 기술 최적화</span>
+                            </p>
+                        </div>
+                        <div class="progress-arrow">→</div>
+                        <div class="progress-stage result">
+                            <h4>
+                                <span data-en">Result</span>
+                                <span data-ko style="display:none">결과</span>
+                            </h4>
+                            <h3>
+                                <span data-en">15+ Top Rankings</span>
+                                <span data-ko style="display:none">15개 이상 상위 순위</span>
+                            </h3>
+                            <p>
+                                <span data-en">Dominated niche markets</span>
+                                <span data-ko style="display:none">니치 시장 지배</span>
+                            </p>
+                        </div>
                     </div>
-                    <div class="problem-item reveal-on-scroll">
-                        <h3>
-                            <span data-en">Scale vs Quality</span>
-                            <span data-ko style="display:none">규모 대 품질</span>
-                        </h3>
-                        <p>
-                            <span data-en">Maintaining high conversion rates and customer satisfaction while rapidly scaling operations</span>
-                            <span data-ko style="display:none">운영을 빠르게 확장하면서 높은 전환율과 고객 만족도 유지</span>
-                        </p>
+                    
+                    <div class="progress-item reveal-on-scroll">
+                        <div class="progress-stage challenge">
+                            <h4>
+                                <span data-en">Challenge</span>
+                                <span data-ko style="display:none">과제</span>
+                            </h4>
+                            <h3>
+                                <span data-en">Scale vs Quality</span>
+                                <span data-ko style="display:none">규모 대 품질</span>
+                            </h3>
+                            <p>
+                                <span data-en">Low conversion while scaling</span>
+                                <span data-ko style="display:none">확장 중 낮은 전환율</span>
+                            </p>
+                        </div>
+                        <div class="progress-arrow">→</div>
+                        <div class="progress-stage solution">
+                            <h4>
+                                <span data-en">My Approach</span>
+                                <span data-ko style="display:none">내 접근법</span>
+                            </h4>
+                            <h3>
+                                <span data-en">Data-driven CRO</span>
+                                <span data-ko style="display:none">데이터 기반 CRO</span>
+                            </h3>
+                            <p>
+                                <span data-en">Systematic A/B testing & optimization</span>
+                                <span data-ko style="display:none">체계적인 A/B 테스트 및 최적화</span>
+                            </p>
+                        </div>
+                        <div class="progress-arrow">→</div>
+                        <div class="progress-stage result">
+                            <h4>
+                                <span data-en">Result</span>
+                                <span data-ko style="display:none">결과</span>
+                            </h4>
+                            <h3>
+                                <span data-en">32% Improvement</span>
+                                <span data-ko style="display:none">32% 개선</span>
+                            </h3>
+                            <p>
+                                <span data-en">High-converting operations</span>
+                                <span data-ko style="display:none">높은 전환 운영</span>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
