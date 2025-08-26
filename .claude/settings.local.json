@@ -29,7 +29,8 @@
       "Bash(curl:*)",
       "WebFetch(domain:sites.google.com)",
       "WebFetch(domain:www.linkedin.com)",
-      "Bash(start index.html)"
+      "Bash(start index.html)",
+      "Bash(grep:*)"
     ],
     "deny": []
   }
