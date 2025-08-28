@@ -34,22 +34,23 @@ const CV: React.FC = () => {
               <div className="cv-experience-content">
                 <div className="cv-experience-main">
                   <h3 className="cv-company-name">SOOP Co., Ltd.</h3>
-                  <span className="cv-company-subtitle">formerly AfreecaTV</span>
+                  <span className="cv-company-subtitle">formerly AfreecaTV — Major live-streaming platform in Korea</span>
                 </div>
                 <div className="cv-experience-details">
                   <div className="cv-role-period">
-                    <span className="cv-role">Live-streaming Ecosystem Lead / Community Manager</span>
-                    <span className="cv-period">2016년 2월 - 현재 (9년 7개월)</span>
+                    <span className="cv-role">Project Manager & Creator Operations Lead</span>
+                    <span className="cv-period">2016년 2월 - 현재</span>
                   </div>
                   <div className="cv-description">
-                    <p>Lead growth and operational strategy for a 5,000+ creator ecosystem, driving platform engagement, monetization, and community health.</p>
                     <ul>
-                      <li>Increased active creator engagement by <strong>170%</strong> through targeted acquisition, onboarding, and retention programs</li>
-                      <li>Enhanced homepage CTR by <strong>2.3x</strong> via data-driven algorithm optimization and improved user funnels</li>
-                      <li>Directed large-scale creator events & partnerships (e.g., G-Star), boosting participation rates by <strong>60%</strong></li>
-                      <li>Built and nurtured thriving live-streaming community, managing relationships with top-tier creators</li>
-                      <li>Developed creator support programs, increasing satisfaction and retention rates by over <strong>30%</strong></li>
-                      <li>Engineered scalable creator monetization models and performance dashboards for leadership decision-making</li>
+                      <li>Revamped homepage algorithm, hashtag taxonomy, and category structure — increased mid-level creator exposure & homepage CTR by <strong>230%</strong></li>
+                      <li>Designed monetization programs for creators — drove <strong>75% revenue growth</strong> among participants (+42% monthly)</li>
+                      <li>Managed onboarding of <strong>1,200+ creators</strong> — implemented retention programs, growing active creators by 170%</li>
+                      <li>Secured <strong>60+ major streamer contracts</strong>, strengthening the premium content ecosystem</li>
+                      <li>Enhanced streaming services (TTS, membership, tournaments) — increased paid user conversions by <strong>31%</strong></li>
+                      <li>Directed high-impact events (G-Star, in-platform competitions) — boosted monthly accumulated viewer by <strong>60%</strong></li>
+                      <li>Built KPI dashboards & real-time monitoring tools — enabled data-driven decisions for executives</li>
+                      <li>Automated reporting and operations — cut the equivalent of 20 staff days of monthly work to under 1 hour</li>
                     </ul>
                   </div>
                 </div>
@@ -60,26 +61,23 @@ const CV: React.FC = () => {
           <div className="cv-experience-item">
             <div className="cv-experience-header">
               <div className="cv-company-logo">
-                <div className="company-logo-placeholder">MMXXII</div>
+                <div className="company-logo-placeholder">YT</div>
               </div>
               <div className="cv-experience-content">
                 <div className="cv-experience-main">
-                  <h3 className="cv-company-name">MMXXII</h3>
-                  <span className="cv-company-subtitle">자영업/개인사업</span>
+                  <h3 className="cv-company-name">YouTube Creator & App Developer</h3>
                 </div>
                 <div className="cv-experience-details">
                   <div className="cv-role-period">
-                    <span className="cv-role">Founder</span>
-                    <span className="cv-period">2021년 1월 - 2024년 1월 (3년 1개월)</span>
+                    <span className="cv-role">Content Creator & Entrepreneur</span>
+                    <span className="cv-period">2021년 - 현재</span>
                   </div>
                   <div className="cv-description">
-                    <p>Founded and scaled an e-commerce venture from zero to six-figure monthly revenue.</p>
                     <ul>
-                      <li>Achieved <strong>$100K/month revenue</strong> through multi-channel growth strategies (Ads, SEO/SEM, influencer collaborations)</li>
-                      <li>Ranked <strong>1st page for 15+ target keywords</strong> on Naver/Google</li>
-                      <li>Improved conversion rates by <strong>32%</strong> using A/B testing and segmented user targeting</li>
-                      <li>Built automation pipelines with Python & MongoDB, saving <strong>200+ hours/month</strong> in operations</li>
-                      <li>Negotiated and secured <strong>8 major B2B contracts</strong> with domestic e-commerce platforms</li>
+                      <li>Produced video content, achieving <strong>over 2 million views</strong> on a single video and <strong>130k subscribers</strong></li>
+                      <li>Sole developer — launched horoscope and education applications with <strong>GPT-trained models</strong> for personalization</li>
+                      <li>Founded and scaled an e-commerce venture focusing on online shopping and app development</li>
+                      <li>Built automation pipelines with Python, integrating AI/ML models for enhanced user experiences</li>
                     </ul>
                   </div>
                 </div>
@@ -90,72 +88,23 @@ const CV: React.FC = () => {
           <div className="cv-experience-item">
             <div className="cv-experience-header">
               <div className="cv-company-logo">
-                <div className="company-logo-placeholder">POPJOY</div>
+                <div className="company-logo-placeholder">GAMES</div>
               </div>
               <div className="cv-experience-content">
                 <div className="cv-experience-main">
-                  <h3 className="cv-company-name">ParanoidJoy</h3>
-                </div>
-                <div className="cv-experience-details">
-                  <div className="cv-role-period">
-                    <span className="cv-role">Marketing Manager</span>
-                    <span className="cv-period">2015년 4월 - 2016년 1월 (10개월)</span>
-                  </div>
-                  <div className="cv-description">
-                    <ul>
-                      <li>Led app review processes for Android/iOS, optimizing UX and engagement strategies</li>
-                      <li>Planned and executed targeted in-game events based on behavioral analytics</li>
-                      <li>Managed paid ad campaigns with optimization and A/B testing to maximize ROI</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="cv-experience-item">
-            <div className="cv-experience-header">
-              <div className="cv-company-logo">
-                <div className="company-logo-placeholder">HB</div>
-              </div>
-              <div className="cv-experience-content">
-                <div className="cv-experience-main">
-                  <h3 className="cv-company-name">highbrow, Inc.</h3>
+                  <h3 className="cv-company-name">Early Career (Paranoid Joy, highbrow, Ntreev Soft)</h3>
+                  <span className="cv-company-subtitle">Mobile & online game publisher & developer</span>
                 </div>
                 <div className="cv-experience-details">
                   <div className="cv-role-period">
                     <span className="cv-role">Project Manager</span>
-                    <span className="cv-period">2014년 8월 - 2014년 12월 (5개월)</span>
+                    <span className="cv-period">2012년 - 2016년</span>
                   </div>
                   <div className="cv-description">
                     <ul>
-                      <li>Coordinated updates and promotions with global game publishers</li>
-                      <li>Secured new publisher contracts and managed G-Star booth operations</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="cv-experience-item">
-            <div className="cv-experience-header">
-              <div className="cv-company-logo">
-                <div className="company-logo-placeholder">NS</div>
-              </div>
-              <div className="cv-experience-content">
-                <div className="cv-experience-main">
-                  <h3 className="cv-company-name">Ntreev Soft.</h3>
-                </div>
-                <div className="cv-experience-details">
-                  <div className="cv-role-period">
-                    <span className="cv-role">Project Manager</span>
-                    <span className="cv-period">2012년 3월 - 2013년 6월 (1년 4개월)</span>
-                  </div>
-                  <div className="cv-description">
-                    <ul>
-                      <li>Managed global publishing for 'Pangya' (Thailand & U.S.)</li>
-                      <li>Designed localized in-game events (e.g., Songkran festival), increasing performance by <strong>130%</strong> over previous benchmarks</li>
+                      <li>Directed user engagement strategies via targeted in-game events and optimized advertising campaigns — increased user retention by up to <strong>15%</strong> and improved advertising ROI</li>
+                      <li>Managed global digital content publishing and secured strategic partnerships in Europe and China, including collaboration with Snail Games — significantly expanded market reach</li>
+                      <li>Planned and executed localized seasonal events (e.g., Songkran Festival for Thailand) — achieved a <strong>130% increase</strong> in user engagement over previous benchmarks through tailored content and promotional initiatives</li>
                     </ul>
                   </div>
                 </div>
@@ -180,10 +129,26 @@ const CV: React.FC = () => {
                 <div className="cv-education-details">
                   <div className="cv-degree-period">
                     <span className="cv-degree">Data Science, Master of Liberal Arts in Extension Studies</span>
-                    <span className="cv-education-period">Expected 2026</span>
+                    <span className="cv-education-period">2025 – 2026</span>
                   </div>
-                  <div className="cv-education-description">
-                    <p>Currently pursuing Master's degree in Data Science, focusing on advanced statistical methods, machine learning applications, and data-driven business strategy.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="cv-education-item">
+            <div className="cv-education-header">
+              <div className="cv-education-logo">
+                <div className="education-logo-placeholder">UIUC</div>
+              </div>
+              <div className="cv-education-content">
+                <div className="cv-education-main">
+                  <h3 className="cv-school-name">University of Illinois Urbana-Champaign</h3>
+                </div>
+                <div className="cv-education-details">
+                  <div className="cv-degree-period">
+                    <span className="cv-degree">Master of Business Administration</span>
+                    <span className="cv-education-period">2025 – 2027</span>
                   </div>
                 </div>
               </div>

@@ -1,7 +1,10 @@
 import React from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 import './Footer.css';
 
 const Footer: React.FC = () => {
+  const { t } = useLanguage();
+  
   return (
     <footer className="footer">
       <div className="container">
@@ -12,7 +15,7 @@ const Footer: React.FC = () => {
             <a href="https://github.com/injooinjoo" target="_blank" rel="noopener noreferrer" className="footer-link">GitHub</a>
           </div>
           <p className="footer-text">
-            &copy; {new Date().getFullYear()} InJoo Kim
+            {t('footer.rights')}
           </p>
         </div>
       </div>

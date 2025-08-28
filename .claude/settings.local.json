@@ -30,7 +30,10 @@
       "WebFetch(domain:sites.google.com)",
       "WebFetch(domain:www.linkedin.com)",
       "Bash(start index.html)",
-      "Bash(grep:*)"
+      "Bash(open index.html)",
+      "Bash(grep:*)",
+      "Bash(chmod:*)",
+      "Bash(npm install)"
     ],
     "deny": []
   }

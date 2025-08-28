@@ -15,33 +15,56 @@ const Experience: React.FC = () => {
   const experiences: ExperienceItem[] = [
     {
       company: "SOOP Co., Ltd. (formerly AfreecaTV)",
-      role: "Live-streaming Ecosystem Lead / Community Manager",
-      period: "2016년 2월 - 현재 (9년 7개월)",
+      role: "Live-streaming Ecosystem (Game) Lead",
+      period: "2025년 7월 - 현재 (2개월)",
       description: [
         "Lead growth and operational strategy for a 5,000+ creator ecosystem, driving platform engagement, monetization, and community health",
-        "Increased active creator engagement by 170% through targeted acquisition, onboarding, and retention programs",
-        "Enhanced homepage CTR by 2.3x via data-driven algorithm optimization and improved user funnels",
         "Directed large-scale creator events & partnerships (e.g., G-Star), boosting participation rates by 60%",
-        "Built and nurtured thriving live-streaming community, managing relationships with top-tier creators",
-        "Developed creator support programs, increasing satisfaction and retention rates by over 30%",
-        "Engineered scalable creator monetization models and performance dashboards for leadership decision-making"
+        "Engineered scalable creator monetization models and performance dashboards, improving ROI and leadership decision-making",
+        "Established community guidelines and operational best practices, ensuring compliance and positive ecosystem growth",
+        "Conducted market and competitor analysis to inform talent acquisition and creator growth strategies"
       ],
       skills: ["Growth Strategy", "Creator Ecosystem", "Data Analytics", "Event Management", "Community Relations", "Python", "SQL"],
       color: "#e0f2fe",
       videoUrl: "/videos/soop-demo.mp4"
     },
     {
-      company: "MMXXII (자영업/개인사업)",
-      role: "Founder",
-      period: "2021년 1월 - 2024년 1월 (3년 1개월)",
+      company: "SOOP Co., Ltd. (formerly AfreecaTV)",
+      role: "Community Manager Lead",
+      period: "2023년 7월 - 2025년 6월 (2년)",
       description: [
-        "Founded and scaled an e-commerce venture from zero to six-figure monthly revenue",
-        "Achieved $100K/month revenue through multi-channel growth strategies (Ads, SEO/SEM, influencer collaborations)",
-        "Ranked 1st page for 15+ target keywords on Naver/Google",
-        "Improved conversion rates by 32% using A/B testing and segmented user targeting",
-        "Built automation pipelines with Python & MongoDB, saving 200+ hours/month in operations"
+        "Managed day-to-day creator ecosystem operations, optimizing engagement and monetization strategies",
+        "Implemented acquisition and retention initiatives, maintaining double-digit engagement growth year-over-year",
+        "Partnered with cross-functional teams to integrate analytics-driven platform features",
+        "Launched incentive programs and creator tools that improved content output quality and frequency"
       ],
-      skills: ["Entrepreneurship", "E-commerce", "SEO/SEM", "Python", "MongoDB", "Business Development"],
+      skills: ["Python", "SQL", "Analytics", "Project Management"],
+      color: "#e8f4fd"
+    },
+    {
+      company: "SOOP Co., Ltd. (formerly AfreecaTV)",
+      role: "Community Manager",
+      period: "2016년 2월 - 2023년 6월 (7년 5개월)",
+      description: [
+        "Built and nurtured a thriving live-streaming community, managing relationships with top-tier creators",
+        "Developed creator support programs, increasing satisfaction and retention rates by over 30%",
+        "Managed communication channels and resolved community escalations",
+        "Organized and executed online/offline promotional events to boost visibility and interaction"
+      ],
+      skills: ["Community Relations", "Event Management", "Creator Operations"],
+      color: "#f0f9ff"
+    },
+    {
+      company: "YouTube Creator & App Developer",
+      role: "Content Creator & Entrepreneur",
+      period: "2021년 - 현재 (4년)",
+      description: [
+        "Produced video content, achieving over 2 million views on a single video and 130k subscribers",
+        "Sole developer - launched horoscope and education applications with GPT-trained models for personalization",
+        "Founded and scaled an e-commerce venture focusing on online shopping and app development",
+        "Built automation pipelines with Python, integrating AI/ML models for enhanced user experiences"
+      ],
+      skills: ["Content Creation", "App Development", "Python", "GPT Integration", "Entrepreneurship", "Video Production"],
       color: "#f3e8ff"
     },
     {

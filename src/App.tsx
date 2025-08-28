@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { LanguageProvider } from './contexts/LanguageContext';
 import AppHeader from './components/AppHeader';
 import ProfileHeader from './components/ProfileHeader';
 import TabNavigation from './components/TabNavigation';
@@ -30,17 +31,19 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="app">
-      <AppHeader />
-      <div className="container">
-        <ProfileHeader />
-        <TabNavigation activeTab={activeTab} onTabChange={setActiveTab} />
-        <main className="content">
-          {renderContent()}
-        </main>
+    <LanguageProvider>
+      <div className="app">
+        <AppHeader />
+        <div className="container">
+          <ProfileHeader />
+          <TabNavigation activeTab={activeTab} onTabChange={setActiveTab} />
+          <main className="content">
+            {renderContent()}
+          </main>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </LanguageProvider>
   );
 };
 

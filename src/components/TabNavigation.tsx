@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 import './TabNavigation.css';
 
 type TabType = 'experience' | 'side-projects' | 'certifications' | 'cv';
@@ -9,11 +10,13 @@ interface TabNavigationProps {
 }
 
 const TabNavigation: React.FC<TabNavigationProps> = ({ activeTab, onTabChange }) => {
+  const { t } = useLanguage();
+  
   const tabs = [
-    { id: 'experience' as TabType, label: 'Experience', icon: '💼' },
-    { id: 'side-projects' as TabType, label: 'Side Projects', icon: '🚀' },
-    { id: 'certifications' as TabType, label: 'Certifications', icon: '🎓' },
-    { id: 'cv' as TabType, label: 'CV', icon: '📄' }
+    { id: 'experience' as TabType, label: t('tab.experience'), icon: '💼' },
+    { id: 'side-projects' as TabType, label: t('tab.sideProjects'), icon: '🚀' },
+    { id: 'certifications' as TabType, label: t('tab.certifications'), icon: '🎓' },
+    { id: 'cv' as TabType, label: t('tab.cv'), icon: '📄' }
   ];
 
   return (
