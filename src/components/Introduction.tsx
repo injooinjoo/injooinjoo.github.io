@@ -5,7 +5,7 @@ const Introduction: React.FC = () => {
     <section className="p-4">
       <h2 className="text-3xl font-bold mb-4">InJoo Kim</h2>
       <p className="mb-4">
-        Project Manager at SOOP (formerly AfreecaTV) with over 12 years of experience in product planning, growth strategy, and creator ecosystem operations.
+        Project Manager & Creator Operations Lead at SOOP (formerly AfreecaTV) with over 12 years of experience in product planning, growth strategy, and creator ecosystem operations.
       </p>
       <div className="flex space-x-4">
         <a href="mailto:ink595@g.harvard.edu" className="text-blue-500">Email</a>

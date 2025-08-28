@@ -27,7 +27,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Profile
     'profile.name': '김인주',
-    'profile.title': 'Frontend Developer & Project Manager',
+    'profile.title': '프로젝트 매니저 & 크리에이터 운영 리드',
     'profile.location': '서울, 한국',
     'profile.email': 'Injookim.dev@gmail.com',
     'profile.languages': '한국어, 영어',
@@ -73,7 +73,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Profile
     'profile.name': 'InJoo Kim',
-    'profile.title': 'Frontend Developer & Project Manager',
+    'profile.title': 'Project Manager & Creator Operations Lead',
     'profile.location': 'Seoul, South Korea',
     'profile.email': 'Injookim.dev@gmail.com',
     'profile.languages': 'Korean, English',

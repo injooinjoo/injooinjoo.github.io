@@ -100,6 +100,33 @@
   box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
 }
 
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: #374151;
+  margin: 2px 0;
+  transition: 0.3s;
+  border-radius: 1px;
+}
+
+.mobile-menu-toggle:hover span {
+  background-color: #111827;
+}
+
 /* Add top padding to app content to account for fixed header */
 .app {
   padding-top: 60px;
@@ -107,15 +134,36 @@
 
 @media (max-width: 768px) {
   .app-header-right {
-    gap: 12px;
+    gap: 8px;
   }
   
   .app-nav {
-    gap: 16px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 12px 0;
+    min-width: 150px;
+    z-index: 1000;
+  }
+  
+  .app-nav.app-nav-open {
+    display: flex;
+    flex-direction: column;
   }
   
   .app-nav-link {
     font-size: 14px;
+    padding: 12px 20px;
+    border-radius: 0;
+    text-align: left;
+  }
+  
+  .app-nav-link:hover {
+    background-color: #f9fafb;
   }
   
   .app-logo a {
@@ -127,5 +175,11 @@
     font-size: 13px;
     min-width: 36px;
     height: 32px;
+    order: 1;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+    order: 2;
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 import './SideProjects.css';
 
 interface ProjectItem {
@@ -11,6 +12,8 @@ interface ProjectItem {
 }
 
 const SideProjects: React.FC = () => {
+  const { t } = useLanguage();
+  
   const projects: ProjectItem[] = [
     {
       title: "Creator Monetization Mission System",
@@ -123,9 +126,9 @@ const SideProjects: React.FC = () => {
 
   const getStatusText = (status: string) => {
     switch (status) {
-      case 'completed': return 'Completed';
-      case 'in-progress': return 'In Progress';
-      case 'planned': return 'Planned';
+      case 'completed': return t('projects.status.completed');
+      case 'in-progress': return t('projects.status.inProgress');
+      case 'planned': return t('projects.status.planned');
       default: return status;
     }
   };
