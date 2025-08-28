@@ -33,7 +33,11 @@
       "Bash(open index.html)",
       "Bash(grep:*)",
       "Bash(chmod:*)",
-      "Bash(npm install)"
+      "Bash(npm install)",
+      "Bash(gh workflow:*)",
+      "Bash(brew install:*)",
+      "WebFetch(domain:injooinjoo.github.io)",
+      "Bash(git revert:*)"
     ],
     "deny": []
   }
