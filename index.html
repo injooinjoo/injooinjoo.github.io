@@ -766,17 +766,17 @@
         /* Floating Local Navigation */
         .local-nav {
             position: fixed;
-            top: 0;
+            top: 80px;
             left: 0;
             right: 0;
             z-index: 90;
             background: rgba(var(--bg-primary-rgb), 0.95);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-color);
-            opacity: 0;
-            transform: translateY(-20px);
+            opacity: 1;
+            transform: translateY(0);
             transition: all 0.3s ease;
-            /* Dynamic positioning handled by JavaScript */
+            /* Always visible for testing */
         }
 
         .local-nav.visible {
