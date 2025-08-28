@@ -274,12 +274,17 @@
             color: var(--text-secondary);
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-left: auto;
+        }
+
         nav {
             display: flex;
             gap: 30px;
             padding: 20px 0;
-            flex: 1;
-            justify-content: flex-end;
         }
 
         nav a {
@@ -489,6 +494,10 @@
 
             .bio {
                 font-size: 1rem;
+            }
+
+            .nav-right {
+                position: relative;
             }
 
             .menu-toggle {
@@ -1616,41 +1625,43 @@
                     <span data-ko style="display:none">프로젝트 매니저 & 크리에이터 운영 리드</span>
                 </div>
             </div>
-            <button class="menu-toggle" id="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav id="nav-menu">
-                <a href="#soop-hero" class="active">
-                    <span data-en>Experience</span>
-                    <span data-ko style="display:none">경력</span>
-                </a>
-                <a href="#projects">
-                    <span data-en>Projects</span>
-                    <span data-ko style="display:none">프로젝트</span>
-                </a>
-                <a href="#education">
-                    <span data-en>Education</span>
-                    <span data-ko style="display:none">학력</span>
-                </a>
-                <a href="#certifications">
-                    <span data-en>Certifications</span>
-                    <span data-ko style="display:none">자격증</span>
-                </a>
-                <a href="#cv">
-                    <span data-en>CV</span>
-                    <span data-ko style="display:none">이력서</span>
-                </a>
-            </nav>
-            <!-- Toggle Controls - Moved to rightmost position -->
-            <div class="nav-controls" id="nav-controls">
-                <button class="circle-toggle" id="theme-toggle-nav" onclick="toggleTheme()" title="Toggle Theme">
-                    <span class="toggle-icon">🌙</span>
+            <div class="nav-right">
+                <button class="menu-toggle" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
-                <button class="circle-toggle" id="lang-toggle-nav" onclick="toggleLanguage()" title="Toggle Language">
-                    <span class="toggle-text">한</span>
-                </button>
+                <nav id="nav-menu">
+                    <a href="#soop-hero" class="active">
+                        <span data-en>Experience</span>
+                        <span data-ko style="display:none">경력</span>
+                    </a>
+                    <a href="#projects">
+                        <span data-en>Projects</span>
+                        <span data-ko style="display:none">프로젝트</span>
+                    </a>
+                    <a href="#education">
+                        <span data-en>Education</span>
+                        <span data-ko style="display:none">학력</span>
+                    </a>
+                    <a href="#certifications">
+                        <span data-en>Certifications</span>
+                        <span data-ko style="display:none">자격증</span>
+                    </a>
+                    <a href="#cv">
+                        <span data-en>CV</span>
+                        <span data-ko style="display:none">이력서</span>
+                    </a>
+                </nav>
+                <!-- Toggle Controls - Moved to rightmost position -->
+                <div class="nav-controls" id="nav-controls">
+                    <button class="circle-toggle" id="theme-toggle-nav" onclick="toggleTheme()" title="Toggle Theme">
+                        <span class="toggle-icon">🌙</span>
+                    </button>
+                    <button class="circle-toggle" id="lang-toggle-nav" onclick="toggleLanguage()" title="Toggle Language">
+                        <span class="toggle-text">한</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
