@@ -2511,6 +2511,40 @@
                     <span class="skill-tag">Database</span>
                 </div>
             </div>
+
+            <div class="card project-card" onclick="openProjectModal(8)">
+                <h3>
+                    <span data-en>Creator Analytics Dashboard</span>
+                    <span data-ko style="display:none">크리에이터 분석 대시보드</span>
+                </h3>
+                <p>
+                    <span data-en>Self-diagnostic platform helping streamers understand their performance metrics and growth opportunities. Achieved 65%+ voluntary adoption rate.</span>
+                    <span data-ko style="display:none">스트리머 성장을 돕는 자기 진단 플랫폼. 자발적 활용률 65% 이상 달성.</span>
+                </p>
+                <div class="skills">
+                    <span class="skill-tag">Data Visualization</span>
+                    <span class="skill-tag">Service Flow Design</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">UX Research</span>
+                </div>
+            </div>
+
+            <div class="card project-card" onclick="openProjectModal(9)">
+                <h3>
+                    <span data-en>Achievement Point System</span>
+                    <span data-ko style="display:none">업적 포인트 시스템</span>
+                </h3>
+                <p>
+                    <span data-en>Gamified motivation platform for fans and creators. Increased user activity by 25%+ through points, achievements, and ranking systems.</span>
+                    <span data-ko style="display:none">팬·크리에이터 참여 동기 부여 플랫폼. 포인트와 업적 시스템으로 사용자 활동률 25% 이상 상승.</span>
+                </p>
+                <div class="skills">
+                    <span class="skill-tag">Gamification Design</span>
+                    <span class="skill-tag">UX Flows</span>
+                    <span class="skill-tag">Reward System</span>
+                    <span class="skill-tag">Data-Driven</span>
+                </div>
+            </div>
         </section>
 
         <!-- Education Section -->
@@ -3708,6 +3742,70 @@
                 role: {
                     en: "Led process redesign initiative from analysis to implementation. Collaborated with legal team for compliance requirements, coordinated with engineering for system development, and worked directly with partner streamers for feedback and testing.",
                     ko: "분석부터 구현까지 엔드투엔드 프로세스 재설계 주도. 규정 준수를 위해 법무팀과 협력, 시스템 구축을 위해 엔지니어링팀과 조율. 파트너 스트리머와 직접 협업해 테스트·피드백을 수집, 최종 워크플로우 개선"
+                }
+            },
+            {
+                title: {
+                    en: "Creator Analytics Dashboard",
+                    ko: "크리에이터 분석 대시보드"
+                },
+                subtitle: {
+                    en: "Self-Diagnostic Platform for Streamer Growth",
+                    ko: "스트리머 성장을 돕는 자기 진단 플랫폼"
+                },
+                problem: {
+                    en: "Many streamers lacked opportunities to quantitatively understand their performance and weaknesses. Without systematic analysis tools like YouTube Analytics, it was difficult to identify what was working and what needed improvement, limiting long-term growth strategy development.",
+                    ko: "많은 스트리머들이 본인의 성과나 약점을 정량적으로 파악할 기회가 부족했습니다. 유튜브처럼 체계적인 분석 툴이 부재하여, 무엇이 잘되고 있고 무엇을 개선해야 하는지 알기 어려웠습니다. 이로 인해 크리에이터가 장기적으로 성장 전략을 세우는 데 제약이 있었습니다."
+                },
+                solution: {
+                    en: "Designed a dashboard page where streamers could directly view and analyze their activity data. Rather than just listing metrics, designed intuitive insights showing 'strengths/weaknesses/improvement areas' to help creators set their own growth direction.",
+                    ko: "스트리머가 직접 본인의 활동 데이터를 확인하고 분석할 수 있는 대시보드 페이지를 기획했습니다. 단순 지표 나열이 아니라 '잘되는 점/부족한 점/강화할 과제'를 직관적으로 파악할 수 있도록 설계하여, 크리에이터 스스로 성장 방향을 설정할 수 있게 지원했습니다."
+                },
+                features: {
+                    en: ["Core metrics visualization (viewers, engagement, revenue)", "Strength/weakness analysis insights", "Improvement task suggestions", "Period comparison for growth tracking", "Self-service analytics dashboard"],
+                    ko: ["시청자 수, 참여도, 수익 등 핵심 지표 시각화", "강점·약점 분석 인사이트 제공", "개선 과제 제안 섹션", "기간별 비교 기능으로 성장 추이 확인", "셀프서비스 분석 대시보드"]
+                },
+                metrics: {
+                    adoption: "65%+",
+                    feedback: "Positive",
+                    growth: "Long-term"
+                },
+                tech: ["Data Visualization", "Service Flow Design", "SQL", "UX Research"],
+                role: {
+                    en: "As product planner, led requirements definition and data metrics design. Conducted interviews and user research with streamers to identify needed analysis elements, designed UI/UX scenarios. Collaborated with development and design teams to create intuitive dashboard that drives growth strategy.",
+                    ko: "기획자로서 요구사항 정의 및 데이터 지표 설계를 주도. 스트리머와 인터뷰 및 사용자 조사를 통해 실제 필요한 분석 요소를 도출하고, UI/UX 시나리오를 기획했습니다. 개발·디자인팀과 협업하여 직관적이면서도 성장 전략을 유도하는 대시보드 페이지를 완성했습니다."
+                }
+            },
+            {
+                title: {
+                    en: "Achievement Point System",
+                    ko: "업적 포인트 시스템"
+                },
+                subtitle: {
+                    en: "Fan & Creator Engagement Motivation Platform",
+                    ko: "팬·크리에이터 참여 동기 부여 플랫폼"
+                },
+                problem: {
+                    en: "While platform activities were happening consistently, there was no structure to connect them to sustained achievements and rewards. Both creators and fans needed mechanisms to feel motivated.",
+                    ko: "플랫폼 내 활동은 꾸준히 이루어지고 있었지만, 이를 지속적인 성과·보상으로 연결할 구조가 부재했습니다. 크리에이터와 팬 모두가 동기부여를 느낄 수 있는 장치가 필요했습니다."
+                },
+                solution: {
+                    en: "Designed achievement point system awarding points and achievements based on participation and performance. Created structure for long-term engagement through achievement experiences and ranking systems, not just simple point accumulation.",
+                    ko: "참여도와 성과에 따라 포인트와 업적을 부여하는 업적 포인트 시스템을 기획했습니다. 단순 적립식 포인트가 아닌, 업적 달성 경험과 랭킹 시스템을 통해 사용자들이 재미와 성취감을 느끼며 장기적으로 참여할 수 있는 구조를 설계했습니다."
+                },
+                features: {
+                    en: ["Activity-based point accumulation", "Achievement badges and level system", "Ranking board and seasonal rewards", "Admin dashboard for reward policy management", "Gamified engagement mechanics"],
+                    ko: ["활동 기반 포인트 적립", "업적 달성 뱃지 및 레벨 시스템", "랭킹 보드 및 시즌별 리워드 제공", "운영자가 보상 정책을 쉽게 수정할 수 있는 백오피스", "게임화된 참여 메커니즘"]
+                },
+                metrics: {
+                    activity: "+25%",
+                    interaction: "Increased",
+                    retention: "Improved"
+                },
+                tech: ["Gamification Design", "UX Flows", "Data-Driven Reward System"],
+                role: {
+                    en: "Led from idea discovery to service flow planning. Defined point accumulation structure and reward design based on user journey, collaborated with operations and development to document policy and system requirements.",
+                    ko: "아이디어 발굴부터 서비스 플로우 기획까지 총괄. 유저 여정을 기반으로 포인트 적립 구조와 보상 설계를 정의하고, 운영자·개발자와 협업하여 정책 및 시스템 요구사항을 문서화했습니다."
                 }
             }
         ];
