@@ -152,7 +152,8 @@
             height: 300px;
             border-radius: 50%;
             margin-bottom: 30px;
-            object-fit: cover;
+            -o-object-fit: cover;
+               object-fit: cover;
             border: 4px solid var(--profile-border);
             transition: none; /* Disable CSS transitions for JS control */
             box-shadow: var(--shadow-lg);
@@ -253,7 +254,8 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            object-fit: cover;
+            -o-object-fit: cover;
+               object-fit: cover;
             border: 2px solid var(--profile-border);
         }
 
@@ -389,7 +391,8 @@
         .company-logo {
             width: 40px;
             height: 40px;
-            object-fit: contain;
+            -o-object-fit: contain;
+               object-fit: contain;
             border-radius: 8px;
         }
 
@@ -776,7 +779,8 @@
             right: 0;
             z-index: 90;
             background: rgba(var(--bg-primary-rgb), 0.95);
-            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+                    backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-color);
             opacity: 0;
             transform: translateY(-100%);
@@ -819,7 +823,8 @@
             width: 16px;
             height: 16px;
             border-radius: 4px;
-            object-fit: contain;
+            -o-object-fit: contain;
+               object-fit: contain;
         }
 
         .local-nav-item:hover,
@@ -1130,7 +1135,8 @@
             width: 80px;
             height: 80px;
             border-radius: 12px;
-            object-fit: cover;
+            -o-object-fit: cover;
+               object-fit: cover;
             border: 1px solid var(--border-color);
         }
 
@@ -1674,27 +1680,27 @@
         <div class="local-nav-container">
             <div class="local-nav-items">
                 <a href="#soop-hero" class="local-nav-item active">
-                    <img src="/img/SOOP_LOGO_Blue.png" alt="SOOP" class="nav-logo">
+                    <img src="/assets/SOOP_LOGO_Blue-76654d97.png" alt="SOOP" class="nav-logo">
                     <span data-en>SOOP</span>
                     <span data-ko style="display:none">SOOP</span>
                 </a>
                 <a href="#mmxxii-hero" class="local-nav-item">
-                    <img src="/img/MMXXII.png" alt="MMXXII" class="nav-logo">
+                    <img src="/assets/MMXXII-7c500bf7.png" alt="MMXXII" class="nav-logo">
                     <span data-en>MMXXII</span>
                     <span data-ko style="display:none">MMXXII</span>
                 </a>
                 <a href="#popjoy-hero" class="local-nav-item">
-                    <img src="/img/paranoidjoy.png" alt="POPJOY" class="nav-logo">
+                    <img src="/assets/paranoidjoy-1cc3d3c1.png" alt="POPJOY" class="nav-logo">
                     <span data-en>Paranoid Joy</span>
                     <span data-ko style="display:none">파라노이드조이</span>
                 </a>
                 <a href="#highbrow-hero" class="local-nav-item">
-                    <img src="/img/highbrow_square.png" alt="HighBrow" class="nav-logo">
+                    <img src="/assets/highbrow_square-bb9275fd.png" alt="HighBrow" class="nav-logo">
                     <span data-en>highbrow</span>
                     <span data-ko style="display:none">하이브로</span>
                 </a>
                 <a href="#ntreev-hero" class="local-nav-item">
-                    <img src="/img/ntreev.png" alt="Ntreev" class="nav-logo">
+                    <img src="data:image/png;base64,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" alt="Ntreev" class="nav-logo">
                     <span data-en>Ntreev Soft</span>
                     <span data-ko style="display:none">엔트리브소프트</span>
                 </a>
