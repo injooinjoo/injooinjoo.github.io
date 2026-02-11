@@ -2829,180 +2829,13 @@
             const stage2Progress = Math.max(0, Math.min((progress - 0.33) * 3, 1)); // 33-66% of scroll
             const stage3Progress = Math.max(0, Math.min((progress - 0.66) * 3, 1)); // 66-100% of scroll
             
-            // Profile image 10-stage ultra-smooth transformation animation
+            // Simple fade animation for profile image (no complex transforms)
             if (profileImg) {
-                // Calculate exact position of nav profile image
-                const navProfileImg = document.querySelector('.nav-profile img');
-                let finalX = 0;
-                let finalY = 0;
-                
-                if (navProfileImg) {
-                    const headerRect = profileImg.getBoundingClientRect();
-                    const navRect = navProfileImg.getBoundingClientRect();
-                    
-                    // Calculate the distance from header profile to nav profile
-                    finalX = navRect.left - headerRect.left;
-                    finalY = navRect.top - headerRect.top;
-                } else {
-                    // Fallback calculation if nav image not found
-                    const viewportWidth = window.innerWidth;
-                    const containerPadding = viewportWidth > 900 ? 40 : 20;
-                    finalX = -(viewportWidth / 2 - containerPadding - 70);
-                    finalY = -240;
-                }
-                
-                let currentX = 0;
-                let currentY = 0;
-                let currentSize = 300;
-                let borderOpacity = 1;
-                let shadowStrength = 1;
-                
-                // Calculate which stage we're in (0-9)
-                const stage = Math.floor(progress * 10);
-                const stageProgress = (progress * 10) % 1; // Progress within current stage
-                
-                // Bezier curve for smooth path
-                const bezierPoint = (t, p0, p1, p2, p3) => {
-                    const u = 1 - t;
-                    const tt = t * t;
-                    const uu = u * u;
-                    const uuu = uu * u;
-                    const ttt = tt * t;
-                    return uuu * p0 + 3 * uu * t * p1 + 3 * u * tt * p2 + ttt * p3;
-                };
-                
-                switch(stage) {
-                    case 0: // Stage 1 (0-10%): Initial float up
-                        currentSize = 300;
-                        currentX = 0;
-                        currentY = -3 * easeOutCubic(stageProgress);
-                        borderOpacity = 1;
-                        shadowStrength = 1 + (0.1 * stageProgress);
-                        profileImg.style.boxShadow = `0 ${4 + 2 * stageProgress}px ${8 + 4 * stageProgress}px rgba(0, 0, 0, ${0.1 * shadowStrength})`;
-                        break;
-                        
-                    case 1: // Stage 2 (10-20%): Continue floating, slight expansion
-                        currentSize = 300 - (10 * easeInOutQuad(stageProgress));
-                        currentX = -2 * stageProgress;
-                        currentY = -3 - (4 * easeOutCubic(stageProgress));
-                        borderOpacity = 1 - (0.05 * stageProgress);
-                        shadowStrength = 1.1 + (0.1 * stageProgress);
-                        profileImg.style.boxShadow = `0 ${6 + 2 * stageProgress}px ${12 + 4 * stageProgress}px rgba(0, 0, 0, ${0.11 * shadowStrength})`;
-                        break;
-                        
-                    case 2: // Stage 3 (20-30%): Begin shrinking
-                        currentSize = 290 - (30 * easeInOutCubic(stageProgress));
-                        currentX = -2 - (8 * easeInOutQuad(stageProgress));
-                        currentY = -7 - (8 * stageProgress);
-                        borderOpacity = 0.95 - (0.1 * stageProgress);
-                        shadowStrength = 1.2 - (0.2 * stageProgress);
-                        profileImg.style.boxShadow = `0 ${8 - 2 * stageProgress}px ${16 - 4 * stageProgress}px rgba(0, 0, 0, ${0.12 * shadowStrength})`;
-                        break;
-                        
-                    case 3: // Stage 4 (30-40%): Accelerate shrinking
-                        currentSize = 260 - (40 * easeInOutQuad(stageProgress));
-                        currentX = -10 - (15 * easeOutCubic(stageProgress));
-                        currentY = -15 - (10 * stageProgress);
-                        borderOpacity = 0.85 - (0.15 * stageProgress);
-                        shadowStrength = 1.0 - (0.2 * stageProgress);
-                        profileImg.style.boxShadow = `0 ${6 - stageProgress}px ${12 - 3 * stageProgress}px rgba(0, 0, 0, ${0.1 * shadowStrength})`;
-                        break;
-                        
-                    case 4: // Stage 5 (40-50%): Mid-point arc motion
-                        currentSize = 220 - (50 * easeInOutCubic(stageProgress));
-                        // Begin bezier curve motion
-                        const bezierX1 = -25;
-                        const bezierX2 = finalX * 0.3;
-                        currentX = bezierPoint(stageProgress, -25, bezierX1 - 20, bezierX2 + 20, bezierX2);
-                        currentY = -25 + Math.sin(stageProgress * Math.PI * 0.5) * 15 - (20 * stageProgress);
-                        borderOpacity = 0.7 - (0.2 * stageProgress);
-                        profileImg.style.boxShadow = `0 ${5 - stageProgress}px ${10 - 2 * stageProgress}px rgba(0, 0, 0, ${0.08})`;
-                        break;
-                        
-                    case 5: // Stage 6 (50-60%): Continue arc, faster shrinking
-                        currentSize = 170 - (50 * easeInOutQuad(stageProgress));
-                        const bezierX3 = finalX * 0.3;
-                        const bezierX4 = finalX * 0.6;
-                        currentX = bezierPoint(stageProgress, bezierX3, bezierX3 - 30, bezierX4 + 30, bezierX4);
-                        currentY = -45 + Math.sin((0.5 + stageProgress * 0.5) * Math.PI) * 10 - (25 * stageProgress);
-                        borderOpacity = 0.5 - (0.15 * stageProgress);
-                        profileImg.style.boxShadow = `0 4px 8px rgba(0, 0, 0, ${0.06})`;
-                        break;
-                        
-                    case 6: // Stage 7 (60-70%): Approach nav area
-                        currentSize = 120 - (40 * easeInOutCubic(stageProgress));
-                        const bezierX5 = finalX * 0.6;
-                        const bezierX6 = finalX * 0.8;
-                        currentX = bezierPoint(stageProgress, bezierX5, bezierX5 - 20, bezierX6 + 15, bezierX6);
-                        currentY = -70 - (40 * easeInOutQuad(stageProgress));
-                        borderOpacity = 0.35 - (0.1 * stageProgress);
-                        profileImg.style.boxShadow = `0 3px 6px rgba(0, 0, 0, ${0.05})`;
-                        break;
-                        
-                    case 7: // Stage 8 (70-80%): Fine-tune position
-                        currentSize = 80 - (25 * easeOutCubic(stageProgress));
-                        const bezierX7 = finalX * 0.8;
-                        const bezierX8 = finalX * 0.92;
-                        currentX = bezierPoint(stageProgress, bezierX7, bezierX7 - 10, bezierX8 + 8, bezierX8);
-                        currentY = -110 - (40 * easeInOutQuad(stageProgress));
-                        borderOpacity = 0.25 - (0.1 * stageProgress);
-                        profileImg.style.boxShadow = `0 2px 4px rgba(0, 0, 0, ${0.04})`;
-                        break;
-                        
-                    case 8: // Stage 9 (80-90%): Near final position
-                        currentSize = 50 - (8 * easeInOutQuad(stageProgress));
-                        const bezierX9 = finalX * 0.85;
-                        const bezierX10 = finalX * 0.95;
-                        currentX = bezierPoint(stageProgress, bezierX9, bezierX9 - 5, bezierX10 + 3, bezierX10);
-                        currentY = finalY * 0.7 + (finalY * 0.2) * easeOutCubic(stageProgress);
-                        borderOpacity = 0.15 - (0.08 * stageProgress);
-                        profileImg.style.boxShadow = `0 2px 3px rgba(0, 0, 0, ${0.03})`;
-                        break;
-                        
-                    case 9: // Stage 10 (90-100%): Final landing at nav position
-                        currentSize = 42 - (2 * easeOutCubic(stageProgress));
-                        currentX = finalX * (0.95 + 0.05 * easeOutCubic(stageProgress));
-                        currentY = finalY * (0.9 + 0.1 * easeOutCubic(stageProgress));
-                        borderOpacity = 0.07 * (1 - stageProgress);
-                        profileImg.style.boxShadow = stageProgress > 0.5 ? 'none' : `0 1px 2px rgba(0, 0, 0, ${0.02})`;
-                        
-                        // When animation is complete, ensure exact position
-                        if (stageProgress > 0.95) {
-                            currentSize = 40;
-                            currentX = finalX;
-                            currentY = finalY;
-                        }
-                        break;
-                        
-                    default: // Fallback for progress = 1
-                        currentSize = 40;
-                        currentX = finalX;
-                        currentY = finalY;
-                        borderOpacity = 0;
-                        profileImg.style.boxShadow = 'none';
-                        break;
-                }
-                
-                // Apply all transformations
-                const scale = currentSize / 300;
-                profileImg.style.transform = `translate(${currentX}px, ${currentY}px) scale(${scale})`;
-                profileImg.style.zIndex = progress > 0.01 ? '102' : 'auto'; // Always on top during animation
-                
-                // Hide header image when it reaches final position
-                if (progress >= 0.98) {
-                    profileImg.style.opacity = '0';
-                    profileImg.style.pointerEvents = 'none';
-                } else {
-                    profileImg.style.opacity = '1';
-                    profileImg.style.pointerEvents = 'auto';
-                }
-                
-                // Apply border fade
-                const borderRgb = getComputedStyle(document.documentElement).getPropertyValue('--profile-border-rgb');
-                profileImg.style.borderColor = `rgba(${borderRgb}, ${borderOpacity})`;
-                
-                // Smooth transition for all properties
-                profileImg.style.transition = 'none'; // Use JS animation only
+                // Simple opacity fade - no position changes that cause jitter
+                const fadeProgress = easeOutCubic(progress);
+                profileImg.style.opacity = Math.max(0, 1 - fadeProgress * 1.5);
+                profileImg.style.transform = 'none'; // No transform animations
+                profileImg.style.boxShadow = 'var(--shadow-lg)';
             }
             
             // Header content with gradual multi-stage fade
@@ -3100,31 +2933,28 @@
                 }
             }
             
-            // Nav profile with delayed and smooth entrance
+            // Nav profile with smooth entrance - appears as header fades
             if (navProfile) {
                 const navProfileImg = navProfile.querySelector('img');
                 const navProfileInfo = navProfile.querySelector('.nav-profile-info');
-                
-                // Keep nav profile image in place but invisible initially
-                // It will become visible when header image reaches it
+
+                // Nav profile fades in as header profile fades out (after 50% progress)
+                const navFadeProgress = Math.max(0, (progress - 0.5) / 0.5);
+                const navFadeEased = easeOutCubic(navFadeProgress);
+
                 if (navProfileImg) {
-                    // Keep opacity at 0 until header image arrives
-                    navProfileImg.style.opacity = progress > 0.95 ? 1 : 0;
-                    navProfileImg.style.visibility = 'visible'; // Keep position
+                    navProfileImg.style.opacity = navFadeEased;
+                    navProfileImg.style.visibility = 'visible';
                 }
-                
-                // Nav profile info appears in the last 10% of the scroll (stage 10)
+
                 if (navProfileInfo) {
-                    const infoProgress = Math.max(0, (progress - 0.9) / 0.1);
-                    const infoEased = easeOutCubic(infoProgress);
-                    
-                    navProfileInfo.style.opacity = infoEased;
-                    navProfileInfo.style.transform = `translateX(${(1 - infoEased) * -20}px)`;
+                    navProfileInfo.style.opacity = navFadeEased;
+                    navProfileInfo.style.transform = 'none'; // No transform animation
                 }
-                
-                // Show nav profile container once animation is nearly complete
-                navProfile.style.opacity = progress > 0.85 ? 1 : 0;
-                navProfile.style.pointerEvents = progress > 0.9 ? 'auto' : 'none';
+
+                // Show nav profile container
+                navProfile.style.opacity = navFadeEased;
+                navProfile.style.pointerEvents = progress > 0.6 ? 'auto' : 'none';
             }
             
             // Nav controls animation - appear with nav profile info
