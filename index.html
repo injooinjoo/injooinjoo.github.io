@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InJoo Kim - Project Manager</title>
+    <title>InJoo Kim - Product Manager</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <style>
         :root {
@@ -75,9 +75,9 @@
             gap: 8px;
             margin-left: 15px;
             opacity: 0;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            will-change: opacity, transform;
+            transform: none;
+            transition: opacity 0.3s ease;
+            will-change: opacity;
         }
 
         .circle-toggle {
@@ -210,19 +210,25 @@
 
         /* Navigation */
         .nav-wrapper {
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 100;
             background: rgba(var(--bg-primary-rgb), var(--nav-bg-opacity));
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            transition: none; /* Disable CSS transitions for JS control */
-            margin-bottom: 30px;
-            will-change: box-shadow, background;
-            border-bottom: 1px solid transparent; /* Controlled by JS */
+            transition: opacity 0.3s ease;
+            will-change: opacity, box-shadow, background;
+            border-bottom: 1px solid transparent;
+            opacity: 0;
+            pointer-events: none;
         }
 
-        /* Nav wrapper fixed state handled by JavaScript */
+        .nav-wrapper.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
 
         .nav-container {
             width: 100%;
@@ -779,13 +785,14 @@
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-color);
             opacity: 0;
-            transform: translateY(-100%);
-            transition: all 0.3s ease;
+            transform: none;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
         }
 
         .local-nav.visible {
             opacity: 1;
-            transform: translateY(0);
+            pointer-events: auto;
         }
 
         .local-nav-container {
@@ -1590,23 +1597,23 @@
         <div class="header-content">
             <h1>InJoo Kim</h1>
             <p class="subtitle">
-                <span data-en>Project Manager & Creator Operations Lead</span>
-                <span data-ko style="display:none">프로젝트 매니저 & 크리에이터 운영 리드</span>
+                <span data-en>Product Manager & Creator Operations Lead</span>
+                <span data-ko style="display:none">프로덕트 매니저 & 크리에이터 운영 리드</span>
             </p>
             <div class="bio" style="line-height: 1.8; max-width: 800px; margin: 20px auto; text-align: left;">
                 <span data-en>
-                    <p style="margin-bottom: 15px;">With <strong>9+ years</strong> driving growth across live-streaming, e-commerce, and digital platforms, I transform data insights into products that scale. A product leader specializing in creator ecosystems, monetization strategies, and AI-driven personalization.</p>
-                    
-                    <p style="margin-bottom: 15px;">I believe sustainable growth comes from empowering creators and communities—not just through features, but by building ecosystems where creativity thrives. My work at SOOP (<strong>5,000+ creators</strong>) has taught me that the best products balance business metrics with human connection.</p>
-                    
-                    <p>Currently leading creator growth initiatives at <strong>SOOP</strong> while pursuing <strong>AI/Data Science at Harvard</strong>, exploring the intersection of human creativity and machine intelligence.</p>
+                    <p style="margin-bottom: 15px;">With <strong>10 years</strong> driving growth across gaming, live-streaming, e-commerce, and digital platforms, I transform data insights into products that scale. A product leader specializing in game service operations, creator ecosystems, monetization strategies, and AI-driven personalization.</p>
+
+                    <p style="margin-bottom: 15px;">I believe sustainable growth comes from empowering creators and communities—not just through features, but by building ecosystems where creativity thrives. My work at NEXON and SOOP (<strong>5,000+ creators</strong>) has taught me that the best products balance business metrics with human connection.</p>
+
+                    <p>Currently leading product strategy at <strong>NEXON KOREA</strong> while pursuing <strong>AI/Data Science at Harvard</strong>, exploring the intersection of human creativity and machine intelligence.</p>
                 </span>
                 <span data-ko style="display:none">
-                    <p style="margin-bottom: 15px;">저는 지난 <strong>9년 동안</strong> 라이브 스트리밍, 이커머스, 그리고 디지털 플랫폼 분야에서 크리에이터와 함께 성장해왔습니다. 데이터를 단순히 분석하는 데 그치지 않고, 그것을 실제로 확장 가능한 제품과 서비스로 연결하는 일을 즐깁니다. 특히 크리에이터 생태계, 수익화 전략, 그리고 AI 기반 개인화에 강점을 가지고 있습니다.</p>
-                    
-                    <p style="margin-bottom: 15px;">저는 진정한 성장은 '기능 추가'가 아니라, 크리에이터와 커뮤니티가 창의성을 마음껏 발휘할 수 있는 환경을 만드는 데서 시작된다고 믿습니다. SOOP에서 <strong>5,000명 이상의 크리에이터</strong>와 함께 일하며 배운 가장 큰 교훈은, 좋은 제품은 비즈니스 지표를 높이는 동시에 사람들 간의 관계를 더 단단하게 만들어야 한다는 점이었습니다.</p>
-                    
-                    <p>현재는 <strong>SOOP</strong>에서 크리에이터 성장 프로젝트를 이끌고 있으며, 동시에 <strong>하버드에서 AI와 데이터 사이언스</strong>를 공부하고 있습니다. 인간의 창의성과 기계 지능이 만나는 지점에서, 어떻게 하면 더 의미 있는 경험을 만들 수 있을지 끊임없이 탐구하고 있습니다.</p>
+                    <p style="margin-bottom: 15px;">저는 지난 <strong>10년 동안</strong> 게임, 라이브 스트리밍, 이커머스, 그리고 디지털 플랫폼 분야에서 성장해왔습니다. 데이터를 단순히 분석하는 데 그치지 않고, 그것을 실제로 확장 가능한 제품과 서비스로 연결하는 일을 즐깁니다. 특히 게임 서비스 운영, 크리에이터 생태계, 수익화 전략, 그리고 AI 기반 개인화에 강점을 가지고 있습니다.</p>
+
+                    <p style="margin-bottom: 15px;">저는 진정한 성장은 '기능 추가'가 아니라, 크리에이터와 커뮤니티가 창의성을 마음껏 발휘할 수 있는 환경을 만드는 데서 시작된다고 믿습니다. 넥슨과 SOOP에서 <strong>5,000명 이상의 크리에이터</strong>와 함께 일하며 배운 가장 큰 교훈은, 좋은 제품은 비즈니스 지표를 높이는 동시에 사람들 간의 관계를 더 단단하게 만들어야 한다는 점이었습니다.</p>
+
+                    <p>현재는 <strong>넥슨 코리아</strong>에서 프로덕트 전략을 이끌고 있으며, 동시에 <strong>하버드에서 AI와 데이터 사이언스</strong>를 공부하고 있습니다. 인간의 창의성과 기계 지능이 만나는 지점에서, 어떻게 하면 더 의미 있는 경험을 만들 수 있을지 끊임없이 탐구하고 있습니다.</p>
                 </span>
             </div>
             <div class="contact">
@@ -1624,8 +1631,8 @@
                 <img src="/img/profile.jpg" alt="InJoo Kim">
                 <div class="nav-profile-info">
                     <h3>InJoo Kim</h3>
-                    <span data-en>Project Manager & Creator Operations Lead</span>
-                    <span data-ko style="display:none">프로젝트 매니저 & 크리에이터 운영 리드</span>
+                    <span data-en>Product Manager & Creator Operations Lead</span>
+                    <span data-ko style="display:none">프로덕트 매니저 & 크리에이터 운영 리드</span>
                 </div>
             </div>
             <div class="nav-right">
@@ -1673,7 +1680,12 @@
     <nav class="local-nav" id="local-nav">
         <div class="local-nav-container">
             <div class="local-nav-items">
-                <a href="#soop-hero" class="local-nav-item active">
+                <a href="#nexon-hero" class="local-nav-item active">
+                    <img src="/img/nexon_logo.png" alt="NEXON" class="nav-logo">
+                    <span data-en>NEXON</span>
+                    <span data-ko style="display:none">넥슨</span>
+                </a>
+                <a href="#soop-hero" class="local-nav-item">
                     <img src="/img/SOOP_LOGO_Blue.png" alt="SOOP" class="nav-logo">
                     <span data-en>SOOP</span>
                     <span data-ko style="display:none">SOOP</span>
@@ -1704,6 +1716,135 @@
 
     <!-- Main Content -->
     <div class="container">
+        <!-- NEXON Experience Section -->
+        <section class="experience-section" id="nexon-hero">
+            <div class="experience-header">
+                <div class="company-info">
+                    <h2 class="company-name">NEXON KOREA</h2>
+                    <h3 class="job-title">
+                        <span data-en>Senior Product Manager</span>
+                        <span data-ko style="display:none">시니어 프로덕트 매니저</span>
+                    </h3>
+                    <p class="employment-period">
+                        <span data-en>2025.12 - Present</span>
+                        <span data-ko style="display:none">2025년 12월 - 현재</span>
+                    </p>
+                    <p class="company-description">
+                        <span data-en>Korea's leading game company with global reach, creating memorable gaming experiences</span>
+                        <span data-ko style="display:none">글로벌 게임 시장을 선도하는 한국 최대 게임 회사, 기억에 남는 게임 경험을 만들어가는 곳</span>
+                    </p>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-logo-container" style="display: flex; align-items: center; justify-content: center; height: 100%; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 12px;">
+                        <img src="/img/nexon_logo.png" alt="NEXON" style="max-width: 200px; filter: brightness(0) invert(1);">
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-content">
+                <!-- Key Responsibilities & Achievements -->
+                <div class="section-block">
+                    <h4 class="section-subtitle">
+                        <span data-en>Key Responsibilities & Achievements</span>
+                        <span data-ko style="display:none">주요 업무 및 성과</span>
+                    </h4>
+                    <div class="achievements-list">
+                        <div class="achievement-item">
+                            <div class="achievement-header">
+                                <span data-en>Product Strategy & Roadmap</span>
+                                <span data-ko style="display:none">프로덕트 전략 및 로드맵</span>
+                                <span class="impact-metric">
+                                    <span data-en>Strategic Planning</span>
+                                    <span data-ko style="display:none">전략 기획</span>
+                                </span>
+                            </div>
+                            <p class="achievement-description">
+                                <span data-en>Lead growth and operational strategy for game services, driving platform engagement, monetization, and community health</span>
+                                <span data-ko style="display:none">게임 서비스의 성장 및 운영 전략을 주도하여 플랫폼 참여도, 수익화, 커뮤니티 건강을 향상</span>
+                            </p>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-header">
+                                <span data-en>Cross-functional Collaboration</span>
+                                <span data-ko style="display:none">크로스펑셔널 협업</span>
+                                <span class="impact-metric">
+                                    <span data-en>Team Leadership</span>
+                                    <span data-ko style="display:none">팀 리더십</span>
+                                </span>
+                            </div>
+                            <p class="achievement-description">
+                                <span data-en>Coordinate with development, design, marketing, and operations teams to deliver cohesive product experiences</span>
+                                <span data-ko style="display:none">개발, 디자인, 마케팅, 운영 팀과 협력하여 일관된 제품 경험을 제공</span>
+                            </p>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-header">
+                                <span data-en>Data-Driven Decision Making</span>
+                                <span data-ko style="display:none">데이터 기반 의사결정</span>
+                                <span class="impact-metric">
+                                    <span data-en>Analytics Focus</span>
+                                    <span data-ko style="display:none">분석 중심</span>
+                                </span>
+                            </div>
+                            <p class="achievement-description">
+                                <span data-en>Leverage data analytics to inform product decisions and optimize user experience and engagement metrics</span>
+                                <span data-ko style="display:none">데이터 분석을 활용하여 제품 결정을 내리고 사용자 경험 및 참여 지표를 최적화</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Results -->
+                <div class="section-block">
+                    <h4 class="section-subtitle">
+                        <span data-en>Key Results</span>
+                        <span data-ko style="display:none">주요 결과</span>
+                    </h4>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <span class="result-number">Global</span>
+                            <span class="result-label">
+                                <span data-en>Game Publisher</span>
+                                <span data-ko style="display:none">글로벌 게임 퍼블리셔</span>
+                            </span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-number">Top 10</span>
+                            <span class="result-label">
+                                <span data-en>Game Company</span>
+                                <span data-ko style="display:none">세계 게임 기업</span>
+                            </span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-number">10+</span>
+                            <span class="result-label">
+                                <span data-en>Years Experience</span>
+                                <span data-ko style="display:none">년 경력</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technologies Used -->
+                <div class="section-block">
+                    <h4 class="section-subtitle">
+                        <span data-en>Technologies & Skills</span>
+                        <span data-ko style="display:none">기술 및 역량</span>
+                    </h4>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Product Management</span>
+                        <span class="tech-tag">Data Analytics</span>
+                        <span class="tech-tag">Game Operations</span>
+                        <span class="tech-tag">Stakeholder Management</span>
+                        <span class="tech-tag">Agile/Scrum</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">A/B Testing</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- SOOP Experience Section -->
         <section class="experience-section" id="soop-hero">
             <div class="experience-header">
@@ -1714,8 +1855,8 @@
                         <span data-ko style="display:none">라이브 스트리밍 생태계 리드</span>
                     </h3>
                     <p class="employment-period">
-                        <span data-en>2016.2 - Present (9+ years)</span>
-                        <span data-ko style="display:none">2016년 2월 - 현재 (9년 이상)</span>
+                        <span data-en>2016.2 - 2025.11 (9 years)</span>
+                        <span data-ko style="display:none">2016년 2월 - 2025년 11월 (9년)</span>
                     </p>
                     <p class="company-description">
                         <span data-en>Korea's leading live-streaming platform serving 5,000+ creators</span>
@@ -1804,7 +1945,7 @@
                             </span>
                         </div>
                         <div class="result-item">
-                            <span class="result-number">9+</span>
+                            <span class="result-number">9</span>
                             <span class="result-label">
                                 <span data-en>Years Leading</span>
                                 <span data-ko style="display:none">리더십 경험</span>
@@ -1973,8 +2114,8 @@
                 <div class="company-info">
                     <h2 class="company-name">Paranoid Joy</h2>
                     <h3 class="job-title">
-                        <span data-en>Project Manager</span>
-                        <span data-ko style="display:none">프로젝트 매니저</span>
+                        <span data-en>Product Manager</span>
+                        <span data-ko style="display:none">프로덕트 매니저</span>
                     </h3>
                     <p class="employment-period">
                         <span data-en>2015.4 - 2016.1 (9 months)</span>
@@ -2107,8 +2248,8 @@
                 <div class="company-info">
                     <h2 class="company-name">highbrow</h2>
                     <h3 class="job-title">
-                        <span data-en>Project Manager</span>
-                        <span data-ko style="display:none">프로젝트 매니저</span>
+                        <span data-en>Product Manager</span>
+                        <span data-ko style="display:none">프로덕트 매니저</span>
                     </h3>
                     <p class="employment-period">
                         <span data-en>2014.10 - 2015.3 (6 months)</span>
@@ -2240,8 +2381,8 @@
                 <div class="company-info">
                     <h2 class="company-name">Ntreev Soft</h2>
                     <h3 class="job-title">
-                        <span data-en>Project Manager</span>
-                        <span data-ko style="display:none">프로젝트 매니저</span>
+                        <span data-en>Product Manager</span>
+                        <span data-ko style="display:none">프로덕트 매니저</span>
                     </h3>
                     <p class="employment-period">
                         <span data-en>2012.10 - 2014.8 (2 years)</span>
@@ -2628,32 +2769,6 @@
             <div class="card">
                 <div class="card-header">
                     <div class="card-title">
-                        <img src="/img/mit_logo.png" alt="MIT" class="company-logo">
-                        <div>
-                            <h3>
-                                <span data-en>MIT Data, Economics, and Design of Policy Certificate</span>
-                                <span data-ko style="display:none">MIT 데이터, 경제학 및 정책 설계 자격증</span>
-                            </h3>
-                            <p class="company">
-                                <span data-en>DEDP Professional Certificate Program</span>
-                                <span data-ko style="display:none">DEDP 전문 자격증 프로그램</span>
-                            </p>
-                        </div>
-                    </div>
-                    <span class="date">
-                        <span data-en>2025</span>
-                        <span data-ko style="display:none">2025년</span>
-                    </span>
-                </div>
-                <p>
-                    <span data-en>Advanced certificate in evidence-based policy design using data analytics and economic principles.</span>
-                    <span data-ko style="display:none">데이터 분석과 경제 원칙을 활용한 증거 기반 정책 설계 고급 자격증.</span>
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/200px-Google_2015_logo.svg.png" alt="Google" class="company-logo">
                         <div>
                             <h3>
@@ -2770,7 +2885,7 @@
             }
             
             // Update page title
-            document.title = newLang === 'en' ? 'InJoo Kim - Project Manager & Creator Operations Lead' : '김인주 - 프로젝트 매니저 & 크리에이터 운영 리드';
+            document.title = newLang === 'en' ? 'InJoo Kim - Product Manager & Creator Operations Lead' : '김인주 - 프로덕트 매니저 & 크리에이터 운영 리드';
             
             // Toggle visibility of language-specific content
             document.querySelectorAll('[data-en]').forEach(el => {
@@ -2925,11 +3040,11 @@
                 const borderRgb = getComputedStyle(document.documentElement).getPropertyValue('--border-color-rgb');
                 navWrapper.style.borderBottomColor = `rgba(${borderRgb}, ${borderOpacity})`;
                 
-                // Fixed positioning at threshold
-                if (scrollTop > FIXED_THRESHOLD && !navWrapper.classList.contains('fixed')) {
-                    navWrapper.classList.add('fixed');
-                } else if (scrollTop <= FIXED_THRESHOLD && navWrapper.classList.contains('fixed')) {
-                    navWrapper.classList.remove('fixed');
+                // Show nav-wrapper with fade-in at viewport top
+                if (progress > 0.3 && !navWrapper.classList.contains('visible')) {
+                    navWrapper.classList.add('visible');
+                } else if (progress <= 0.3 && navWrapper.classList.contains('visible')) {
+                    navWrapper.classList.remove('visible');
                 }
             }
             
@@ -2964,7 +3079,7 @@
                 const controlsEased = easeOutCubic(controlsProgress);
                 
                 navControls.style.opacity = controlsEased;
-                navControls.style.transform = `translateY(${(1 - controlsEased) * -10}px)`;
+                navControls.style.transform = 'none';
                 navControls.style.pointerEvents = progress > 0.9 ? 'auto' : 'none';
             }
             
@@ -3008,6 +3123,7 @@
             // Section definitions
             const mainSections = ['about', 'experience', 'projects', 'education'];
             const experienceSections = [
+                { id: 'nexon-hero', element: document.getElementById('nexon-hero') },
                 { id: 'soop-hero', element: document.getElementById('soop-hero') },
                 { id: 'mmxxii-hero', element: document.getElementById('mmxxii-hero') },
                 { id: 'popjoy-hero', element: document.getElementById('popjoy-hero') },
@@ -3299,7 +3415,7 @@
             }
             
             // Set initial page title
-            document.title = savedLang === 'en' ? 'InJoo Kim - Project Manager & Creator Operations Lead' : '김인주 - 프로젝트 매니저 & 크리에이터 운영 리드';
+            document.title = savedLang === 'en' ? 'InJoo Kim - Product Manager & Creator Operations Lead' : '김인주 - 프로덕트 매니저 & 크리에이터 운영 리드';
             
             // Set initial language visibility
             document.querySelectorAll('[data-en]').forEach(el => {
