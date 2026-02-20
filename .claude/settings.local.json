@@ -34,7 +34,12 @@
       "Bash(grep:*)",
       "Bash(chmod:*)",
       "Bash(npm install)",
-      "Bash(xxd:*)"
+      "Bash(xxd:*)",
+      "Bash(ls:*)",
+      "Bash(wc:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run view:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": []
   }
