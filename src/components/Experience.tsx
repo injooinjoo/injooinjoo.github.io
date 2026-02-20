@@ -15,8 +15,8 @@ const Experience: React.FC = () => {
   const experiences: ExperienceItem[] = [
     {
       company: "SOOP Co., Ltd. (formerly AfreecaTV)",
-      role: "Live-streaming Ecosystem (Game) Lead",
-      period: "2025년 7월 - 현재 (2개월)",
+      role: "Senior Product Manager",
+      period: "Dec 2025 - Present",
       description: [
         "Lead growth and operational strategy for a 5,000+ creator ecosystem, driving platform engagement, monetization, and community health",
         "Directed large-scale creator events & partnerships (e.g., G-Star), boosting participation rates by 60%",
@@ -30,8 +30,8 @@ const Experience: React.FC = () => {
     },
     {
       company: "SOOP Co., Ltd. (formerly AfreecaTV)",
-      role: "Community Manager Lead",
-      period: "2023년 7월 - 2025년 6월 (2년)",
+      role: "Product Manager - Creator Ecosystem Lead",
+      period: "Feb 2016 - Nov 2025 (9 yrs 10 mos)",
       description: [
         "Managed day-to-day creator ecosystem operations, optimizing engagement and monetization strategies",
         "Implemented acquisition and retention initiatives, maintaining double-digit engagement growth year-over-year",
@@ -43,8 +43,8 @@ const Experience: React.FC = () => {
     },
     {
       company: "SOOP Co., Ltd. (formerly AfreecaTV)",
-      role: "Community Manager",
-      period: "2016년 2월 - 2023년 6월 (7년 5개월)",
+      role: "Product Manager",
+      period: "Feb 2016 - Nov 2025 (9 yrs 10 mos)",
       description: [
         "Built and nurtured a thriving live-streaming community, managing relationships with top-tier creators",
         "Developed creator support programs, increasing satisfaction and retention rates by over 30%",
@@ -56,8 +56,8 @@ const Experience: React.FC = () => {
     },
     {
       company: "YouTube Creator & App Developer",
-      role: "Content Creator & Entrepreneur",
-      period: "2021년 - 현재 (4년)",
+      role: "Founder & Growth Lead",
+      period: "Jan 2021 - Jan 2024 (3 yrs)",
       description: [
         "Produced video content, achieving over 2 million views on a single video and 130k subscribers",
         "Sole developer - launched horoscope and education applications with GPT-trained models for personalization",
@@ -69,8 +69,8 @@ const Experience: React.FC = () => {
     },
     {
       company: "ParanoidJoy",
-      role: "Marketing Manager",
-      period: "2015년 4월 - 2016년 1월 (10개월)",
+      role: "Product Manager",
+      period: "Feb 2015 - Feb 2016 (1 yr 1 mo)",
       description: [
         "Led app review processes for Android/iOS, optimizing UX and engagement strategies",
         "Planned and executed targeted in-game events based on behavioral analytics",
@@ -82,8 +82,8 @@ const Experience: React.FC = () => {
     },
     {
       company: "highbrow, Inc.",
-      role: "Project Manager",
-      period: "2014년 8월 - 2014년 12월 (5개월)",
+      role: "Product Manager",
+      period: "Aug 2014 - Jan 2015 (6 mos)",
       description: [
         "Coordinated updates and promotions with global game publishers",
         "Secured new publisher contracts and managed G-Star booth operations"
@@ -94,8 +94,8 @@ const Experience: React.FC = () => {
     },
     {
       company: "Ntreev Soft.",
-      role: "Project Manager",
-      period: "2012년 3월 - 2013년 6월 (1년 4개월)",
+      role: "Product Manager",
+      period: "Mar 2012 - Aug 2013 (1 yr 6 mos)",
       description: [
         "Managed global publishing for 'Pangya' (Thailand & U.S.)",
         "Designed localized in-game events (e.g., Songkran festival), increasing performance by 130% over previous benchmarks"
