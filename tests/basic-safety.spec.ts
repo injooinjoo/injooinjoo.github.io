@@ -23,14 +23,19 @@ test.describe('Basic Safety Tests', () => {
 
   test('all navigation tabs are functional', async ({ page }) => {
     await page.goto('/');
-    
-    const tabs = ['About', 'Experience', 'Projects', 'Skills', 'Certifications'];
-    
-    for (const tab of tabs) {
-      const tabElement = page.locator(`text=${tab}`).first();
-      if (await tabElement.count() > 0) {
-        await tabElement.click();
-        await page.waitForTimeout(500);
+
+    const tabs = page.locator('[data-nav-link]');
+    const count = await tabs.count();
+
+    expect(count).toBeGreaterThan(0);
+
+    for (let index = 0; index < count; index += 1) {
+      const tab = tabs.nth(index);
+      const href = await tab.getAttribute('href');
+      await tab.click();
+      await page.waitForTimeout(300);
+      if (href) {
+        await expect(page).toHaveURL(new RegExp(`${href.replace('#', '#')}$`));
       }
     }
   });
@@ -129,17 +134,11 @@ test.describe('Basic Safety Tests', () => {
     const videos = await page.locator('video').all();
     
     for (const video of videos) {
-      const isMuted = await video.getAttribute('muted');
-      const hasAutoplay = await video.getAttribute('autoplay');
-      
-      if (hasAutoplay !== null) {
-        expect(isMuted).toBeTruthy();
-      }
-      
       const actuallyMuted = await video.evaluate((el: HTMLVideoElement) => el.muted);
-      if (hasAutoplay !== null) {
-        expect(actuallyMuted).toBe(true);
-      }
+      const preload = await video.getAttribute('preload');
+
+      expect(actuallyMuted).toBe(true);
+      expect(preload).toBe('metadata');
     }
   });
 
@@ -156,5 +155,19 @@ test.describe('Basic Safety Tests', () => {
       
       expect(hasControls !== null || ariaLabel !== null || title !== null).toBeTruthy();
     }
+  });
+
+  test('mobile menu has an accessible label and closes on escape', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto('/');
+
+    const menuButton = page.getByRole('button', { name: /navigation menu|탐색 메뉴/i });
+    await expect(menuButton).toBeVisible();
+
+    await menuButton.click();
+    await expect(menuButton).toHaveAttribute('aria-expanded', 'true');
+
+    await page.keyboard.press('Escape');
+    await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
   });
 });
