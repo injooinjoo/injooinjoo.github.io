@@ -62,7 +62,15 @@
       "Bash(mdfind -name \"Pages.app\")",
       "Bash(osascript)",
       "Bash(osascript -e 'with timeout of 120 seconds *)",
-      "Bash(osascript -e 'tell application \"Microsoft Word\" to quit saving no')"
+      "Bash(osascript -e 'tell application \"Microsoft Word\" to quit saving no')",
+      "Read(//Users/jacobmac/Downloads/**)",
+      "Bash(sips -s format jpeg -s formatOptions 85 -Z 1600 /Users/jacobmac/Downloads/profile.png --out public/img/profile.jpg)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=/tmp/resume_new.pdf file://__CMDSUB_OUTPUT__/scripts/resume.html)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=/tmp/resume_new.pdf \"file://$\\(pwd\\)/scripts/resume.html\")",
+      "Bash(cp /tmp/resume_new.pdf resume.pdf)",
+      "Bash(cp /tmp/resume_new.pdf cv/Resume.InJooKim.pdf)",
+      "Bash(cp /tmp/resume_new.pdf InJoo_Kim_Resume_v2_Final.pdf)",
+      "Bash(cp /tmp/resume_new.pdf dist/resume.pdf)"
     ],
     "deny": []
   }
