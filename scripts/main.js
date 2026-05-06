@@ -292,7 +292,7 @@ function renderApp(restoreFocusSelector) {
               <div class="hero-actions">
                 <a class="button primary" href="mailto:ink595@g.harvard.edu">${pick(siteContent.hero.ctas.primary)}</a>
                 <a class="button secondary" href="/resume.pdf" target="_blank" rel="noopener noreferrer">${pick(siteContent.hero.ctas.secondary)}</a>
-                <a class="button tertiary" href="https://linkedin.com/in/injookim0623" target="_blank" rel="noopener noreferrer">${pick(siteContent.hero.ctas.tertiary)}</a>
+                <a class="button tertiary" href="https://linkedin.com/in/jooooo" target="_blank" rel="noopener noreferrer">${pick(siteContent.hero.ctas.tertiary)}</a>
               </div>
               <div class="hero-evidence">
                 <div class="hero-evidence-copy">
