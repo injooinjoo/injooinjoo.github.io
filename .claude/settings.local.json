@@ -70,7 +70,8 @@
       "Bash(cp /tmp/resume_new.pdf resume.pdf)",
       "Bash(cp /tmp/resume_new.pdf cv/Resume.InJooKim.pdf)",
       "Bash(cp /tmp/resume_new.pdf InJoo_Kim_Resume_v2_Final.pdf)",
-      "Bash(cp /tmp/resume_new.pdf dist/resume.pdf)"
+      "Bash(cp /tmp/resume_new.pdf dist/resume.pdf)",
+      "Bash(gh api *)"
     ],
     "deny": []
   }
