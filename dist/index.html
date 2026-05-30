@@ -1,45 +1,1115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>InJoo Kim | Senior PM for Games and Creator Platforms</title>
-  <meta
-    name="description"
-    content="Senior product manager across NEXON, SOOP, and MMXXII, focused on discovery, monetization, creator operations, and AI/data-backed product execution."
-  >
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-  <script>
-    const savedTheme = localStorage.getItem('theme');
-    const savedLanguage = localStorage.getItem('language');
-    if (savedTheme) document.documentElement.dataset.theme = savedTheme;
-    if (savedLanguage) document.documentElement.lang = savedLanguage;
-  </script>
-  
-  <script type="module" crossorigin src="/assets/index-d91e73e5.js"></script>
-  <link rel="stylesheet" href="/assets/index-0bacb556.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>InJoo Kim — Senior Product Manager</title>
+<meta name="description" content="Senior product manager across NEXON, SOOP, and MMXXII, focused on discovery, monetization, creator operations, and AI/data-backed product execution." />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=Inter:wght@400;450;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #fafaf7;
+    --surface: #ffffff;
+    --ink: #111111;
+    --ink-2: #3a3a38;
+    --ink-3: #6b6b66;
+    --ink-4: #9a9a93;
+    --line: #e6e4dc;
+    --line-2: #d6d4ca;
+    --accent: #1a3a66;
+    --accent-2: #b8411f;
+    --gold: #a88432;
+    --chip: #f1efe7;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --shadow-sm: 0 1px 2px rgba(17,17,17,0.04), 0 1px 1px rgba(17,17,17,0.03);
+  }
+  [data-theme="dark"] {
+    --bg: #141414;
+    --surface: #1c1c1c;
+    --ink: #f4f2ec;
+    --ink-2: #d1cfc7;
+    --ink-3: #9a9890;
+    --ink-4: #6a6862;
+    --line: #2c2c2a;
+    --line-2: #3a3a37;
+    --accent: #a7c0e0;
+    --accent-2: #e39379;
+    --gold: #d6b366;
+    --chip: #242423;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "ss01", "cv11";
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* ---------- Top bar ---------- */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250,250,247,0.82);
+    backdrop-filter: saturate(160%) blur(12px);
+    -webkit-backdrop-filter: saturate(160%) blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  [data-theme="dark"] .topbar { background: rgba(20,20,20,0.8); }
+  .topbar-inner {
+    max-width: 1240px; margin: 0 auto;
+    padding: 14px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--serif); font-weight: 600; font-size: 18px;
+    letter-spacing: -0.01em;
+  }
+  .brand-mark {
+    width: 26px; height: 26px; border-radius: 4px;
+    background: var(--ink); color: var(--bg);
+    display: grid; place-items: center;
+    font-family: var(--sans); font-weight: 700; font-size: 12px; letter-spacing: 0;
+  }
+  .nav {
+    display: flex; align-items: center; gap: 28px;
+    font-size: 13.5px; font-weight: 500; color: var(--ink-2);
+  }
+  .nav a { position: relative; padding: 4px 0; }
+  .nav a:hover { color: var(--ink); }
+  .nav a.active { color: var(--ink); }
+  .nav a.active::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -5px;
+    height: 1.5px; background: var(--ink);
+  }
+  .top-actions { display: flex; align-items: center; gap: 8px; }
+  .icon-btn {
+    width: 34px; height: 34px; border-radius: 50%;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    display: grid; place-items: center;
+    cursor: pointer;
+    font-size: 13px; color: var(--ink-2);
+    transition: all .18s ease;
+  }
+  .icon-btn:hover { border-color: var(--ink); color: var(--ink); }
+  .cta {
+    font-size: 13.5px; font-weight: 500;
+    padding: 9px 16px; border-radius: 999px;
+    background: var(--ink); color: var(--bg);
+    border: 1px solid var(--ink);
+    transition: all .18s ease;
+    cursor: pointer;
+  }
+  .cta:hover { background: var(--accent); border-color: var(--accent); }
+
+  /* ---------- Layout ---------- */
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
+  .container-narrow { max-width: 960px; margin: 0 auto; padding: 0 40px; }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 96px 0 80px; border-bottom: 1px solid var(--line); }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11.5px; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-3);
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before {
+    content: ""; width: 22px; height: 1px; background: var(--ink-3);
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(48px, 6vw, 76px);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    font-weight: 500;
+    margin: 22px 0 20px;
+    color: var(--ink);
+  }
+  .hero h1 em {
+    font-style: italic; font-weight: 400;
+    color: var(--accent);
+  }
+  .hero-lede {
+    font-size: 19px; line-height: 1.6;
+    color: var(--ink-2);
+    max-width: 560px;
+    margin-bottom: 36px;
+  }
+  .hero-lede strong { color: var(--ink); font-weight: 600; }
+
+  .hero-meta {
+    display: flex; flex-wrap: wrap; gap: 28px 40px;
+    padding-top: 28px; border-top: 1px solid var(--line);
+    font-size: 13.5px; color: var(--ink-3);
+  }
+  .hero-meta .label {
+    font-family: var(--mono);
+    font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--ink-4);
+    display: block; margin-bottom: 6px;
+  }
+  .hero-meta .value { color: var(--ink); font-size: 14px; font-weight: 500; }
+
+  .hero-cta-row {
+    display: flex; gap: 12px; flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 18px;
+    border-radius: 999px;
+    font-size: 14px; font-weight: 500;
+    border: 1px solid var(--ink);
+    background: var(--ink); color: var(--bg);
+    cursor: pointer;
+    transition: all .18s ease;
+  }
+  .btn:hover { background: var(--accent); border-color: var(--accent); }
+  .btn.ghost {
+    background: transparent; color: var(--ink);
+    border-color: var(--line-2);
+  }
+  .btn.ghost:hover { border-color: var(--ink); background: var(--surface); }
+  .btn svg { width: 14px; height: 14px; }
+
+  .hero-portrait-wrap {
+    position: relative;
+  }
+  .hero-portrait {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    overflow: hidden;
+    position: relative;
+  }
+  .hero-portrait img {
+    width: 100%; height: 100%; -o-object-fit: cover; object-fit: cover;
+    filter: grayscale(12%) contrast(1.02);
+  }
+  .hero-portrait-caption {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 14px 18px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--mono); font-size: 10.5px;
+    color: #fff;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0));
+  }
+  .hero-portrait-frame {
+    position: absolute; inset: -12px;
+    border: 1px solid var(--line-2);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* ---------- Logo strip ---------- */
+  .logo-strip {
+    padding: 42px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .logo-strip-inner {
+    display: flex; align-items: center; gap: 48px;
+    flex-wrap: wrap; justify-content: space-between;
+  }
+  .logo-label {
+    font-family: var(--mono); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--ink-4);
+    white-space: nowrap;
+  }
+  .logos { display: flex; align-items: center; gap: 44px; flex-wrap: wrap; }
+  .logos .logo-item {
+    font-family: var(--serif);
+    font-size: 17px; font-weight: 600;
+    color: var(--ink-3);
+    letter-spacing: -0.01em;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .logos .logo-item img { height: 20px; width: auto; opacity: 0.85; }
+  [data-theme="dark"] .logos .logo-item img { filter: invert(0.9); }
+
+  /* ---------- Section scaffolding ---------- */
+  section.block { padding: 100px 0; border-bottom: 1px solid var(--line); }
+  .section-head {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 72px;
+    margin-bottom: 56px;
+  }
+  .section-head .section-label {
+    font-family: var(--mono); font-size: 11.5px;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--ink-3);
+  }
+  .section-head .section-title {
+    font-family: var(--serif);
+    font-size: clamp(32px, 3.6vw, 44px);
+    line-height: 1.08; letter-spacing: -0.02em;
+    font-weight: 500;
+    max-width: 760px;
+  }
+  .section-head .section-title em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .section-head .section-sub {
+    margin-top: 16px;
+    font-size: 16px; color: var(--ink-2);
+    max-width: 620px;
+  }
+
+  /* ---------- Summary / metrics ---------- */
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  .metric {
+    padding: 28px 28px 30px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+  }
+  .metric .n {
+    font-family: var(--serif);
+    font-size: 44px; line-height: 1;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .metric .n sup { font-size: 20px; vertical-align: super; color: var(--accent); font-weight: 500; }
+  .metric .label {
+    margin-top: 12px;
+    font-size: 13px; color: var(--ink-3);
+    line-height: 1.45;
+  }
+  .metric .cat {
+    font-family: var(--mono);
+    font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-4);
+    margin-bottom: 14px;
+  }
+
+  /* ---------- Experience ---------- */
+  .xp {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 72px;
+    padding: 48px 0;
+    border-top: 1px solid var(--line);
+  }
+  .xp:first-of-type { border-top: 1px solid var(--line-2); }
+  .xp-meta { position: relative; }
+  .xp-period {
+    font-family: var(--mono);
+    font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .xp-company {
+    margin-top: 14px;
+    font-family: var(--serif); font-size: 26px; font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+  .xp-company-sub {
+    margin-top: 6px;
+    font-size: 13px; color: var(--ink-3);
+  }
+  .xp-body .xp-role {
+    font-size: 20px; font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .xp-body .xp-summary {
+    margin-top: 10px;
+    font-size: 16px; color: var(--ink-2);
+    max-width: 680px;
+  }
+  .xp-points {
+    list-style: none;
+    margin-top: 26px;
+    display: grid; gap: 14px;
+  }
+  .xp-points li {
+    display: grid;
+    grid-template-columns: 24px 1fr auto;
+    gap: 16px;
+    align-items: baseline;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+    font-size: 15px;
+    color: var(--ink-2);
+  }
+  .xp-points li:last-child { border-bottom: 1px solid var(--line); }
+  .xp-points .idx {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-4);
+    letter-spacing: 0.08em;
+  }
+  .xp-points .pt strong { color: var(--ink); font-weight: 600; }
+  .xp-points .metric-chip {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--accent);
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 4px 10px;
+    background: var(--chip);
+    border-radius: 4px;
+    letter-spacing: 0.02em;
+  }
+  .tags {
+    margin-top: 24px;
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .tag {
+    font-family: var(--sans);
+    font-size: 12px; font-weight: 500;
+    color: var(--ink-2);
+    padding: 5px 10px;
+    background: var(--chip);
+    border-radius: 4px;
+    letter-spacing: 0.01em;
+  }
+
+  /* ---------- Selected work ---------- */
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .work-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 28px 28px 24px;
+    display: flex; flex-direction: column;
+    transition: border-color .18s ease, transform .18s ease;
+    cursor: default;
+  }
+  .work-card:hover { border-color: var(--ink); }
+  .work-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 10px; }
+  .work-idx {
+    font-family: var(--mono); font-size: 11px; color: var(--ink-4);
+    letter-spacing: 0.12em;
+  }
+  .work-co {
+    font-family: var(--mono); font-size: 10.5px;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--ink-3);
+  }
+  .work-title {
+    font-family: var(--serif);
+    font-size: 22px; font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .work-desc {
+    font-size: 14.5px; color: var(--ink-2);
+    line-height: 1.55;
+    margin-bottom: 20px;
+    flex: 1;
+  }
+  .work-kpis {
+    display: flex; gap: 20px; margin-bottom: 18px;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .work-kpi .n {
+    font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--ink);
+    line-height: 1;
+  }
+  .work-kpi .l {
+    font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-4);
+    margin-top: 6px;
+  }
+  .work-stack { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  /* ---------- Education ---------- */
+  .edu-list, .cert-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+  .edu-item {
+    padding: 32px 32px;
+    border-bottom: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    background: var(--surface);
+  }
+  .edu-item:nth-child(2n) { border-right: none; }
+  .edu-item:last-child { border-right: none; }
+  .edu-period {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 14px;
+  }
+  .edu-school {
+    font-family: var(--serif); font-size: 22px; font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .edu-degree { font-size: 14.5px; color: var(--ink-2); margin-bottom: 4px; }
+  .edu-focus { font-size: 13.5px; color: var(--ink-3); }
+
+  /* ---------- Testimonial ---------- */
+  .pull {
+    padding: 24px 0 0;
+    border-top: 1px solid var(--line);
+    margin-top: 40px;
+  }
+  .pull q {
+    font-family: var(--serif);
+    font-size: 26px; line-height: 1.35;
+    font-weight: 400; font-style: italic;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    quotes: "\201C" "\201D";
+  }
+
+  /* ---------- Footer / contact ---------- */
+  .contact-block {
+    padding: 120px 0 80px;
+    background: var(--ink); color: var(--bg);
+  }
+  [data-theme="dark"] .contact-block { background: #0b0b0b; }
+  .contact-grid {
+    display: grid; grid-template-columns: 1.2fr 1fr;
+    gap: 80px; align-items: end;
+  }
+  .contact-grid h2 {
+    font-family: var(--serif);
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-weight: 500;
+  }
+  .contact-grid h2 em { font-style: italic; color: #e4c27a; font-weight: 400; }
+  .contact-grid p { color: #b9b8b2; font-size: 17px; margin-top: 20px; max-width: 520px; }
+  .contact-list {
+    display: grid; gap: 14px;
+    font-size: 15px;
+  }
+  .contact-list a {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 0;
+    border-top: 1px solid #2a2a2a;
+    color: #f4f2ec;
+    font-weight: 500;
+    transition: color .18s ease;
+  }
+  .contact-list a:last-child { border-bottom: 1px solid #2a2a2a; }
+  .contact-list a:hover { color: #e4c27a; }
+  .contact-list .key {
+    font-family: var(--mono); font-size: 10.5px;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: #8a8a82;
+  }
+  .contact-list .val { font-family: var(--sans); font-size: 15px; }
+  .contact-list .arr { color: #8a8a82; font-size: 13px; }
+
+  .footer {
+    border-top: 1px solid #2a2a2a;
+    margin-top: 80px;
+    padding-top: 30px;
+    display: flex; justify-content: space-between; align-items: center;
+    color: #6a6a62; font-family: var(--mono);
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  /* ---------- KO/EN visibility ---------- */
+  [data-lang="en"] [data-ko] { display: none !important; }
+  [data-lang="ko"] [data-en] { display: none !important; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 960px) {
+    .topbar-inner { padding: 12px 24px; }
+    .nav { display: none; }
+    .wrap, .container-narrow { padding: 0 24px; }
+    .hero { padding: 60px 0 56px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero-portrait { max-width: 360px; margin: 0 auto; }
+    .section-head { grid-template-columns: 1fr; gap: 20px; margin-bottom: 36px; }
+    .metrics { grid-template-columns: repeat(2, 1fr); }
+    .xp { grid-template-columns: 1fr; gap: 24px; padding: 36px 0; }
+    .xp-points li { grid-template-columns: 24px 1fr; }
+    .xp-points .metric-chip { grid-column: 2; margin-top: 6px; justify-self: start; }
+    .work-grid { grid-template-columns: 1fr; }
+    .edu-list { grid-template-columns: 1fr; }
+    .edu-item { border-right: none; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    section.block { padding: 64px 0; }
+    .logo-strip-inner { gap: 24px; }
+    .logos { gap: 28px; }
+  }
+</style>
 </head>
-<body>
-  <div id="app">
-    <main style="padding: 48px 20px; max-width: 860px; margin: 0 auto; font-family: 'Space Grotesk', sans-serif; color: #121a2a;">
-      <div style="display: inline-flex; align-items: center; gap: 8px; color: #1f54f3; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;">Senior PM for live-service growth</div>
-      <h1 style="margin: 18px 0 12px; font-family: 'Newsreader', serif; font-size: clamp(2.8rem, 6vw, 4.8rem); line-height: 0.96; letter-spacing: -0.05em;">I help game and creator platforms grow discovery, monetization, and operating leverage.</h1>
-      <p style="margin: 0; max-width: 42rem; font-size: 1.1rem; line-height: 1.55; color: #425062;">Senior Product Manager across NEXON, SOOP, and MMXXII. Strongest at product strategy, creator operations, and data-backed execution.</p>
-      <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px;">
-        <a href="mailto:ink595@g.harvard.edu" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 18px; border-radius: 999px; background: #1f54f3; color: #fff; font-weight: 700;">Email</a>
-        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 18px; border-radius: 999px; border: 1px solid rgba(18, 26, 42, 0.16); color: #121a2a; font-weight: 700;">Resume PDF</a>
-      </div>
-    </main>
-  </div>
-  <noscript>
-    <div style="padding: 24px; font-family: sans-serif; max-width: 720px; margin: 0 auto;">
-      This portfolio now relies on JavaScript to render bilingual content and navigation.
+<body data-lang="en">
+
+<!-- Top bar -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">IK</span>
+      <span>InJoo Kim</span>
+    </a>
+    <nav class="nav" id="primary-nav">
+      <a href="#experience" class="active"><span data-en>Experience</span><span data-ko>경력</span></a>
+      <a href="#work"><span data-en>Selected Work</span><span data-ko>프로젝트</span></a>
+      <a href="#education"><span data-en>Education</span><span data-ko>학력</span></a>
+      <a href="#contact"><span data-en>Contact</span><span data-ko>연락처</span></a>
+    </nav>
+    <div class="top-actions">
+      <button class="icon-btn" id="lang-btn" title="Language">EN</button>
+      <button class="icon-btn" id="theme-btn" title="Theme" aria-label="Theme">◐</button>
+      <a class="cta" href="#contact"><span data-en>Get in touch</span><span data-ko>연락하기</span></a>
     </div>
-  </noscript>
-  
+  </div>
+</header>
+
+<!-- Hero -->
+<section id="top" class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span data-en>Senior Product Manager · Seoul / Cambridge, MA</span><span data-ko>시니어 프로덕트 매니저 · 서울 / 케임브리지, MA</span></span>
+      <h1>
+        <span data-en>Building products where <em>creators</em>, communities, and data meet.</span>
+        <span data-ko>크리에이터와 커뮤니티, 그리고 <em>데이터</em>가 만나는 제품을 만듭니다.</span>
+      </h1>
+      <p class="hero-lede">
+        <span data-en>Senior product manager across <strong>NEXON</strong>, <strong>SOOP</strong>, and <strong>MMXXII</strong>, focused on discovery, monetization, creator operations, and AI/data-backed product execution.</span>
+        <span data-ko><strong>NEXON</strong>, <strong>SOOP</strong>, <strong>MMXXII</strong>에서 디스커버리, 수익화, 크리에이터 운영, AI/데이터 기반 제품 실행에 집중해 온 시니어 프로덕트 매니저입니다.</span>
+      </p>
+
+      <div class="hero-cta-row">
+        <a class="btn" href="#experience">
+          <span data-en>View experience</span><span data-ko>경력 보기</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn ghost" href="/cv/Resume.InJooKim.pdf">
+          <span data-en>Download résumé</span><span data-ko>이력서 다운로드</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v14m-6-6 6 6 6-6M4 21h16"/></svg>
+        </a>
+      </div>
+
+      <div class="hero-meta">
+        <div>
+          <span class="label">Currently</span>
+          <span class="value">NEXON KOREA · Sr. PM</span>
+        </div>
+        <div>
+          <span class="label">Education</span>
+          <span class="value">Harvard · UIUC Gies · MITx</span>
+        </div>
+        <div>
+          <span class="label">Focus</span>
+          <span class="value"><span data-en>Creator economy · Growth · AI</span><span data-ko>크리에이터 경제 · 그로스 · AI</span></span>
+        </div>
+        <div>
+          <span class="label">Open to</span>
+          <span class="value"><span data-en>US / remote PM roles</span><span data-ko>미국·리모트 PM 포지션</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-portrait-wrap">
+      <div class="hero-portrait-frame"></div>
+      <div class="hero-portrait">
+        <img src="/assets/profile-6bedb2b1.jpg" alt="InJoo Kim portrait" />
+        <div class="hero-portrait-caption">
+          <span>InJoo Kim</span>
+          <span>2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Logo strip -->
+<section class="logo-strip">
+  <div class="wrap logo-strip-inner">
+    <span class="logo-label"><span data-en>Previously & currently</span><span data-ko>경력</span></span>
+    <div class="logos">
+      <span class="logo-item">NEXON</span>
+      <span class="logo-item">SOOP</span>
+      <span class="logo-item">MMXXII</span>
+      <span class="logo-item">Paranoid&nbsp;Joy</span>
+      <span class="logo-item">highbrow</span>
+      <span class="logo-item">Ntreev&nbsp;Soft</span>
+    </div>
+  </div>
+</section>
+
+<!-- Impact metrics -->
+<section class="block" style="padding-top: 80px;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">01 — <span data-en>At a glance</span><span data-ko>한눈에</span></div>
+      <div>
+        <h2 class="section-title"><span data-en>A decade of <em>measurable</em> product outcomes.</span><span data-ko>10년간 쌓아온 <em>측정 가능한</em> 제품 성과.</span></h2>
+        <p class="section-sub"><span data-en>From mid‑tier creator discovery to monetization systems that scaled to millions — here's the shape of the work.</span><span data-ko>크리에이터 발견 알고리즘부터 수백만 유저 규모의 수익화 시스템까지, 지난 10년의 핵심 지표입니다.</span></p>
+      </div>
+    </div>
+
+    <div class="metrics">
+      <div class="metric">
+        <div class="cat">Creators</div>
+        <div class="n">5,000<sup>+</sup></div>
+        <div class="label"><span data-en>Creators directly managed on SOOP's livestream platform</span><span data-ko>SOOP 라이브스트리밍 플랫폼에서 직접 운영한 크리에이터</span></div>
+      </div>
+      <div class="metric">
+        <div class="cat">Revenue</div>
+        <div class="n">+42<span style="color:var(--accent)">%</span></div>
+        <div class="label"><span data-en>Monthly revenue growth from gamified creator missions</span><span data-ko>게이미파이드 미션으로 달성한 월 매출 성장률</span></div>
+      </div>
+      <div class="metric">
+        <div class="cat">Engagement</div>
+        <div class="n">2.3<span style="color:var(--accent)">×</span></div>
+        <div class="label"><span data-en>Click‑through lift from personalized homepage algorithm</span><span data-ko>개인화 홈 추천 알고리즘 CTR 개선</span></div>
+      </div>
+      <div class="metric">
+        <div class="cat">Efficiency</div>
+        <div class="n">200<span style="color:var(--accent)">→</span>&lt;1</div>
+        <div class="label"><span data-en>Monthly ops hours collapsed via automation platform</span><span data-ko>자동화 플랫폼으로 월 운영 시간을 200시간 → 1시간 미만</span></div>
+      </div>
+    </div>
+
+    <div class="pull">
+      <q><span data-en>The best products balance business metrics with human connection — especially when you're building for creators who put their livelihoods into the platform.</span><span data-ko>좋은 제품은 비즈니스 지표와 사람 사이의 연결을 함께 고려합니다. 자신의 생계를 건 크리에이터를 위한 제품이라면 더욱 그렇습니다.</span></q>
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section id="experience" class="block">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">02 — <span data-en>Experience</span><span data-ko>경력</span></div>
+      <div>
+        <h2 class="section-title"><span data-en>Operating PM across <em>gaming</em>, live‑streaming, and early‑stage startups.</span><span data-ko>게임, 라이브 스트리밍, 얼리 스타트업을 아우르는 프로덕트 매니저.</span></h2>
+        <p class="section-sub"><span data-en>Six roles across ten years — mostly at the intersection of creator economy, gamified growth, and data‑driven product operations.</span><span data-ko>10년간 6개 조직에서 크리에이터 경제, 게이미파이드 그로스, 데이터 기반 운영의 교차점을 다뤄왔습니다.</span></p>
+      </div>
+    </div>
+
+    <!-- NEXON -->
+    <article class="xp" id="nexon">
+      <div class="xp-meta">
+        <div class="xp-period">Dec 2025 — Present</div>
+        <div class="xp-company">NEXON KOREA</div>
+        <div class="xp-company-sub"><span data-en>Top‑10 global game publisher · Seoul</span><span data-ko>글로벌 톱10 게임 퍼블리셔 · 서울</span></div>
+      </div>
+      <div class="xp-body">
+        <div class="xp-role"><span data-en>Senior Product Manager, Game Services</span><span data-ko>시니어 프로덕트 매니저, 게임 서비스</span></div>
+        <p class="xp-summary"><span data-en>Leading growth and operational strategy for live game services — driving platform engagement, monetization, and community health through cross‑functional execution.</span><span data-ko>라이브 게임 서비스의 그로스·운영 전략을 총괄. 플랫폼 참여도, 수익화, 커뮤니티 건강성을 개선합니다.</span></p>
+        <ul class="xp-points">
+          <li>
+            <span class="idx">01</span>
+            <span class="pt"><span data-en><strong>Product strategy & roadmap.</strong> Own growth and ops strategy across live game services.</span><span data-ko><strong>프로덕트 전략·로드맵.</strong> 라이브 게임 서비스의 성장·운영 전략을 주도.</span></span>
+            <span class="metric-chip">Strategic planning</span>
+          </li>
+          <li>
+            <span class="idx">02</span>
+            <span class="pt"><span data-en><strong>Cross‑functional execution.</strong> Coordinate engineering, design, marketing, and ops to deliver cohesive experiences.</span><span data-ko><strong>크로스펑셔널 실행.</strong> 엔지니어링·디자인·마케팅·운영팀과 협업해 일관된 경험을 제공.</span></span>
+            <span class="metric-chip">Team leadership</span>
+          </li>
+          <li>
+            <span class="idx">03</span>
+            <span class="pt"><span data-en><strong>Data‑driven decisions.</strong> Use analytics to inform prioritization and optimize engagement metrics.</span><span data-ko><strong>데이터 기반 의사결정.</strong> 분석을 근거로 우선순위를 정하고 참여 지표를 최적화.</span></span>
+            <span class="metric-chip">Analytics focus</span>
+          </li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Live Ops</span><span class="tag">Roadmapping</span><span class="tag">A/B Testing</span><span class="tag">SQL</span><span class="tag">Amplitude</span><span class="tag">Cross‑functional</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- SOOP -->
+    <article class="xp" id="soop">
+      <div class="xp-meta">
+        <div class="xp-period">Feb 2016 — Nov 2025 · 9 yrs</div>
+        <div class="xp-company">SOOP <span style="color:var(--ink-4);font-weight:400">Co., Ltd.</span></div>
+        <div class="xp-company-sub"><span data-en>Korea's leading livestream platform · 5,000+ creators</span><span data-ko>한국 최대 라이브 스트리밍 플랫폼 · 크리에이터 5천명+</span></div>
+      </div>
+      <div class="xp-body">
+        <div class="xp-role"><span data-en>Livestream Ecosystem Lead · Product Manager</span><span data-ko>라이브 스트리밍 생태계 리드 · 프로덕트 매니저</span></div>
+        <p class="xp-summary"><span data-en>Owned the mid‑tier creator ecosystem end to end — from discovery algorithms and onboarding flows to large‑scale partnership events. Shipped the monetization systems that are now core platform revenue drivers.</span><span data-ko>미드티어 크리에이터 생태계 전반을 담당. 추천 알고리즘과 온보딩 플로우부터 대형 파트너십 이벤트까지 설계·운영했으며, 플랫폼 핵심 수익 시스템을 구축했습니다.</span></p>
+        <ul class="xp-points">
+          <li>
+            <span class="idx">01</span>
+            <span class="pt"><span data-en><strong>Personalized homepage algorithm.</strong> Redesigned discovery to surface relevant mid‑tier creators based on viewing history and engagement.</span><span data-ko><strong>개인화 홈 알고리즘.</strong> 시청 이력과 참여 패턴 기반으로 미드티어 크리에이터를 노출하도록 추천 알고리즘 재설계.</span></span>
+            <span class="metric-chip">+2.3× CTR</span>
+          </li>
+          <li>
+            <span class="idx">02</span>
+            <span class="pt"><span data-en><strong>Creator acquisition & retention.</strong> Built targeted retention programs, analytics dashboards, and onboarding flows for 5,000+ creators.</span><span data-ko><strong>크리에이터 유치·리텐션.</strong> 5천명+ 크리에이터 대상 리텐션 전략, 분석 대시보드, 온보딩 플로우 구축.</span></span>
+            <span class="metric-chip">+170% engagement</span>
+          </li>
+          <li>
+            <span class="idx">03</span>
+            <span class="pt"><span data-en><strong>Large‑scale event partnerships.</strong> Led creator programs at G‑Star and equivalent events to drive platform engagement and new monetization.</span><span data-ko><strong>대규모 파트너십 이벤트.</strong> G‑Star 등 대형 이벤트에서 크리에이터 프로그램을 기획·총괄.</span></span>
+            <span class="metric-chip">+60% participation</span>
+          </li>
+          <li>
+            <span class="idx">04</span>
+            <span class="pt"><span data-en><strong>Creator monetization systems.</strong> Shipped gamified missions, subscription tiers, and creator support — now core platform revenue lines.</span><span data-ko><strong>크리에이터 수익화.</strong> 미션·구독·지원금 시스템을 설계·출시하여 플랫폼 핵심 매출원으로 정착.</span></span>
+            <span class="metric-chip">+42% revenue</span>
+          </li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Creator Economy</span><span class="tag">Recommendation Systems</span><span class="tag">Monetization</span><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Firebase</span><span class="tag">GCP</span><span class="tag">A/B Testing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- MMXXII -->
+    <article class="xp" id="mmxxii">
+      <div class="xp-meta">
+        <div class="xp-period">2022 — 2024</div>
+        <div class="xp-company">MMXXII</div>
+        <div class="xp-company-sub"><span data-en>Early‑stage digital studio · Founder</span><span data-ko>얼리 스테이지 디지털 스튜디오 · 창립자</span></div>
+      </div>
+      <div class="xp-body">
+        <div class="xp-role"><span data-en>Founder & Technical Lead</span><span data-ko>창립자 & 기술 리드</span></div>
+        <p class="xp-summary"><span data-en>Founded and led a small studio shipping data‑driven digital products. Owned strategy, engineering partnerships, and go‑to‑market from zero.</span><span data-ko>작은 스튜디오를 창업하여 데이터 기반 디지털 프로덕트를 출시. 전략, 엔지니어링 파트너십, GTM을 처음부터 구축.</span></p>
+        <ul class="xp-points">
+          <li><span class="idx">01</span><span class="pt"><span data-en><strong>Product 0→1.</strong> Led discovery, prototyping, and launch of multiple digital products.</span><span data-ko><strong>제품 0→1.</strong> 디스커버리·프로토타이핑·출시를 주도.</span></span><span class="metric-chip">Full lifecycle</span></li>
+          <li><span class="idx">02</span><span class="pt"><span data-en><strong>Operations & hiring.</strong> Built core team, processes, and vendor relationships.</span><span data-ko><strong>조직 구축.</strong> 코어 팀과 프로세스, 벤더 관계를 세팅.</span></span><span class="metric-chip">Founder ops</span></li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Founding</span><span class="tag">0→1</span><span class="tag">GTM</span><span class="tag">Product Strategy</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Paranoid Joy -->
+    <article class="xp" id="popjoy">
+      <div class="xp-meta">
+        <div class="xp-period">2015 — 2016</div>
+        <div class="xp-company">Paranoid Joy</div>
+        <div class="xp-company-sub"><span data-en>Consumer digital startup</span><span data-ko>컨슈머 디지털 스타트업</span></div>
+      </div>
+      <div class="xp-body">
+        <div class="xp-role"><span data-en>Product Manager</span><span data-ko>프로덕트 매니저</span></div>
+        <p class="xp-summary"><span data-en>Ran mobile growth and retention programs for consumer products — A/B testing, lifecycle marketing, and CAC optimization.</span><span data-ko>컨슈머 앱의 그로스·리텐션 프로그램을 담당. A/B 테스트, 라이프사이클 마케팅, CAC 최적화를 리드.</span></p>
+        <ul class="xp-points">
+          <li><span class="idx">01</span><span class="pt"><span data-en><strong>Mobile growth hacking.</strong> Data‑driven retention, lifecycle, and CAC campaigns.</span><span data-ko><strong>모바일 그로스 해킹.</strong> 데이터 기반 리텐션·라이프사이클·CAC 캠페인 운영.</span></span><span class="metric-chip">+15% retention · −30% CAC</span></li>
+        </ul>
+        <div class="tags"><span class="tag">Firebase</span><span class="tag">AppsFlyer</span><span class="tag">A/B Testing</span><span class="tag">Push</span></div>
+      </div>
+    </article>
+
+    <!-- highbrow -->
+    <article class="xp" id="highbrow">
+      <div class="xp-meta">
+        <div class="xp-period">Oct 2014 — Mar 2015</div>
+        <div class="xp-company">highbrow</div>
+        <div class="xp-company-sub"><span data-en>Game publishing · Korea</span><span data-ko>게임 퍼블리싱 · 한국</span></div>
+      </div>
+      <div class="xp-body">
+        <div class="xp-role"><span data-en>Product Manager</span><span data-ko>프로덕트 매니저</span></div>
+        <p class="xp-summary"><span data-en>Ran publishing partnerships and high‑impact event operations, including G‑Star booth programs reaching 50k+ attendees.</span><span data-ko>퍼블리싱 파트너십과 G‑Star 등 대형 이벤트 운영 총괄. 5만명+ 규모 부스 프로그램 리드.</span></p>
+        <ul class="xp-points">
+          <li><span class="idx">01</span><span class="pt"><span data-en><strong>Publisher relations.</strong> Secured strategic contracts across multiple regions.</span><span data-ko><strong>퍼블리셔 관계.</strong> 다지역 전략 계약 체결.</span></span><span class="metric-chip">5+ partnerships</span></li>
+          <li><span class="idx">02</span><span class="pt"><span data-en><strong>G‑Star operations.</strong> Coordinated cross‑team execution for flagship gaming event.</span><span data-ko><strong>G‑Star 운영.</strong> 플래그십 이벤트 크로스팀 실행 총괄.</span></span><span class="metric-chip">50k+ visitors</span></li>
+          <li><span class="idx">03</span><span class="pt"><span data-en><strong>Brand strategy.</strong> 3× brand visibility via targeted event participation.</span><span data-ko><strong>브랜드 전략.</strong> 타겟 이벤트 참여로 가시성 3배 향상.</span></span><span class="metric-chip">3× visibility</span></li>
+        </ul>
+        <div class="tags"><span class="tag">Partnerships</span><span class="tag">Events</span><span class="tag">Brand</span></div>
+      </div>
+    </article>
+
+    <!-- Ntreev -->
+    <article class="xp" id="ntreev">
+      <div class="xp-meta">
+        <div class="xp-period">Oct 2012 — Aug 2014 · 2 yrs</div>
+        <div class="xp-company">Ntreev Soft</div>
+        <div class="xp-company-sub"><span data-en>Global game publishing · Seoul</span><span data-ko>글로벌 게임 퍼블리싱 · 서울</span></div>
+      </div>
+      <div class="xp-body">
+        <div class="xp-role"><span data-en>Product Manager, Global Publishing</span><span data-ko>프로덕트 매니저, 글로벌 퍼블리싱</span></div>
+        <p class="xp-summary"><span data-en>Led localization and publishing strategy across Thailand, United States, and Japan, shipping 15 regionally‑customized playbooks.</span><span data-ko>태국·미국·일본 시장 대상 현지화·퍼블리싱 전략을 담당. 15건의 지역 맞춤 플레이북 실행.</span></p>
+        <ul class="xp-points">
+          <li><span class="idx">01</span><span class="pt"><span data-en><strong>Global localization.</strong> Shipped culturally‑adapted content across 3 major markets.</span><span data-ko><strong>글로벌 현지화.</strong> 3개 주요 시장에 문화 맥락을 반영한 콘텐츠 출시.</span></span><span class="metric-chip">3 markets</span></li>
+          <li><span class="idx">02</span><span class="pt"><span data-en><strong>QA excellence.</strong> Maintained 98% quality score via rigorous regional QA process.</span><span data-ko><strong>품질 관리.</strong> 엄격한 QA로 전 지역 품질 점수 98% 유지.</span></span><span class="metric-chip">98% QA</span></li>
+          <li><span class="idx">03</span><span class="pt"><span data-en><strong>Regional strategy.</strong> 15 tailored publishing playbooks optimizing market fit.</span><span data-ko><strong>지역 전략.</strong> 15건의 지역별 퍼블리싱 플레이북 실행.</span></span><span class="metric-chip">15 playbooks</span></li>
+        </ul>
+        <div class="tags"><span class="tag">Localization</span><span class="tag">Global GTM</span><span class="tag">QA Management</span><span class="tag">Cross‑cultural</span></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- Selected work -->
+<section id="work" class="block">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">03 — <span data-en>Selected work</span><span data-ko>프로젝트</span></div>
+      <div>
+        <h2 class="section-title"><span data-en>Systems and features I've shipped, with <em>the numbers</em> attached.</span><span data-ko>직접 출시한 시스템과 기능, 그리고 <em>측정 가능한</em> 성과.</span></h2>
+        <p class="section-sub"><span data-en>Each entry is a product I owned end to end — discovery, specs, engineering partnership, launch, and iteration.</span><span data-ko>디스커버리부터 출시·반복까지 엔드 투 엔드로 책임진 프로덕트입니다.</span></p>
+      </div>
+    </div>
+
+    <div class="work-grid">
+
+      <article class="work-card">
+        <div class="work-head">
+          <span class="work-idx">P-01</span>
+          <span class="work-co">SOOP</span>
+        </div>
+        <h3 class="work-title"><span data-en>Creator Monetization Mission System</span><span data-ko>크리에이터 수익화 미션 시스템</span></h3>
+        <p class="work-desc"><span data-en>Gamified mission platform giving content creators measurable milestones toward monetization. A/B tested the reward loop across cohorts and iterated to an industry‑beating participation rate.</span><span data-ko>크리에이터에게 수익화 마일스톤을 제공하는 게이미파이드 미션 플랫폼. 코호트별 A/B 테스트를 반복하며 참여율을 업계 최고 수준으로 끌어올렸습니다.</span></p>
+        <div class="work-kpis">
+          <div class="work-kpi"><div class="n">82%</div><div class="l">Participation</div></div>
+          <div class="work-kpi"><div class="n">+42%</div><div class="l">Monthly revenue</div></div>
+        </div>
+        <div class="work-stack"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Firebase</span><span class="tag">A/B Testing</span></div>
+      </article>
+
+      <article class="work-card">
+        <div class="work-head">
+          <span class="work-idx">P-02</span>
+          <span class="work-co">SOOP</span>
+        </div>
+        <h3 class="work-title"><span data-en>Operations Automation Platform</span><span data-ko>운영 자동화 플랫폼</span></h3>
+        <p class="work-desc"><span data-en>Internal automation replacing cross‑team manual ops. Consolidated workflows for finance, creator support, and content review into a single pipeline.</span><span data-ko>여러 팀에 분산된 수동 운영을 대체한 사내 자동화 플랫폼. 재무·크리에이터 지원·콘텐츠 리뷰 워크플로우를 하나의 파이프라인으로 통합.</span></p>
+        <div class="work-kpis">
+          <div class="work-kpi"><div class="n">200h → &lt;1h</div><div class="l">Monthly ops</div></div>
+          <div class="work-kpi"><div class="n">3</div><div class="l">Teams unified</div></div>
+        </div>
+        <div class="work-stack"><span class="tag">Python</span><span class="tag">GCP</span><span class="tag">Supabase</span><span class="tag">REST APIs</span></div>
+      </article>
+
+      <article class="work-card">
+        <div class="work-head">
+          <span class="work-idx">P-03</span>
+          <span class="work-co">SOOP</span>
+        </div>
+        <h3 class="work-title"><span data-en>Creator Subscription Service</span><span data-ko>크리에이터 구독 서비스</span></h3>
+        <p class="work-desc"><span data-en>Subscription‑based monetization for content creators. Iterated paywall UX and tier packaging across multiple release cycles to lift paid conversion meaningfully.</span><span data-ko>크리에이터 대상 구독 기반 수익화. 유료 UX와 구독 티어 패키징을 반복 개선하며 유료 전환율을 끌어올림.</span></p>
+        <div class="work-kpis">
+          <div class="work-kpi"><div class="n">+31%</div><div class="l">Paid conversion</div></div>
+          <div class="work-kpi"><div class="n">4</div><div class="l">Tier structures</div></div>
+        </div>
+        <div class="work-stack"><span class="tag">Payment APIs</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span></div>
+      </article>
+
+      <article class="work-card">
+        <div class="work-head">
+          <span class="work-idx">P-04</span>
+          <span class="work-co">SOOP</span>
+        </div>
+        <h3 class="work-title"><span data-en>Personalized Discovery & Hashtag System</span><span data-ko>개인화 추천 · 해시태그 시스템</span></h3>
+        <p class="work-desc"><span data-en>ML‑assisted classification surfacing relevant mid‑tier creators by viewing history and intent signals. Paired with a hashtag taxonomy that improved average session depth.</span><span data-ko>시청 이력·인텐트 시그널을 활용한 ML 기반 분류로 미드티어 크리에이터를 노출. 해시태그 분류 체계와 결합해 세션 깊이를 개선.</span></p>
+        <div class="work-kpis">
+          <div class="work-kpi"><div class="n">+2.3×</div><div class="l">Homepage CTR</div></div>
+          <div class="work-kpi"><div class="n">+170%</div><div class="l">Engagement</div></div>
+        </div>
+        <div class="work-stack"><span class="tag">Python</span><span class="tag">Elasticsearch</span><span class="tag">Recommendation</span><span class="tag">Data Viz</span></div>
+      </article>
+
+      <article class="work-card">
+        <div class="work-head">
+          <span class="work-idx">P-05</span>
+          <span class="work-co">SOOP</span>
+        </div>
+        <h3 class="work-title"><span data-en>Creator Analytics Dashboard</span><span data-ko>크리에이터 분석 대시보드</span></h3>
+        <p class="work-desc"><span data-en>Self‑serve analytics helping creators understand performance and growth opportunities. Designed UX for non‑technical users and voluntary adoption — no mandates.</span><span data-ko>크리에이터가 성과와 성장 기회를 직접 분석할 수 있는 셀프 서브 대시보드. 비전문 유저를 위한 UX와 자발적 도입을 중심에 두고 설계.</span></p>
+        <div class="work-kpis">
+          <div class="work-kpi"><div class="n">65%+</div><div class="l">Voluntary adoption</div></div>
+          <div class="work-kpi"><div class="n">5k+</div><div class="l">Creators served</div></div>
+        </div>
+        <div class="work-stack"><span class="tag">Data Viz</span><span class="tag">SQL</span><span class="tag">UX Research</span><span class="tag">Service Design</span></div>
+      </article>
+
+      <article class="work-card">
+        <div class="work-head">
+          <span class="work-idx">P-06</span>
+          <span class="work-co">SOOP</span>
+        </div>
+        <h3 class="work-title"><span data-en>Streamer Instant Support System</span><span data-ko>스트리머 즉시 지원 시스템</span></h3>
+        <p class="work-desc"><span data-en>Streamlined the partner support‑fund application flow. Automated verification and simplified documentation moved approvals from weeks to days.</span><span data-ko>파트너 지원금 신청 플로우를 간소화. 자동화된 검증과 문서 요건 축소로 승인 소요를 주 단위에서 일 단위로 단축.</span></p>
+        <div class="work-kpis">
+          <div class="work-kpi"><div class="n">Weeks → Days</div><div class="l">Approval time</div></div>
+          <div class="work-kpi"><div class="n">100%</div><div class="l">Partner coverage</div></div>
+        </div>
+        <div class="work-stack"><span class="tag">Process Automation</span><span class="tag">Workflow</span><span class="tag">Python</span><span class="tag">Database</span></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Education & Credentials -->
+<section id="education" class="block">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">04 — <span data-en>Education & credentials</span><span data-ko>학력 · 자격</span></div>
+      <div>
+        <h2 class="section-title"><span data-en>Grounded in <em>data science</em>, business, and continuous learning.</span><span data-ko><em>데이터 사이언스</em>, 비즈니스, 그리고 지속적 학습에 기반한 커리어.</span></h2>
+      </div>
+    </div>
+
+    <div class="edu-list">
+
+      <div class="edu-item">
+        <div class="edu-period">2024 — 2026 · <span data-en>In progress</span><span data-ko>재학 중</span></div>
+        <div class="edu-school">Harvard University</div>
+        <div class="edu-degree"><span data-en>ALM, Extension Studies — Data Science</span><span data-ko>ALM, Extension Studies — 데이터 사이언스</span></div>
+        <div class="edu-focus"><span data-en>Machine learning, statistical analysis, data engineering, applied AI.</span><span data-ko>머신러닝, 통계 분석, 데이터 엔지니어링, 응용 AI.</span></div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-period">2025 — 2026 · <span data-en>In progress</span><span data-ko>재학 중</span></div>
+        <div class="edu-school">UIUC · Gies College of Business</div>
+        <div class="edu-degree"><span data-en>Master of Business Administration</span><span data-ko>경영학 석사 (MBA)</span></div>
+        <div class="edu-focus"><span data-en>Strategic management, innovation, entrepreneurship for tech‑driven markets.</span><span data-ko>전략 경영, 혁신, 기술 중심 시장의 기업가 정신.</span></div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-period">2021 — 2022</div>
+        <div class="edu-school">MITx</div>
+        <div class="edu-degree"><span data-en>MicroMasters — Statistics & Data Science</span><span data-ko>MicroMasters — 통계 및 데이터 사이언스</span></div>
+        <div class="edu-focus"><span data-en>Graduate‑level probability, statistics, and ML using Python & R.</span><span data-ko>Python·R 기반 확률, 통계, 머신러닝 (대학원 수준).</span></div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-period">2023</div>
+        <div class="edu-school">Google</div>
+        <div class="edu-degree"><span data-en>Data Analytics Professional Certificate</span><span data-ko>데이터 애널리틱스 프로페셔널 자격증</span></div>
+        <div class="edu-focus"><span data-en>SQL, R, and Tableau — analysis, visualization, and insight generation.</span><span data-ko>SQL, R, Tableau — 분석·시각화·인사이트 도출.</span></div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-period">2009</div>
+        <div class="edu-school">UC Irvine</div>
+        <div class="edu-degree"><span data-en>Coursework toward a Bachelor's Degree — Humanities</span><span data-ko>학사 과정 수학 — 인문학</span></div>
+        <div class="edu-focus"><span data-en>Foundations in critical reading, writing, and cross‑cultural analysis.</span><span data-ko>비판적 독해, 글쓰기, 문화 간 분석의 기초.</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact-block">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <h2><span data-en>Let's talk about <em>what you're building.</em></span><span data-ko><em>당신이 만들고 있는 제품</em>에 대해 이야기 나눠요.</span></h2>
+        <p><span data-en>Open to Senior / Staff PM and product leadership roles in the US — particularly in creator platforms, gaming, and AI‑driven consumer products. Remote‑friendly, relocation‑ready.</span><span data-ko>미국에서 시니어/스태프 PM 및 프로덕트 리더십 포지션을 찾고 있습니다. 크리에이터 플랫폼, 게임, AI 기반 컨슈머 제품에 특히 관심이 많으며, 리모트와 이주 모두 가능합니다.</span></p>
+      </div>
+      <div class="contact-list">
+        <a href="mailto:ink595@g.harvard.edu">
+          <span class="key">Email</span>
+          <span class="val">ink595@g.harvard.edu</span>
+          <span class="arr">→</span>
+        </a>
+        <a href="https://linkedin.com/in/jooooo" target="_blank" rel="noopener">
+          <span class="key">LinkedIn</span>
+          <span class="val">/in/jooooo</span>
+          <span class="arr">↗</span>
+        </a>
+        <a href="https://github.com/injooinjoo" target="_blank" rel="noopener">
+          <span class="key">GitHub</span>
+          <span class="val">/injooinjoo</span>
+          <span class="arr">↗</span>
+        </a>
+        <a href="/cv/Resume.InJooKim.pdf">
+          <span class="key">Résumé</span>
+          <span class="val"><span data-en>Download PDF</span><span data-ko>PDF 다운로드</span></span>
+          <span class="arr">↓</span>
+        </a>
+      </div>
+    </div>
+    <div class="footer">
+      <span>© 2026 InJoo Kim</span>
+      <span><span data-en>Updated April 2026 · Seoul / Cambridge, MA</span><span data-ko>업데이트 2026년 4월 · 서울 / 케임브리지, MA</span></span>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Language toggle
+  const langBtn = document.getElementById('lang-btn');
+  const setLang = (l) => {
+    document.body.setAttribute('data-lang', l);
+    langBtn.textContent = l === 'en' ? 'KO' : 'EN';
+    try { localStorage.setItem('portfolio-lang', l); } catch(e){}
+  };
+  langBtn.addEventListener('click', () => {
+    const cur = document.body.getAttribute('data-lang') || 'en';
+    setLang(cur === 'en' ? 'ko' : 'en');
+  });
+  try {
+    const saved = localStorage.getItem('portfolio-lang');
+    if (saved === 'ko' || saved === 'en') setLang(saved);
+  } catch(e){}
+
+  // Theme toggle
+  const themeBtn = document.getElementById('theme-btn');
+  const setTheme = (t) => {
+    document.documentElement.setAttribute('data-theme', t);
+    themeBtn.textContent = t === 'dark' ? '☾' : '◐';
+    try { localStorage.setItem('portfolio-theme', t); } catch(e){}
+  };
+  themeBtn.addEventListener('click', () => {
+    const cur = document.documentElement.getAttribute('data-theme') || 'light';
+    setTheme(cur === 'dark' ? 'light' : 'dark');
+  });
+  try {
+    const saved = localStorage.getItem('portfolio-theme');
+    if (saved === 'dark' || saved === 'light') setTheme(saved);
+  } catch(e){}
+
+  // Nav active state via IntersectionObserver
+  const navLinks = Array.from(document.querySelectorAll('.nav a'));
+  const idMap = {
+    'experience': navLinks.find(a => a.getAttribute('href') === '#experience'),
+    'work': navLinks.find(a => a.getAttribute('href') === '#work'),
+    'education': navLinks.find(a => a.getAttribute('href') === '#education'),
+    'contact': navLinks.find(a => a.getAttribute('href') === '#contact'),
+  };
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        if (idMap[e.target.id]) idMap[e.target.id].classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  ['experience','work','education','contact'].forEach(id => {
+    const el = document.getElementById(id); if (el) io.observe(el);
+  });
+</script>
+
 </body>
 </html>
