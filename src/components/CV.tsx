@@ -124,11 +124,11 @@ const CV: React.FC = () => {
               </div>
               <div className="cv-education-content">
                 <div className="cv-education-main">
-                  <h3 className="cv-school-name">Harvard University</h3>
+                  <h3 className="cv-school-name">Harvard Univ.</h3>
                 </div>
                 <div className="cv-education-details">
                   <div className="cv-degree-period">
-                    <span className="cv-degree">Data Science and Artificial Intelligence, Master of Liberal Arts in Extension Studies</span>
+                    <span className="cv-degree">Master of Liberal Arts (ALM) in Extension Studies, Data Science and Artificial Intelligence</span>
                     <span className="cv-education-period">2025 – 2026</span>
                   </div>
                 </div>

@@ -375,8 +375,8 @@ export const siteContent = {
     certificationLabel: { en: 'Selected certifications', ko: '주요 자격' },
     education: [
       {
-        name: { en: 'Harvard University', ko: 'Harvard University' },
-        subtitle: { en: 'Master of Liberal Arts in Extension Studies, Data Science and Artificial Intelligence', ko: 'ALM, Data Science and Artificial Intelligence' },
+        name: { en: 'Harvard Univ.', ko: 'Harvard Univ.' },
+        subtitle: { en: 'Master of Liberal Arts (ALM) in Extension Studies, Data Science and Artificial Intelligence', ko: 'ALM in Extension Studies, Data Science and Artificial Intelligence' },
         period: { en: '2024 - 2026', ko: '2024 - 2026' },
         description: {
           en: 'Focused on machine learning, statistical analysis, data engineering, and applied AI for product work.',
