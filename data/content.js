@@ -368,19 +368,19 @@ export const siteContent = {
   credentials: {
     kicker: { en: 'Education and certifications', ko: '학력과 자격' },
     title: {
-      en: 'Formal depth in data science, business, and analytics that supports the operating work.',
-      ko: '실제 운영 역량을 뒷받침하는 데이터 사이언스, 비즈니스, 분석 학습입니다.'
+      en: 'Formal depth in data science and artificial intelligence, business, and analytics that supports the operating work.',
+      ko: '실제 운영 역량을 뒷받침하는 데이터 사이언스 및 인공지능, 비즈니스, 분석 학습입니다.'
     },
     educationLabel: { en: 'Education', ko: '학력' },
     certificationLabel: { en: 'Selected certifications', ko: '주요 자격' },
     education: [
       {
         name: { en: 'Harvard University', ko: 'Harvard University' },
-        subtitle: { en: 'Master of Liberal Arts in Extension Studies, Data Science', ko: 'ALM, Data Science' },
+        subtitle: { en: 'Master of Liberal Arts in Extension Studies, Data Science and Artificial Intelligence', ko: 'ALM, Data Science and Artificial Intelligence' },
         period: { en: '2024 - 2026', ko: '2024 - 2026' },
         description: {
-          en: 'Focused on machine learning, statistical analysis, and data engineering for applied product work.',
-          ko: '머신러닝, 통계 분석, 데이터 엔지니어링을 실제 제품 문제에 연결하는 학업을 진행 중입니다.'
+          en: 'Focused on machine learning, statistical analysis, data engineering, and applied AI for product work.',
+          ko: '머신러닝, 통계 분석, 데이터 엔지니어링, 응용 AI를 실제 제품 문제에 연결하는 학업을 진행 중입니다.'
         },
         logo: '/img/harvard_logo.png'
       },
