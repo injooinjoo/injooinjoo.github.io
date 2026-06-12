@@ -3,46 +3,424 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>InJoo Kim — Cinematic Product Portfolio</title>
-  <meta name="description" content="A scroll-native portfolio prototype for InJoo Kim: creator economy, AI product operations, global platforms, and product systems." />
+  <title>InJoo Kim — Scroll Systems Portfolio</title>
+  <meta name="description" content="A GSAP + Lenis scroll-native portfolio microsite for InJoo Kim: creator economy, AI operations, global platforms, and product systems." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet" />
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.14/dist/lenis.min.js"></script>
   <style>
-    :root{--bg:#05060c;--ink:#fff6df;--muted:rgba(255,246,223,.72);--line:rgba(255,246,223,.16);--hot:#f03c83;--cyan:#37d5ff;--gold:#ffb547;--violet:#8b5cf6;--font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 18% 10%,rgba(240,60,131,.2),transparent 34rem),radial-gradient(circle at 82% 26%,rgba(55,213,255,.14),transparent 30rem),var(--bg);color:var(--ink);font-family:var(--font);overflow-x:hidden}a{color:inherit;text-decoration:none}.nav{position:fixed;z-index:50;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:18px clamp(18px,4vw,56px);mix-blend-mode:difference;pointer-events:none}.nav a{pointer-events:auto}.brand{font-size:.82rem;font-weight:900;letter-spacing:.18em}.navlinks{display:flex;gap:clamp(14px,3vw,34px);font-size:.74rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}.hero{position:relative;min-height:106vh;display:grid;align-items:end;padding:15vh clamp(20px,6vw,88px) 12vh;isolation:isolate;overflow:hidden}.hero video,.scrim{position:absolute;inset:0;width:100%;height:100%}.hero video{object-fit:cover;opacity:.68;filter:saturate(1.2) contrast(1.1);z-index:-3;transform:translate3d(0,var(--parallax,0px),0) scale(1.06)}.scrim{z-index:-2;background:linear-gradient(180deg,rgba(5,6,12,.28),rgba(5,6,12,.82) 72%,var(--bg)),linear-gradient(90deg,rgba(5,6,12,.88),rgba(5,6,12,.26) 50%,rgba(5,6,12,.78))}.hero-content{max-width:1120px}.eyebrow{display:inline-flex;gap:10px;color:var(--accent,var(--hot));font-size:clamp(.72rem,1.3vw,.95rem);font-weight:900;letter-spacing:.18em;text-transform:uppercase}.kicker{max-width:560px;margin:22px 0;color:var(--muted);font-size:clamp(1rem,1.8vw,1.25rem);font-weight:800}.hero h1,.chapter h2,.intro h2,.divider h2,.final h2{font-family:Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;text-transform:uppercase;letter-spacing:-.065em}.hero h1{max-width:1120px;margin:0;font-size:clamp(4.3rem,13.6vw,13.4rem);line-height:.82;text-wrap:balance;text-shadow:0 16px 60px rgba(0,0,0,.48)}.lede{max-width:760px;margin:34px 0 0;color:rgba(255,246,223,.84);font-size:clamp(1.05rem,2vw,1.38rem);line-height:1.5}.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}.pill{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 18px;border-radius:999px;font-weight:900;letter-spacing:.04em}.pill.hot{background:linear-gradient(135deg,var(--hot),var(--gold));box-shadow:0 18px 48px rgba(240,60,131,.28)}.pill.ghost{border:1px solid var(--line);background:rgba(255,255,255,.06);backdrop-filter:blur(18px)}.cue{position:absolute;right:clamp(20px,4vw,52px);bottom:42px;writing-mode:vertical-rl;color:rgba(255,246,223,.6);font-size:.68rem;font-weight:900;letter-spacing:.18em}.intro,.final{display:grid;grid-template-columns:minmax(0,.9fr) minmax(280px,.7fr);gap:clamp(32px,6vw,92px);padding:clamp(70px,12vw,150px) clamp(20px,6vw,88px);border-block:1px solid var(--line);background:rgba(255,255,255,.03)}.intro h2,.final h2,.divider h2{margin:14px 0 0;font-size:clamp(2.7rem,7.4vw,8.2rem);line-height:.9}.intro p,.final p{margin:0;color:rgba(255,246,223,.76);font-size:clamp(1.02rem,1.8vw,1.24rem);line-height:1.75}.chapter{--accent:var(--hot);position:relative;min-height:104vh;display:grid;grid-template-columns:minmax(280px,.72fr) minmax(0,1fr);align-items:center;gap:clamp(28px,6vw,96px);padding:clamp(90px,13vw,180px) clamp(20px,6vw,88px);overflow:hidden}.chapter.left .copy{order:2}.chapter.left .media{order:1}.wash{position:absolute;width:62vw;height:62vw;max-width:820px;max-height:820px;border-radius:999px;right:-18vw;top:12vh;z-index:0;background:radial-gradient(circle,var(--accent),transparent 68%);filter:blur(30px);opacity:.18;pointer-events:none}.chapter.left .wash{left:-20vw;right:auto}.copy,.media{position:relative;z-index:2}.chapter h2{margin:18px 0 0;font-size:clamp(3.4rem,9.5vw,10.4rem);line-height:.83}.chapter .sub{margin:26px 0 0;color:var(--accent);font-size:clamp(1.1rem,2vw,1.42rem);font-weight:900;line-height:1.25}.body{max-width:600px;margin:18px 0 0;color:rgba(255,246,223,.72);font-size:clamp(1rem,1.55vw,1.18rem);line-height:1.7}.stat{display:grid;gap:4px;width:min(100%,460px);margin-top:30px;padding:18px 20px;border-left:4px solid var(--accent);background:rgba(255,255,255,.055);backdrop-filter:blur(16px)}.stat strong{font-size:clamp(1.3rem,2.6vw,2rem);line-height:1;text-transform:uppercase}.stat span{color:rgba(255,246,223,.62);font-size:.9rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase}.media{min-height:620px}.card{position:absolute;display:block;overflow:hidden;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);box-shadow:0 32px 110px rgba(0,0,0,.58);transition:transform .45s ease,filter .45s ease}.card:hover{filter:saturate(1.2);transform:rotate(0deg) scale(1.025)!important}.card img,.card video{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.12) contrast(1.08)}.primary{width:min(78vw,680px);height:min(44vw,430px);top:5%;right:4%;transform:rotate(3deg)}.secondary{width:min(48vw,360px);height:min(58vw,470px);left:0;bottom:4%;transform:rotate(-5deg)}.left .primary{left:4%;right:auto;transform:rotate(-3deg)}.left .secondary{right:0;left:auto;transform:rotate(5deg)}.icon,.label{position:absolute;display:inline-flex;align-items:center;gap:7px;color:#05060c;background:var(--ink);font-size:.75rem;font-weight:950;letter-spacing:.05em;text-transform:uppercase}.icon{right:16px;bottom:16px;justify-content:center;width:42px;height:42px;border-radius:999px}.label{left:14px;bottom:14px;padding:9px 12px;border-radius:999px}.note{position:absolute;right:8%;bottom:0;display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid var(--line);border-radius:999px;color:rgba(255,246,223,.72);background:rgba(5,6,12,.64);backdrop-filter:blur(14px);font-size:.78rem;font-weight:800}.divider{min-height:78vh;display:grid;align-content:center;padding:clamp(70px,10vw,140px) clamp(20px,6vw,88px);background:radial-gradient(circle at 20% 20%,rgba(255,246,223,.38),transparent 28rem),linear-gradient(135deg,var(--hot),#6d4cff 50%,var(--cyan));color:#05060c;clip-path:inset(3% 2% round 28px)}.divider p{margin:0 0 16px;font-size:.84rem;font-weight:950;letter-spacing:.18em}.divider h2{max-width:1120px;color:#05060c;font-size:clamp(2.6rem,6vw,6.6rem);line-height:.96;letter-spacing:-.045em}.final{align-items:end;min-height:72vh;border-bottom:0;background:radial-gradient(circle at 80% 10%,rgba(240,60,131,.2),transparent 30rem),rgba(255,255,255,.035)}.mail{justify-self:end;display:inline-flex;align-items:center;gap:10px;padding:16px 18px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid var(--line);font-weight:900}.reveal{opacity:0;transform:translateY(58px);transition:opacity .9s ease,transform .9s cubic-bezier(.16,1,.3,1)}.reveal.in{opacity:1;transform:translateY(0)}@media(max-width:900px){.nav{mix-blend-mode:normal;background:linear-gradient(180deg,rgba(5,6,12,.88),transparent)}.navlinks{gap:13px;font-size:.66rem}.intro,.final,.chapter{grid-template-columns:1fr}.chapter.left .copy,.chapter.left .media{order:initial}.media{min-height:520px}.primary{width:88vw;height:54vw;right:2vw}.secondary{width:54vw;height:68vw;left:4vw}.mail{justify-self:start}}@media(max-width:620px){.hero{min-height:108vh;padding-top:22vh}.navlinks a:nth-child(2){display:none}.media{min-height:430px}.note{left:0;right:auto;bottom:-4px;border-radius:18px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none}.hero video{transform:none!important}.divider{clip-path:none!important}}
+    :root {
+      --bg: #05060c;
+      --bg2: #0d1020;
+      --ink: #fff6df;
+      --muted: rgba(255, 246, 223, .68);
+      --quiet: rgba(255, 246, 223, .42);
+      --line: rgba(255, 246, 223, .16);
+      --hot: #f03c83;
+      --cyan: #37d5ff;
+      --gold: #ffb547;
+      --violet: #8b5cf6;
+      --green: #66f5b6;
+      --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --display: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: auto; background: var(--bg); }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 18% 5%, rgba(240,60,131,.22), transparent 30rem),
+        radial-gradient(circle at 78% 22%, rgba(55,213,255,.14), transparent 32rem),
+        linear-gradient(180deg, #05060c 0%, #0a0710 55%, #05060c 100%);
+      color: var(--ink);
+      font-family: var(--font);
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img, video { max-width: 100%; display: block; }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 80;
+      height: 3px;
+      width: 100%;
+      transform-origin: left;
+      transform: scaleX(0);
+      background: linear-gradient(90deg, var(--hot), var(--cyan), var(--gold));
+    }
+
+    .nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 70;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px clamp(18px, 4vw, 56px);
+      pointer-events: none;
+      mix-blend-mode: difference;
+    }
+    .nav a { pointer-events: auto; }
+    .brand { font-size: .82rem; font-weight: 900; letter-spacing: .18em; }
+    .navlinks { display: flex; gap: clamp(14px, 3vw, 34px); font-size: .74rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+
+    .hero {
+      position: relative;
+      min-height: 112vh;
+      display: grid;
+      align-items: end;
+      padding: 17vh clamp(20px, 6vw, 88px) 12vh;
+      isolation: isolate;
+      overflow: hidden;
+    }
+    .hero video, .hero .scrim, .hero .grid-noise { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .hero video { object-fit: cover; opacity: .62; filter: saturate(1.35) contrast(1.12); z-index: -4; transform: scale(1.08); }
+    .scrim { z-index: -3; background: linear-gradient(180deg, rgba(5,6,12,.18), rgba(5,6,12,.78) 70%, var(--bg)), linear-gradient(90deg, rgba(5,6,12,.9), rgba(5,6,12,.18) 48%, rgba(5,6,12,.86)); }
+    .grid-noise { z-index: -2; opacity: .34; background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px); background-size: 84px 84px; mask-image: linear-gradient(180deg, transparent, #000 18%, #000 72%, transparent); }
+    .orbit {
+      position: absolute;
+      z-index: -1;
+      border: 1px solid rgba(255,246,223,.16);
+      border-radius: 999px;
+      filter: blur(.1px);
+      transform: rotate(-18deg);
+    }
+    .orbit.one { width: 48vw; height: 18vw; right: -9vw; top: 18vh; box-shadow: 0 0 80px rgba(55,213,255,.12); }
+    .orbit.two { width: 68vw; height: 22vw; left: -18vw; bottom: 16vh; box-shadow: 0 0 90px rgba(240,60,131,.12); }
+
+    .hero-content { max-width: 1180px; }
+    .eyebrow { display: inline-flex; gap: 10px; align-items: center; color: var(--accent, var(--hot)); font-size: clamp(.7rem, 1.1vw, .92rem); font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 34px; height: 2px; background: currentColor; box-shadow: 0 0 18px currentColor; }
+    h1, h2, .mega { font-family: var(--display); text-transform: uppercase; letter-spacing: -.065em; margin: 0; }
+    .hero h1 { max-width: 1080px; margin: 20px 0 0; font-size: clamp(3.8rem, 11.4vw, 11.4rem); line-height: .84; text-wrap: balance; }
+    .kicker { max-width: 680px; margin: 24px 0 0; color: var(--muted); font-size: clamp(1rem, 1.7vw, 1.35rem); font-weight: 800; line-height: 1.42; }
+    .lede { max-width: 780px; margin: 24px 0 0; color: rgba(255,246,223,.82); font-size: clamp(1.05rem, 2vw, 1.62rem); font-weight: 900; line-height: 1.18; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .pill { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 20px; border-radius: 999px; border: 1px solid var(--line); font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
+    .pill.hot { color: #05060c; background: var(--ink); border-color: transparent; }
+    .pill.ghost { background: rgba(255,255,255,.06); backdrop-filter: blur(16px); }
+    .cue { position: absolute; right: clamp(18px, 4vw, 48px); bottom: 12vh; writing-mode: vertical-rl; color: var(--quiet); font-size: .68rem; font-weight: 900; letter-spacing: .22em; }
+
+    .manifesto {
+      min-height: 96vh;
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+      gap: clamp(28px, 6vw, 86px);
+      align-items: center;
+      padding: clamp(80px, 12vw, 160px) clamp(20px, 6vw, 88px);
+      border-block: 1px solid var(--line);
+    }
+    .manifesto h2 { font-size: clamp(3rem, 8vw, 8rem); line-height: .82; }
+    .manifesto p { margin: 0; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.62rem); font-weight: 800; line-height: 1.36; }
+    .formula { margin-top: 28px; display: grid; gap: 10px; color: var(--ink); font-weight: 900; text-transform: uppercase; letter-spacing: .08em; }
+    .formula span { display: block; padding: 16px 18px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.045); }
+
+    main { overflow: clip; }
+    .chapter {
+      position: relative;
+      min-height: 168vh;
+      padding: 0 clamp(20px, 6vw, 88px);
+      border-bottom: 1px solid var(--line);
+      isolation: isolate;
+      overflow: clip;
+    }
+    .chapter-stage {
+      position: sticky;
+      top: 0;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: minmax(0, .78fr) minmax(320px, 1fr);
+      gap: clamp(28px, 6vw, 84px);
+      align-items: center;
+      overflow: hidden;
+      padding: 11vh 0 7vh;
+    }
+    .chapter.left .chapter-stage { grid-template-columns: minmax(320px, 1fr) minmax(0, .78fr); }
+    .chapter.left .copy { order: 2; }
+    .chapter.left .media-stack { order: 1; }
+    .wash { position: absolute; inset: 12vh -18vw auto auto; width: 58vw; height: 58vw; background: radial-gradient(circle, color-mix(in srgb, var(--accent) 28%, transparent), transparent 62%); opacity: .55; filter: blur(10px); z-index: -1; }
+    .chapter.left .wash { inset: 12vh auto auto -20vw; }
+    .chapter-index { color: transparent; -webkit-text-stroke: 1px color-mix(in srgb, var(--accent) 72%, rgba(255,255,255,.34)); font-family: var(--display); font-size: clamp(5rem, 16vw, 17rem); line-height: .72; opacity: .68; }
+    .chapter h2 { margin-top: 12px; font-size: clamp(3.2rem, 8vw, 9rem); line-height: .78; text-wrap: balance; }
+    .sub { margin: 18px 0 0; color: var(--accent); font-size: clamp(.9rem, 1.4vw, 1.1rem); font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .body { max-width: 620px; margin: 22px 0 0; color: rgba(255,246,223,.78); font-size: clamp(1rem, 1.55vw, 1.24rem); font-weight: 800; line-height: 1.42; }
+    .stat { display: grid; gap: 6px; margin-top: 28px; padding-left: 18px; border-left: 3px solid var(--accent); }
+    .stat strong { font-size: clamp(1.1rem, 2vw, 1.55rem); text-transform: uppercase; }
+    .stat span { color: var(--quiet); font-size: .82rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+
+    .media-stack { position: relative; height: min(70vh, 720px); min-height: 470px; perspective: 1200px; }
+    .media-card { position: absolute; overflow: hidden; border: 1px solid rgba(255,246,223,.2); border-radius: clamp(24px, 3vw, 44px); background: rgba(255,255,255,.06); box-shadow: 0 28px 110px rgba(0,0,0,.52); transform-origin: center; }
+    .media-card img, .media-card video { width: 100%; height: 100%; object-fit: cover; }
+    .media-card.primary { inset: 4% 6% 12% 2%; z-index: 3; }
+    .media-card.loop { width: 48%; height: 42%; right: 0; bottom: 0; z-index: 4; }
+    .media-card.meta { width: 48%; height: 28%; left: 8%; top: 0; z-index: 2; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; backdrop-filter: blur(16px); }
+    .meta b { font-size: clamp(1.4rem, 3vw, 3rem); line-height: .9; font-family: var(--display); letter-spacing: -.04em; }
+    .meta span, .caption { color: var(--muted); font-size: .76rem; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
+    .caption { position: absolute; left: 20px; bottom: 18px; z-index: 5; padding: 9px 12px; border-radius: 999px; background: rgba(5,6,12,.64); backdrop-filter: blur(10px); }
+
+    .interlude {
+      position: relative;
+      min-height: 112vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      padding: clamp(80px, 12vw, 160px) clamp(20px, 6vw, 88px);
+      background:
+        radial-gradient(circle at 28% 28%, rgba(240,60,131,.32), transparent 34rem),
+        radial-gradient(circle at 72% 62%, rgba(55,213,255,.24), transparent 34rem),
+        linear-gradient(135deg, #170711, #071827 48%, #1b1305);
+      clip-path: inset(5% 3% round 34px);
+    }
+    .interlude-inner { max-width: 1200px; text-align: center; }
+    .interlude p { margin: 0 0 18px; color: rgba(255,246,223,.72); font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
+    .interlude h2 { font-size: clamp(3rem, 8vw, 8.8rem); line-height: .84; }
+
+    .filmstrip-wrap { min-height: 190vh; position: relative; border-bottom: 1px solid var(--line); overflow: clip; }
+    .filmstrip-stage { position: sticky; top: 0; min-height: 100vh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; padding: 10vh 0; width: 100%; max-width: 100vw; }
+    .filmstrip-head { width: 100%; padding: 0 clamp(20px, 6vw, 88px) 34px; }
+    .filmstrip-head h2 { font-size: clamp(3rem, 8vw, 8rem); line-height: .82; }
+    .filmstrip { display: flex; gap: clamp(18px, 3vw, 40px); width: max-content; padding-inline: clamp(20px, 6vw, 88px); will-change: transform; }
+    .tile { width: min(72vw, 760px); aspect-ratio: 16 / 10; overflow: hidden; border-radius: 34px; border: 1px solid var(--line); position: relative; background: #111; }
+    .tile img, .tile video { width: 100%; height: 100%; object-fit: cover; }
+    .tile::after { content: attr(data-title); position: absolute; left: 22px; bottom: 18px; padding: 9px 12px; border-radius: 999px; background: rgba(5,6,12,.68); color: var(--ink); font-weight: 900; letter-spacing: .12em; text-transform: uppercase; font-size: .72rem; }
+
+    .final {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: clamp(80px, 12vw, 150px) clamp(20px, 6vw, 88px);
+      text-align: center;
+    }
+    .final-inner { max-width: 1060px; }
+    .final h2 { font-size: clamp(3.3rem, 9vw, 10rem); line-height: .78; }
+    .final p { max-width: 780px; margin: 24px auto 0; color: var(--muted); font-size: clamp(1rem, 1.7vw, 1.24rem); font-weight: 800; line-height: 1.42; }
+    .mail { display: inline-flex; margin-top: 34px; padding: 18px 24px; border-radius: 999px; background: var(--ink); color: #05060c; font-weight: 900; }
+
+    .reveal { opacity: 0; transform: translate3d(0, 34px, 0); }
+
+    @media (max-width: 860px) {
+      .nav { align-items: flex-start; }
+      .navlinks { gap: 12px; font-size: .62rem; }
+      .hero { min-height: 112vh; padding-top: 17vh; }
+      .hero h1 { font-size: clamp(3.4rem, 18vw, 6.8rem); }
+      .manifesto, .chapter-stage, .chapter.left .chapter-stage { grid-template-columns: 1fr; }
+      .chapter, .filmstrip-wrap { min-height: auto; }
+      .chapter-stage, .filmstrip-stage { position: relative; min-height: auto; padding: 92px 0; }
+      .chapter.left .copy, .chapter.left .media-stack { order: initial; }
+      .media-stack { height: 58vh; min-height: 430px; }
+      .media-card.primary { inset: 12% 0 10% 0; }
+      .media-card.loop { width: 58%; height: 34%; }
+      .media-card.meta { width: 62%; height: 24%; left: 0; }
+      .interlude { min-height: 94vh; clip-path: inset(2% 2% round 24px); }
+      .tile { width: 82vw; }
+      .filmstrip { overflow-x: auto; width: auto; padding-bottom: 8px; scroll-snap-type: x mandatory; }
+      .tile { flex: 0 0 auto; scroll-snap-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+      .chapter-stage, .filmstrip-stage { position: relative; }
+      .chapter, .filmstrip-wrap { min-height: auto; }
+    }
   </style>
 </head>
 <body>
-  <nav class="nav" aria-label="New portfolio navigation"><a class="brand" href="/">INJOO KIM</a><div class="navlinks"><a href="#work">Work</a><a href="#systems">Systems</a><a href="mailto:ink595@g.harvard.edu">Contact</a></div></nav>
-  <header class="hero"><video src="/new-media/scroll-loop.mp4" autoplay muted loop playsinline aria-hidden="true"></video><div class="scrim"></div><div class="hero-content"><p class="eyebrow reveal">SEOUL / PRODUCT / CREATOR ECONOMY / AI OPS</p><p class="kicker reveal">A cinematic portfolio prototype inspired by chapter-based campaign microsites.</p><h1 class="reveal">I build the systems behind digital communities.</h1><p class="lede reveal">Senior product manager across SOOP, NEXON-adjacent gaming ecosystems, content ventures, and AI automation — reframed as a scroll-native story instead of a résumé page.</p><div class="cta reveal"><a class="pill hot" href="#work">Scroll the story ↗</a><a class="pill ghost" href="/resume.pdf">Resume</a></div></div><div class="cue">SCROLL FOR MORE</div></header>
-  <section class="intro"><div class="reveal"><span class="eyebrow">DECONSTRUCTED</span><h2>Rockstar식 구조를 포트폴리오 언어로 바꾼 버전.</h2></div><p class="reveal">원본의 핵심은 게임 IP가 아니라 구조입니다: 풀스크린 히어로 → 짧은 선언문 → 반복되는 캐릭터/지역 챕터 → 비대칭 미디어 콜라주 → 중간중간 강한 색면 전환 → 클릭 가능한 갤러리 카드. 여기서는 그 문법을 경력, 프로젝트, 운영 시스템, 빌더 서사로 치환했습니다.</p></section>
+  <div class="progress" aria-hidden="true"></div>
+  <nav class="nav" aria-label="New portfolio navigation">
+    <a class="brand" href="/">INJOO KIM</a>
+    <div class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#systems">Systems</a>
+      <a href="mailto:ink595@g.harvard.edu">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <video src="/new-media/scroll-loop.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+    <div class="scrim"></div><div class="grid-noise"></div><div class="orbit one"></div><div class="orbit two"></div>
+    <div class="hero-content">
+      <p class="eyebrow reveal">GSAP / LENIS / SCROLLTRIGGER / PORTFOLIO SYSTEMS</p>
+      <p class="kicker reveal">Rebuilt from the scroll-animation engine notes: one smooth-scroll loop, scrubbed timelines, sticky chapters, horizontal filmstrip, reduced-motion fallback.</p>
+      <h1 class="reveal">I build systems people move through.</h1>
+      <p class="lede reveal">Creator economies, AI operating loops, global publishing moments, and a portfolio of product experiments — translated into a cinematic scroll narrative.</p>
+      <div class="cta reveal"><a class="pill hot" href="#work">Enter the scroll ↗</a><a class="pill ghost" href="/resume.pdf">Resume</a></div>
+    </div>
+    <div class="cue">SCROLL FOR MORE</div>
+  </header>
+
+  <section class="manifesto" aria-label="Site structure explanation">
+    <div class="reveal"><span class="eyebrow">DECONSTRUCTED</span><h2>Not a clone. A scroll system.</h2></div>
+    <div class="reveal">
+      <p>The Rockstar reference works because the page behaves like a trailer: full-screen atmosphere, short declarations, chapter breaks, oversized type, and media that changes state as you scroll. This version turns that grammar into InJoo's product story.</p>
+      <div class="formula"><span>Hero atmosphere</span><span>Sticky chapter proof</span><span>Scrubbed media motion</span><span>Horizontal case-study strip</span></div>
+    </div>
+  </section>
+
   <main id="work">
-    <section class="chapter reveal" style="--accent:var(--hot)"><div class="wash"></div><div class="copy"><span class="eyebrow">01 / CREATOR ECONOMY</span><h2>SOOP creator ecosystem</h2><p class="sub">5,000+ creators, operations, monetization, community health</p><p class="body">I design the loops behind creator growth: acquisition, incentives, events, dashboards, and platform policy that keep a live community moving without losing trust.</p><div class="stat"><strong>+60% event participation lift</strong><span>Senior Product Manager · Seoul</span></div></div><div class="media"><a class="card primary" href="/"><img src="/new-media/01-creator-ecosystem.jpg" alt="Abstract creator ecosystem visual"><span class="icon">↗</span></a><div class="card secondary"><video src="/new-media/scroll-loop.mp4" autoplay muted loop playsinline></video><span class="label">▶ Motion loop</span></div><div class="note">✦ Asset slot for Higgsfield still/video replacement</div></div></section>
-    <section class="chapter left reveal" style="--accent:var(--cyan)"><div class="wash"></div><div class="copy"><span class="eyebrow">02 / AI PRODUCT OPS</span><h2>Automation as operating leverage</h2><p class="sub">Python, SQL, GPT systems, decision dashboards</p><p class="body">From creator operations to personal ventures, I build pragmatic AI/data pipelines that compress repetitive workflows into reviewable, measurable systems.</p><div class="stat"><strong>AI-backed execution pipelines</strong><span>Product × Data × Automation</span></div></div><div class="media"><a class="card primary" href="/"><img src="/new-media/02-ai-ops.jpg" alt="Abstract AI operations visual"><span class="icon">↗</span></a><div class="card secondary"><video src="/new-media/scroll-loop.mp4" autoplay muted loop playsinline></video><span class="label">▶ Motion loop</span></div><div class="note">✦ Replaceable generated media card</div></div></section>
-    <section id="systems" class="divider"><p>FROM OPERATIONS TO PRODUCT SYSTEMS</p><h2>Scroll becomes a product narrative: metrics, motion, proof, then contact.</h2></section>
-    <section class="chapter reveal" style="--accent:var(--gold)"><div class="wash"></div><div class="copy"><span class="eyebrow">03 / GLOBAL PLATFORMS</span><h2>Gaming, streaming, and launch rhythm</h2><p class="sub">NEXON partnership, G-Star, global publishing, creator acquisition</p><p class="body">My work sits where entertainment products meet distribution: partnerships, events, localized programs, acquisition strategy, and the feedback loops that make launches learn faster.</p><div class="stat"><strong>Gaming + streaming bridge</strong><span>Global publishing / platform growth</span></div></div><div class="media"><a class="card primary" href="/"><img src="/new-media/03-global-platform.jpg" alt="Abstract global platform visual"><span class="icon">↗</span></a><div class="card secondary"><video src="/new-media/scroll-loop.mp4" autoplay muted loop playsinline></video><span class="label">▶ Motion loop</span></div><div class="note">✦ Higgsfield video goes here next</div></div></section>
-    <section class="chapter left reveal" style="--accent:var(--violet)"><div class="wash"></div><div class="copy"><span class="eyebrow">04 / PRODUCT SYSTEMS</span><h2>Portfolio of experiments</h2><p class="sub">YouTube, apps, commerce, education, productized agents</p><p class="body">Beyond the day job, I ship and operate small products: content channels, education apps, commerce experiments, and agentic automation companies under PaperclipAI.</p><div class="stat"><strong>130k subscribers / 2M+ view hit</strong><span>Founder mode · Builder mode</span></div></div><div class="media"><a class="card primary" href="/"><img src="/new-media/04-product-systems.jpg" alt="Abstract product systems visual"><span class="icon">↗</span></a><div class="card secondary"><video src="/new-media/scroll-loop.mp4" autoplay muted loop playsinline></video><span class="label">▶ Motion loop</span></div><div class="note">✦ Case-study modal target</div></div></section>
+    <section class="chapter" style="--accent:var(--hot)">
+      <div class="wash"></div>
+      <div class="chapter-stage">
+        <div class="copy">
+          <div class="chapter-index">01</div><span class="eyebrow">Creator Economy</span>
+          <h2>SOOP creator ecosystem</h2>
+          <p class="sub">5,000+ creators · operations · monetization · community health</p>
+          <p class="body">I design the loops behind creator growth: acquisition, incentives, events, dashboards, and platform policy that keep a live community moving without losing trust.</p>
+          <div class="stat"><strong>+60% event participation lift</strong><span>Senior Product Manager · Seoul</span></div>
+        </div>
+        <div class="media-stack">
+          <div class="media-card meta"><span>Signal</span><b>Creator loop</b><span>Recruit → activate → retain</span></div>
+          <a class="media-card primary" href="/"><img src="/new-media/01-creator-ecosystem.jpg" alt="Abstract creator ecosystem visual" /></a>
+          <div class="media-card loop"><video src="/new-media/scroll-loop.mp4" autoplay muted loop playsinline aria-label="Abstract creator ecosystem motion loop"></video><span class="caption">Scroll-scrubbed media</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter left" style="--accent:var(--cyan)">
+      <div class="wash"></div>
+      <div class="chapter-stage">
+        <div class="copy">
+          <div class="chapter-index">02</div><span class="eyebrow">AI Product Ops</span>
+          <h2>Automation as leverage</h2>
+          <p class="sub">Python · SQL · GPT systems · reviewable pipelines</p>
+          <p class="body">From creator operations to personal ventures, I build pragmatic AI/data pipelines that compress repetitive workflows into measurable, reviewable systems.</p>
+          <div class="stat"><strong>AI-backed execution pipelines</strong><span>Product × data × automation</span></div>
+        </div>
+        <div class="media-stack">
+          <div class="media-card meta"><span>Engine</span><b>Ops graph</b><span>Collect → decide → ship</span></div>
+          <a class="media-card primary" href="/"><img src="/new-media/02-ai-ops.jpg" alt="Abstract AI operations visual" /></a>
+          <div class="media-card loop"><video src="/new-media/scroll-loop.mp4" autoplay muted loop playsinline aria-label="Abstract AI operations motion loop"></video><span class="caption">Lenis + GSAP loop</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="systems" class="interlude">
+      <div class="interlude-inner"><p>From operations to product systems</p><h2>Scroll becomes proof: context, motion, metrics, then contact.</h2></div>
+    </section>
+
+    <section class="chapter" style="--accent:var(--gold)">
+      <div class="wash"></div>
+      <div class="chapter-stage">
+        <div class="copy">
+          <div class="chapter-index">03</div><span class="eyebrow">Global Platforms</span>
+          <h2>Gaming, streaming, launch rhythm</h2>
+          <p class="sub">NEXON partnership · G-Star · publishing · creator acquisition</p>
+          <p class="body">My work sits where entertainment products meet distribution: partnerships, events, localized programs, acquisition strategy, and the feedback loops that make launches learn faster.</p>
+          <div class="stat"><strong>Gaming + streaming bridge</strong><span>Global publishing / platform growth</span></div>
+        </div>
+        <div class="media-stack">
+          <div class="media-card meta"><span>Market</span><b>Launch map</b><span>Partner → localize → learn</span></div>
+          <a class="media-card primary" href="/"><img src="/new-media/03-global-platform.jpg" alt="Abstract global platform visual" /></a>
+          <div class="media-card loop"><video src="/new-media/scroll-loop.mp4" autoplay muted loop playsinline aria-label="Abstract global platform motion loop"></video><span class="caption">Pinned chapter</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter left" style="--accent:var(--violet)">
+      <div class="wash"></div>
+      <div class="chapter-stage">
+        <div class="copy">
+          <div class="chapter-index">04</div><span class="eyebrow">Product Systems</span>
+          <h2>Portfolio of experiments</h2>
+          <p class="sub">YouTube · apps · commerce · education · productized agents</p>
+          <p class="body">Beyond the day job, I ship and operate small products: content channels, education apps, commerce experiments, and agentic automation companies under PaperclipAI.</p>
+          <div class="stat"><strong>130k subscribers / 2M+ view hit</strong><span>Founder mode · Builder mode</span></div>
+        </div>
+        <div class="media-stack">
+          <div class="media-card meta"><span>Portfolio</span><b>Experiment stack</b><span>Prototype → operate → compound</span></div>
+          <a class="media-card primary" href="/"><img src="/new-media/04-product-systems.jpg" alt="Abstract product systems visual" /></a>
+          <div class="media-card loop"><video src="/new-media/scroll-loop.mp4" autoplay muted loop playsinline aria-label="Abstract product systems motion loop"></video><span class="caption">Case-study target</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="filmstrip-wrap" aria-label="Case study filmstrip">
+      <div class="filmstrip-stage">
+        <div class="filmstrip-head reveal"><span class="eyebrow">Case-study strip</span><h2>One career, multiple operating loops.</h2></div>
+        <div class="filmstrip">
+          <article class="tile" data-title="Creator growth"><img src="/new-media/01-creator-ecosystem.jpg" alt="Creator growth abstract card" /></article>
+          <article class="tile" data-title="AI operations"><img src="/new-media/02-ai-ops.jpg" alt="AI operations abstract card" /></article>
+          <article class="tile" data-title="Launch rhythm"><img src="/new-media/03-global-platform.jpg" alt="Global launch abstract card" /></article>
+          <article class="tile" data-title="Builder portfolio"><img src="/new-media/04-product-systems.jpg" alt="Product systems abstract card" /></article>
+          <article class="tile" data-title="Motion slot"><video src="/new-media/scroll-loop.mp4" autoplay muted loop playsinline aria-label="Abstract scroll motion slot"></video></article>
+        </div>
+      </div>
+    </section>
   </main>
-  <section class="final"><div class="reveal"><span class="eyebrow">NEXT BUILD</span><h2>이제 실제 Higgsfield 이미지/영상으로 밀도를 올리면 됩니다.</h2><p>현재 버전은 구조·모션·레이아웃 프로토타입입니다. Higgsfield 인증이 복구되면 각 챕터의 추상 이미지를 실제 AI 생성 스틸/짧은 루프 영상으로 교체하고, 케이스스터디 모달과 갤러리 라이트박스를 붙이면 완성도가 크게 올라갑니다.</p></div><a class="mail reveal" href="mailto:ink595@g.harvard.edu">✉ ink595@g.harvard.edu</a></section>
+
+  <section class="final">
+    <div class="final-inner reveal"><span class="eyebrow">Next build</span><h2>Replace the slots with Higgsfield-grade media.</h2><p>This rebuilt version is now structured around the installed scroll-animation engine playbook. Higgsfield authentication is still failing, so the current visuals are local placeholders; once auth is fixed, each media slot can be replaced with generated stills and short motion loops.</p><a class="mail" href="mailto:ink595@g.harvard.edu">✉ ink595@g.harvard.edu</a></div>
+  </section>
+
   <script>
-    const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('in'); }), { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-    if (!prefersReduced) {
-      const heroVideo = document.querySelector('.hero video');
-      const divider = document.querySelector('.divider');
-      addEventListener('scroll', () => {
-        const y = scrollY;
-        if (heroVideo) heroVideo.style.setProperty('--parallax', `${Math.min(160, y * 0.16)}px`);
-        if (divider) {
-          const r = divider.getBoundingClientRect();
-          const progress = Math.max(0, Math.min(1, 1 - Math.abs(r.top + r.height / 2 - innerHeight / 2) / innerHeight));
-          const inset = 3 - progress * 3;
-          const radius = 28 - progress * 28;
-          divider.style.clipPath = `inset(${inset}% ${inset * 0.58}% round ${radius}px)`;
-        }
-      }, { passive: true });
-    }
+    window.addEventListener('DOMContentLoaded', () => {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const hasGsap = window.gsap && window.ScrollTrigger;
+      const revealFallback = () => {
+        const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('is-visible');
+        }), { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      };
+
+      if (reduceMotion || !hasGsap) {
+        document.querySelectorAll('.reveal').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
+        if (!hasGsap) revealFallback();
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      if (window.Lenis) {
+        const lenis = new Lenis({ lerp: 0.08, wheelMultiplier: 0.9, anchors: true });
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => lenis.raf(time * 1000));
+        gsap.ticker.lagSmoothing(0);
+      }
+
+      gsap.to('.progress', { scaleX: 1, ease: 'none', scrollTrigger: { trigger: document.body, start: 'top top', end: 'bottom bottom', scrub: 0.25 } });
+      gsap.to('.hero video', { yPercent: 16, scale: 1.18, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+      gsap.to('.orbit.one', { rotate: 18, xPercent: -18, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+      gsap.to('.orbit.two', { rotate: -34, xPercent: 10, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+
+      gsap.utils.toArray('.reveal').forEach((el) => {
+        gsap.fromTo(el, { autoAlpha: 0, y: 46 }, { autoAlpha: 1, y: 0, duration: .9, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 84%', once: true } });
+      });
+
+      gsap.utils.toArray('.chapter').forEach((chapter) => {
+        const copy = chapter.querySelector('.copy');
+        const index = chapter.querySelector('.chapter-index');
+        const primary = chapter.querySelector('.media-card.primary');
+        const loop = chapter.querySelector('.media-card.loop');
+        const meta = chapter.querySelector('.media-card.meta');
+        const wash = chapter.querySelector('.wash');
+        const left = chapter.classList.contains('left') ? -1 : 1;
+        const tl = gsap.timeline({
+          scrollTrigger: { trigger: chapter, start: 'top top', end: 'bottom bottom', scrub: 0.8 }
+        });
+        tl.fromTo(copy, { y: 70, autoAlpha: .35 }, { y: -36, autoAlpha: 1, ease: 'none' }, 0)
+          .fromTo(index, { xPercent: -8 * left, autoAlpha: .18 }, { xPercent: 8 * left, autoAlpha: .72, ease: 'none' }, 0)
+          .fromTo(primary, { y: 70, rotate: 5 * left, scale: .92 }, { y: -34, rotate: -3 * left, scale: 1.04, ease: 'none' }, 0)
+          .fromTo(loop, { y: -26, x: 42 * left, rotate: -6 * left }, { y: 46, x: -32 * left, rotate: 5 * left, ease: 'none' }, 0)
+          .fromTo(meta, { y: 28, x: -30 * left, rotate: -4 * left }, { y: -44, x: 34 * left, rotate: 4 * left, ease: 'none' }, 0)
+          .fromTo(wash, { scale: .78, autoAlpha: .28 }, { scale: 1.24, autoAlpha: .7, ease: 'none' }, 0);
+      });
+
+      gsap.fromTo('.interlude', { clipPath: 'inset(7% 5% round 42px)' }, { clipPath: 'inset(0% 0% round 0px)', ease: 'none', scrollTrigger: { trigger: '.interlude', start: 'top 82%', end: 'center center', scrub: true } });
+
+      const filmstrip = document.querySelector('.filmstrip');
+      if (filmstrip && window.innerWidth > 860) {
+        const distance = () => Math.max(0, filmstrip.scrollWidth - window.innerWidth + window.innerWidth * .12);
+        gsap.to(filmstrip, { x: () => -distance(), ease: 'none', scrollTrigger: { trigger: '.filmstrip-wrap', start: 'top top', end: 'bottom bottom', scrub: 0.7, invalidateOnRefresh: true } });
+      }
+
+      Promise.all(Array.from(document.images).filter(img => !img.complete).map(img => new Promise(resolve => { img.addEventListener('load', resolve, { once: true }); img.addEventListener('error', resolve, { once: true }); }))).then(() => ScrollTrigger.refresh());
+    });
   </script>
 </body>
 </html>
