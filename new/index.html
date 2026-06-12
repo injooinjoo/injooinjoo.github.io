@@ -148,7 +148,7 @@
     .chapter-index { color: transparent; -webkit-text-stroke: 1px color-mix(in srgb, var(--accent) 72%, rgba(255,255,255,.34)); font-family: var(--display); font-size: clamp(5rem, 16vw, 17rem); line-height: .72; opacity: .68; }
     .chapter h2 { margin-top: 12px; font-size: clamp(3.2rem, 8vw, 9rem); line-height: .78; text-wrap: balance; }
     .sub { margin: 18px 0 0; color: var(--accent); font-size: clamp(.9rem, 1.4vw, 1.1rem); font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
-    .body { max-width: 620px; margin: 22px 0 0; color: rgba(255,246,223,.78); font-size: clamp(1rem, 1.55vw, 1.24rem); font-weight: 800; line-height: 1.42; }
+    .body { max-width: 620px; margin: 22px 0 0; color: rgba(255,246,223,.86); font-size: clamp(1rem, 1.55vw, 1.24rem); font-weight: 800; line-height: 1.42; }
     .stat { display: grid; gap: 6px; margin-top: 28px; padding-left: 18px; border-left: 3px solid var(--accent); }
     .stat strong { font-size: clamp(1.1rem, 2vw, 1.55rem); text-transform: uppercase; }
     .stat span { color: var(--quiet); font-size: .82rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
@@ -403,7 +403,7 @@
         const tl = gsap.timeline({
           scrollTrigger: { trigger: chapter, start: 'top top', end: 'bottom bottom', scrub: 0.8 }
         });
-        tl.fromTo(copy, { y: 70, autoAlpha: .35 }, { y: -36, autoAlpha: 1, ease: 'none' }, 0)
+        tl.fromTo(copy, { y: 70, autoAlpha: .7 }, { y: -36, autoAlpha: 1, ease: 'none' }, 0)
           .fromTo(index, { xPercent: -8 * left, autoAlpha: .18 }, { xPercent: 8 * left, autoAlpha: .72, ease: 'none' }, 0)
           .fromTo(primary, { y: 70, rotate: 5 * left, scale: .92 }, { y: -34, rotate: -3 * left, scale: 1.04, ease: 'none' }, 0)
           .fromTo(loop, { y: -26, x: 42 * left, rotate: -6 * left }, { y: 46, x: -32 * left, rotate: 5 * left, ease: 'none' }, 0)
