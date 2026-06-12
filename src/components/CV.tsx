@@ -124,7 +124,7 @@ const CV: React.FC = () => {
               </div>
               <div className="cv-education-content">
                 <div className="cv-education-main">
-                  <h3 className="cv-school-name">Harvard Univ.</h3>
+                  <h3 className="cv-school-name">Harvard University</h3>
                 </div>
                 <div className="cv-education-details">
                   <div className="cv-degree-period">
