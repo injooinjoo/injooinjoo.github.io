@@ -19,10 +19,10 @@ const App: React.FC = () => {
   const mainRef = useRef<HTMLElement>(null);
 
   useGSAP(() => {
-    const cards = gsap.utils.toArray('.stack-card');
+    const cards = gsap.utils.toArray<HTMLElement>('.stack-card');
     
     // Animate cards on scroll
-    cards.forEach((card: any) => {
+    cards.forEach((card) => {
       // Add subtle scale or fade when it becomes top
       gsap.fromTo(card, 
         { opacity: 0.8, y: 50, scale: 0.95 },
