@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>InJoo Kim — Scroll-Scrub Portfolio</title>
-  <meta name="description" content="A Rockstar-style video-scrub scrollytelling portfolio for InJoo Kim." />
+  <title>InJoo Kim — Product Manager Trailer</title>
+  <meta name="description" content="A Rockstar-style scroll-scrub portfolio trailer for InJoo Kim: Product Manager, Creator Economy, Credibility Layer." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet" />
@@ -12,44 +12,106 @@
   <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.14/dist/lenis.min.js"></script>
   <style>
-    :root{--bg:#05040a;--ink:#fff1d2;--muted:rgba(255,241,210,.76);--quiet:rgba(255,241,210,.54);--hot:#ff3f8f;--cyan:#39d7ff;--gold:#ffb347;--violet:#9b63ff;--display:"Archivo Black",Impact,sans-serif;--font:Inter,ui-sans-serif,system-ui,sans-serif}
-    *{box-sizing:border-box}html{background:#05040a;scroll-behavior:auto}body{margin:0;background:#05040a;color:var(--ink);font-family:var(--font);overflow-x:hidden}a{color:inherit;text-decoration:none}button{font:inherit}.progress{position:fixed;z-index:120;inset:0 auto auto 0;width:100%;height:4px;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--hot),var(--gold),var(--cyan),var(--violet))}.nav{position:fixed;z-index:110;inset:0 0 auto;display:flex;justify-content:space-between;align-items:center;padding:22px clamp(18px,5vw,72px);font-weight:900;letter-spacing:.18em;text-transform:uppercase;background:linear-gradient(180deg,rgba(5,4,10,.78),rgba(5,4,10,0));pointer-events:none}.nav a{pointer-events:auto}.brand{font-size:.86rem}.navlinks{display:flex;gap:clamp(14px,3vw,40px);font-size:.72rem;color:rgba(255,241,210,.86)}
-    .scrub-scene{position:relative;height:320vh;background:#05040a;isolation:isolate}.scrub-stage{position:sticky;top:0;height:100vh;overflow:hidden;background:#05040a}.scrub-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0;outline:0;display:block;background:#05040a;transform:scale(1.005);filter:saturate(1.16) contrast(1.08)}.scrub-scene::after{content:"";position:sticky;display:block;top:0;height:100vh;margin-top:-100vh;pointer-events:none;background:linear-gradient(180deg,rgba(5,4,10,.2),rgba(5,4,10,.2) 42%,rgba(5,4,10,.82) 100%),linear-gradient(90deg,rgba(5,4,10,.84),rgba(5,4,10,.18) 48%,rgba(5,4,10,.7));z-index:2}.scrub-scene.alt::after{background:linear-gradient(180deg,rgba(5,4,10,.18),rgba(5,4,10,.25) 42%,rgba(5,4,10,.84) 100%),linear-gradient(270deg,rgba(5,4,10,.86),rgba(5,4,10,.16) 48%,rgba(5,4,10,.72))}.grain{position:absolute;inset:0;z-index:3;pointer-events:none;opacity:.13;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:42px 42px;mix-blend-mode:screen}.copy{position:absolute;z-index:5;left:clamp(20px,6vw,92px);bottom:clamp(46px,10vh,118px);max-width:min(860px,88vw);text-shadow:0 20px 60px rgba(0,0,0,.62)}.alt .copy{left:auto;right:clamp(20px,6vw,92px);text-align:right}.eyebrow{display:inline-block;margin-bottom:18px;color:var(--accent);font-weight:900;text-transform:uppercase;letter-spacing:.2em;font-size:clamp(.72rem,1vw,.95rem)}h1,h2{font-family:var(--display);font-size:clamp(4.5rem,14vw,13rem);line-height:.78;margin:0;text-transform:uppercase;letter-spacing:-.075em;max-width:1100px}h2{font-size:clamp(4rem,11vw,10rem)}.indent{display:block;margin-left:clamp(22px,9vw,140px)}.lede,.body{font-size:clamp(1rem,1.75vw,1.45rem);line-height:1.5;color:var(--muted);font-weight:800;max-width:720px;margin:28px 0 0}.alt .lede,.alt .body{margin-left:auto}.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.alt .meta{justify-content:flex-end}.pill{border:1px solid rgba(255,241,210,.3);background:rgba(255,241,210,.08);border-radius:999px;padding:11px 15px;font-size:.74rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;backdrop-filter:blur(14px)}.pill.hot{border-color:color-mix(in srgb,var(--accent) 58%,transparent);background:color-mix(in srgb,var(--accent) 20%,transparent)}.index{font-family:var(--display);font-size:clamp(5.5rem,19vw,22rem);line-height:.72;color:transparent;-webkit-text-stroke:2px color-mix(in srgb,var(--accent) 72%,transparent);opacity:.46;position:absolute;z-index:4;right:clamp(10px,6vw,80px);top:clamp(90px,13vh,150px);letter-spacing:-.08em}.alt .index{right:auto;left:clamp(10px,6vw,80px)}.scrub-ui{position:absolute;z-index:6;left:clamp(20px,6vw,92px);right:clamp(20px,6vw,92px);bottom:24px;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;color:rgba(255,241,210,.7);font-size:.7rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}.scrub-bar{height:3px;background:rgba(255,241,210,.18);overflow:hidden}.scrub-fill{display:block;width:100%;height:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--accent),rgba(255,241,210,.85))}.interlude{min-height:92vh;display:grid;place-items:center;padding:clamp(42px,8vw,120px);background:radial-gradient(circle at 50% 10%,rgba(255,63,143,.24),transparent 32%),#05040a;text-align:center}.interlude h2{font-size:clamp(3rem,9vw,9rem);max-width:1180px}.final{min-height:100vh;display:grid;place-items:center;padding:clamp(30px,7vw,96px);background:#05040a}.final-inner{max-width:980px}.final h2{font-size:clamp(4rem,11vw,10rem)}.final p{font-size:clamp(1.05rem,1.8vw,1.5rem);line-height:1.55;color:var(--muted);font-weight:800}.frame-note{position:fixed;z-index:100;right:clamp(16px,4vw,42px);bottom:22px;color:rgba(255,241,210,.64);font-size:.66rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;mix-blend-mode:screen}
-    @media(max-width:760px){.nav{padding:18px}.navlinks{gap:14px;font-size:.62rem}.scrub-scene{height:260vh}.copy,.alt .copy{left:18px;right:18px;text-align:left;bottom:76px}.alt .lede,.alt .body{margin-left:0}.alt .meta{justify-content:flex-start}h1,h2{font-size:clamp(3.2rem,18vw,6.8rem)}.index,.alt .index{left:16px;right:auto;top:90px}.scrub-ui{left:18px;right:18px}.frame-note{display:none}}
-    @media(prefers-reduced-motion:reduce){.scrub-scene{height:auto;min-height:100vh}.scrub-stage{position:relative}.scrub-video{position:absolute}.progress,.scrub-ui,.frame-note{display:none}}
+    :root{
+      --bg:#050308;--ink:#fff2cf;--muted:rgba(255,242,207,.78);--quiet:rgba(255,242,207,.55);
+      --red:#ff334f;--pink:#ff3fa2;--cyan:#37d6ff;--gold:#ffc15a;--green:#5fffb3;
+      --display:"Archivo Black",Impact,sans-serif;--font:Inter,ui-sans-serif,system-ui,sans-serif;
+    }
+    *{box-sizing:border-box}html{background:var(--bg);scroll-behavior:auto}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);overflow-x:hidden}a{color:inherit;text-decoration:none}button{font:inherit}
+    .page-progress{position:fixed;z-index:120;inset:0 auto auto 0;width:100%;height:4px;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--red),var(--gold),var(--cyan),var(--pink));box-shadow:0 0 28px rgba(255,63,162,.45)}
+    .nav{position:fixed;z-index:115;inset:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px clamp(18px,5vw,72px);font-weight:900;text-transform:uppercase;letter-spacing:.18em;background:linear-gradient(180deg,rgba(5,3,8,.88),rgba(5,3,8,0));pointer-events:none}.nav a{pointer-events:auto}.brand{font-size:.84rem}.navlinks{display:flex;gap:clamp(14px,3vw,38px);font-size:.7rem;color:rgba(255,242,207,.86)}.navlinks a{transition:color .2s}.navlinks a:hover{color:#fff}
+    .trailer-note{position:fixed;z-index:116;right:clamp(18px,4vw,58px);top:76px;color:rgba(255,242,207,.62);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;font-weight:900;mix-blend-mode:screen}
+    .scrub-scene{position:relative;height:320vh;background:var(--bg);isolation:isolate}.scrub-stage{position:sticky;top:0;height:100vh;overflow:hidden;background:var(--bg)}
+    .scrub-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0;outline:0;display:block;background:#08060b;transform:scale(1.045);filter:saturate(1.16) contrast(1.1) brightness(.9)}
+    .scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(circle at 72% 36%,rgba(255,63,162,.14),transparent 32%),linear-gradient(180deg,rgba(5,3,8,.08),rgba(5,3,8,.24) 44%,rgba(5,3,8,.9)),linear-gradient(90deg,rgba(5,3,8,.9),rgba(5,3,8,.22) 47%,rgba(5,3,8,.72))}.alt .scrim{background:radial-gradient(circle at 28% 34%,rgba(55,214,255,.14),transparent 34%),linear-gradient(180deg,rgba(5,3,8,.08),rgba(5,3,8,.24) 44%,rgba(5,3,8,.9)),linear-gradient(270deg,rgba(5,3,8,.9),rgba(5,3,8,.18) 48%,rgba(5,3,8,.74))}
+    .grain{position:absolute;inset:0;z-index:3;pointer-events:none;opacity:.15;background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:44px 44px;mix-blend-mode:screen}.vignette{position:absolute;inset:-2px;z-index:4;pointer-events:none;box-shadow:inset 0 0 160px rgba(0,0,0,.9),inset 0 0 24px rgba(0,0,0,.75)}
+    .copy{position:absolute;z-index:6;left:clamp(20px,6vw,92px);bottom:clamp(62px,12vh,124px);max-width:min(920px,89vw);text-shadow:0 24px 78px rgba(0,0,0,.72)}.alt .copy{left:auto;right:clamp(20px,6vw,92px);text-align:right}.alt .lede,.alt .body{margin-left:auto}.eyebrow{display:inline-block;margin-bottom:18px;color:var(--accent);font-weight:900;letter-spacing:.22em;text-transform:uppercase;font-size:clamp(.72rem,1vw,.95rem)}
+    h1,h2{font-family:var(--display);font-size:clamp(3.1rem,8.8vw,8.8rem);line-height:.84;margin:0;text-transform:uppercase;letter-spacing:-.078em;max-width:1160px}h2{font-size:clamp(3.45rem,9.4vw,9.2rem)}.indent{display:block;margin-left:clamp(22px,8vw,132px)}
+    .lede,.body{font-size:clamp(1rem,1.72vw,1.46rem);line-height:1.5;color:var(--muted);font-weight:800;max-width:740px;margin:28px 0 0}.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.alt .meta{justify-content:flex-end}.pill{display:inline-flex;align-items:center;min-height:38px;padding:10px 14px;border:1px solid rgba(255,242,207,.24);border-radius:999px;background:rgba(5,3,8,.34);backdrop-filter:blur(16px);font-size:.78rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,242,207,.9)}.pill.hot{border-color:color-mix(in srgb,var(--accent),transparent 28%);background:color-mix(in srgb,var(--accent),transparent 84%);box-shadow:0 0 34px color-mix(in srgb,var(--accent),transparent 78%)}
+    .index{position:absolute;z-index:5;right:clamp(22px,6vw,92px);top:clamp(86px,14vh,132px);font-family:var(--display);font-size:clamp(5rem,13vw,13rem);line-height:.75;color:rgba(255,242,207,.18);letter-spacing:-.08em}.alt .index{right:auto;left:clamp(22px,6vw,92px)}
+    .scrub-ui{position:absolute;z-index:7;left:clamp(20px,6vw,92px);right:clamp(20px,6vw,92px);bottom:22px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;color:rgba(255,242,207,.72);font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.16em}.scrub-bar{height:5px;background:rgba(255,242,207,.18);overflow:hidden;border-radius:999px}.scrub-fill{display:block;height:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--accent),#fff2cf);box-shadow:0 0 24px var(--accent)}
+    .interlude,.final{min-height:100vh;display:grid;place-items:center;padding:clamp(80px,12vw,150px) clamp(22px,8vw,110px);background:radial-gradient(circle at 72% 20%,rgba(255,63,162,.16),transparent 36%),radial-gradient(circle at 12% 78%,rgba(55,214,255,.12),transparent 38%),#07050c}.interlude-inner,.final-inner{width:min(1180px,100%)}.interlude h2,.final h2{font-size:clamp(3.2rem,8.6vw,9rem)}.interlude p,.final p{max-width:780px;color:var(--muted);font-size:clamp(1.05rem,1.7vw,1.38rem);line-height:1.55;font-weight:800}.final-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}.final .pill{font-size:.88rem;padding:15px 18px}.small-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:36px}.proof-card{min-height:150px;padding:20px;border:1px solid rgba(255,242,207,.14);background:rgba(255,242,207,.055);border-radius:22px}.proof-card b{display:block;font-family:var(--display);font-size:clamp(1.65rem,3vw,3rem);line-height:.9;letter-spacing:-.06em}.proof-card span{display:block;margin-top:12px;color:var(--muted);font-weight:800;line-height:1.35}
+    @media(max-width:780px){.nav{padding:18px}.navlinks{gap:13px;font-size:.6rem}.trailer-note{display:none}.scrub-scene{height:258vh}.copy,.alt .copy{left:18px;right:18px;text-align:left;bottom:76px}.alt .lede,.alt .body{margin-left:0}.alt .meta{justify-content:flex-start}h1,h2{font-size:clamp(3.05rem,17.5vw,6.7rem)}.index,.alt .index{left:16px;right:auto;top:86px}.scrub-ui{left:18px;right:18px;font-size:.62rem}.small-grid{grid-template-columns:1fr}.pill{font-size:.68rem}}
+    @media(prefers-reduced-motion:reduce){.scrub-scene{height:auto;min-height:100vh}.scrub-stage{position:relative}.progress,.scrub-ui,.trailer-note{display:none}.scrub-video{position:absolute}}
   </style>
 </head>
 <body>
-  <div class="progress" aria-hidden="true"></div>
-  <nav class="nav"><a class="brand" href="/">INJOO KIM</a><div class="navlinks"><a href="#work">Work</a><a href="#systems">Systems</a><a href="mailto:ink595@g.harvard.edu">Contact</a></div></nav>
-  <div class="frame-note">Scroll controls video frames</div>
+  <div class="page-progress" aria-hidden="true"></div>
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="/">INJOO KIM</a>
+    <div class="navlinks"><a href="#product">Product Manager</a><a href="#creator">Creator Economy</a><a href="#contact">Email / Resume</a></div>
+  </nav>
+  <div class="trailer-note">Scroll = trailer timeline</div>
 
-  <header class="scrub-scene" style="--accent:var(--hot)" data-scrub>
+  <header id="product" class="scrub-scene" style="--accent:var(--red)" data-scrub>
     <div class="scrub-stage">
-      <video class="scrub-video" src="/new-video/01-creator.mp4" muted playsinline preload="auto"></video><div class="grain"></div>
-      <div class="index">00</div>
-      <div class="copy"><span class="eyebrow reveal">Higgsfield scroll-scrub portfolio</span><h1 class="reveal"><span>I build</span><span class="indent">systems</span><span>people move through.</span></h1><p class="lede reveal">Not looping cards. The scroll position drives the footage frame-by-frame — like a trailer timeline you move with your hand.</p><div class="meta reveal"><a class="pill hot" href="#work">Scrub the reel ↓</a><a class="pill" href="/resume.pdf">Resume</a></div></div>
-      <div class="scrub-ui"><span>00:00</span><span class="scrub-bar"><span class="scrub-fill"></span></span><span>Frame scrub</span></div>
+      <video class="scrub-video" src="/new-video/00-product-manager.mp4" muted playsinline preload="auto"></video>
+      <div class="scrim"></div><div class="grain"></div><div class="vignette"></div><div class="index">00</div>
+      <div class="copy">
+        <span class="eyebrow reveal">Product Manager · trailer cut</span>
+        <h1 class="reveal"><span>Product</span><span class="indent">systems</span><span>with stakes.</span></h1>
+        <p class="lede reveal">I build creator-economy products like operating systems: incentives, trust, community loops, and execution rhythms that people actually move through.</p>
+        <div class="meta reveal"><span class="pill hot">Product Manager</span><span class="pill">Creator Economy</span><a class="pill" href="/resume.pdf">Resume ↓</a></div>
+      </div>
+      <div class="scrub-ui"><span>00</span><span class="scrub-bar"><span class="scrub-fill"></span></span><span>frame scrub</span></div>
     </div>
   </header>
 
-  <main id="work">
-    <section class="scrub-scene" style="--accent:var(--hot)" data-scrub>
-      <div class="scrub-stage"><video class="scrub-video" src="/new-video/01-creator.mp4" muted playsinline preload="auto"></video><div class="grain"></div><div class="index">01</div><div class="copy"><span class="eyebrow reveal">Creator Economy</span><h2 class="reveal"><span>SOOP</span><span class="indent">creator</span><span>ecosystem</span></h2><p class="body reveal">5,000+ creators, monetization, events, community health. I design operating loops that move a live community without losing trust.</p><div class="meta reveal"><span class="pill hot">+60% event participation lift</span><span class="pill">Senior Product Manager · Seoul</span></div></div><div class="scrub-ui"><span>01</span><span class="scrub-bar"><span class="scrub-fill"></span></span><span>scroll = time</span></div></div>
+  <main id="creator">
+    <section class="interlude">
+      <div class="interlude-inner reveal">
+        <span class="eyebrow" style="--accent:var(--gold);color:var(--gold)">Rockstar / game trailer structure</span>
+        <h2>Not a resume page. A campaign trailer for product credibility.</h2>
+        <p>The page borrows the structure — full-bleed cinematic scenes, pinned chapters, sparse mission copy, scroll-controlled footage — while keeping the content focused: Product Manager, Creator Economy, Credibility Layer, email, resume.</p>
+        <div class="small-grid">
+          <div class="proof-card"><b>PM</b><span>Senior product judgment translated into creator-growth systems.</span></div>
+          <div class="proof-card"><b>5K+</b><span>Creator-scale context: incentives, events, monetization, support.</span></div>
+          <div class="proof-card"><b>Trust</b><span>Credibility as product infrastructure, not a decorative badge.</span></div>
+        </div>
+      </div>
     </section>
+
     <section class="scrub-scene alt" style="--accent:var(--cyan)" data-scrub>
-      <div class="scrub-stage"><video class="scrub-video" src="/new-video/02-ai-ops.mp4" muted playsinline preload="auto"></video><div class="grain"></div><div class="index">02</div><div class="copy"><span class="eyebrow reveal">AI Product Ops</span><h2 class="reveal"><span>Automation</span><span class="indent">as</span><span>leverage</span></h2><p class="body reveal">Python, SQL, GPT systems, reviewable pipelines. Repetitive workflows become measurable operating systems.</p><div class="meta reveal"><span class="pill hot">AI-backed execution pipelines</span><span class="pill">Product × data × automation</span></div></div><div class="scrub-ui"><span>02</span><span class="scrub-bar"><span class="scrub-fill"></span></span><span>frame by frame</span></div></div>
+      <div class="scrub-stage">
+        <video class="scrub-video" src="/new-video/01-creator-economy.mp4" muted playsinline preload="auto"></video>
+        <div class="scrim"></div><div class="grain"></div><div class="vignette"></div><div class="index">01</div>
+        <div class="copy">
+          <span class="eyebrow reveal">Creator Economy</span>
+          <h2 class="reveal"><span>Live</span><span class="indent">creator</span><span>loops.</span></h2>
+          <p class="body reveal">Acquisition, participation, monetization, community health. My work sits where creators, audiences, events, and data become one repeatable product loop.</p>
+          <div class="meta reveal"><span class="pill hot">5,000+ creators</span><span class="pill">+60% event participation lift</span></div>
+        </div>
+        <div class="scrub-ui"><span>01</span><span class="scrub-bar"><span class="scrub-fill"></span></span><span>scroll = time</span></div>
+      </div>
     </section>
-    <section id="systems" class="interlude"><div><span class="eyebrow reveal">No bordered video cards</span><h2 class="reveal">Full-bleed footage, pinned to the viewport, scrubbed by scroll.</h2></div></section>
-    <section class="scrub-scene" style="--accent:var(--gold)" data-scrub>
-      <div class="scrub-stage"><video class="scrub-video" src="/new-video/03-global-launch.mp4" muted playsinline preload="auto"></video><div class="grain"></div><div class="index">03</div><div class="copy"><span class="eyebrow reveal">Global Platforms</span><h2 class="reveal"><span>Gaming,</span><span class="indent">streaming,</span><span>launch rhythm</span></h2><p class="body reveal">NEXON partnership, G-Star, publishing, creator acquisition. Entertainment products need launch systems that learn while moving.</p><div class="meta reveal"><span class="pill hot">Gaming + streaming bridge</span><span class="pill">Global publishing / platform growth</span></div></div><div class="scrub-ui"><span>03</span><span class="scrub-bar"><span class="scrub-fill"></span></span><span>pinned scene</span></div></div>
-    </section>
-    <section class="scrub-scene alt" style="--accent:var(--violet)" data-scrub>
-      <div class="scrub-stage"><video class="scrub-video" src="/new-video/04-builder-lab.mp4" muted playsinline preload="auto"></video><div class="grain"></div><div class="index">04</div><div class="copy"><span class="eyebrow reveal">Product Systems</span><h2 class="reveal"><span>Portfolio</span><span class="indent">of</span><span>experiments</span></h2><p class="body reveal">YouTube, apps, commerce, education, productized agents. Small products operated as real systems, not static case studies.</p><div class="meta reveal"><span class="pill hot">130k subscribers / 2M+ view hit</span><span class="pill">Founder mode · builder mode</span></div></div><div class="scrub-ui"><span>04</span><span class="scrub-bar"><span class="scrub-fill"></span></span><span>scroll film</span></div></div>
+
+    <section class="scrub-scene" style="--accent:var(--green)" data-scrub>
+      <div class="scrub-stage">
+        <video class="scrub-video" src="/new-video/02-credibility-layer.mp4" muted playsinline preload="auto"></video>
+        <div class="scrim"></div><div class="grain"></div><div class="vignette"></div><div class="index">02</div>
+        <div class="copy">
+          <span class="eyebrow reveal">Credibility Layer</span>
+          <h2 class="reveal"><span>Trust</span><span class="indent">as</span><span>product.</span></h2>
+          <p class="body reveal">The strongest creator platforms do not only ship features. They make status, reputation, support, and evidence legible enough for creators to bet their work on.</p>
+          <div class="meta reveal"><span class="pill hot">Credibility systems</span><span class="pill">Signals · support · proof</span></div>
+        </div>
+        <div class="scrub-ui"><span>02</span><span class="scrub-bar"><span class="scrub-fill"></span></span><span>pinned scene</span></div>
+      </div>
     </section>
   </main>
 
-  <section class="final"><div class="final-inner reveal"><span class="eyebrow">Next pass</span><h2>Now the mechanism is right.</h2><p>The next polish pass should improve the actual generated footage. But structurally this is now closer to the GTA VI page: borderless cinematic scenes, pinned viewport, and scroll-driven video time instead of passive looping cards.</p></div></section>
+  <section id="contact" class="final">
+    <div class="final-inner reveal">
+      <span class="eyebrow" style="--accent:var(--pink);color:var(--pink)">Email / Resume</span>
+      <h2>Let’s talk about creator systems.</h2>
+      <p>Product Manager focused on creator economy platforms and the credibility layer that makes participation, trust, and growth compound.</p>
+      <div class="final-actions">
+        <a class="pill hot" style="--accent:var(--pink)" href="mailto:ink595@g.harvard.edu">Email · ink595@g.harvard.edu →</a>
+        <a class="pill" href="/resume.pdf">Download résumé ↓</a>
+        <a class="pill" href="/">Back to classic portfolio</a>
+      </div>
+    </div>
+  </section>
 
   <script>
     window.addEventListener('DOMContentLoaded',()=>{
@@ -59,21 +121,17 @@
       if(reduce||!window.gsap||!window.ScrollTrigger){document.querySelectorAll('.reveal').forEach(e=>{e.style.opacity=1;e.style.transform='none'});return}
       gsap.registerPlugin(ScrollTrigger);
       if(window.Lenis){const lenis=new Lenis({lerp:.07,wheelMultiplier:.9,anchors:true});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0)}
-      gsap.to('.progress',{scaleX:1,ease:'none',scrollTrigger:{trigger:document.body,start:'top top',end:'bottom bottom',scrub:.15}});
-      gsap.utils.toArray('.reveal').forEach(el=>gsap.fromTo(el,{autoAlpha:0,y:54},{autoAlpha:1,y:0,duration:.8,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 82%',once:true}}));
+      gsap.to('.page-progress',{scaleX:1,ease:'none',scrollTrigger:{trigger:document.body,start:'top top',end:'bottom bottom',scrub:.15}});
+      gsap.utils.toArray('.reveal').forEach(el=>gsap.fromTo(el,{autoAlpha:0,y:54},{autoAlpha:1,y:0,duration:.82,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 84%',once:true}}));
       document.querySelectorAll('[data-scrub]').forEach((section)=>{
-        const video=section.querySelector('video');
-        const fill=section.querySelector('.scrub-fill');
-        const copy=section.querySelector('.copy');
-        const index=section.querySelector('.index');
-        const setTime=(p)=>{const d=Number.isFinite(video.duration)&&video.duration>0?video.duration:4.08; const t=Math.min(d-.04,Math.max(.01,p*(d-.08)+.01)); if(Math.abs(video.currentTime-t)>.025) video.currentTime=t;};
-        const init=()=>{setTime(0); ScrollTrigger.refresh();};
-        if(video.readyState>=1) init(); else video.addEventListener('loadedmetadata',init,{once:true});
-        ScrollTrigger.create({trigger:section,start:'top top',end:'bottom bottom',scrub:true,onUpdate:self=>{setTime(self.progress); if(fill) fill.style.transform=`scaleX(${self.progress})`;}});
-        gsap.timeline({scrollTrigger:{trigger:section,start:'top top',end:'bottom bottom',scrub:.7}})
-          .fromTo(video,{scale:1.08},{scale:1.0,ease:'none'},0)
-          .fromTo(copy,{y:80,autoAlpha:.68},{y:-64,autoAlpha:1,ease:'none'},0)
-          .fromTo(index,{y:40,autoAlpha:.25},{y:-30,autoAlpha:.58,ease:'none'},0);
+        const video=section.querySelector('video');const fill=section.querySelector('.scrub-fill');const copy=section.querySelector('.copy');const index=section.querySelector('.index');
+        const setTime=(p)=>{const d=Number.isFinite(video.duration)&&video.duration>0?video.duration:8.04;const t=Math.min(d-.04,Math.max(.01,p*(d-.08)+.01));if(Math.abs(video.currentTime-t)>.024) video.currentTime=t;};
+        const init=()=>{setTime(0);ScrollTrigger.refresh();};if(video.readyState>=1) init(); else video.addEventListener('loadedmetadata',init,{once:true});
+        ScrollTrigger.create({trigger:section,start:'top top',end:'bottom bottom',scrub:true,onUpdate:self=>{setTime(self.progress);if(fill) fill.style.transform=`scaleX(${self.progress})`;}});
+        gsap.timeline({scrollTrigger:{trigger:section,start:'top top',end:'bottom bottom',scrub:.75}})
+          .fromTo(video,{scale:1.09},{scale:1.01,ease:'none'},0)
+          .fromTo(copy,{y:84,autoAlpha:.72},{y:-70,autoAlpha:1,ease:'none'},0)
+          .fromTo(index,{y:44,autoAlpha:.22},{y:-34,autoAlpha:.56,ease:'none'},0);
       });
       setTimeout(()=>ScrollTrigger.refresh(),900);
     });
