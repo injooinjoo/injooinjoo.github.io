@@ -240,16 +240,62 @@
     color: var(--ink-4);
     white-space: nowrap;
   }
-  .logos { display: flex; align-items: center; gap: 44px; flex-wrap: wrap; }
+  .logos { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
   .logos .logo-item {
-    font-family: var(--serif);
-    font-size: 17px; font-weight: 600;
-    color: var(--ink-3);
-    letter-spacing: -0.01em;
-    display: flex; align-items: center; gap: 10px;
+    min-width: 118px;
+    height: 54px;
+    padding: 10px 16px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--surface);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: var(--shadow-sm);
   }
-  .logos .logo-item img { height: 20px; width: auto; opacity: 0.85; }
-  [data-theme="dark"] .logos .logo-item img { filter: invert(0.9); }
+  .logos .logo-item img {
+    max-width: 112px;
+    max-height: 32px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+  .logos .logo-item.square img { max-width: 34px; max-height: 34px; }
+  .logos .logo-item.wide img { max-width: 124px; }
+  [data-theme="dark"] .logos .logo-item {
+    background: #f7f7f2;
+    border-color: rgba(255,255,255,0.08);
+  }
+
+  .xp-company-row {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .xp-logo {
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+  .xp-logo img {
+    max-width: 32px;
+    max-height: 28px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+  .xp-logo.wide img { max-width: 34px; max-height: 24px; }
+  .xp-logo.square img { max-width: 30px; max-height: 30px; }
+  .xp-company-row .xp-company { margin-top: 0; }
 
   /* ---------- Section scaffolding ---------- */
   section.block { padding: 100px 0; border-bottom: 1px solid var(--line); }
@@ -656,13 +702,13 @@
 <section class="logo-strip">
   <div class="wrap logo-strip-inner">
     <span class="logo-label"><span data-en>Previously & currently</span><span data-ko>경력</span></span>
-    <div class="logos">
-      <span class="logo-item">NEXON</span>
-      <span class="logo-item">SOOP</span>
-      <span class="logo-item">MMXXII</span>
-      <span class="logo-item">Paranoid&nbsp;Joy</span>
-      <span class="logo-item">highbrow</span>
-      <span class="logo-item">Ntreev&nbsp;Soft</span>
+    <div class="logos" aria-label="Company logos">
+      <span class="logo-item wide"><img src="img/company-nexon.webp" alt="NEXON" loading="lazy" decoding="async" /></span>
+      <span class="logo-item wide"><img src="img/company-soop.webp" alt="SOOP" loading="lazy" decoding="async" /></span>
+      <span class="logo-item square"><img src="img/company-mmxxii.webp" alt="MMXXII" loading="lazy" decoding="async" /></span>
+      <span class="logo-item square"><img src="img/company-paranoidjoy.webp" alt="Paranoid Joy" loading="lazy" decoding="async" /></span>
+      <span class="logo-item square"><img src="img/company-highbrow.webp" alt="highbrow" loading="lazy" decoding="async" /></span>
+      <span class="logo-item square"><img src="img/company-ntreev.webp" alt="Ntreev Soft" loading="lazy" decoding="async" /></span>
     </div>
   </div>
 </section>
@@ -722,7 +768,7 @@
     <article class="xp" id="nexon">
       <div class="xp-meta">
         <div class="xp-period">Dec 2025 — Present</div>
-        <div class="xp-company">NEXON KOREA</div>
+        <div class="xp-company-row"><span class="xp-logo wide"><img src="img/company-nexon.webp" alt="NEXON" loading="lazy" decoding="async" /></span><div class="xp-company">NEXON KOREA</div></div>
         <div class="xp-company-sub"><span data-en>Top‑10 global game publisher · Seoul</span><span data-ko>글로벌 톱10 게임 퍼블리셔 · 서울</span></div>
       </div>
       <div class="xp-body">
@@ -755,7 +801,7 @@
     <article class="xp" id="soop">
       <div class="xp-meta">
         <div class="xp-period">Feb 2016 — Nov 2025 · 9 yrs</div>
-        <div class="xp-company">SOOP <span style="color:var(--ink-4);font-weight:400">Co., Ltd.</span></div>
+        <div class="xp-company-row"><span class="xp-logo wide"><img src="img/company-soop.webp" alt="SOOP" loading="lazy" decoding="async" /></span><div class="xp-company">SOOP <span style="color:var(--ink-4);font-weight:400">Co., Ltd.</span></div></div>
         <div class="xp-company-sub"><span data-en>Korea's leading livestream platform · 5,000+ creators</span><span data-ko>한국 최대 라이브 스트리밍 플랫폼 · 크리에이터 5천명+</span></div>
       </div>
       <div class="xp-body">
@@ -793,7 +839,7 @@
     <article class="xp" id="mmxxii">
       <div class="xp-meta">
         <div class="xp-period">2022 — 2024</div>
-        <div class="xp-company">MMXXII</div>
+        <div class="xp-company-row"><span class="xp-logo square"><img src="img/company-mmxxii.webp" alt="MMXXII" loading="lazy" decoding="async" /></span><div class="xp-company">MMXXII</div></div>
         <div class="xp-company-sub"><span data-en>Early‑stage digital studio · Founder</span><span data-ko>얼리 스테이지 디지털 스튜디오 · 창립자</span></div>
       </div>
       <div class="xp-body">
@@ -813,7 +859,7 @@
     <article class="xp" id="popjoy">
       <div class="xp-meta">
         <div class="xp-period">2015 — 2016</div>
-        <div class="xp-company">Paranoid Joy</div>
+        <div class="xp-company-row"><span class="xp-logo square"><img src="img/company-paranoidjoy.webp" alt="Paranoid Joy" loading="lazy" decoding="async" /></span><div class="xp-company">Paranoid Joy</div></div>
         <div class="xp-company-sub"><span data-en>Consumer digital startup</span><span data-ko>컨슈머 디지털 스타트업</span></div>
       </div>
       <div class="xp-body">
@@ -830,7 +876,7 @@
     <article class="xp" id="highbrow">
       <div class="xp-meta">
         <div class="xp-period">Oct 2014 — Mar 2015</div>
-        <div class="xp-company">highbrow</div>
+        <div class="xp-company-row"><span class="xp-logo square"><img src="img/company-highbrow.webp" alt="highbrow" loading="lazy" decoding="async" /></span><div class="xp-company">highbrow</div></div>
         <div class="xp-company-sub"><span data-en>Game publishing · Korea</span><span data-ko>게임 퍼블리싱 · 한국</span></div>
       </div>
       <div class="xp-body">
@@ -849,7 +895,7 @@
     <article class="xp" id="ntreev">
       <div class="xp-meta">
         <div class="xp-period">Oct 2012 — Aug 2014 · 2 yrs</div>
-        <div class="xp-company">Ntreev Soft</div>
+        <div class="xp-company-row"><span class="xp-logo square"><img src="img/company-ntreev.webp" alt="Ntreev Soft" loading="lazy" decoding="async" /></span><div class="xp-company">Ntreev Soft</div></div>
         <div class="xp-company-sub"><span data-en>Global game publishing · Seoul</span><span data-ko>글로벌 게임 퍼블리싱 · 서울</span></div>
       </div>
       <div class="xp-body">
