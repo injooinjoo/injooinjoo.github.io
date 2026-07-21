@@ -38,6 +38,15 @@ test.describe('Sidekick explanatory landing page', () => {
     await expect(page.getByText('다음 신제품 런칭도 준비해줘.', { exact: true })).toBeVisible();
   });
 
+  test('keeps static product mockups free of enabled fake actions', async ({ page }) => {
+    await page.goto('/sidekick/');
+
+    await expect(page.getByRole('button', { name: /결과 보기|맡기기/ })).toHaveCount(0);
+    await expect(page.locator('[data-mock-status]')).toHaveCount(2);
+    await expect(page.getByText('결과 정리 완료', { exact: true })).toBeVisible();
+    await expect(page.getByText('검토 대기', { exact: true })).toBeVisible();
+  });
+
   test('removes pinned scroll behavior when reduced motion is requested', async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.goto('/sidekick/');

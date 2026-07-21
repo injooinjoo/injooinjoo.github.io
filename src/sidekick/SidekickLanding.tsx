@@ -164,7 +164,7 @@ export default function SidekickLanding() {
               <li>12분 분량 대본과 장면 구성 완료</li>
               <li>제목·썸네일 문구·배포 일정 정리</li>
             </ul>
-            <button type="button">결과 보기 <ChevronRight size={16} /></button>
+            <span className="mock-status" data-mock-status>결과 정리 완료 <CircleCheck size={16} aria-hidden="true" /></span>
           </article>
         </section>
 
@@ -214,7 +214,7 @@ export default function SidekickLanding() {
             ].map(([name, state, detail]) => (
               <article key={name}><div><strong>{name}</strong><p>{detail}</p></div><span>{state}</span></article>
             ))}
-            <aside><Sparkles size={18} /><div><strong>Sidekick 제안</strong><p>유튜브 업로드 이틀 뒤 반응을 자동으로 정리해드릴까요?</p></div><button type="button">맡기기</button></aside>
+            <aside><Sparkles size={18} /><div><strong>Sidekick 제안</strong><p>유튜브 업로드 이틀 뒤 반응을 자동으로 정리해드릴까요?</p></div><span className="mock-status" data-mock-status>검토 대기</span></aside>
           </div>
           <div className="role-row" aria-label="사용자의 역할">
             {[
