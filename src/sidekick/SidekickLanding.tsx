@@ -1,273 +1,330 @@
-import {
-  ArrowDown,
-  Check,
-  ChevronRight,
-  CircleCheck,
-  Mic,
-  MoreHorizontal,
-  Sparkles,
-} from 'lucide-react';
-import {
-  agentRoles,
-  launchSteps,
-  requestOptions,
-  sourcingSteps,
-  youtubeSteps,
-} from './content';
+import { ArrowDown, ChevronRight, MessageCircle, Mic, Sparkles } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { agents, approvalCards, features, projects, workflow } from './content';
 import './sidekick.css';
 
-type Step = { label: string; detail: string; state?: string };
+const media = '/sidekick/media';
 
-function PhoneFrame({ children, label }: { children: React.ReactNode; label: string }) {
+function ProductPhone({
+  screen,
+  alt,
+  className = '',
+  priority = false,
+}: {
+  screen: string;
+  alt: string;
+  className?: string;
+  priority?: boolean;
+}) {
   return (
-    <div className="phone" role="group" aria-label={label}>
-      <div className="phone__hardware">
-        <span>9:41</span>
-        <span className="phone__island" aria-hidden="true" />
-        <span>5G ▰</span>
+    <figure className={`product-phone ${className}`} data-product-ui>
+      <img
+        data-product-screenshot
+        src={`${media}/app/${screen}.webp`}
+        alt={alt}
+        width="1170"
+        height="2532"
+        loading={priority ? 'eager' : 'lazy'}
+        fetchPriority={priority ? 'high' : 'auto'}
+      />
+    </figure>
+  );
+}
+
+function SidekickMark() {
+  return (
+    <a className="brand" href="/sidekick/" aria-label="사이드킥 홈">
+      <img src={`${media}/app/icon.png`} alt="" width="36" height="36" />
+      <span>Sidekick</span>
+    </a>
+  );
+}
+
+function InputProof() {
+  return (
+    <div className="input-proof">
+      <ProductPhone screen="02" alt="음성과 채팅으로 새 업무를 맡기는 실제 사이드킥 앱 화면" />
+      <div className="input-proof-copy">
+        <span className="proof-label">실제 사이드킥 앱 화면</span>
+        <h2>앱 안에서 바로<br />새 업무를 맡기세요</h2>
+        <p>요청을 말하거나 입력하면 목표와 조건을 정리해 프로젝트로 이어갑니다.</p>
+        <blockquote>유튜브 채널을 키우고 다음 영상까지 만들어줘</blockquote>
+        <div className="input-mode-copy" aria-label="지원하는 업무 입력 방식">
+          <span data-input-mode><Mic aria-hidden="true" /> 음성</span>
+          <span data-input-mode><MessageCircle aria-hidden="true" /> 채팅</span>
+        </div>
       </div>
-      <div className="phone__screen">{children}</div>
-      <span className="phone__home" aria-hidden="true" />
     </div>
   );
 }
 
-function AppHeader({ title, eyebrow }: { title: string; eyebrow?: string }) {
-  return (
-    <header className="app-header">
-      <div>
-        {eyebrow ? <p>{eyebrow}</p> : null}
-        <strong>{title}</strong>
-      </div>
-      <MoreHorizontal size={20} strokeWidth={1.8} aria-hidden="true" />
-    </header>
-  );
-}
+const workflowProofs = [
+  { screen: '03', alt: '업무를 역할별로 나누어 맡기는 실제 사이드킥 앱 화면' },
+  { screen: '01', alt: '진행 중인 프로젝트와 AI 직원 상태를 확인하는 실제 사이드킥 앱 화면' },
+  { screen: '05', alt: '요약과 근거, 다음 행동을 정리한 실제 사이드킥 결과 카드 화면' },
+] as const;
 
-function WorkflowList({ steps }: { steps: Step[] }) {
+function WorkflowScreen({ active }: { active: number }) {
   return (
-    <ol className="workflow-list">
-      {steps.map((step, index) => (
-        <li data-work-step key={step.label} className={step.state === '진행 중' ? 'is-current' : ''}>
-          <span className="workflow-list__number">{String(index + 1).padStart(2, '0')}</span>
-          <div>
-            <strong>{step.label}</strong>
-            <p>{step.detail}</p>
+    <div className="workflow-screen">
+      {workflow.map((item, index) => (
+        <article
+          className={`workflow-panel ${active === index ? 'is-active' : ''}`}
+          data-workflow-panel
+          key={item.key}
+        >
+          <div className="workflow-proof">
+            <ProductPhone screen={workflowProofs[index].screen} alt={workflowProofs[index].alt} />
+            <div className="proof-caption">
+              <span>실제 앱 화면 · {String(index + 1).padStart(2, '0')}</span>
+              <strong>{item.label}</strong>
+              <p>{item.body}</p>
+            </div>
           </div>
-          {step.state ? <span className="status-pill">{step.state}</span> : <ChevronRight size={16} />}
-        </li>
+        </article>
       ))}
-    </ol>
-  );
-}
-
-function StoreButtons() {
-  return (
-    <div className="store-buttons" aria-label="앱 출시 상태">
-      <span><b>App Store</b><small>출시 준비 중</small></span>
-      <span><b>Google Play</b><small>출시 예정</small></span>
     </div>
   );
 }
 
-export default function SidekickLanding() {
+function ProjectCase({ project, index }: { project: (typeof projects)[number]; index: number }) {
+  const Icon = project.icon;
   return (
-    <div className="sidekick-site">
-      <a className="skip-link" href="#sidekick-main">본문으로 바로가기</a>
-      <nav className="site-nav" aria-label="사이드킥 소개">
-        <a className="site-nav__brand" href="#hero"><span aria-hidden="true">S</span>사이드킥</a>
-        <a className="site-nav__cta" href="#download">앱 보기</a>
-      </nav>
+    <section
+      className={`project-case project-case--${project.key}`}
+      data-project-case
+      data-extra-scene={project.key}
+      style={{ '--case-accent': project.accent } as React.CSSProperties}
+    >
+      <div className="case-copy">
+        <span className="case-pill"><Icon aria-hidden="true" /> {project.label}</span>
+        <p>{project.eyebrow}</p>
+        <h2>{project.title.split('\n').map((line) => <span key={line}>{line}</span>)}</h2>
+        <small>{project.description}</small>
+      </div>
+      <div className="case-stage">
+        <div className="case-plane case-plane--left" aria-hidden="true"><Icon /></div>
+        <ProductPhone
+          screen={String(index + 1).padStart(2, '0')}
+          alt={`${project.label} 프로젝트를 보여주는 실제 사이드킥 앱 화면`}
+        />
+        <div className="case-plane case-plane--right" aria-hidden="true"><Icon /></div>
+      </div>
+    </section>
+  );
+}
 
-      <main id="sidekick-main">
-        <section id="hero" className="story story--hero" data-sidekick-section>
-          <div className="story__copy story__copy--hero">
-            <p className="eyebrow">사이드킥: AI 에이전트</p>
-            <h1>일을 맡기면,<br />팀이 움직입니다.</h1>
-            <p className="lede">해야 할 일을 말하세요. 필요한 AI 직원이 나눠 맡고, 진행 상황과 결과를 한곳에 정리합니다.</p>
-            <StoreButtons />
-          </div>
+function SidekickLanding() {
+  const [activeWorkflow, setActiveWorkflow] = useState(0);
 
-          <div className="hero-product">
-            <PhoneFrame label="사이드킥에 업무를 입력하는 채팅 화면">
-              <AppHeader title="새 업무 맡기기" eyebrow="오늘 무엇을 도와드릴까요?" />
-              <div className="request-stack">
-                {requestOptions.map((request, index) => (
-                  <div
-                    className={`request-option ${index === requestOptions.length - 1 ? 'is-selected' : ''}`}
-                    data-request-option
-                    data-selected={index === requestOptions.length - 1 ? 'true' : undefined}
-                    key={request}
-                  >
-                    <span>{request}</span>
-                    {index === requestOptions.length - 1 ? <Check size={16} aria-hidden="true" /> : null}
-                  </div>
-                ))}
-              </div>
-              <div className="composer"><span>무슨 일을 맡길까요?</span><Mic size={18} /></div>
-            </PhoneFrame>
-          </div>
-          <a className="scroll-cue" href="#team"><ArrowDown size={20} /><span>어떻게 진행되는지 보기</span></a>
-        </section>
+  useEffect(() => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const videos = Array.from(document.querySelectorAll<HTMLVideoElement>('video[data-decorative-media]'));
+    const markers = Array.from(document.querySelectorAll<HTMLElement>('[data-workflow-marker]'));
+    const portal = document.querySelector<HTMLElement>('.portal-pill');
+    const portalScene = document.querySelector<HTMLElement>('[data-extra-scene="portal"]');
+    const horizontal = document.querySelector<HTMLElement>('[data-horizontal-sequence="projects"]');
+    const track = horizontal?.querySelector<HTMLElement>('.horizontal-track');
 
-        <section id="team" className="story story--team" data-sidekick-section>
-          <div className="section-copy">
-            <p className="section-number">01</p>
-            <h2>목표를 이해하고,<br />필요한 팀을 구성합니다.</h2>
-            <p>누가 무엇을 맡을지 사용자가 직접 조정하지 않아도 됩니다. Sidekick이 업무에 맞는 역할을 고릅니다.</p>
-          </div>
-          <div className="agent-board" aria-label="배정된 AI 직원">
-            <p className="agent-board__request">유튜브 채널을 키우고<br />다음 영상까지 만들어줘</p>
-            <div className="agent-board__grid">
-              {agentRoles.map((agent, index) => (
-                <article data-agent-role key={agent.name} className={index === 0 ? 'is-primary' : ''}>
-                  <span className="agent-avatar">{agent.name.slice(0, 1)}</span>
-                  <div><strong>{agent.name} · {agent.role}</strong><p>{agent.note}</p></div>
-                  <small>{index === 0 ? '주 담당' : '함께 처리'}</small>
-                </article>
+    let mediaObserver: IntersectionObserver | undefined;
+    let workflowObserver: IntersectionObserver | undefined;
+    let ticking = false;
+
+    const setupMedia = () => {
+      mediaObserver?.disconnect();
+      videos.forEach((video) => video.pause());
+      if (reducedMotion.matches) return;
+      mediaObserver = new IntersectionObserver(
+        (entries) => entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) void video.play().catch(() => undefined);
+          else video.pause();
+        }),
+        { rootMargin: '180px 0px', threshold: 0.01 },
+      );
+      videos.forEach((video) => mediaObserver?.observe(video));
+    };
+
+    const setupWorkflow = () => {
+      workflowObserver?.disconnect();
+      if (reducedMotion.matches) {
+        setActiveWorkflow(0);
+        return;
+      }
+      workflowObserver = new IntersectionObserver(
+        (entries) => entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveWorkflow(Number((entry.target as HTMLElement).dataset.workflowMarker));
+        }),
+        { rootMargin: '-42% 0px -42% 0px', threshold: 0 },
+      );
+      markers.forEach((marker) => workflowObserver?.observe(marker));
+    };
+
+    const updateScroll = () => {
+      ticking = false;
+      if (reducedMotion.matches) {
+        portal?.style.setProperty('--portal-progress', '0');
+        if (track) track.style.transform = 'none';
+        return;
+      }
+      if (portal && portalScene) {
+        const rect = portalScene.getBoundingClientRect();
+        const progress = Math.min(1, Math.max(0, -rect.top / Math.max(1, rect.height - window.innerHeight)));
+        portal.style.setProperty('--portal-progress', String(progress));
+      }
+      if (horizontal && track && window.innerWidth > 760) {
+        const rect = horizontal.getBoundingClientRect();
+        const travel = Math.max(1, rect.height - window.innerHeight);
+        const progress = Math.min(1, Math.max(0, -rect.top / travel));
+        track.style.transform = `translate3d(${-progress * (track.scrollWidth - window.innerWidth)}px, 0, 0)`;
+      } else if (track) {
+        track.style.transform = 'none';
+      }
+    };
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(updateScroll);
+    };
+
+    const syncMotionPreference = () => {
+      setupMedia();
+      setupWorkflow();
+      updateScroll();
+    };
+
+    syncMotionPreference();
+    reducedMotion.addEventListener('change', syncMotionPreference);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+
+    return () => {
+      mediaObserver?.disconnect();
+      workflowObserver?.disconnect();
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      reducedMotion.removeEventListener('change', syncMotionPreference);
+    };
+  }, []);
+
+  return (
+    <main className="extra-story">
+      <section className="scene hero-scene" data-extra-scene="hero">
+        <video data-decorative-media preload="none" muted playsInline loop poster={`${media}/extra-hero-poster.webp`} src={`${media}/extra-hero-motion.mp4`} aria-hidden="true" />
+        <div className="hero-shade" />
+        <nav className="hero-nav"><SidekickMark /><a href="#input">어떻게 일하나요</a></nav>
+        <div className="hero-phone"><ProductPhone priority screen="02" alt="음성이나 채팅으로 새 업무를 맡기는 실제 사이드킥 앱 화면" /></div>
+        <div className="hero-copy">
+          <span className="eyebrow">사이드킥: AI 에이전트</span>
+          <h1>일을 맡기면,<br />팀이 움직입니다.</h1>
+          <p>앱 안에서 말하거나 입력하세요. 필요한 역할이 일을 나눠 맡고 결과까지 정리합니다.</p>
+          <div className="hero-actions"><a href="#input">일하는 방식 보기 <ArrowDown aria-hidden="true" /></a><a href="/sidekick/support/">출시 소식 문의</a></div>
+        </div>
+      </section>
+
+      <section className="scene input-scene" data-extra-scene="input" id="input">
+        <InputProof />
+        <div className="input-statement">
+          <p>앱 안에서 말하거나 입력하세요</p>
+          <h2>한마디가 <span>프로젝트</span>가 되고,<br />필요한 팀이 움직이기 시작합니다.</h2>
+          <div><span>🎬 콘텐츠</span><span>📦 상품</span><span>🚀 출시</span><span>📊 운영</span></div>
+        </div>
+      </section>
+
+      <section className="scene portal-scene" data-extra-scene="portal" aria-label="업무 요청이 프로젝트로 전환됩니다">
+        <div className="portal-pill"><Sparkles aria-hidden="true" /><span>유튜브 채널을 키우고 다음 영상까지 만들어줘</span></div>
+      </section>
+
+      <div className="workflow-sequence" data-sticky-sequence="workflow">
+        <div className="sequence-sticky">
+          <div className="workflow-copy">
+            <p>한 요청, 하나의 팀</p>
+            <h2>필요한 팀이<br />일을 끝까지<br />처리합니다.</h2>
+            <div className="workflow-nav-list">
+              {workflow.map((item, index) => (
+                <span className={activeWorkflow === index ? 'is-active' : ''} data-workflow-nav key={item.key}>
+                  <i>{String(index + 1).padStart(2, '0')}</i><strong>{item.label}</strong>
+                </span>
               ))}
             </div>
-          </div>
-        </section>
-
-        <section className="story story--workflow" data-sidekick-section data-case="youtube">
-          <div className="workflow-sticky">
-            <div className="section-copy section-copy--light">
-              <p className="section-number">02 · 대표 프로젝트</p>
-              <h2>한 번 맡긴 일이<br />끝까지 이어집니다.</h2>
-              <p>채널 진단부터 배포 준비까지, 실제 진행 순서를 앱 안에서 확인합니다.</p>
+            <div className="workflow-active-copy">
+              <strong>{workflow[activeWorkflow].title}</strong>
+              <span>{workflow[activeWorkflow].body}</span>
             </div>
-            <PhoneFrame label="유튜브 채널 성장 프로젝트 진행 화면">
-              <AppHeader title="다음 영상 만들기" eyebrow="유튜브 채널 성장" />
-              <div className="project-summary">
-                <span className="status-pill status-pill--running">진행 중</span>
-                <strong>5명의 AI 직원이 함께 처리 중</strong>
-                <p>지금은 대본 초안을 작성하고 있어요.</p>
-              </div>
-              <WorkflowList steps={youtubeSteps} />
-            </PhoneFrame>
           </div>
-        </section>
+          <WorkflowScreen active={activeWorkflow} />
+        </div>
+        {workflow.map((item, index) => (
+          <section
+            className="workflow-marker"
+            data-extra-scene={item.key}
+            data-workflow-marker={index}
+            key={item.key}
+            aria-label={item.label}
+            style={{ '--workflow-index': index } as React.CSSProperties}
+          />
+        ))}
+      </div>
 
-        <section className="story story--complete" data-sidekick-section>
-          <div className="section-copy">
-            <p className="section-number">03</p>
-            <h2>결과는 긴 기록이 아니라<br />읽기 쉬운 프로젝트가 됩니다.</h2>
-            <p>무엇을 했는지, 무엇이 완성됐는지, 다음에는 무엇을 하면 되는지만 남깁니다.</p>
+      <div className="horizontal-sequence" data-horizontal-sequence="projects">
+        <div className="horizontal-sticky">
+          <div className="horizontal-intro"><p>여러 일이 흩어지지 않도록</p><h2>프로젝트가<br />알아서 정리됩니다</h2></div>
+          <div className="horizontal-track">
+            {projects.map((project, index) => <ProjectCase project={project} index={index} key={project.key} />)}
           </div>
-          <article className="result-card">
-            <div className="result-card__top"><CircleCheck size={22} /><span>완료된 프로젝트</span></div>
-            <p className="result-card__label">유튜브 채널 성장</p>
-            <h3>다음 영상 기획과 제작 준비를 마쳤어요</h3>
-            <ul>
-              <li>성장 가능성이 높은 주제 3개 선정</li>
-              <li>12분 분량 대본과 장면 구성 완료</li>
-              <li>제목·썸네일 문구·배포 일정 정리</li>
-            </ul>
-            <span className="mock-status" data-mock-status>결과 정리 완료 <CircleCheck size={16} aria-hidden="true" /></span>
-          </article>
-        </section>
+          <div className="project-dock" aria-hidden="true">{projects.map((project) => { const Icon = project.icon; return <span key={project.key}><Icon /></span>; })}</div>
+        </div>
+      </div>
 
-        <section className="story story--case story--sourcing" data-sidekick-section data-case="sourcing">
-          <div className="section-copy">
-            <p className="section-number">04 · 다른 프로젝트</p>
-            <h2>팔 만한 상품을 찾고,<br />숫자로 비교합니다.</h2>
-            <p>검색 결과를 쌓아두는 대신, 실제로 검토할 후보와 판단 근거를 정리합니다.</p>
-          </div>
-          <div className="case-panel">
-            <div className="case-panel__heading"><span>상품 소싱</span><small>후보 3개 선정</small></div>
-            <WorkflowList steps={sourcingSteps} />
-            <div className="margin-card"><span>예상 마진</span><strong>31–38%</strong><small>배송비·수수료 반영</small></div>
-          </div>
-        </section>
+      <section className="scene agents-scene" data-extra-scene="agents">
+        <div className="agents-center"><p>업무마다 필요한 역할은 다르니까</p><h2>필요한 역할이<br />자동으로 모입니다.</h2><span>＋ AI 에이전트</span></div>
+        <div className="agent-orbit" data-agent-orbit>
+          {agents.map(({ label, icon: Icon }, index) => <div className={`orbit-agent orbit-agent--${index + 1}`} data-agent-role key={label}><Icon aria-hidden="true" /><span>{label}</span></div>)}
+        </div>
+      </section>
 
-        <section className="story story--case story--launch" data-sidekick-section data-case="launch">
-          <div className="section-copy">
-            <p className="section-number">05 · 다른 프로젝트</p>
-            <h2>신제품 아이디어를<br />출시 준비까지 연결합니다.</h2>
-            <p>조사, 카피, 광고, 랜딩페이지가 따로 끊기지 않고 하나의 프로젝트로 이어집니다.</p>
-          </div>
-          <div className="launch-canvas">
-            {launchSteps.map((step, index) => (
-              <article data-work-step key={step.label}>
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                <strong>{step.label}</strong>
-                <p>{step.detail}</p>
-                {index < launchSteps.length - 1 ? <ChevronRight size={18} aria-hidden="true" /> : <Check size={18} aria-hidden="true" />}
-              </article>
-            ))}
-          </div>
-        </section>
+      <section className="scene approvals-scene" data-extra-scene="approvals">
+        <div className="approvals-copy"><p>사장님 브리핑</p><h2>업무가 많아도.<br />확인은 적게.<br />승인할 것만 남깁니다.</h2><span>결정이 필요한 순간에만 알려드려요.</span><a href="#features">승인 흐름 보기 <ChevronRight aria-hidden="true" /></a></div>
+        <div className="approval-phone"><ProductPhone screen="04" alt="중요한 외부 행동을 승인한 뒤 진행하는 실제 사이드킥 화면" /></div>
+        <div className="approval-stack" data-approval-stack aria-label="사이드킥이 지키는 업무 원칙">
+          {approvalCards.map((card, index) => (
+            <article data-approval-card data-non-product-illustration key={card.label} style={{ '--stack-index': index } as React.CSSProperties}>
+              <span>업무 원칙 {String(index + 1).padStart(2, '0')}</span>
+              <strong>{card.label}</strong>
+              <small>{card.detail}</small>
+            </article>
+          ))}
+        </div>
+      </section>
 
-        <section className="story story--overview" data-sidekick-section>
-          <div className="section-copy section-copy--light">
-            <p className="section-number">06</p>
-            <h2>여러 일이 동시에 움직여도,<br />지금 필요한 것만 보입니다.</h2>
-            <p>프로젝트 현황과 Sidekick의 선제 제안을 한 화면에서 확인합니다.</p>
-          </div>
-          <div className="overview-board">
-            <div className="overview-board__header"><strong>프로젝트</strong><span>3개 진행 중</span></div>
-            {[
-              ['유튜브 채널 성장', '완료', '다음 영상 제작 준비 완료'],
-              ['여름 상품 소싱', '확인 필요', '최종 후보 3개를 골라주세요'],
-              ['신제품 런칭', '진행 중', '광고 카피를 작성하고 있어요'],
-            ].map(([name, state, detail]) => (
-              <article key={name}><div><strong>{name}</strong><p>{detail}</p></div><span>{state}</span></article>
-            ))}
-            <aside><Sparkles size={18} /><div><strong>Sidekick 제안</strong><p>유튜브 업로드 이틀 뒤 반응을 자동으로 정리해드릴까요?</p></div><span className="mock-status" data-mock-status>검토 대기</span></aside>
-          </div>
-          <div className="role-row" aria-label="사용자의 역할">
-            {[
-              ['지시', '원하는 결과를 말합니다.'],
-              ['현황 확인', '필요할 때 진행 상황을 봅니다.'],
-              ['승인', '중요한 행동만 직접 결정합니다.'],
-            ].map(([title, detail], index) => (
-              <article data-user-role key={title}><span>0{index + 1}</span><strong>{title}</strong><p>{detail}</p></article>
-            ))}
-          </div>
-        </section>
+      <section className="scene features-scene" data-extra-scene="features" id="features">
+        <div className="features-heading"><p>한곳에서 이어지는 업무</p><h2>Sidekick에게<br />더 많은 일을 맡겨보세요</h2></div>
+        <div className="feature-grid">
+          {features.map(({ key, title, body, icon: Icon }) => (
+            <article className={`feature-card feature-card--${key}`} data-feature-card key={key}>
+              <span><Icon aria-hidden="true" /></span><h3>{title}</h3><p>{body}</p>
+              <Icon className="feature-symbol" aria-hidden="true" />
+            </article>
+          ))}
+        </div>
+      </section>
 
-        <section className="story story--bridge" data-sidekick-section>
-          <div className="section-copy">
-            <p className="section-number">07</p>
-            <h2>모든 결과가<br />다시 앱으로 모입니다.</h2>
-            <p>작업이 끝날 때마다 카드가 쌓이고, 프로젝트 목록이 되고, 언제든 다시 이어갈 수 있습니다.</p>
+      <section className="scene final-scene" data-extra-scene="final">
+        <video data-decorative-media preload="none" muted playsInline loop poster={`${media}/extra-final-poster.webp`} src={`${media}/extra-final-motion.mp4`} aria-hidden="true" />
+        <div className="final-shade" />
+        <div className="final-copy"><SidekickMark /><h2>말하면,<br />팀이 움직입니다.</h2><p>앱 안에서 다음 업무를 맡겨보세요.</p><a href="/sidekick/support/">출시 소식 문의 <ChevronRight aria-hidden="true" /></a></div>
+        <div className="final-devices">
+          <div className="final-phone" data-final-device><ProductPhone screen="01" alt="승인할 일과 AI 직원 상태를 모아 보여주는 실제 사이드킥 브리핑 화면" /></div>
+          <div className="final-evidence" data-final-device>
+            <ProductPhone screen="05" alt="요약과 근거, 다음 행동을 정리한 실제 사이드킥 결과 카드 화면" />
+            <div className="final-evidence-copy"><span>실제 앱 화면</span><strong>결과는 읽기 좋은 카드로</strong><p>요약과 근거, 다음 행동을 이어서 확인합니다.</p></div>
           </div>
-          <div className="bridge-sequence" aria-label="결과에서 모바일 앱으로 이어지는 흐름">
-            <article data-bridge-state><small>작업 결과</small><strong>다음 영상 제작 준비 완료</strong><span>결과 3개 · 다음 행동 2개</span></article>
-            <ChevronRight aria-hidden="true" />
-            <article data-bridge-state><small>완료 프로젝트 카드</small><strong>유튜브 채널 성장</strong><span>오늘 완료됨</span></article>
-            <ChevronRight aria-hidden="true" />
-            <article data-bridge-state><small>프로젝트 목록</small><strong>모든 일이 한곳에</strong><span>완료 · 진행 · 승인 대기</span></article>
-            <ChevronRight aria-hidden="true" />
-            <article data-bridge-state className="is-app"><span className="mini-app-mark">S</span><strong>Sidekick</strong><span>다음 일을 이어서 맡기세요</span></article>
-          </div>
-        </section>
-
-        <section id="download" className="story story--final" data-sidekick-section>
-          <div className="final-phone-wrap">
-            <PhoneFrame label="음성으로 다음 업무를 맡기는 Sidekick 화면">
-              <AppHeader title="사이드킥" eyebrow="모든 프로젝트" />
-              <div className="mini-projects">
-                <article><span className="dot dot--done" /><div><strong>유튜브 채널 성장</strong><p>오늘 완료됨</p></div><small>완료</small></article>
-                <article><span className="dot dot--need" /><div><strong>여름 상품 소싱</strong><p>후보 확인이 필요해요</p></div><small>확인</small></article>
-                <article><span className="dot dot--running" /><div><strong>신제품 런칭</strong><p>광고를 준비하고 있어요</p></div><small>진행</small></article>
-              </div>
-              <div className="voice-card"><Mic size={18} /><div><span className="voice-wave" aria-hidden="true" /><p>다음 신제품 런칭도 준비해줘.</p></div></div>
-            </PhoneFrame>
-          </div>
-          <div className="final-copy">
-            <p className="eyebrow">다음 업무도 바로 이어서</p>
-            <h2>해야 할 일을 말하세요.<br />Sidekick이 프로젝트로 완성합니다.</h2>
-            <StoreButtons />
-          </div>
-        </section>
-      </main>
-
-      <footer className="site-footer">
-        <strong>사이드킥: AI 에이전트</strong>
-        <div><a href="/sidekick/privacy/">개인정보처리방침</a><a href="/sidekick/terms/">이용약관</a><a href="/sidekick/support/">지원</a></div>
-      </footer>
-    </div>
+        </div>
+        <footer><span>© 2026 Sidekick</span><div><a href="/sidekick/privacy/">개인정보처리방침</a><a href="/sidekick/terms/">이용약관</a><a href="/sidekick/support/">지원</a></div></footer>
+      </section>
+    </main>
   );
 }
+
+export default SidekickLanding;
