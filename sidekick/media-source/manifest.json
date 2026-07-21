@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "injooinjoo/sidekick (local checkout: /Users/injoo/Desktop/Dev/hermes-mobile)",
+  "sourceCommit": "c15677e345bdee5dfc247e8b65b85e9054394547",
+  "conversion": {
+    "tool": "cwebp 1.6.0",
+    "command": "cwebp -quiet -metadata none -q 88 <sourcePath> -o <targetPath>"
+  },
+  "assets": [
+    {
+      "sourcePath": "sidekick/media-source/app/01.png",
+      "upstreamPath": "app-store-assets/sidekick-screenshot-editor/public/screenshots/apple/iphone/ko/01.png",
+      "sourceBlob": "0caceaeb7b2c5b5a958128cf7a78e869d0d1e5c2",
+      "sourceSha256": "7dc40c0615807947c85e1e07bc419871229ddde2f729124617a4ae410f9fa193",
+      "targetPath": "public/sidekick/media/app/01.webp",
+      "targetSha256": "53241476c2ae77f2013532a39c376d0e5e2bf642406828e3732ec30cfd2936de"
+    },
+    {
+      "sourcePath": "sidekick/media-source/app/02.png",
+      "upstreamPath": "app-store-assets/sidekick-screenshot-editor/public/screenshots/apple/iphone/ko/02.png",
+      "sourceBlob": "372c5a91075d85e82854e321b66a6d6bd0715f3d",
+      "sourceSha256": "10246271c83e8a907a1b21b3fd96d3765a6f41f058a24e89862c9334cc425713",
+      "targetPath": "public/sidekick/media/app/02.webp",
+      "targetSha256": "c4a5331c83f238a8eb057857e5e5aad611d559dfdc4c2a7dad659a6ef913a260"
+    },
+    {
+      "sourcePath": "sidekick/media-source/app/03.png",
+      "upstreamPath": "app-store-assets/sidekick-screenshot-editor/public/screenshots/apple/iphone/ko/03.png",
+      "sourceBlob": "5022f57f690f32895f61d5de109d50a4eaee54af",
+      "sourceSha256": "c63e4d25b815ebdcc2d4c2a1e0385bd687402d690158d697bec794958545f94b",
+      "targetPath": "public/sidekick/media/app/03.webp",
+      "targetSha256": "0758089ae87c1afdb5982c8ac9f9ba87c2dcceef44d70d66fa055a7e8945e971"
+    },
+    {
+      "sourcePath": "sidekick/media-source/app/04.png",
+      "upstreamPath": "app-store-assets/sidekick-screenshot-editor/public/screenshots/apple/iphone/ko/04.png",
+      "sourceBlob": "82aabd3e32ec8b9e583208b34df6b85615ca8d06",
+      "sourceSha256": "53deced548943376eb0a653edd36c12fdea97ef70effa4ba0d40c8e25c38f64b",
+      "targetPath": "public/sidekick/media/app/04.webp",
+      "targetSha256": "85be04d63c3d2d5e398972cd80d75903e4137946d9fdf26d4ae7082d4e536eba"
+    },
+    {
+      "sourcePath": "sidekick/media-source/app/05.png",
+      "upstreamPath": "app-store-assets/sidekick-screenshot-editor/public/screenshots/apple/iphone/ko/05.png",
+      "sourceBlob": "07bfb0ddb97844424a0dba1f001fa121fc383837",
+      "sourceSha256": "81a9cb7729dcc32e39ad22bb4af8193751f90d0d7cc47626f126bfe0e405cfd5",
+      "targetPath": "public/sidekick/media/app/05.webp",
+      "targetSha256": "0bd1d037b5511126a156ee3ff177d9f649faa4d4978d2a4064b9926f70f55e57"
+    }
+  ]
+}
