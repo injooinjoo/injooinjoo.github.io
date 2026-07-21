@@ -1,5 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const systemChrome = process.env.PLAYWRIGHT_USE_SYSTEM_CHROME === '1'
+  ? '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+  : undefined;
+
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
@@ -9,6 +13,7 @@ export default defineConfig({
   reporter: 'html',
   use: {
     baseURL: 'http://localhost:4173',
+    launchOptions: systemChrome ? { executablePath: systemChrome } : undefined,
     trace: 'on-first-retry',
   },
 
