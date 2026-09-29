@@ -6,8 +6,8 @@ export default {
   company: 'SOOP',
   title: { en: 'Personalized Discovery & Hashtag System', ko: '개인화 추천 · 해시태그 시스템' },
   dek: {
-    en: 'Rebalancing a homepage that only showed the already-popular, and rebuilding tags so the long tail of streams could be found.',
-    ko: '이미 인기 있는 방송만 보여주던 홈을 다시 균형 잡고, 태그 체계를 새로 만들어 롱테일 방송이 발견되도록 한 프로젝트.',
+    en: 'The home page mostly showed broadcasts that were already popular. We rebuilt recommendations around what each viewer watches, and gave tags stable IDs so smaller streams could be found.',
+    ko: '홈에는 주로 이미 인기 있는 방송이 걸렸습니다. 시청자마다 무엇을 보는지를 중심으로 추천을 다시 만들고, 태그에 고정 ID를 붙여 작은 방송도 찾을 수 있게 했습니다.',
   },
   card: {
     en: 'ML‑assisted classification surfacing relevant mid‑tier creators by viewing history and intent signals. Paired with a hashtag taxonomy that improved average session depth.',
@@ -28,178 +28,168 @@ export default {
       ko: '홈 추천 로직과 UI, 해시태그 체계와 태그 ID, 검색 자동 추천, 크리에이터 대상 성장 가이드',
     },
   },
-  hero: 'discovery',
-  heroCaption: {
-    en: 'The discovery pipeline, reconstructed. Behavioral and tag signals fill several candidate pools; a ranking step keeps relevance first while spreading exposure beyond the top channels.',
-    ko: '추천 파이프라인 재구성도. 행동 시그널과 태그 시그널로 여러 후보 풀을 채우고, 랭킹 단계에서 관련도를 우선하되 노출이 상위 채널에만 몰리지 않게 분산합니다.',
+  hero: {
+    scene: 'p04-hero',
+    alt: {
+      en: 'Sketch of two phone home screens. Before: a large crowned tile and rows of red tiles for the same top channels, with viewer counts in the thousands. After: a mix of colours and channels, some with a few dozen viewers.',
+      ko: '휴대폰 홈 화면 두 개 스케치. 이전: 왕관을 쓴 큰 타일과 같은 상위 채널의 빨간 타일이 줄지어 있고 시청자 수는 수천 명. 이후: 색도 채널도 다양하고, 일부는 시청자가 수십 명인 방송.',
+    },
+    caption: {
+      en: 'Same screen, different question: not “what is biggest?” but “what is this viewer likely to watch?”',
+      ko: '같은 화면, 다른 질문. “무엇이 가장 큰가”가 아니라 “이 시청자는 무엇을 볼까”.',
+    },
   },
-  tldr: [
-    {
-      en: 'The homepage leaned on already-popular broadcasts, so most viewers never saw the mid-tier streamers who made up the bulk of the platform — and those streamers had no path to be found.',
-      ko: '홈은 이미 인기 있는 방송에 기대고 있었고, 그래서 대부분의 시청자는 플랫폼의 다수를 차지하는 미드티어 스트리머를 보지 못했습니다. 그 스트리머들에게도 발견될 길이 없었습니다.',
+  glance: {
+    problem: {
+      en: 'The home page leaned on already-popular broadcasts, so mid-tier streamers were rarely seen. Free-text tags split one topic into many spellings.',
+      ko: '홈이 이미 인기 있는 방송에 기대고 있어 미드티어 스트리머는 거의 보이지 않았습니다. 자유 입력 태그는 한 주제를 여러 표기로 쪼갰습니다.',
     },
-    {
-      en: 'We redesigned homepage recommendations around viewing history and intent signals, and rebuilt hashtags with unique tag IDs and better auto-suggest so classification and search actually worked.',
-      ko: '시청 이력과 인텐트 시그널을 중심으로 홈 추천을 다시 설계하고, 해시태그에 고유 태그 ID를 부여하고 자동 추천을 개선해 분류와 검색이 제대로 작동하게 했습니다.',
+    did: {
+      en: 'We ranked by what each viewer watches and looks for, widened the pool of candidates, and gave every hashtag a unique ID with auto-suggest.',
+      ko: '시청자가 보고 찾는 것을 기준으로 순위를 매기고, 후보 풀을 넓히고, 해시태그마다 고유 ID와 자동 추천을 붙였습니다.',
     },
-    {
-      en: 'Homepage CTR rose **2.3×** and session engagement **170%**; average concurrent viewers for 1,000+ mid-tier streamers went from **10 to 40**; content search CTR rose **180%**.',
-      ko: '홈 클릭률은 **2.3배**, 세션 참여는 **170%** 늘었고, 미드티어 스트리머 1,000명 이상의 평균 동시 시청자는 **10명에서 40명**이 됐으며, 콘텐츠 검색 클릭률은 **180%** 올랐습니다.',
+    result: {
+      en: 'Homepage CTR rose **2.3×** and session engagement **170%**. Mid-tier streams averaged **40** concurrent viewers, up from **10**.',
+      ko: '홈 클릭률은 **2.3배**, 세션 참여는 **170%** 늘었습니다. 미드티어 방송의 평균 동시 시청자는 **10명에서 40명**이 됐습니다.',
     },
-  ],
-  sections: [
+  },
+  chapters: [
     {
-      id: 'context',
-      heading: { en: 'Context', ko: '배경' },
+      id: 'loop',
+      heading: { en: 'The popularity loop', ko: '인기의 순환' },
       blocks: [
         {
           type: 'p',
-          en: 'A live platform has a harsh discovery problem: thousands of broadcasts are on at once, each one disappears when it ends, and viewers default to whatever already has the biggest audience. SOOP had more than 14,000 active streamers in 2024,[^1] and the discovery surfaces had evolved piece by piece — tags on posts in 2019,[^2] a new home and personalized search in 2021.[^3][^4]',
-          ko: '라이브 플랫폼의 발견 문제는 가혹합니다. 수천 개의 방송이 동시에 켜져 있고, 방송이 끝나면 사라지며, 시청자는 이미 시청자가 가장 많은 방송으로 향합니다. 2024년 SOOP의 활동 스트리머는 1만 4천 명이 넘었고,[^1] 발견 기능은 조금씩 발전해 왔습니다. 2019년 게시글 태그,[^2] 2021년 홈 개편과 개인화 검색이 그 예입니다.[^3][^4]',
+          en: 'Thousands of broadcasts run at once, and each disappears when it ends. SOOP had about 14,000 active streamers in 2024.[^4]',
+          ko: '수천 개의 방송이 동시에 켜져 있고, 끝나면 사라집니다. 2024년 SOOP의 활동 스트리머는 약 1만 4천 명이었습니다.[^4]',
         },
         {
           type: 'p',
-          en: 'Popularity is a reasonable default signal, but used alone it becomes a loop: the top channels get the exposure, which keeps them on top. The mid-tier — where most streamers live and where retention is decided — stays invisible.',
-          ko: '인기는 합리적인 기본 시그널이지만, 그것만 쓰면 순환 고리가 됩니다. 상위 채널이 노출을 받고, 그 노출이 다시 그들을 상위에 머물게 합니다. 대부분의 스트리머가 속해 있고 리텐션이 결정되는 미드티어는 계속 보이지 않습니다.',
-        },
-      ],
-    },
-    {
-      id: 'problem',
-      heading: { en: 'The problem', ko: '문제 정의' },
-      blocks: [
-        {
-          type: 'list',
-          items: [
-            { en: '**Over-concentrated exposure.** The homepage mostly showed broadcasts that were already winning.', ko: '**노출 쏠림.** 홈에는 주로 이미 잘되는 방송이 걸렸습니다.' },
-            { en: '**Weak relevance.** Recommendations said little about what a given viewer actually watched or wanted.', ko: '**약한 관련도.** 추천이 시청자가 실제로 보거나 원하는 것을 거의 반영하지 못했습니다.' },
-            { en: '**Unstructured tags.** Free-text hashtags fragmented into spelling variants, so the same topic split into many small, unsearchable tags.', ko: '**구조 없는 태그.** 자유 입력 해시태그는 표기가 제각각이라 같은 주제가 여러 작은 태그로 쪼개졌고, 검색되지 않았습니다.' },
-          ],
-        },
-      ],
-    },
-    {
-      id: 'approach',
-      heading: { en: 'Approach', ko: '접근 방식' },
-      blocks: [
-        {
-          type: 'steps',
-          items: [
-            {
-              title: { en: 'Relevance from behavior', ko: '행동에서 관련도 찾기' },
-              body: {
-                en: 'We used viewing history and intent signals to classify what each viewer was looking for, and matched them with relevant streamers instead of the global top list.',
-                ko: '시청 이력과 인텐트 시그널로 시청자가 무엇을 찾는지 분류하고, 전체 인기 순위 대신 관련 있는 스트리머와 연결했습니다.',
-              },
-            },
-            {
-              title: { en: 'Spread exposure on purpose', ko: '의도적으로 노출 분산' },
-              body: {
-                en: 'The homepage recommendation and UI flow were redesigned to reduce over-dependence on already-popular broadcasts and give mid-tier creators real slots.',
-                ko: '홈 추천과 UI 흐름을 다시 설계해 이미 인기 있는 방송에 대한 과의존을 줄이고, 미드티어 크리에이터에게 실제 노출 자리를 줬습니다.',
-              },
-            },
-            {
-              title: { en: 'Give tags an identity', ko: '태그에 고유 ID 부여' },
-              body: {
-                en: 'Each hashtag got a unique tag ID, with improved auto-suggest steering creators to existing tags, so classification and search accuracy improved together.',
-                ko: '해시태그마다 고유 태그 ID를 부여하고, 자동 추천을 개선해 크리에이터가 기존 태그를 쓰도록 유도했습니다. 분류 정확도와 검색 정확도가 함께 좋아졌습니다.',
-              },
-            },
-            {
-              title: { en: 'Close the loop with creators', ko: '크리에이터와 피드백 루프' },
-              body: {
-                en: 'Behavioral insights from the system became growth recommendations for partner streamers — which tags and formats their audiences responded to.',
-                ko: '시스템에서 얻은 행동 인사이트를 파트너 스트리머를 위한 성장 가이드로 바꿨습니다. 어떤 태그와 형식에 시청자가 반응하는지 알려주는 방식입니다.',
-              },
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: 'decisions',
-      heading: { en: 'Key decisions', ko: '핵심 의사결정' },
-      blocks: [
-        {
-          type: 'decision',
-          title: { en: 'Relevance first, then spread exposure', ko: '관련도 우선, 그다음 노출 분산' },
-          options: {
-            en: 'Rank purely by popularity, force a fixed quota of small channels, or rank by relevance while deliberately widening who can appear.',
-            ko: '인기순으로만 정렬할지, 소형 채널에 고정 할당을 줄지, 관련도로 정렬하되 노출 대상을 의도적으로 넓힐지.',
-          },
-          choice: { en: 'Relevance-led ranking with broader candidate pools.', ko: '관련도 중심 랭킹과 넓어진 후보 풀.' },
-          why: {
-            en: 'A quota shows viewers streams they don’t care about, which hurts everyone. Relevance keeps viewers clicking; wider pools make sure the relevant match can be a mid-tier streamer.',
-            ko: '고정 할당은 시청자가 관심 없는 방송을 보여줘 모두에게 손해입니다. 관련도는 클릭을 유지하고, 넓어진 후보 풀은 관련 있는 방송이 미드티어일 수 있게 합니다.',
-          },
+          en: 'Popularity is a reasonable signal. Used alone, it becomes a loop: the top channels get the exposure, and the exposure keeps them on top. The mid-tier, where most streamers are, stays out of sight.',
+          ko: '인기는 합리적인 시그널입니다. 하지만 그것만 쓰면 순환이 됩니다. 상위 채널이 노출을 받고, 그 노출이 그들을 계속 위에 둡니다. 대부분의 스트리머가 있는 미드티어는 보이지 않습니다.',
         },
         {
-          type: 'decision',
-          title: { en: 'Structure tags instead of adding more of them', ko: '태그를 늘리는 대신 구조화' },
-          options: {
-            en: 'Keep free-text tags and clean them up after the fact, or give each tag a stable ID and guide input at creation.',
-            ko: '자유 입력 태그를 유지하고 사후 정리할지, 태그마다 고정 ID를 주고 입력 시점에 유도할지.',
-          },
-          choice: { en: 'Stable tag IDs with auto-suggest at input.', ko: '고정 태그 ID와 입력 시 자동 추천.' },
-          why: {
-            en: 'Fixing tags upstream means every downstream use — classification, search, recommendations — inherits the improvement.',
-            ko: '입력 단계에서 태그를 바로잡으면 분류·검색·추천 등 이후 모든 활용처가 그 개선을 물려받습니다.',
-          },
-          tradeoff: {
-            en: 'Some creative freedom in tagging, in exchange for findability.',
-            ko: '태그 작성의 자유도를 일부 내주고 발견 가능성을 얻었습니다.',
+          type: 'sketch',
+          scene: 'p04-loop',
+          alt: {
+            en: 'Sketch of a loop: exposure leads to viewers, viewers to ranking, ranking back to exposure, with a crowned streamer in the middle. Behind a dashed line, five mid-tier streamers are labelled “rarely shown”.',
+            ko: '순환 스케치: 노출이 시청자로, 시청자가 순위로, 순위가 다시 노출로 이어지고 가운데에 왕관 쓴 스트리머가 있다. 점선 너머 미드티어 스트리머 다섯 명에 “거의 노출되지 않음”이라고 적혀 있다.',
           },
         },
-      ],
-    },
-    {
-      id: 'results',
-      heading: { en: 'Results', ko: '결과' },
-      blocks: [
-        {
-          type: 'metrics',
-          rows: [
-            { value: '+2.3×', label: { en: 'Homepage click-through rate', ko: '홈 클릭률' } },
-            { value: '+170%', label: { en: 'Session engagement', ko: '세션 참여' } },
-            { value: '10 → 40', label: { en: 'Average concurrent viewers for 1,000+ mid-tier streamers', ko: '미드티어 스트리머 1,000명+ 평균 동시 시청자' } },
-            { value: '+35%', label: { en: 'New-user inflow', ko: '신규 유저 유입' } },
-            { value: '+180%', label: { en: 'Content search CTR after the hashtag rebuild', ko: '해시태그 개편 후 콘텐츠 검색 클릭률' } },
-          ],
-        },
-        { type: 'figure', figure: 'discoveryImpact', caption: { en: 'The metric that mattered most to creators: viewers per broadcast for the mid-tier.', ko: '크리에이터에게 가장 중요했던 지표: 미드티어 방송당 시청자 수.' } },
         {
           type: 'p',
-          en: 'The platform has kept moving in this direction: after the 2024 rebrand SOOP added an explore menu,[^5] and in 2025 it launched an AI assistant that tags live streams automatically and personalizes recommendations.[^6]',
-          ko: '플랫폼은 이후에도 같은 방향으로 움직였습니다. 2024년 리브랜딩 때 탐색 메뉴가 추가됐고,[^5] 2025년에는 라이브 방송에 자동으로 태그를 달고 추천을 개인화하는 AI 기능이 출시됐습니다.[^6]',
+          en: 'The company said so publicly in January 2023: it planned to move away from putting the most-watched streams first, toward each viewer’s patterns and taste.[^2]',
+          ko: '회사도 2023년 1월 이를 공개적으로 밝혔습니다. 가장 많이 본 방송을 위에 올리는 방식에서, 시청자의 시청 패턴과 취향을 반영하는 방식으로 바꾸겠다는 계획이었습니다.[^2]',
         },
       ],
     },
     {
-      id: 'learned',
-      heading: { en: 'What I learned', ko: '배운 점' },
+      id: 'relevance',
+      heading: { en: 'Relevance first, then reach', ko: '관련도 먼저, 그다음 노출' },
       blocks: [
         {
-          type: 'quote',
-          en: 'Discovery is a supply-side product. Every slot you give the top channel is a slot a new creator doesn’t get.',
-          ko: '발견은 공급자를 위한 제품이기도 합니다. 상위 채널에 준 노출 한 칸은 신규 크리에이터가 받지 못한 한 칸입니다.',
+          type: 'p',
+          en: 'We classified what each viewer was looking for from viewing history and intent signals, and matched them with relevant streamers instead of a global top list. Search already worked this way: from September 2021 it suggested terms and related content based on how each user watched.[^1]',
+          ko: '시청 이력과 인텐트 시그널로 시청자가 찾는 것을 분류하고, 전체 인기 순위 대신 관련 있는 스트리머와 연결했습니다. 검색은 이미 이렇게 움직이고 있었습니다. 2021년 9월부터 사용자의 시청 방식을 분석해 검색어와 연관 콘텐츠를 추천했습니다.[^1]',
         },
         {
-          type: 'list',
-          items: [
-            { en: '**Pick a creator-side metric.** CTR says viewers liked the homepage; viewers per mid-tier broadcast says the ecosystem got healthier.', ko: '**크리에이터 쪽 지표를 고르세요.** 클릭률은 시청자가 홈을 좋아했다는 뜻이고, 미드티어 방송당 시청자는 생태계가 건강해졌다는 뜻입니다.' },
-            { en: '**Metadata is infrastructure.** The tag rebuild looked like housekeeping and produced one of the biggest lifts.', ko: '**메타데이터는 인프라입니다.** 태그 개편은 정리 작업처럼 보였지만 가장 큰 개선 중 하나를 만들었습니다.' },
-          ],
+          type: 'p',
+          en: 'Candidates came from several pools rather than one popularity list, so the most relevant match could be a mid-tier streamer. The personalised home service MY+ launched in the first half of 2023.[^3]',
+          ko: '후보는 인기 목록 하나가 아니라 여러 풀에서 나왔고, 그래서 가장 관련 있는 방송이 미드티어일 수 있었습니다. 개인화 홈 서비스 MY+는 2023년 상반기에 출시됐습니다.[^3]',
+        },
+        {
+          type: 'sketch',
+          scene: 'p04-pipeline',
+          alt: {
+            en: 'Pipeline sketch: three signals (watch history, search and intent, tags) feed three candidate pools (similar viewers, same tags, rising). The pools feed a ranked list of five, where the second item, a mid-tier streamer, is circled.',
+            ko: '파이프라인 스케치: 시청 이력, 검색·의도, 태그라는 세 시그널이 비슷한 시청자, 같은 태그, 성장 중이라는 세 후보 풀로 들어가고, 후보 풀은 다섯 줄짜리 랭킹으로 이어진다. 두 번째 줄의 미드티어 스트리머에 동그라미가 쳐져 있다.',
+          },
+        },
+      ],
+    },
+    {
+      id: 'tags',
+      heading: { en: 'One tag, one ID', ko: '태그 하나, ID 하나' },
+      blocks: [
+        {
+          type: 'p',
+          en: 'Hashtags were free text. One topic split into Korean, English and shortened spellings, each too small to show up in search.',
+          ko: '해시태그는 자유 입력이었습니다. 한 주제가 한글, 영어, 줄임말로 쪼개졌고, 어느 쪽도 검색에 잡힐 만큼 크지 않았습니다.',
+        },
+        {
+          type: 'p',
+          en: 'We gave every tag a unique ID and used auto-suggest to steer creators to existing tags as they typed. Classification, search and recommendations all inherited the fix.',
+          ko: '태그마다 고유 ID를 붙이고, 입력하는 순간 자동 추천으로 기존 태그를 쓰도록 유도했습니다. 분류, 검색, 추천이 모두 그 개선을 이어받았습니다.',
+        },
+        {
+          type: 'sketch',
+          scene: 'p04-tags',
+          alt: {
+            en: 'Sketch: six tags for the same game in different spellings (#롤, #LoL, #리그오브레전드, #lol, #리그 오브 레전드, #League) funnel into one tag with a tag ID. Below, typing “리그” brings up the existing tag as a suggestion.',
+            ko: '스케치: 같은 게임을 가리키는 여섯 가지 표기의 태그(#롤, #LoL, #리그오브레전드, #lol, #리그 오브 레전드, #League)가 태그 ID가 붙은 태그 하나로 모인다. 아래에는 “리그”를 입력하자 기존 태그가 추천된다.',
+          },
         },
       ],
     },
   ],
+  decisions: [
+    {
+      title: { en: 'Relevance first, then a wider pool', ko: '관련도 먼저, 후보는 넓게' },
+      why: {
+        en: 'A fixed quota for small channels shows viewers streams they don’t care about, and that hurts everyone. Relevance keeps viewers clicking; wider pools let the relevant match be a mid-tier streamer.',
+        ko: '소형 채널에 고정 할당을 주면 시청자에게 관심 없는 방송을 보여주게 되고, 모두에게 손해입니다. 관련도는 클릭을 지키고, 넓어진 후보 풀은 관련 있는 방송이 미드티어일 수 있게 합니다.',
+      },
+    },
+    {
+      title: { en: 'Fix tags at input', ko: '태그는 입력 단계에서 바로잡기' },
+      why: {
+        en: 'Cleaning tags after the fact never ends. Fixing them upstream improved every later use at once, at the cost of some freedom in how creators tag.',
+        ko: '태그를 사후에 정리하는 일은 끝이 없습니다. 입력 단계에서 바로잡으니 이후 모든 활용처가 한 번에 좋아졌습니다. 대신 태그 작성의 자유도는 조금 줄었습니다.',
+      },
+    },
+  ],
+  results: {
+    blocks: [
+      {
+        type: 'sketch',
+        scene: 'p04-viewers',
+        alt: {
+          en: 'Sketch: a live mid-tier stream with 10 small viewers beneath it, next to the same stream with 40 viewers. Caption: average concurrent viewers across 1,000+ mid-tier streamers.',
+          ko: '스케치: 시청자 10명이 모인 미드티어 라이브 방송과, 시청자 40명이 모인 같은 방송. 설명: 미드티어 스트리머 1,000명 이상의 평균 동시 시청자.',
+        },
+      },
+      {
+        type: 'metrics',
+        rows: [
+          { value: '+2.3×', label: { en: 'Homepage click-through rate', ko: '홈 클릭률' } },
+          { value: '+170%', label: { en: 'Session engagement', ko: '세션 참여' } },
+          { value: '10 → 40', label: { en: 'Average concurrent viewers for 1,000+ mid-tier streamers', ko: '미드티어 스트리머 1,000명+ 평균 동시 시청자' } },
+          { value: '+35%', label: { en: 'New-user inflow', ko: '신규 유저 유입' } },
+          { value: '+180%', label: { en: 'Content search CTR after the hashtag rebuild', ko: '해시태그 개편 후 콘텐츠 검색 클릭률' } },
+        ],
+      },
+      {
+        type: 'p',
+        en: 'By April 2025, SOOP’s AI assistant SOOPi was recommending live streams, VOD and posts to viewers.[^5]',
+        ko: '2025년 4월에는 SOOP의 AI 비서 SOOPi가 시청자에게 라이브, VOD, 게시글을 추천하고 있었습니다.[^5]',
+      },
+    ],
+  },
+  learned: {
+    quote: {
+      en: 'Discovery is a supply-side product too. Every slot given to the top channel is a slot a newer creator doesn’t get.',
+      ko: '발견은 공급자를 위한 제품이기도 합니다. 상위 채널에 준 자리 하나는 새 크리에이터가 받지 못한 자리 하나입니다.',
+    },
+    items: [
+      { en: '**Pick a creator-side metric.** CTR says viewers liked the home page. Viewers per mid-tier broadcast says the ecosystem got healthier.', ko: '**크리에이터 쪽 지표를 고릅니다.** 클릭률은 시청자가 홈을 좋아했다는 뜻이고, 미드티어 방송당 시청자는 생태계가 건강해졌다는 뜻입니다.' },
+      { en: '**Metadata is infrastructure.** The tag rebuild looked like housekeeping and produced one of the largest lifts.', ko: '**메타데이터도 인프라입니다.** 태그 개편은 정리 작업처럼 보였지만 가장 큰 개선 중 하나를 만들었습니다.' },
+    ],
+  },
   sources: [
-    { publisher: 'Xportsnews', title: 'SOOP active streamers and new-streamer growth', date: 'Aug 29, 2024', url: 'https://www.xportsnews.com/article/1898976' },
-    { publisher: 'AfreecaTV notice', title: '방송국 게시글 태그 기능 오픈', date: 'Jul 25, 2019', url: 'https://afwbbs1.sooplive.com/app/index.php?board=notice&b_no=6377&control=view' },
-    { publisher: 'AfreecaTV notice', title: '홈·메뉴 개편 안내 (LIVE → 홈, 상영관)', date: 'Jun 2, 2021', url: 'https://afwbbs1.sooplive.com/app/index.php?board=notice&b_no=7445&control=view' },
-    { publisher: 'AfreecaTV notice', title: '검색 개편 — 사용 이력 기반 개인화 결과', date: 'Sep 1, 2021', url: 'https://afwbbs1.sooplive.com/app/index.php?board=notice&b_no=7613&control=view' },
-    { publisher: 'Newsis', title: 'AfreecaTV becomes SOOP; new explore menu', date: 'Oct 15, 2024', url: 'https://mobile.newsis.com/view/NISX20241015_0002920850' },
-    { publisher: 'Financial News', title: 'SOOP opens AI assistant SOOPi with live auto-tagging', date: 'Apr 30, 2025', url: 'https://www.fnnews.com/news/202504301553583274' },
+    { publisher: 'AfreecaTV notice', title: 'BJ 프로필 영역 등 통합검색 개선 안내', date: 'Sep 1, 2021', url: 'https://afwbbs1.sooplive.com/app/index.php?board=notice&b_no=7613&control=view' },
+    { publisher: 'Financial News (파이낸셜뉴스)', title: '아프리카TV, 2023년 변화에 성공할 수 있을까?', date: 'Jan 4, 2023', url: 'https://www.fnnews.com/news/202301040500534047' },
+    { publisher: 'Money Today (머니투데이)', title: '아프리카TV, 콘텐츠형 광고로 2분기 반등…하반기 글로벌 진출 밑작업', date: 'Jul 31, 2023', url: 'https://news.mt.co.kr/mtview.php?no=2023073111435859268' },
+    { publisher: 'Xportsnews (엑스포츠뉴스)', title: 'SOOP, 신규 스트리머 지원으로 일자리 창출 기여…활동 스트리머 1.4만 명', date: 'Aug 29, 2024', url: 'https://www.xportsnews.com/article/1898976' },
+    { publisher: 'Financial News (파이낸셜뉴스)', title: 'SOOP, AI 영상 비서 ‘SOOPi’에 버추얼 스트리머 적용', date: 'Apr 30, 2025', url: 'https://www.fnnews.com/news/202504301553583274' },
   ],
 };
