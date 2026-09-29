@@ -144,7 +144,7 @@ export class Pen {
     const cover = o.col === 'paper';
     c.globalCompositeOperation = cover ? 'source-over' : this.p.dark ? 'screen' : 'multiply';
     c.fillStyle = grain(c, this.rgb(o.col ?? 'blue'), true);
-    const a = (o.a ?? 0.32) * (this.p.dark && !cover ? 0.95 : 1);
+    const a = (o.a ?? 0.32) * (this.p.dark && !cover ? 1.2 : 1);
     for (let pass = 0; pass < 2; pass++) {
       const sd = seed + pass * 5.3;
       const dx = (o.dx ?? 1.6) * (pass ? -0.6 : 1), dy = (o.dy ?? 1.4) * (pass ? -0.5 : 1);

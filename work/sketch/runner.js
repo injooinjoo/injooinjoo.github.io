@@ -135,7 +135,7 @@ export async function initSketches() {
       io.unobserve(e.target);
       if (st) start(st);
     });
-  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });
+  }, { rootMargin: '0px 0px -15% 0px', threshold: 0 });
 
   const ro = new ResizeObserver((entries) => {
     entries.forEach((e) => {
