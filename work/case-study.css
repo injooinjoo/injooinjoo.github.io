@@ -127,6 +127,8 @@ a { color: inherit; }
   margin-bottom: 3px;
 }
 .cs-meta dd { font-size: 14.5px; line-height: 1.45; color: var(--ink-2); }
+.cs-meta dd a { text-underline-offset: 0.18em; }
+.cs-meta dd a:hover { color: var(--ink); }
 
 /* ---------- KPI band ---------- */
 .cs-kpis {

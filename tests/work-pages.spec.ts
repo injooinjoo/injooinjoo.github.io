@@ -72,3 +72,14 @@ for (const p of all) {
     }
   });
 }
+
+// The Sidekick product site lives at sidekickagent.app; old injookim.com/sidekick URLs only forward there.
+for (const route of ['', 'privacy/', 'terms/', 'support/', 'delete-account/']) {
+  test(`/sidekick/${route} forwards to sidekickagent.app`, async ({ request }) => {
+    const res = await request.get(`/sidekick/${route}`);
+    expect(res.status()).toBe(200);
+    const html = await res.text();
+    expect(html).toContain(`<link rel="canonical" href="https://sidekickagent.app/${route}" />`);
+    expect(html).toContain(`url=https://sidekickagent.app/${route}"`);
+  });
+}
