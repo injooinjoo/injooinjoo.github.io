@@ -1,4 +1,5 @@
 import './case-study.css';
+import { initSketches } from './sketch/runner.js';
 
 // Language + theme toggles; storage keys are shared with the homepage.
 const root = document.documentElement;
@@ -35,3 +36,5 @@ themeBtn?.addEventListener('click', () => {
   setTheme(next);
   store('portfolio-theme', next);
 });
+
+initSketches();

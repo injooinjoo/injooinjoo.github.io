@@ -6,8 +6,8 @@ export default {
   company: 'SOOP',
   title: { en: 'Creator Subscription Service', ko: '크리에이터 구독 서비스' },
   dek: {
-    en: 'From a single monthly price to tiers that streamers design themselves — and a paywall that converts more of the fans who were already there.',
-    ko: '하나의 월 구독료에서 스트리머가 직접 설계하는 티어로. 이미 있던 팬을 더 많이 유료 구독자로 전환한 구독 개편.',
+    en: 'One monthly price gave every fan the same perks. Over several release cycles we reworked the paywall and the tiers, and let streamers decide what their subscription includes.',
+    ko: '월 구독료 하나에 모든 팬이 같은 혜택을 받던 구조였습니다. 여러 릴리스에 걸쳐 결제 화면과 티어를 다시 짰고, 구독에 무엇을 담을지는 스트리머가 정하게 했습니다.',
   },
   card: {
     en: 'Subscription‑based monetization for content creators. Iterated paywall UX and tier packaging across multiple release cycles to lift paid conversion meaningfully.',
@@ -28,187 +28,146 @@ export default {
       ko: '유료 결제 UX, 티어 패키징, 스트리머 맞춤 혜택, 릴리스 주기별 실험',
     },
   },
-  hero: 'tierLadder',
-  heroCaption: {
-    en: 'The subscription ladder, reconstructed. Each step up adds benefits; the upper tiers are assembled by the streamer from benefit modules.',
-    ko: '구독 사다리 재구성도. 단계가 올라갈수록 혜택이 늘고, 상위 티어는 스트리머가 혜택 모듈을 조합해 직접 설계합니다.',
+  hero: {
+    scene: 'p03-hero',
+    alt: {
+      en: 'Sketch: a four-step staircase with a fan on each step. Each step adds a benefit: a badge, emotes, members-only video, and a perk the streamer designs. A note reads “each step up adds something”.',
+      ko: '스케치: 네 칸짜리 계단 위 칸마다 팬이 서 있다. 칸마다 혜택이 하나씩 늘어난다. 배지, 이모티콘, 구독자 전용 영상, 스트리머가 직접 만든 혜택. “한 칸 오를 때마다 하나씩 더”라는 메모.',
+    },
+    caption: {
+      en: 'The subscription as a ladder. The upper steps are put together by the streamer.',
+      ko: '사다리가 된 구독. 위쪽 칸은 스트리머가 직접 구성합니다.',
+    },
   },
-  tldr: [
-    {
-      en: 'Subscriptions launched on AfreecaTV in 2017 as a single monthly price with the same perks for everyone.[^1] That left money on the table with superfans and gave streamers no way to reward their most loyal viewers differently.',
-      ko: '아프리카TV 구독은 2017년 모두에게 같은 혜택을 주는 단일 월 요금으로 시작했습니다.[^1] 그래서 열성 팬의 지불 의향을 담지 못했고, 스트리머도 가장 충성도 높은 시청자에게 다르게 보답할 방법이 없었습니다.',
+  glance: {
+    problem: {
+      en: 'Every fan paid the same price for the same perks on every channel. The most committed fans had nowhere to go, and ready buyers dropped out at checkout.',
+      ko: '모든 채널에서 모든 팬이 같은 가격에 같은 혜택을 받았습니다. 가장 열성적인 팬은 더 올라갈 곳이 없었고, 살 마음이 있던 시청자도 결제 도중 이탈했습니다.',
     },
-    {
-      en: 'Over several release cycles we iterated the paywall and the tier packaging, and let streamers design their own benefits — badges, emotes, subscriber-only content and community perks.',
-      ko: '여러 릴리스 주기에 걸쳐 결제 화면과 티어 패키징을 반복 개선했고, 스트리머가 배지·이모티콘·구독자 전용 콘텐츠·커뮤니티 혜택을 직접 설계하도록 했습니다.',
+    did: {
+      en: 'We measured the paywall step by step, changed one thing per release, tried four tier structures, and let streamers compose their own benefits.',
+      ko: '결제 흐름을 단계별로 계측해 릴리스마다 한 가지씩 바꿨고, 티어 구조를 네 번 시도했으며, 혜택은 스트리머가 직접 조합하게 했습니다.',
     },
-    {
-      en: 'Paid conversion rose **31%**; the top 20% of streamers grew subscription revenue **27%**; retention improved **15%**; and more than half of new subscribers chose a customized product.',
-      ko: '유료 전환율은 **31%** 올랐고, 상위 20% 스트리머의 구독 매출은 **27%** 늘었으며, 유지율은 **15%** 개선됐고, 신규 구독자의 절반 이상이 맞춤형 상품을 선택했습니다.',
+    result: {
+      en: 'Paid conversion rose **31%**, retention **15%**. The top 20% of streamers grew subscription revenue **27%**.',
+      ko: '유료 전환율은 **31%**, 유지율은 **15%** 올랐습니다. 상위 20% 스트리머의 구독 매출은 **27%** 늘었습니다.',
     },
-  ],
-  sections: [
+  },
+  chapters: [
     {
-      id: 'context',
-      heading: { en: 'Context', ko: '배경' },
+      id: 'one-price',
+      heading: { en: 'One price for every fan', ko: '모든 팬에게 같은 가격' },
       blocks: [
         {
           type: 'p',
-          en: 'On SOOP, gifting is spontaneous and subscriptions are commitment. When subscriptions launched in July 2017, a month cost 3,300 won with custom emotes and a chat color as the main perks.[^1] Over the following years the platform added gift subscriptions, more emote slots and animated emotes,[^2] and in late 2024 introduced a higher-priced second tier.[^3]',
-          ko: 'SOOP에서 별풍선이 즉흥적인 후원이라면, 구독은 약속입니다. 2017년 7월 구독이 처음 나왔을 때 가격은 월 3,300원이었고 주요 혜택은 전용 이모티콘과 채팅 색상이었습니다.[^1] 이후 구독 선물권, 이모티콘 슬롯 확대, 움직이는 이모티콘이 추가됐고,[^2] 2024년 말에는 더 높은 가격의 두 번째 티어가 도입됐습니다.[^3]',
+          en: 'A star balloon is a gift in the moment. A subscription is a monthly commitment. On AfreecaTV it cost 3,300 won, the price it had kept since launch, with the same perks on every channel.[^2]',
+          ko: '별풍선이 그 순간의 선물이라면 구독은 매달의 약속입니다. 아프리카TV 구독은 출시 때부터 월 3,300원이었고, 혜택은 어느 채널이나 같았습니다.[^2]',
         },
         {
           type: 'p',
-          en: 'The product question underneath all of these changes was the same: how do you let the fans who care most pay more, and feel good about it, without making the entry tier feel second-class?',
-          ko: '이 모든 변화 밑에 깔린 제품 질문은 같았습니다. 가장 아끼는 팬이 기꺼이 더 낼 수 있게 하면서, 기본 티어가 “이류”처럼 느껴지지 않게 하려면 어떻게 해야 할까?',
-        },
-      ],
-    },
-    {
-      id: 'problem',
-      heading: { en: 'The problem', ko: '문제 정의' },
-      blocks: [
-        {
-          type: 'list',
-          items: [
-            { en: '**One price for every fan.** The most committed viewers had nowhere to go above the base subscription.', ko: '**모든 팬에게 하나의 가격.** 가장 열성적인 시청자도 기본 구독 이상으로 갈 곳이 없었습니다.' },
-            { en: '**Generic benefits.** Perks were the same on every channel, so they said little about any particular streamer’s community.', ko: '**획일적인 혜택.** 모든 채널의 혜택이 같아서, 각 스트리머 커뮤니티의 개성을 담지 못했습니다.' },
-            { en: '**Paywall friction.** Viewers who were ready to subscribe still dropped off in the purchase flow.', ko: '**결제 과정의 마찰.** 구독할 마음이 있는 시청자도 결제 흐름에서 이탈했습니다.' },
-          ],
-        },
-      ],
-    },
-    {
-      id: 'approach',
-      heading: { en: 'Approach', ko: '접근 방식' },
-      blocks: [
-        {
-          type: 'steps',
-          items: [
-            {
-              title: { en: 'Treat the paywall as a funnel', ko: '결제 화면을 퍼널로 보기' },
-              body: {
-                en: 'We instrumented the purchase flow step by step and changed one thing per release cycle, keeping what moved paid conversion and dropping what didn’t.',
-                ko: '결제 흐름을 단계별로 계측하고 릴리스마다 한 가지씩 바꿨습니다. 유료 전환을 움직인 변경은 남기고, 아닌 것은 걷어냈습니다.',
-              },
-            },
-            {
-              title: { en: 'Package tiers around fan intent', ko: '팬의 의도에 맞춘 티어 패키징' },
-              body: {
-                en: 'We iterated through four tier structures, each tested against conversion and retention rather than price alone.',
-                ko: '네 가지 티어 구조를 거치며 반복했고, 각 구조를 가격만이 아니라 전환율과 유지율로 평가했습니다.',
-              },
-            },
-            {
-              title: { en: 'Hand benefit design to streamers', ko: '혜택 설계를 스트리머에게' },
-              body: {
-                en: 'Streamers could compose their own benefits — badges, emotes, subscriber-only content and community features — so a subscription meant something specific to that channel.',
-                ko: '스트리머가 배지·이모티콘·구독자 전용 콘텐츠·커뮤니티 기능을 직접 조합하도록 해, 구독이 그 채널만의 의미를 갖게 했습니다.',
-              },
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: 'decisions',
-      heading: { en: 'Key decisions', ko: '핵심 의사결정' },
-      blocks: [
-        {
-          type: 'decision',
-          title: { en: 'Let streamers design benefits', ko: '혜택 설계 권한을 스트리머에게' },
-          options: {
-            en: 'A platform-defined benefit set for every channel, or modular benefits that each streamer configures.',
-            ko: '모든 채널에 같은 플랫폼 기본 혜택을 줄지, 스트리머가 설정하는 모듈형 혜택을 줄지.',
-          },
-          choice: { en: 'Modular benefits, configured by the streamer.', ko: '스트리머가 설정하는 모듈형 혜택.' },
-          why: {
-            en: 'Streamers know what their community values. Custom products gave fans a reason to subscribe to *this* channel, not just “a subscription.”',
-            ko: '커뮤니티가 무엇을 원하는지는 스트리머가 가장 잘 압니다. 맞춤 상품은 팬에게 “구독”이 아니라 *이 채널*을 구독할 이유를 줬습니다.',
-          },
-          tradeoff: {
-            en: 'More setup for streamers, which meant good defaults and templates mattered.',
-            ko: '스트리머의 설정 부담이 늘어나므로 좋은 기본값과 템플릿이 중요했습니다.',
-          },
-        },
-        {
-          type: 'decision',
-          title: { en: 'Judge tiers on retention, not just revenue', ko: '티어는 매출만이 아니라 유지율로 판단' },
-          options: {
-            en: 'Optimize each tier change for immediate revenue, or for conversion and retention together.',
-            ko: '티어 변경을 당장의 매출로 최적화할지, 전환율과 유지율을 함께 볼지.',
-          },
-          choice: { en: 'Conversion and retention together.', ko: '전환율과 유지율을 함께.' },
-          why: {
-            en: 'A tier that lifts one month’s revenue but raises churn is a loss. The structure that shipped improved both.',
-            ko: '한 달 매출을 올리지만 해지를 늘리는 티어는 손해입니다. 최종 구조는 둘 다 개선했습니다.',
-          },
-        },
-      ],
-    },
-    {
-      id: 'results',
-      heading: { en: 'Results', ko: '결과' },
-      blocks: [
-        {
-          type: 'metrics',
-          rows: [
-            { value: '+31%', label: { en: 'Paid conversion', ko: '유료 전환율' } },
-            { value: '+27%', label: { en: 'Average subscription revenue, top-20% streamers', ko: '상위 20% 스트리머 평균 구독 매출' } },
-            { value: '+15%', label: { en: 'Subscriber retention', ko: '구독 유지율' } },
-            { value: '50%+', label: { en: 'Share of new subscribers choosing a customized product', ko: '맞춤형 상품을 선택한 신규 구독자 비율' } },
-          ],
+          en: 'Superfans had nowhere to go above it.',
+          ko: '열혈 팬은 그 위로 갈 곳이 없었습니다.',
         },
         {
           type: 'p',
-          en: 'The direction held after the project. In 2025 SOOP reorganized subscriptions into a Basic tier and a Plus tier in which streamers choose among several price levels and set the benefits themselves.[^4]',
-          ko: '이 방향은 프로젝트 이후에도 이어졌습니다. 2025년 SOOP은 구독을 베이직과 플러스로 재편했고, 플러스에서는 스트리머가 여러 가격 단계 중 하나를 고르고 혜택을 직접 정합니다.[^4]',
+          en: 'Demand was there: in early 2024, viewers following streamers over from Twitch could carry their subscription months across.[^1]',
+          ko: '수요는 있었습니다. 2024년 초 트위치에서 스트리머를 따라온 시청자는 구독 개월 수를 그대로 이어갈 수 있었습니다.[^1]',
+        },
+        {
+          type: 'sketch',
+          scene: 'p03-oneprice',
+          alt: {
+            en: 'Sketch: one price tag, “3,300 won a month”, points to three fans (casual, regular, superfan) who all get the same badge. The superfan, surrounded by hearts, says “I’d happily give more”.',
+            ko: '스케치: “월 3,300원” 가격표 하나가 가끔 보는 팬, 단골, 열혈 팬 세 사람을 가리키고, 세 사람 모두 같은 배지를 받는다. 하트에 둘러싸인 열혈 팬이 “더 하고 싶은데…”라고 말한다.',
+          },
         },
       ],
     },
     {
-      id: 'learned',
-      heading: { en: 'What I learned', ko: '배운 점' },
+      id: 'paywall',
+      heading: { en: 'The paywall as a funnel', ko: '결제 화면은 퍼널로' },
       blocks: [
         {
-          type: 'quote',
-          en: 'Pricing is a product surface. The tier someone chooses says what they want to be to a creator.',
-          ko: '가격도 제품의 일부입니다. 어떤 티어를 고르느냐는 그 사람이 크리에이터에게 어떤 존재가 되고 싶은지를 말해 줍니다.',
+          type: 'p',
+          en: 'We instrumented the purchase flow step by step and changed one thing per release. Changes that moved paid conversion stayed. The rest were removed.',
+          ko: '결제 흐름을 단계별로 계측하고 릴리스마다 한 가지씩 바꿨습니다. 유료 전환을 움직인 변경은 남기고 나머지는 걷어냈습니다.',
         },
         {
-          type: 'list',
-          items: [
-            { en: '**Give creators the controls.** Platform-wide defaults are a starting point; the lift came from customization.', ko: '**조정 권한은 크리에이터에게.** 플랫폼 기본값은 출발점일 뿐이고, 성과는 맞춤화에서 나왔습니다.' },
-            { en: '**Small paywall changes compound.** No single release moved conversion 31%; the cycle of measured changes did.', ko: '**작은 결제 개선이 쌓입니다.** 어느 한 릴리스가 전환율을 31% 올린 게 아니라, 측정하며 바꾸는 주기가 만든 결과였습니다.' },
-          ],
+          type: 'sketch',
+          scene: 'p03-funnel',
+          alt: {
+            en: 'Two funnels, before and after, with four steps: plan page, pick a tier, payment, subscribed. Red drop-off arrows are thick in the first funnel and thinner in the second, which ends 31% wider.',
+            ko: '구독 안내, 티어 선택, 결제, 구독 완료 네 단계로 된 전후 퍼널 두 개. 빨간 이탈 화살표가 이전 퍼널에서는 굵고 이후 퍼널에서는 가늘며, 이후 퍼널의 끝이 31% 더 넓다.',
+          },
         },
       ],
     },
     {
-      id: 'timeline',
-      heading: { en: 'Platform context', ko: '플랫폼 맥락' },
+      id: 'benefits',
+      heading: { en: 'Benefits the streamer builds', ko: '스트리머가 조립하는 혜택' },
       blocks: [
         {
-          type: 'timeline',
-          items: [
-            { date: '2017.07', text: { en: 'Subscriptions launch at 3,300 won a month.', ko: '월 3,300원 구독 출시.' }, fn: 1 },
-            { date: '2020–22', text: { en: 'Gift subscriptions, expanded emote slots and animated emotes for subscribers.', ko: '구독 선물권, 이모티콘 슬롯 확대, 구독자용 움직이는 이모티콘.' }, fn: 2 },
-            { date: '2024.11', text: { en: 'First price change since launch; a second, higher tier is added.', ko: '출시 이후 첫 가격 변경, 상위 티어 추가.' }, fn: 3 },
-            { date: '2025.05', text: { en: 'Basic and Plus; streamers set Plus pricing levels and benefits.', ko: '베이직·플러스 재편, 플러스 가격 단계와 혜택은 스트리머가 설정.' }, fn: 4 },
-          ],
+          type: 'p',
+          en: 'Streamers know what their community values. We let them compose benefits from modules (badges, emotes, members-only content, community perks), so a subscription meant something specific to that channel.',
+          ko: '커뮤니티가 무엇을 좋아하는지는 스트리머가 가장 잘 압니다. 배지, 이모티콘, 구독자 전용 콘텐츠, 커뮤니티 혜택을 모듈로 만들어 스트리머가 직접 조합하게 했고, 구독은 그 채널만의 의미를 갖게 됐습니다.',
         },
         {
-          type: 'note',
-          en: 'Milestones are public platform changes, listed for context. They are not a claim that each one was my project.',
-          ko: '마일스톤은 맥락을 위한 공개 플랫폼 변경 사항이며, 각각이 모두 제 프로젝트였다는 뜻은 아닙니다.',
+          type: 'sketch',
+          scene: 'p03-modules',
+          alt: {
+            en: 'Sketch: a streamer next to four dashed benefit tiles (badge, emotes, members-only video, community). An arrow leads to a card titled “Our channel’s subscription” with three of the four ticked.',
+            ko: '스케치: 스트리머 옆에 점선으로 그린 혜택 타일 네 개(배지, 이모티콘, 구독자 전용 VOD, 커뮤니티). 화살표가 “우리 채널 구독” 카드로 이어지고, 넷 중 셋에 체크가 되어 있다.',
+          },
+        },
+        {
+          type: 'p',
+          en: 'We tried four tier structures and judged each on conversion and retention together. SOOP’s public changes went the same way: a second, higher tier in late 2024,[^2] then Basic and Plus in 2025, with each streamer setting the Plus price.[^3]',
+          ko: '티어 구조는 네 번 바꿨고, 매번 전환율과 유지율을 함께 봤습니다. SOOP의 공개 변경도 같은 방향이었습니다. 2024년 말 더 비싼 두 번째 티어가 생겼고,[^2] 2025년에는 베이직과 플러스로 나뉘며 플러스 가격을 스트리머가 정하게 됐습니다.[^3]',
         },
       ],
     },
   ],
+  decisions: [
+    {
+      title: { en: 'Streamers design the benefits', ko: '혜택 설계는 스트리머가' },
+      why: {
+        en: 'Custom products gave fans a reason to subscribe to this channel, not just to “a subscription”. It meant more setup for streamers, so defaults and templates had to be good.',
+        ko: '맞춤 상품은 팬에게 “구독”이 아니라 이 채널을 구독할 이유를 줬습니다. 대신 스트리머의 설정 부담이 커져서 기본값과 템플릿이 좋아야 했습니다.',
+      },
+    },
+    {
+      title: { en: 'Judge tiers on retention too', ko: '티어는 유지율까지 보고 판단' },
+      why: {
+        en: 'A tier that lifts one month’s revenue but raises churn is a loss. The structure we kept improved both.',
+        ko: '한 달 매출은 올리지만 해지를 늘리는 티어는 손해입니다. 최종 구조는 둘 다 개선했습니다.',
+      },
+    },
+  ],
+  results: {
+    blocks: [
+      {
+        type: 'sketch',
+        scene: 'p03-results',
+        alt: {
+          en: 'Results sketch: before/after bars for paid conversion (+31%), subscription revenue of the top 20% of streamers (+27%) and retention (+15%), and a pie showing that more than half of new subscribers chose a customised product.',
+          ko: '결과 스케치: 유료 전환율(+31%), 상위 20% 스트리머 구독 매출(+27%), 구독 유지율(+15%)의 전후 막대와, 신규 구독자 절반 이상이 맞춤형 상품을 골랐음을 보여주는 원그래프.',
+        },
+      },
+    ],
+  },
+  learned: {
+    quote: {
+      en: 'Pricing is part of the product. The tier someone picks says what they want to be to a creator.',
+      ko: '가격도 제품의 일부입니다. 어떤 티어를 고르는지가 그 사람이 크리에이터에게 어떤 존재이고 싶은지를 말해 줍니다.',
+    },
+    items: [
+      { en: '**Give creators the controls.** Platform defaults were the starting point; the lift came from customisation.', ko: '**조정 권한은 크리에이터에게.** 플랫폼 기본값은 출발점이었고, 성과는 맞춤화에서 나왔습니다.' },
+      { en: '**Small paywall changes add up.** No single release moved conversion 31%. The cycle of measured changes did.', ko: '**작은 결제 개선이 쌓입니다.** 전환율 31%는 릴리스 하나가 아니라 측정하며 바꾸는 반복이 만든 결과였습니다.' },
+    ],
+  },
   sources: [
-    { publisher: 'AfreecaTV notice', title: '구독 서비스 및 시그니처 풍선 오픈 안내', date: 'Jun 2017', url: 'https://afwbbs1.sooplive.com/app/index.php?board=notice&b_no=5182&control=view' },
-    { publisher: 'AfreecaTV notice', title: '구독 이모티콘 업데이트 안내', date: 'Dec 2022', url: 'https://afwbbs1.sooplive.com/app/index.php?board=notice&b_no=8331&control=view' },
-    { publisher: 'Daum News', title: 'SOOP raises subscription price and adds a second tier', date: 'Oct 21, 2024', url: 'https://v.daum.net/v/20241021150304882' },
-    { publisher: 'Newsis', title: 'SOOP reorganizes subscriptions into Basic and Plus', date: 'May 26, 2025', url: 'https://www.newsis.com/view/NISX20250526_0003190052' },
+    { publisher: 'Byline Network (바이라인네트워크)', title: '‘스트리머 잔치판’ 아프리카TV 업데이트만 몇 건? 환골탈태 변화', date: 'Mar 13, 2024', url: 'https://byline.network/2024/03/13-343/' },
+    { publisher: 'Daum News', title: '리브랜딩 단행한 SOOP, 구독료 인상…치지직과 경쟁 강화', date: 'Oct 21, 2024', url: 'https://v.daum.net/v/20241021150304882' },
+    { publisher: 'Newsis (뉴시스)', title: 'SOOP, 반년만에 구독 서비스 재개편…구독료 최대 2배 인상', date: 'May 26, 2025', url: 'https://www.newsis.com/view/NISX20250526_0003190052' },
   ],
 };

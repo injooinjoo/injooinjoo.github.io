@@ -4,23 +4,24 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Creator Subscription Service — InJoo Kim</title>
-<meta name="description" content="From a single monthly price to tiers that streamers design themselves — and a paywall that converts more of the fans who were already there." />
+<meta name="description" content="One monthly price gave every fan the same perks. Over several release cycles we reworked the paywall and the tiers, and let streamers decide what their subscription includes." />
 <link rel="canonical" href="https://www.injookim.com/work/creator-subscriptions/" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Creator Subscription Service — P-03 case study" />
-<meta property="og:description" content="From a single monthly price to tiers that streamers design themselves — and a paywall that converts more of the fans who were already there." />
+<meta property="og:description" content="One monthly price gave every fan the same perks. Over several release cycles we reworked the paywall and the tiers, and let streamers decide what their subscription includes." />
 <meta property="og:url" content="https://www.injookim.com/work/creator-subscriptions/" />
 <meta name="twitter:card" content="summary" />
+<meta name="theme-color" content="#efe7d6" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
 <script>
 (function(){var d=document.documentElement;try{var l=localStorage.getItem('portfolio-lang');if(l==='ko'||l==='en'){d.setAttribute('data-lang',l);d.lang=l;}var t=localStorage.getItem('portfolio-theme');if(t==='dark'||t==='light')d.setAttribute('data-theme',t);}catch(e){}})();
 </script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Creator Subscription Service","description":"From a single monthly price to tiers that streamers design themselves — and a paywall that converts more of the fans who were already there.","author":{"@type":"Person","name":"InJoo Kim","url":"https://www.injookim.com"},"url":"https://www.injookim.com/work/creator-subscriptions/","inLanguage":["en","ko"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Creator Subscription Service","description":"One monthly price gave every fan the same perks. Over several release cycles we reworked the paywall and the tiers, and let streamers decide what their subscription includes.","author":{"@type":"Person","name":"InJoo Kim","url":"https://www.injookim.com"},"url":"https://www.injookim.com/work/creator-subscriptions/","inLanguage":["en","ko"]}</script>
 <script type="module" src="/work/case-study.js"></script>
 </head>
 <body class="cs-body">
@@ -38,96 +39,95 @@
 <main id="main">
 <article class="cs">
   <header class="cs-head">
-    <div class="cs-head-main">
-      <p class="cs-eyebrow"><span><span data-en>Case study</span><span data-ko lang="ko">케이스 스터디</span></span><span class="cs-dot">·</span><span>P-03</span><span class="cs-dot">·</span><span>SOOP</span></p>
-      <h1><span data-en>Creator Subscription Service</span><span data-ko lang="ko">크리에이터 구독 서비스</span></h1>
-      <p class="cs-dek" data-en>From a single monthly price to tiers that streamers design themselves — and a paywall that converts more of the fans who were already there.</p><p class="cs-dek" data-ko lang="ko">하나의 월 구독료에서 스트리머가 직접 설계하는 티어로. 이미 있던 팬을 더 많이 유료 구독자로 전환한 구독 개편.</p>
-    </div>
-    <dl class="cs-meta"><div><dt><span data-en>Company</span><span data-ko lang="ko">회사</span></dt><dd><span data-en>SOOP (formerly AfreecaTV)</span><span data-ko lang="ko">SOOP (구 아프리카TV)</span></dd></div><div><dt><span data-en>Role</span><span data-ko lang="ko">역할</span></dt><dd><span data-en>Product Manager</span><span data-ko lang="ko">프로덕트 매니저</span></dd></div><div><dt><span data-en>Scope</span><span data-ko lang="ko">범위</span></dt><dd><span data-en>Paywall UX, tier packaging, streamer-configurable benefits, release-cycle experiments</span><span data-ko lang="ko">유료 결제 UX, 티어 패키징, 스트리머 맞춤 혜택, 릴리스 주기별 실험</span></dd></div><div><dt><span data-en>Stack</span><span data-ko lang="ko">스택</span></dt><dd><span>Payment APIs · React · Node.js · PostgreSQL</span></dd></div><div><dt><span data-en>Reading time</span><span data-ko lang="ko">읽는 시간</span></dt><dd><span data-en>3 min read</span><span data-ko lang="ko">3분 분량</span></dd></div></dl>
+    <p class="cs-eyebrow"><span><span data-en>Case study</span><span data-ko lang="ko">케이스 스터디</span></span><span class="cs-dot">·</span><span>P-03</span><span class="cs-dot">·</span><span>SOOP</span></p>
+    <h1><span data-en>Creator Subscription Service</span><span data-ko lang="ko">크리에이터 구독 서비스</span></h1>
+    <p class="cs-dek" data-en>One monthly price gave every fan the same perks. Over several release cycles we reworked the paywall and the tiers, and let streamers decide what their subscription includes.</p><p class="cs-dek" data-ko lang="ko">월 구독료 하나에 모든 팬이 같은 혜택을 받던 구조였습니다. 여러 릴리스에 걸쳐 결제 화면과 티어를 다시 짰고, 구독에 무엇을 담을지는 스트리머가 정하게 했습니다.</p>
+    <dl class="cs-meta"><div><dt><span data-en>Company</span><span data-ko lang="ko">회사</span></dt><dd><span data-en>SOOP (formerly AfreecaTV)</span><span data-ko lang="ko">SOOP (구 아프리카TV)</span></dd></div><div><dt><span data-en>Role</span><span data-ko lang="ko">역할</span></dt><dd><span data-en>Product Manager</span><span data-ko lang="ko">프로덕트 매니저</span></dd></div><div><dt><span data-en>Scope</span><span data-ko lang="ko">범위</span></dt><dd><span data-en>Paywall UX, tier packaging, streamer-configurable benefits, release-cycle experiments</span><span data-ko lang="ko">유료 결제 UX, 티어 패키징, 스트리머 맞춤 혜택, 릴리스 주기별 실험</span></dd></div><div><dt><span data-en>Stack</span><span data-ko lang="ko">스택</span></dt><dd><span>Payment APIs · React · Node.js · PostgreSQL</span></dd></div><div><dt><span data-en>Reading time</span><span data-ko lang="ko">읽는 시간</span></dt><dd><span data-en>2 min read</span><span data-ko lang="ko">2분 분량</span></dd></div></dl>
   </header>
+  <figure class="cs-sketch cs-hero" data-scene="p03-hero" data-alt-en="Sketch: a four-step staircase with a fan on each step. Each step adds a benefit: a badge, emotes, members-only video, and a perk the streamer designs. A note reads “each step up adds something”." data-alt-ko="스케치: 네 칸짜리 계단 위 칸마다 팬이 서 있다. 칸마다 혜택이 하나씩 늘어난다. 배지, 이모티콘, 구독자 전용 영상, 스트리머가 직접 만든 혜택. “한 칸 오를 때마다 하나씩 더”라는 메모." style="--ar: 800 / 400; --ar-n: 400 / 470">
+  <canvas role="img" aria-label="Sketch: a four-step staircase with a fan on each step. Each step adds a benefit: a badge, emotes, members-only video, and a perk the streamer designs. A note reads “each step up adds something”."></canvas>
+  <figcaption><span data-en>The subscription as a ladder. The upper steps are put together by the streamer.</span><span data-ko lang="ko">사다리가 된 구독. 위쪽 칸은 스트리머가 직접 구성합니다.</span></figcaption>
+</figure>
+  <section class="cs-glance" aria-labelledby="glance-h">
+  <h2 id="glance-h" class="cs-glance-h"><span data-en>At a glance</span><span data-ko lang="ko">한눈에 보기</span></h2>
+  <ol><li><div class="cs-glance-l"><span class="n">01</span><span data-en>Problem</span><span data-ko lang="ko">문제</span></div><p data-en>Every fan paid the same price for the same perks on every channel. The most committed fans had nowhere to go, and ready buyers dropped out at checkout.</p><p data-ko lang="ko">모든 채널에서 모든 팬이 같은 가격에 같은 혜택을 받았습니다. 가장 열성적인 팬은 더 올라갈 곳이 없었고, 살 마음이 있던 시청자도 결제 도중 이탈했습니다.</p></li><li><div class="cs-glance-l"><span class="n">02</span><span data-en>What we did</span><span data-ko lang="ko">한 일</span></div><p data-en>We measured the paywall step by step, changed one thing per release, tried four tier structures, and let streamers compose their own benefits.</p><p data-ko lang="ko">결제 흐름을 단계별로 계측해 릴리스마다 한 가지씩 바꿨고, 티어 구조를 네 번 시도했으며, 혜택은 스트리머가 직접 조합하게 했습니다.</p></li><li><div class="cs-glance-l"><span class="n">03</span><span data-en>Result</span><span data-ko lang="ko">결과</span></div><p data-en>Paid conversion rose <strong>31%</strong>, retention <strong>15%</strong>. The top 20% of streamers grew subscription revenue <strong>27%</strong>.</p><p data-ko lang="ko">유료 전환율은 <strong>31%</strong>, 유지율은 <strong>15%</strong> 올랐습니다. 상위 20% 스트리머의 구독 매출은 <strong>27%</strong> 늘었습니다.</p></li></ol>
+</section>
   <div class="cs-kpis"><div class="cs-kpi"><div class="cs-kpi-v">+31%</div><div class="cs-kpi-l"><span data-en>Paid conversion</span><span data-ko lang="ko">유료 전환율</span></div></div><div class="cs-kpi"><div class="cs-kpi-v">4</div><div class="cs-kpi-l"><span data-en>Tier structures</span><span data-ko lang="ko">티어 구조</span></div></div><div class="cs-kpi"><div class="cs-kpi-v">+27%</div><div class="cs-kpi-l"><span data-en>Subscription revenue, top-20% streamers</span><span data-ko lang="ko">상위 20% 스트리머 구독 매출</span></div></div><div class="cs-kpi"><div class="cs-kpi-v">+15%</div><div class="cs-kpi-l"><span data-en>Subscriber retention</span><span data-ko lang="ko">구독 유지율</span></div></div></div>
-  <figure class="cs-figure cs-wide"><div class="cs-figure-art" tabindex="0"><svg viewBox="0 0 900 210" role="img" aria-label="Subscription ladder from follower to streamer-designed upper tiers, built from benefit modules" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-arrow"/></marker></defs><rect x="0" y="130" width="170" height="70" rx="10" class="f-box" stroke-width="1.2"/>
-<text x="14" y="156" font-size="15" font-weight="600" text-anchor="start" data-en>Follower</text><text x="14" y="156" font-size="15" font-weight="600" text-anchor="start" data-ko>팔로워</text>
-<text x="14" y="176" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-en>free</text><text x="14" y="176" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-ko>무료</text><rect x="188" y="94" width="170" height="106" rx="10" class="f-box-strong" stroke-width="1.2"/>
-<text x="202" y="120" font-size="15" font-weight="600" text-anchor="start" data-en>Tier 1</text><text x="202" y="120" font-size="15" font-weight="600" text-anchor="start" data-ko>티어 1</text>
-<text x="202" y="140" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-en>entry subscription</text><text x="202" y="140" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-ko>기본 구독</text><rect x="376" y="58" width="170" height="142" rx="10" class="f-box-strong" stroke-width="1.2"/>
-<text x="390" y="84" font-size="15" font-weight="600" text-anchor="start" data-en>Tier 2</text><text x="390" y="84" font-size="15" font-weight="600" text-anchor="start" data-ko>티어 2</text>
-<text x="390" y="104" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-en>more benefits</text><text x="390" y="104" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-ko>혜택 확대</text><rect x="564" y="22" width="170" height="178" rx="10" class="f-accent" stroke-width="1.2"/>
-<text x="578" y="48" font-size="15" font-weight="600" text-anchor="start" class="f-on-accent" data-en>Upper tiers</text><text x="578" y="48" font-size="15" font-weight="600" text-anchor="start" class="f-on-accent" data-ko>상위 티어</text>
-<text x="578" y="68" font-size="12" font-weight="400" text-anchor="start" class="f-on-accent" data-en>streamer-designed</text><text x="578" y="68" font-size="12" font-weight="400" text-anchor="start" class="f-on-accent" data-ko>스트리머 설계</text><text x="768" y="30" font-size="11" font-weight="400" text-anchor="start" class="f-muted f-mono" data-en>Benefit modules</text><text x="768" y="30" font-size="11" font-weight="400" text-anchor="start" class="f-muted f-mono" data-ko>혜택 모듈</text>
-<rect x="768" y="44" width="150" height="30" rx="6" class="f-box" stroke-width="1.2"/><text x="780" y="64" font-size="12" font-weight="400" text-anchor="start" data-en>Badges</text><text x="780" y="64" font-size="12" font-weight="400" text-anchor="start" data-ko>배지</text><rect x="768" y="84" width="150" height="30" rx="6" class="f-box" stroke-width="1.2"/><text x="780" y="104" font-size="12" font-weight="400" text-anchor="start" data-en>Emotes</text><text x="780" y="104" font-size="12" font-weight="400" text-anchor="start" data-ko>이모티콘</text><rect x="768" y="124" width="150" height="30" rx="6" class="f-box" stroke-width="1.2"/><text x="780" y="144" font-size="12" font-weight="400" text-anchor="start" data-en>Subscriber-only content</text><text x="780" y="144" font-size="12" font-weight="400" text-anchor="start" data-ko>구독자 전용 콘텐츠</text><rect x="768" y="164" width="150" height="30" rx="6" class="f-box" stroke-width="1.2"/><text x="780" y="184" font-size="12" font-weight="400" text-anchor="start" data-en>Community perks</text><text x="780" y="184" font-size="12" font-weight="400" text-anchor="start" data-ko>커뮤니티 혜택</text></svg></div><figcaption><span data-en>The subscription ladder, reconstructed. Each step up adds benefits; the upper tiers are assembled by the streamer from benefit modules.</span><span data-ko lang="ko">구독 사다리 재구성도. 단계가 올라갈수록 혜택이 늘고, 상위 티어는 스트리머가 혜택 모듈을 조합해 직접 설계합니다.</span></figcaption></figure>
-  <div class="cs-body-col">
-    <section class="cs-tldr" aria-labelledby="tldr-h">
-      <h2 id="tldr-h" class="cs-tldr-h">TL;DR</h2>
-      <ul><li><span data-en>Subscriptions launched on AfreecaTV in 2017 as a single monthly price with the same perks for everyone.<sup class="fnref"><a href="#fn-1" id="fnref-1">1</a></sup> That left money on the table with superfans and gave streamers no way to reward their most loyal viewers differently.</span><span data-ko lang="ko">아프리카TV 구독은 2017년 모두에게 같은 혜택을 주는 단일 월 요금으로 시작했습니다.<sup class="fnref"><a href="#fn-1" id="fnref-1-2">1</a></sup> 그래서 열성 팬의 지불 의향을 담지 못했고, 스트리머도 가장 충성도 높은 시청자에게 다르게 보답할 방법이 없었습니다.</span></li><li><span data-en>Over several release cycles we iterated the paywall and the tier packaging, and let streamers design their own benefits — badges, emotes, subscriber-only content and community perks.</span><span data-ko lang="ko">여러 릴리스 주기에 걸쳐 결제 화면과 티어 패키징을 반복 개선했고, 스트리머가 배지·이모티콘·구독자 전용 콘텐츠·커뮤니티 혜택을 직접 설계하도록 했습니다.</span></li><li><span data-en>Paid conversion rose <strong>31%</strong>; the top 20% of streamers grew subscription revenue <strong>27%</strong>; retention improved <strong>15%</strong>; and more than half of new subscribers chose a customized product.</span><span data-ko lang="ko">유료 전환율은 <strong>31%</strong> 올랐고, 상위 20% 스트리머의 구독 매출은 <strong>27%</strong> 늘었으며, 유지율은 <strong>15%</strong> 개선됐고, 신규 구독자의 절반 이상이 맞춤형 상품을 선택했습니다.</span></li></ul>
-    </section>
-<section class="cs-section" id="context" aria-labelledby="context-h">
-  <h2 id="context-h"><span data-en>Context</span><span data-ko lang="ko">배경</span></h2>
-  <p data-en>On SOOP, gifting is spontaneous and subscriptions are commitment. When subscriptions launched in July 2017, a month cost 3,300 won with custom emotes and a chat color as the main perks.<sup class="fnref"><a href="#fn-1" id="fnref-1-3">1</a></sup> Over the following years the platform added gift subscriptions, more emote slots and animated emotes,<sup class="fnref"><a href="#fn-2" id="fnref-2">2</a></sup> and in late 2024 introduced a higher-priced second tier.<sup class="fnref"><a href="#fn-3" id="fnref-3">3</a></sup></p><p data-ko lang="ko">SOOP에서 별풍선이 즉흥적인 후원이라면, 구독은 약속입니다. 2017년 7월 구독이 처음 나왔을 때 가격은 월 3,300원이었고 주요 혜택은 전용 이모티콘과 채팅 색상이었습니다.<sup class="fnref"><a href="#fn-1" id="fnref-1-4">1</a></sup> 이후 구독 선물권, 이모티콘 슬롯 확대, 움직이는 이모티콘이 추가됐고,<sup class="fnref"><a href="#fn-2" id="fnref-2-2">2</a></sup> 2024년 말에는 더 높은 가격의 두 번째 티어가 도입됐습니다.<sup class="fnref"><a href="#fn-3" id="fnref-3-2">3</a></sup></p>
-  <p data-en>The product question underneath all of these changes was the same: how do you let the fans who care most pay more, and feel good about it, without making the entry tier feel second-class?</p><p data-ko lang="ko">이 모든 변화 밑에 깔린 제품 질문은 같았습니다. 가장 아끼는 팬이 기꺼이 더 낼 수 있게 하면서, 기본 티어가 “이류”처럼 느껴지지 않게 하려면 어떻게 해야 할까?</p>
+<section class="cs-section" id="one-price" aria-labelledby="one-price-h">
+<div class="cs-body-col">
+  <span class="cs-chnum" aria-hidden="true">01</span><h2 id="one-price-h"><span data-en>One price for every fan</span><span data-ko lang="ko">모든 팬에게 같은 가격</span></h2>
+  <p data-en>A star balloon is a gift in the moment. A subscription is a monthly commitment. On AfreecaTV it cost 3,300 won, the price it had kept since launch, with the same perks on every channel.<sup class="fnref"><a href="#fn-2" id="fnref-2">2</a></sup></p><p data-ko lang="ko">별풍선이 그 순간의 선물이라면 구독은 매달의 약속입니다. 아프리카TV 구독은 출시 때부터 월 3,300원이었고, 혜택은 어느 채널이나 같았습니다.<sup class="fnref"><a href="#fn-2" id="fnref-2-2">2</a></sup></p>
+  <p data-en>Superfans had nowhere to go above it.</p><p data-ko lang="ko">열혈 팬은 그 위로 갈 곳이 없었습니다.</p>
+  <p data-en>Demand was there: in early 2024, viewers following streamers over from Twitch could carry their subscription months across.<sup class="fnref"><a href="#fn-1" id="fnref-1">1</a></sup></p><p data-ko lang="ko">수요는 있었습니다. 2024년 초 트위치에서 스트리머를 따라온 시청자는 구독 개월 수를 그대로 이어갈 수 있었습니다.<sup class="fnref"><a href="#fn-1" id="fnref-1-2">1</a></sup></p>
+  </div>
+<figure class="cs-sketch" data-scene="p03-oneprice" data-alt-en="Sketch: one price tag, “3,300 won a month”, points to three fans (casual, regular, superfan) who all get the same badge. The superfan, surrounded by hearts, says “I’d happily give more”." data-alt-ko="스케치: “월 3,300원” 가격표 하나가 가끔 보는 팬, 단골, 열혈 팬 세 사람을 가리키고, 세 사람 모두 같은 배지를 받는다. 하트에 둘러싸인 열혈 팬이 “더 하고 싶은데…”라고 말한다." style="--ar: 800 / 360; --ar-n: 400 / 500">
+  <canvas role="img" aria-label="Sketch: one price tag, “3,300 won a month”, points to three fans (casual, regular, superfan) who all get the same badge. The superfan, surrounded by hearts, says “I’d happily give more”."></canvas>
+  
+</figure>
+
 </section>
-<section class="cs-section" id="problem" aria-labelledby="problem-h">
-  <h2 id="problem-h"><span data-en>The problem</span><span data-ko lang="ko">문제 정의</span></h2>
-  <ul class="cs-list"><li><span data-en><strong>One price for every fan.</strong> The most committed viewers had nowhere to go above the base subscription.</span><span data-ko lang="ko"><strong>모든 팬에게 하나의 가격.</strong> 가장 열성적인 시청자도 기본 구독 이상으로 갈 곳이 없었습니다.</span></li><li><span data-en><strong>Generic benefits.</strong> Perks were the same on every channel, so they said little about any particular streamer’s community.</span><span data-ko lang="ko"><strong>획일적인 혜택.</strong> 모든 채널의 혜택이 같아서, 각 스트리머 커뮤니티의 개성을 담지 못했습니다.</span></li><li><span data-en><strong>Paywall friction.</strong> Viewers who were ready to subscribe still dropped off in the purchase flow.</span><span data-ko lang="ko"><strong>결제 과정의 마찰.</strong> 구독할 마음이 있는 시청자도 결제 흐름에서 이탈했습니다.</span></li></ul>
+<section class="cs-section" id="paywall" aria-labelledby="paywall-h">
+<div class="cs-body-col">
+  <span class="cs-chnum" aria-hidden="true">02</span><h2 id="paywall-h"><span data-en>The paywall as a funnel</span><span data-ko lang="ko">결제 화면은 퍼널로</span></h2>
+  <p data-en>We instrumented the purchase flow step by step and changed one thing per release. Changes that moved paid conversion stayed. The rest were removed.</p><p data-ko lang="ko">결제 흐름을 단계별로 계측하고 릴리스마다 한 가지씩 바꿨습니다. 유료 전환을 움직인 변경은 남기고 나머지는 걷어냈습니다.</p>
+  </div>
+<figure class="cs-sketch" data-scene="p03-funnel" data-alt-en="Two funnels, before and after, with four steps: plan page, pick a tier, payment, subscribed. Red drop-off arrows are thick in the first funnel and thinner in the second, which ends 31% wider." data-alt-ko="구독 안내, 티어 선택, 결제, 구독 완료 네 단계로 된 전후 퍼널 두 개. 빨간 이탈 화살표가 이전 퍼널에서는 굵고 이후 퍼널에서는 가늘며, 이후 퍼널의 끝이 31% 더 넓다." style="--ar: 800 / 380; --ar-n: 400 / 700">
+  <canvas role="img" aria-label="Two funnels, before and after, with four steps: plan page, pick a tier, payment, subscribed. Red drop-off arrows are thick in the first funnel and thinner in the second, which ends 31% wider."></canvas>
+  
+</figure>
+
 </section>
-<section class="cs-section" id="approach" aria-labelledby="approach-h">
-  <h2 id="approach-h"><span data-en>Approach</span><span data-ko lang="ko">접근 방식</span></h2>
-  <ol class="cs-steps"><li><span class="cs-step-h"><span data-en>Treat the paywall as a funnel</span><span data-ko lang="ko">결제 화면을 퍼널로 보기</span></span><p data-en>We instrumented the purchase flow step by step and changed one thing per release cycle, keeping what moved paid conversion and dropping what didn’t.</p><p data-ko lang="ko">결제 흐름을 단계별로 계측하고 릴리스마다 한 가지씩 바꿨습니다. 유료 전환을 움직인 변경은 남기고, 아닌 것은 걷어냈습니다.</p></li><li><span class="cs-step-h"><span data-en>Package tiers around fan intent</span><span data-ko lang="ko">팬의 의도에 맞춘 티어 패키징</span></span><p data-en>We iterated through four tier structures, each tested against conversion and retention rather than price alone.</p><p data-ko lang="ko">네 가지 티어 구조를 거치며 반복했고, 각 구조를 가격만이 아니라 전환율과 유지율로 평가했습니다.</p></li><li><span class="cs-step-h"><span data-en>Hand benefit design to streamers</span><span data-ko lang="ko">혜택 설계를 스트리머에게</span></span><p data-en>Streamers could compose their own benefits — badges, emotes, subscriber-only content and community features — so a subscription meant something specific to that channel.</p><p data-ko lang="ko">스트리머가 배지·이모티콘·구독자 전용 콘텐츠·커뮤니티 기능을 직접 조합하도록 해, 구독이 그 채널만의 의미를 갖게 했습니다.</p></li></ol>
+<section class="cs-section" id="benefits" aria-labelledby="benefits-h">
+<div class="cs-body-col">
+  <span class="cs-chnum" aria-hidden="true">03</span><h2 id="benefits-h"><span data-en>Benefits the streamer builds</span><span data-ko lang="ko">스트리머가 조립하는 혜택</span></h2>
+  <p data-en>Streamers know what their community values. We let them compose benefits from modules (badges, emotes, members-only content, community perks), so a subscription meant something specific to that channel.</p><p data-ko lang="ko">커뮤니티가 무엇을 좋아하는지는 스트리머가 가장 잘 압니다. 배지, 이모티콘, 구독자 전용 콘텐츠, 커뮤니티 혜택을 모듈로 만들어 스트리머가 직접 조합하게 했고, 구독은 그 채널만의 의미를 갖게 됐습니다.</p>
+  </div>
+<figure class="cs-sketch" data-scene="p03-modules" data-alt-en="Sketch: a streamer next to four dashed benefit tiles (badge, emotes, members-only video, community). An arrow leads to a card titled “Our channel’s subscription” with three of the four ticked." data-alt-ko="스케치: 스트리머 옆에 점선으로 그린 혜택 타일 네 개(배지, 이모티콘, 구독자 전용 VOD, 커뮤니티). 화살표가 “우리 채널 구독” 카드로 이어지고, 넷 중 셋에 체크가 되어 있다." style="--ar: 800 / 380; --ar-n: 400 / 640">
+  <canvas role="img" aria-label="Sketch: a streamer next to four dashed benefit tiles (badge, emotes, members-only video, community). An arrow leads to a card titled “Our channel’s subscription” with three of the four ticked."></canvas>
+  
+</figure>
+<div class="cs-body-col">
+  <p data-en>We tried four tier structures and judged each on conversion and retention together. SOOP’s public changes went the same way: a second, higher tier in late 2024,<sup class="fnref"><a href="#fn-2" id="fnref-2-3">2</a></sup> then Basic and Plus in 2025, with each streamer setting the Plus price.<sup class="fnref"><a href="#fn-3" id="fnref-3">3</a></sup></p><p data-ko lang="ko">티어 구조는 네 번 바꿨고, 매번 전환율과 유지율을 함께 봤습니다. SOOP의 공개 변경도 같은 방향이었습니다. 2024년 말 더 비싼 두 번째 티어가 생겼고,<sup class="fnref"><a href="#fn-2" id="fnref-2-4">2</a></sup> 2025년에는 베이직과 플러스로 나뉘며 플러스 가격을 스트리머가 정하게 됐습니다.<sup class="fnref"><a href="#fn-3" id="fnref-3-2">3</a></sup></p>
+</div>
 </section>
 <section class="cs-section" id="decisions" aria-labelledby="decisions-h">
-  <h2 id="decisions-h"><span data-en>Key decisions</span><span data-ko lang="ko">핵심 의사결정</span></h2>
-  <div class="cs-decision">
-  <div class="cs-decision-label"><span data-en>Decision</span><span data-ko lang="ko">의사결정</span></div>
-  <h3><span data-en>Let streamers design benefits</span><span data-ko lang="ko">혜택 설계 권한을 스트리머에게</span></h3>
-  <dl>
-    <dt><span data-en>Options</span><span data-ko lang="ko">선택지</span></dt><dd><span data-en>A platform-defined benefit set for every channel, or modular benefits that each streamer configures.</span><span data-ko lang="ko">모든 채널에 같은 플랫폼 기본 혜택을 줄지, 스트리머가 설정하는 모듈형 혜택을 줄지.</span></dd>
-    <dt><span data-en>Chose</span><span data-ko lang="ko">선택</span></dt><dd><span data-en>Modular benefits, configured by the streamer.</span><span data-ko lang="ko">스트리머가 설정하는 모듈형 혜택.</span></dd>
-    <dt><span data-en>Why</span><span data-ko lang="ko">이유</span></dt><dd><span data-en>Streamers know what their community values. Custom products gave fans a reason to subscribe to <em>this</em> channel, not just “a subscription.”</span><span data-ko lang="ko">커뮤니티가 무엇을 원하는지는 스트리머가 가장 잘 압니다. 맞춤 상품은 팬에게 “구독”이 아니라 <em>이 채널</em>을 구독할 이유를 줬습니다.</span></dd>
-    <dt><span data-en>Trade-off</span><span data-ko lang="ko">대가</span></dt><dd><span data-en>More setup for streamers, which meant good defaults and templates mattered.</span><span data-ko lang="ko">스트리머의 설정 부담이 늘어나므로 좋은 기본값과 템플릿이 중요했습니다.</span></dd>
-  </dl>
+<div class="cs-body-col">
+  <h2 id="decisions-h"><span data-en>Decisions</span><span data-ko lang="ko">결정</span></h2>
+  
 </div>
-  <div class="cs-decision">
-  <div class="cs-decision-label"><span data-en>Decision</span><span data-ko lang="ko">의사결정</span></div>
-  <h3><span data-en>Judge tiers on retention, not just revenue</span><span data-ko lang="ko">티어는 매출만이 아니라 유지율로 판단</span></h3>
-  <dl>
-    <dt><span data-en>Options</span><span data-ko lang="ko">선택지</span></dt><dd><span data-en>Optimize each tier change for immediate revenue, or for conversion and retention together.</span><span data-ko lang="ko">티어 변경을 당장의 매출로 최적화할지, 전환율과 유지율을 함께 볼지.</span></dd>
-    <dt><span data-en>Chose</span><span data-ko lang="ko">선택</span></dt><dd><span data-en>Conversion and retention together.</span><span data-ko lang="ko">전환율과 유지율을 함께.</span></dd>
-    <dt><span data-en>Why</span><span data-ko lang="ko">이유</span></dt><dd><span data-en>A tier that lifts one month’s revenue but raises churn is a loss. The structure that shipped improved both.</span><span data-ko lang="ko">한 달 매출을 올리지만 해지를 늘리는 티어는 손해입니다. 최종 구조는 둘 다 개선했습니다.</span></dd>
-    
-  </dl>
-</div>
+<ul class="cs-decisions"><li class="cs-decision">
+  <div class="cs-decision-label"><span data-en>Decision</span><span data-ko lang="ko">결정</span></div>
+  <h3><span data-en>Streamers design the benefits</span><span data-ko lang="ko">혜택 설계는 스트리머가</span></h3>
+  <p data-en>Custom products gave fans a reason to subscribe to this channel, not just to “a subscription”. It meant more setup for streamers, so defaults and templates had to be good.</p><p data-ko lang="ko">맞춤 상품은 팬에게 “구독”이 아니라 이 채널을 구독할 이유를 줬습니다. 대신 스트리머의 설정 부담이 커져서 기본값과 템플릿이 좋아야 했습니다.</p>
+</li>
+<li class="cs-decision">
+  <div class="cs-decision-label"><span data-en>Decision</span><span data-ko lang="ko">결정</span></div>
+  <h3><span data-en>Judge tiers on retention too</span><span data-ko lang="ko">티어는 유지율까지 보고 판단</span></h3>
+  <p data-en>A tier that lifts one month’s revenue but raises churn is a loss. The structure we kept improved both.</p><p data-ko lang="ko">한 달 매출은 올리지만 해지를 늘리는 티어는 손해입니다. 최종 구조는 둘 다 개선했습니다.</p>
+</li></ul>
 </section>
 <section class="cs-section" id="results" aria-labelledby="results-h">
+<div class="cs-body-col">
   <h2 id="results-h"><span data-en>Results</span><span data-ko lang="ko">결과</span></h2>
-  <div class="cs-metric-table" role="table"><div class="cs-metric-row" role="row">
-  <div class="cs-metric-v" role="cell">+31%</div>
-  <div class="cs-metric-l" role="cell"><span data-en>Paid conversion</span><span data-ko lang="ko">유료 전환율</span></div>
-</div><div class="cs-metric-row" role="row">
-  <div class="cs-metric-v" role="cell">+27%</div>
-  <div class="cs-metric-l" role="cell"><span data-en>Average subscription revenue, top-20% streamers</span><span data-ko lang="ko">상위 20% 스트리머 평균 구독 매출</span></div>
-</div><div class="cs-metric-row" role="row">
-  <div class="cs-metric-v" role="cell">+15%</div>
-  <div class="cs-metric-l" role="cell"><span data-en>Subscriber retention</span><span data-ko lang="ko">구독 유지율</span></div>
-</div><div class="cs-metric-row" role="row">
-  <div class="cs-metric-v" role="cell">50%+</div>
-  <div class="cs-metric-l" role="cell"><span data-en>Share of new subscribers choosing a customized product</span><span data-ko lang="ko">맞춤형 상품을 선택한 신규 구독자 비율</span></div>
-</div></div>
-  <p data-en>The direction held after the project. In 2025 SOOP reorganized subscriptions into a Basic tier and a Plus tier in which streamers choose among several price levels and set the benefits themselves.<sup class="fnref"><a href="#fn-4" id="fnref-4">4</a></sup></p><p data-ko lang="ko">이 방향은 프로젝트 이후에도 이어졌습니다. 2025년 SOOP은 구독을 베이직과 플러스로 재편했고, 플러스에서는 스트리머가 여러 가격 단계 중 하나를 고르고 혜택을 직접 정합니다.<sup class="fnref"><a href="#fn-4" id="fnref-4-2">4</a></sup></p>
+  </div>
+<figure class="cs-sketch" data-scene="p03-results" data-alt-en="Results sketch: before/after bars for paid conversion (+31%), subscription revenue of the top 20% of streamers (+27%) and retention (+15%), and a pie showing that more than half of new subscribers chose a customised product." data-alt-ko="결과 스케치: 유료 전환율(+31%), 상위 20% 스트리머 구독 매출(+27%), 구독 유지율(+15%)의 전후 막대와, 신규 구독자 절반 이상이 맞춤형 상품을 골랐음을 보여주는 원그래프." style="--ar: 800 / 330; --ar-n: 400 / 600">
+  <canvas role="img" aria-label="Results sketch: before/after bars for paid conversion (+31%), subscription revenue of the top 20% of streamers (+27%) and retention (+15%), and a pie showing that more than half of new subscribers chose a customised product."></canvas>
+  
+</figure>
+
 </section>
 <section class="cs-section" id="learned" aria-labelledby="learned-h">
+<div class="cs-body-col">
   <h2 id="learned-h"><span data-en>What I learned</span><span data-ko lang="ko">배운 점</span></h2>
-  <blockquote class="cs-pull"><p data-en>Pricing is a product surface. The tier someone chooses says what they want to be to a creator.</p><p data-ko lang="ko">가격도 제품의 일부입니다. 어떤 티어를 고르느냐는 그 사람이 크리에이터에게 어떤 존재가 되고 싶은지를 말해 줍니다.</p></blockquote>
-  <ul class="cs-list"><li><span data-en><strong>Give creators the controls.</strong> Platform-wide defaults are a starting point; the lift came from customization.</span><span data-ko lang="ko"><strong>조정 권한은 크리에이터에게.</strong> 플랫폼 기본값은 출발점일 뿐이고, 성과는 맞춤화에서 나왔습니다.</span></li><li><span data-en><strong>Small paywall changes compound.</strong> No single release moved conversion 31%; the cycle of measured changes did.</span><span data-ko lang="ko"><strong>작은 결제 개선이 쌓입니다.</strong> 어느 한 릴리스가 전환율을 31% 올린 게 아니라, 측정하며 바꾸는 주기가 만든 결과였습니다.</span></li></ul>
+  <blockquote class="cs-pull"><p data-en>Pricing is part of the product. The tier someone picks says what they want to be to a creator.</p><p data-ko lang="ko">가격도 제품의 일부입니다. 어떤 티어를 고르는지가 그 사람이 크리에이터에게 어떤 존재이고 싶은지를 말해 줍니다.</p></blockquote>
+  <ul class="cs-list"><li><span data-en><strong>Give creators the controls.</strong> Platform defaults were the starting point; the lift came from customisation.</span><span data-ko lang="ko"><strong>조정 권한은 크리에이터에게.</strong> 플랫폼 기본값은 출발점이었고, 성과는 맞춤화에서 나왔습니다.</span></li><li><span data-en><strong>Small paywall changes add up.</strong> No single release moved conversion 31%. The cycle of measured changes did.</span><span data-ko lang="ko"><strong>작은 결제 개선이 쌓입니다.</strong> 전환율 31%는 릴리스 하나가 아니라 측정하며 바꾸는 반복이 만든 결과였습니다.</span></li></ul>
+</div>
 </section>
-<section class="cs-section" id="timeline" aria-labelledby="timeline-h">
-  <h2 id="timeline-h"><span data-en>Platform context</span><span data-ko lang="ko">플랫폼 맥락</span></h2>
-  <ol class="cs-timeline"><li><time>2017.07</time><div><span data-en>Subscriptions launch at 3,300 won a month.</span><span data-ko lang="ko">월 3,300원 구독 출시.</span><sup class="fnref"><a href="#fn-1" id="fnref-1-5">1</a></sup></div></li><li><time>2020–22</time><div><span data-en>Gift subscriptions, expanded emote slots and animated emotes for subscribers.</span><span data-ko lang="ko">구독 선물권, 이모티콘 슬롯 확대, 구독자용 움직이는 이모티콘.</span><sup class="fnref"><a href="#fn-2" id="fnref-2-3">2</a></sup></div></li><li><time>2024.11</time><div><span data-en>First price change since launch; a second, higher tier is added.</span><span data-ko lang="ko">출시 이후 첫 가격 변경, 상위 티어 추가.</span><sup class="fnref"><a href="#fn-3" id="fnref-3-3">3</a></sup></div></li><li><time>2025.05</time><div><span data-en>Basic and Plus; streamers set Plus pricing levels and benefits.</span><span data-ko lang="ko">베이직·플러스 재편, 플러스 가격 단계와 혜택은 스트리머가 설정.</span><sup class="fnref"><a href="#fn-4" id="fnref-4-3">4</a></sup></div></li></ol>
-  <aside class="cs-note"><p data-en>Milestones are public platform changes, listed for context. They are not a claim that each one was my project.</p><p data-ko lang="ko">마일스톤은 맥락을 위한 공개 플랫폼 변경 사항이며, 각각이 모두 제 프로젝트였다는 뜻은 아닙니다.</p></aside>
-</section>
+  <div class="cs-body-col">
 <section class="cs-sources" aria-labelledby="sources-h">
-  <h2 id="sources-h"><span data-en>Sources &amp; public context</span><span data-ko lang="ko">출처와 공개 맥락</span></h2>
-  <p class="cs-sources-lede" data-en>Numbered notes point to public announcements and press coverage that describe the platform context. Project metrics are internal measurements from my time at SOOP.</p><p class="cs-sources-lede" data-ko lang="ko">번호 각주는 플랫폼 맥락을 보여주는 공개 공지와 보도 자료입니다. 프로젝트 지표는 SOOP 재직 당시의 내부 측정치입니다.</p>
-  <ol><li id="fn-1">AfreecaTV notice, “구독 서비스 및 시그니처 풍선 오픈 안내” <span class="cs-src-date">(Jun 2017)</span>. <a href="https://afwbbs1.sooplive.com/app/index.php?board=notice&amp;b_no=5182&amp;control=view" target="_blank" rel="noopener"><span data-en>Link</span><span data-ko lang="ko">링크</span></a> <a class="cs-back" href="#fnref-1" aria-label="Back to text">↩</a></li><li id="fn-2">AfreecaTV notice, “구독 이모티콘 업데이트 안내” <span class="cs-src-date">(Dec 2022)</span>. <a href="https://afwbbs1.sooplive.com/app/index.php?board=notice&amp;b_no=8331&amp;control=view" target="_blank" rel="noopener"><span data-en>Link</span><span data-ko lang="ko">링크</span></a> <a class="cs-back" href="#fnref-2" aria-label="Back to text">↩</a></li><li id="fn-3">Daum News, “SOOP raises subscription price and adds a second tier” <span class="cs-src-date">(Oct 21, 2024)</span>. <a href="https://v.daum.net/v/20241021150304882" target="_blank" rel="noopener"><span data-en>Link</span><span data-ko lang="ko">링크</span></a> <a class="cs-back" href="#fnref-3" aria-label="Back to text">↩</a></li><li id="fn-4">Newsis, “SOOP reorganizes subscriptions into Basic and Plus” <span class="cs-src-date">(May 26, 2025)</span>. <a href="https://www.newsis.com/view/NISX20250526_0003190052" target="_blank" rel="noopener"><span data-en>Link</span><span data-ko lang="ko">링크</span></a> <a class="cs-back" href="#fnref-4" aria-label="Back to text">↩</a></li></ol>
+  <h2 id="sources-h"><span data-en>Sources</span><span data-ko lang="ko">출처</span></h2>
+  <p class="cs-sources-lede" data-en>Numbered notes point to public announcements and press coverage. Project metrics are internal measurements from my time at SOOP.</p><p class="cs-sources-lede" data-ko lang="ko">번호 각주는 공개 공지와 보도 자료입니다. 프로젝트 지표는 SOOP 재직 당시의 내부 측정치입니다.</p>
+  <ol><li id="fn-1">Byline Network (바이라인네트워크), “‘스트리머 잔치판’ 아프리카TV 업데이트만 몇 건? 환골탈태 변화” <span class="cs-src-date">(Mar 13, 2024)</span>. <a href="https://byline.network/2024/03/13-343/" target="_blank" rel="noopener"><span data-en>Link</span><span data-ko lang="ko">링크</span></a> <a class="cs-back" href="#fnref-1" aria-label="Back to text">↩</a></li><li id="fn-2">Daum News, “리브랜딩 단행한 SOOP, 구독료 인상…치지직과 경쟁 강화” <span class="cs-src-date">(Oct 21, 2024)</span>. <a href="https://v.daum.net/v/20241021150304882" target="_blank" rel="noopener"><span data-en>Link</span><span data-ko lang="ko">링크</span></a> <a class="cs-back" href="#fnref-2" aria-label="Back to text">↩</a></li><li id="fn-3">Newsis (뉴시스), “SOOP, 반년만에 구독 서비스 재개편…구독료 최대 2배 인상” <span class="cs-src-date">(May 26, 2025)</span>. <a href="https://www.newsis.com/view/NISX20250526_0003190052" target="_blank" rel="noopener"><span data-en>Link</span><span data-ko lang="ko">링크</span></a> <a class="cs-back" href="#fnref-3" aria-label="Back to text">↩</a></li></ol>
 </section>
   </div>
 </article>

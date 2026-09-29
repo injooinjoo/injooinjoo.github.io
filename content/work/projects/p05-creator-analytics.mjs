@@ -6,8 +6,8 @@ export default {
   company: 'SOOP',
   title: { en: 'Creator Analytics Dashboard', ko: '크리에이터 분석 대시보드' },
   dek: {
-    en: 'Self-serve analytics for creators who never asked for a dashboard — designed around their questions, and adopted without a mandate.',
-    ko: '대시보드를 원한 적 없는 크리에이터를 위한 셀프 서브 분석. 그들의 질문을 중심으로 설계했고, 강제 없이 도입됐습니다.',
+    en: 'Creators had statistics but few answers. We built a self-serve dashboard around the three questions they actually ask, and left adoption up to them.',
+    ko: '크리에이터에게 통계는 있었지만 답은 부족했습니다. 그들이 실제로 묻는 세 가지 질문을 중심으로 셀프 서브 대시보드를 만들고, 쓸지 말지는 각자에게 맡겼습니다.',
   },
   card: {
     en: 'Self‑serve analytics helping creators understand performance and growth opportunities. Designed UX for non‑technical users and voluntary adoption — no mandates.',
@@ -27,172 +27,133 @@ export default {
       ko: '크리에이터 리서치, 정보 구조, 지표 정의, 베타와 확산',
     },
   },
-  hero: 'dashboard',
-  heroCaption: {
-    en: 'The dashboard’s structure, reconstructed. Three creator questions, each answered by one view — rather than every metric the platform could compute.',
-    ko: '대시보드 구조 재구성도. 플랫폼이 계산할 수 있는 모든 지표 대신, 크리에이터의 세 가지 질문에 하나씩 답하는 화면으로 구성했습니다.',
+  hero: {
+    scene: 'p05-hero',
+    alt: {
+      en: 'Sketch: a wall of thirty tiny charts on the left, an arrow, and three question cards on the right: “Are my viewers changing?”, “Are my subscribers staying?”, “Where do people find me?”',
+      ko: '스케치: 왼쪽에 작은 차트 30개가 빼곡한 벽, 화살표, 오른쪽에 질문 카드 세 장. “시청자가 변하고 있나?”, “구독자가 남고 있나?”, “사람들이 나를 어디서 찾나?”',
+    },
+    caption: {
+      en: 'The dashboard started by throwing charts away.',
+      ko: '대시보드는 차트를 버리는 데서 시작했습니다.',
+    },
   },
-  tldr: [
-    {
-      en: 'Creators had statistics, but not answers. Most are not analysts, and a page of charts didn’t tell them what to do next.',
-      ko: '크리에이터에게 통계는 있었지만 답은 없었습니다. 대부분 분석가가 아니었고, 차트가 가득한 페이지는 다음에 무엇을 해야 할지 알려주지 않았습니다.',
+  glance: {
+    problem: {
+      en: 'Most creators aren’t analysts. A page of charts showed what had happened but not what to change, and partner managers could coach only a few streamers by hand.',
+      ko: '크리에이터 대부분은 분석가가 아닙니다. 차트 가득한 페이지는 무슨 일이 있었는지만 보여줬고, 파트너 매니저가 직접 코칭할 수 있는 스트리머는 몇 명뿐이었습니다.',
     },
-    {
-      en: 'We designed a self-serve dashboard around three questions creators actually asked — how viewers are changing, how subscribers are trending, where traffic comes from — and made adoption voluntary.',
-      ko: '크리에이터가 실제로 묻는 세 가지 질문, 즉 시청자 변화·구독자 추이·유입 경로를 중심으로 셀프 서브 대시보드를 설계하고, 도입은 자발에 맡겼습니다.',
+    did: {
+      en: 'Research narrowed the dashboard to three questions, each answered by one view. We tested it with strategic streamers and kept adoption voluntary.',
+      ko: '리서치로 대시보드를 세 가지 질문으로 좁히고, 질문마다 화면 하나로 답했습니다. 전략 스트리머와 베타를 진행했고, 도입은 자율에 맡겼습니다.',
     },
-    {
-      en: 'More than **65%** adopted it voluntarily across **5,000+** creators, and strategic streamers using it grew their channels **18%** on average.',
-      ko: '**5,000명 이상**의 크리에이터 중 **65% 이상**이 자발적으로 도입했고, 이를 활용한 전략 스트리머의 채널은 평균 **18%** 성장했습니다.',
+    result: {
+      en: 'More than **65%** of eligible creators adopted it on their own, across **5,000+** creators. Strategic streamers using it grew their channels **18%** on average.',
+      ko: '**5,000명 이상**의 크리에이터가 이용했고, 대상자의 **65% 이상**이 스스로 도입했습니다. 이를 쓴 전략 스트리머의 채널은 평균 **18%** 성장했습니다.',
     },
-  ],
-  sections: [
+  },
+  chapters: [
     {
-      id: 'context',
-      heading: { en: 'Context', ko: '배경' },
+      id: 'no-answers',
+      heading: { en: 'Statistics without answers', ko: '답이 없는 통계' },
       blocks: [
         {
           type: 'p',
-          en: 'AfreecaTV had offered broadcast statistics since 2018, when it introduced graphs for viewers, chat, gifts and recommendations alongside automatically detected highlight moments.[^1] A 2019 update extended statistics to viewers and redesigned the page on PC.[^2]',
-          ko: '아프리카TV는 2018년부터 방송 통계를 제공했습니다. 시청자·채팅·후원·추천 그래프와 함께 하이라이트 구간을 자동으로 표시하는 기능이었습니다.[^1] 2019년에는 시청자용 통계가 추가되고 PC 통계 화면이 개편됐습니다.[^2]',
+          en: 'AfreecaTV already gave streamers broadcast statistics: viewers, chat, gifts. The data existed.',
+          ko: '아프리카TV는 이미 스트리머에게 시청자, 채팅, 후원 같은 방송 통계를 제공하고 있었습니다. 데이터는 있었습니다.',
         },
         {
           type: 'p',
-          en: 'The data existed. What was missing was a view that a busy creator — someone who streams for hours and edits on the side — could read in a minute and act on.',
-          ko: '데이터는 있었습니다. 빠진 것은 몇 시간씩 방송하고 틈틈이 편집까지 하는 바쁜 크리에이터가 1분 안에 읽고 행동으로 옮길 수 있는 화면이었습니다.',
+          en: 'What was missing was a view a busy creator could read in a minute. Partner managers could coach a handful of streamers by hand; thousands needed something self-serve.',
+          ko: '없던 것은 바쁜 크리에이터가 1분 안에 읽을 수 있는 화면이었습니다. 파트너 매니저가 직접 코칭할 수 있는 스트리머는 몇 명뿐이었고, 수천 명에게는 스스로 쓰는 도구가 필요했습니다.',
         },
       ],
     },
     {
-      id: 'problem',
-      heading: { en: 'The problem', ko: '문제 정의' },
+      id: 'views',
+      heading: { en: 'Three questions, three views', ko: '질문 셋, 화면 셋' },
       blocks: [
         {
-          type: 'list',
-          items: [
-            { en: '**Data without direction.** Charts showed what happened, not what to change.', ko: '**방향 없는 데이터.** 차트는 무슨 일이 있었는지만 보여줬고, 무엇을 바꿔야 하는지는 알려주지 않았습니다.' },
-            { en: '**Built for analysts.** The people who most needed insight were least likely to dig through tables.', ko: '**분석가를 위한 설계.** 인사이트가 가장 필요한 사람일수록 표를 파고들 가능성이 낮았습니다.' },
-            { en: '**Growth advice didn’t scale.** Partner managers could coach a few streamers by hand; thousands needed a self-serve version.', ko: '**성장 조언이 확장되지 않았습니다.** 파트너 매니저가 소수의 스트리머는 직접 코칭할 수 있었지만, 수천 명에게는 셀프 서브가 필요했습니다.' },
-          ],
-        },
-      ],
-    },
-    {
-      id: 'approach',
-      heading: { en: 'Approach', ko: '접근 방식' },
-      blocks: [
-        {
-          type: 'steps',
-          items: [
-            {
-              title: { en: 'Start from creator questions', ko: '크리에이터의 질문에서 출발' },
-              body: {
-                en: 'User research with creators narrowed the dashboard to three recurring questions: are viewers changing, are subscribers staying, and where are people finding me.',
-                ko: '크리에이터 리서치로 대시보드를 세 가지 반복 질문으로 좁혔습니다. 시청자가 변하고 있나, 구독자가 남고 있나, 사람들이 나를 어디서 찾고 있나.',
-              },
-            },
-            {
-              title: { en: 'Design for non-technical users', ko: '비전문가를 위한 설계' },
-              body: {
-                en: 'Fewer metrics, consistent definitions, plain labels — each view answers one question instead of exposing every number the platform can compute.',
-                ko: '지표는 줄이고, 정의는 일관되게, 라벨은 쉽게 했습니다. 플랫폼이 계산할 수 있는 모든 숫자를 늘어놓는 대신 화면 하나가 질문 하나에 답합니다.',
-              },
-            },
-            {
-              title: { en: 'Beta with strategic streamers', ko: '전략 스트리머와 베타' },
-              body: {
-                en: 'A beta with strategic streamers tested whether the views changed behavior, not just whether people opened them.',
-                ko: '전략 스트리머와 베타를 진행하며, 화면을 열어보는지만이 아니라 실제 행동이 바뀌는지를 검증했습니다.',
-              },
-            },
-            {
-              title: { en: 'Earn adoption', ko: '도입은 얻어내는 것' },
-              body: {
-                en: 'The rollout was voluntary. If creators didn’t come back on their own, the product wasn’t done.',
-                ko: '확산은 자발에 맡겼습니다. 크리에이터가 스스로 다시 오지 않는다면 제품이 아직 완성되지 않은 것이라고 봤습니다.',
-              },
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: 'decisions',
-      heading: { en: 'Key decisions', ko: '핵심 의사결정' },
-      blocks: [
-        {
-          type: 'decision',
-          title: { en: 'No mandate', ko: '도입을 강제하지 않기' },
-          options: {
-            en: 'Require partner streamers to use the dashboard, or let usage be voluntary and treat it as the success metric.',
-            ko: '파트너 스트리머에게 사용을 의무화할지, 자발적 사용에 맡기고 그 자체를 성공 지표로 볼지.',
-          },
-          choice: { en: 'Voluntary, with adoption as the headline metric.', ko: '자발적 사용, 도입률을 대표 지표로.' },
-          why: {
-            en: 'Mandated usage measures compliance. Voluntary usage measures whether the dashboard is actually useful — which was the thing we needed to know.',
-            ko: '의무 사용은 규정 준수를 측정할 뿐입니다. 자발적 사용이야말로 대시보드가 실제로 쓸모 있는지를 보여주고, 그게 우리가 알아야 할 것이었습니다.',
-          },
-          tradeoff: {
-            en: 'Slower initial rollout, and no hiding behind activity numbers.',
-            ko: '초기 확산은 느려지고, 활동량 숫자 뒤에 숨을 수 없습니다.',
-          },
+          type: 'p',
+          en: 'Interviews with creators kept coming back to the same three questions. Each view answers one of them, with fewer metrics, consistent definitions and plain labels.',
+          ko: '크리에이터 인터뷰는 계속 같은 세 질문으로 돌아왔습니다. 화면마다 그중 하나에 답하고, 지표는 줄이고, 정의는 일관되게, 라벨은 쉽게 썼습니다.',
         },
         {
-          type: 'decision',
-          title: { en: 'Three questions, not thirty metrics', ko: '지표 30개가 아닌 질문 3개' },
-          options: {
-            en: 'Expose everything the data warehouse had, or curate a small set of views tied to decisions creators make.',
-            ko: '데이터 웨어하우스에 있는 모든 것을 보여줄지, 크리에이터의 의사결정과 연결된 소수의 화면으로 추릴지.',
-          },
-          choice: { en: 'Curate: viewer change, subscriber trend, traffic sources.', ko: '추리기: 시청자 변화, 구독자 추이, 유입 경로.' },
-          why: {
-            en: 'Each view maps to an action a creator can take — schedule, content, titles and tags. Everything else was noise for this audience.',
-            ko: '각 화면이 크리에이터가 할 수 있는 행동, 즉 방송 시간·콘텐츠·제목과 태그로 이어집니다. 그 외의 것은 이 사용자에게는 소음이었습니다.',
+          type: 'sketch',
+          scene: 'p05-views',
+          alt: {
+            en: 'Three dashboard wireframes. “Are my viewers changing?” shows this week’s line against last week’s. “Are my subscribers staying?” shows new subscribers above a line and cancellations below it. “Where do people find me?” shows bars for home, search, tags and outside links.',
+            ko: '대시보드 와이어프레임 세 개. “시청자가 변하고 있나?”는 이번 주와 지난주 선 그래프, “구독자가 남고 있나?”는 기준선 위 신규 구독과 아래 해지 막대, “사람들이 나를 어디서 찾나?”는 홈, 검색, 태그, 외부 유입 막대.',
           },
         },
       ],
     },
     {
-      id: 'results',
-      heading: { en: 'Results', ko: '결과' },
+      id: 'actions',
+      heading: { en: 'From a number to a next step', ko: '숫자에서 다음 행동으로' },
       blocks: [
         {
-          type: 'metrics',
-          rows: [
-            { value: '65%+', label: { en: 'Voluntary adoption among eligible creators', ko: '대상 크리에이터의 자발적 도입률' } },
-            { value: '5k+', label: { en: 'Creators served', ko: '이용 크리에이터' } },
-            { value: '+18%', label: { en: 'Average channel growth for strategic streamers', ko: '전략 스트리머 평균 채널 성장' } },
-          ],
+          type: 'p',
+          en: 'Each view points at something a creator can change: when to stream, what to make next, how to title and tag it.',
+          ko: '화면마다 크리에이터가 바꿀 수 있는 것을 가리킵니다. 언제 방송할지, 다음에 무엇을 만들지, 제목과 태그를 어떻게 달지.',
+        },
+        {
+          type: 'sketch',
+          scene: 'p05-actions',
+          alt: {
+            en: 'Sketch mapping each question to an action: viewers changing leads to moving the stream time (a clock), subscribers staying leads to planning the next content (a document), where people find me leads to fixing titles and tags (a tag).',
+            ko: '질문과 행동을 잇는 스케치: 시청자 변화는 방송 시간 조정(시계)으로, 구독자 유지는 다음 콘텐츠 기획(문서)으로, 유입 경로는 제목·태그 다듬기(태그)로 이어진다.',
+          },
         },
         {
           type: 'p',
-          en: 'The idea of giving creators fast feedback on what their audience wants is now part of how SOOP describes its creator ecosystem strategy.[^3]',
-          ko: '시청자가 원하는 것을 크리에이터에게 빠르게 알려준다는 방향은 이제 SOOP이 크리에이터 생태계 전략을 설명하는 방식의 일부가 됐습니다.[^3]',
-        },
-      ],
-    },
-    {
-      id: 'learned',
-      heading: { en: 'What I learned', ko: '배운 점' },
-      blocks: [
-        {
-          type: 'quote',
-          en: 'Voluntary adoption is the most honest metric a B2B-style tool can have.',
-          ko: '자발적 도입률은 업무용 도구가 가질 수 있는 가장 정직한 지표입니다.',
-        },
-        {
-          type: 'list',
-          items: [
-            { en: '**Subtract before you add.** The dashboard improved each time we removed a chart nobody acted on.', ko: '**더하기 전에 빼세요.** 아무도 행동하지 않는 차트를 뺄 때마다 대시보드는 나아졌습니다.' },
-            { en: '**Analytics is a growth program.** The dashboard scaled the advice partner managers used to give one creator at a time.', ko: '**분석 도구는 성장 프로그램입니다.** 파트너 매니저가 한 명씩 하던 조언을 대시보드가 수천 명에게 확장했습니다.' },
-          ],
+          en: 'The beta with strategic streamers tested whether the views changed what creators did, not just whether they opened them.',
+          ko: '전략 스트리머와의 베타에서는 화면을 열어보는지가 아니라, 그걸 보고 실제로 무언가를 바꾸는지를 확인했습니다.',
         },
       ],
     },
   ],
-  sources: [
-    { publisher: 'Bloter', title: 'AfreecaTV launches broadcast statistics (방송 별별통계)', date: 'Aug 27, 2018', url: 'https://www.bloter.net/news/articleView.html?idxno=27798' },
-    { publisher: 'AfreecaTV notice', title: '시청 통계 추가 및 통계 페이지 개편', date: 'May 30, 2019', url: 'https://afwbbs1.sooplive.com/app/index.php?board=notice&b_no=6283&control=view' },
-    { publisher: 'Nate News', title: 'SOOP’s self-sustaining creator ecosystem strategy', date: 'Jul 31, 2026', url: 'https://m.news.nate.com/view/20260731n27219' },
+  decisions: [
+    {
+      title: { en: 'No mandate', ko: '강제하지 않기' },
+      why: {
+        en: 'Required use measures compliance. Voluntary use shows whether the dashboard is actually useful, which is what we needed to know. The cost was a slower start.',
+        ko: '의무 사용은 규정 준수를 잴 뿐입니다. 자발적 사용이 대시보드가 정말 쓸모 있는지를 보여주고, 그게 우리가 알아야 할 것이었습니다. 대신 초기 확산은 느렸습니다.',
+      },
+    },
+    {
+      title: { en: 'Three questions, not thirty metrics', ko: '지표 30개 대신 질문 3개' },
+      why: {
+        en: 'Every chart we kept had to lead to something a creator could do. For this audience the rest was noise.',
+        ko: '남긴 차트는 모두 크리에이터가 할 수 있는 행동으로 이어져야 했습니다. 이 사용자에게 나머지는 소음이었습니다.',
+      },
+    },
   ],
+  results: {
+    blocks: [
+      {
+        type: 'sketch',
+        scene: 'p05-adoption',
+        alt: {
+          en: 'A grid of 100 dots with 65 filled in green, next to “65%+ adopted it on their own, no mandate”, “5,000+ creators served” and “+18% channel growth, strategic streamers”.',
+          ko: '점 100개 중 65개가 초록색으로 채워진 격자와 “65%+ 강제 없이 스스로 도입”, “이용 크리에이터 5,000명+”, “전략 스트리머 채널 성장 +18%”.',
+        },
+      },
+    ],
+  },
+  learned: {
+    quote: {
+      en: 'Voluntary adoption is the most honest metric a creator tool can have.',
+      ko: '자발적 도입률은 크리에이터 도구가 가질 수 있는 가장 정직한 지표입니다.',
+    },
+    items: [
+      { en: '**Subtract before you add.** The dashboard got better each time we removed a chart nobody acted on.', ko: '**더하기 전에 뺍니다.** 아무도 행동하지 않는 차트를 뺄 때마다 대시보드는 나아졌습니다.' },
+      { en: '**Analytics can be a growth program.** The dashboard scaled advice partner managers used to give one creator at a time.', ko: '**분석 도구도 성장 프로그램이 될 수 있습니다.** 파트너 매니저가 한 명씩 하던 조언을 대시보드가 수천 명에게 넓혔습니다.' },
+    ],
+  },
+  sourcesNote: {
+    en: 'I found no public announcement from the period of this project that describes the dashboard, so this page cites none. Metrics are internal measurements from my time at SOOP.',
+    ko: '이 프로젝트 기간에 대시보드를 다룬 공개 공지나 기사를 찾지 못해 외부 출처는 싣지 않았습니다. 지표는 SOOP 재직 당시의 내부 측정치입니다.',
+  },
+  sources: [],
 };
