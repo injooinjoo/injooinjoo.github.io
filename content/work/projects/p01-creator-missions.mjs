@@ -6,8 +6,8 @@ export default {
   company: 'SOOP',
   title: { en: 'Creator Monetization Mission System', ko: '크리에이터 수익화 미션 시스템' },
   dek: {
-    en: 'Viewers were already pooling gifts toward on-stream challenges and counting them by hand. We turned that habit into missions with a visible goal and a result nobody can change afterwards.',
-    ko: '시청자들은 이미 방송 속 도전에 후원을 모으고, 그 숫자를 손으로 세고 있었습니다. 이 습관을 목표가 보이고 결과는 나중에 바꿀 수 없는 미션으로 만들었습니다.',
+    en: 'Streamers were already turning gifts into on-stream challenges and keeping count by hand. We turned that habit into missions with a visible goal and a result nobody can change afterwards.',
+    ko: '스트리머들은 이미 후원을 방송 속 도전으로 바꾸고, 그 숫자를 손으로 세고 있었습니다. 이 습관을 목표가 보이고 결과는 나중에 바꿀 수 없는 미션으로 만들었습니다.',
   },
   card: {
     en: 'Gamified mission platform giving content creators measurable milestones toward monetization. A/B tested the reward loop across cohorts and iterated to an industry‑beating participation rate.',

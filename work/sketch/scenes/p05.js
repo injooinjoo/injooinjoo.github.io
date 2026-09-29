@@ -62,7 +62,7 @@ const QUESTIONS = (L) => [
 
 export default {
   'p05-hero': {
-    size: [800, 400],
+    size: [800, 380],
     narrow: [400, 620],
     draw(p, e) {
       const { t, L } = e;
@@ -131,7 +131,7 @@ export default {
           p.text(acts[i], 520, y + 7, { size: 22, col: 'red', weight: 700, reveal: r });
         }
       });
-      if (!N) p.text(L('question → view → something to change', '질문 → 화면 → 바꿀 수 있는 것'), 400, 350, { align: 'center', size: 18, col: 'soft', reveal: R(t, 0.85, 0.95) });
+      if (!N) p.text(L('each question points to something a creator can change', '질문마다 크리에이터가 바꿀 수 있는 것으로'), 400, 350, { align: 'center', size: 18, col: 'soft', reveal: R(t, 0.85, 0.95) });
     },
   },
 

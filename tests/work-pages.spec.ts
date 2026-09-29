@@ -54,6 +54,31 @@ for (const p of all) {
       }
     });
 
+    test('sketches draw on their canvas and carry alt text in both languages', async ({ page }) => {
+      await page.emulateMedia({ reducedMotion: 'reduce' });
+      await page.goto(`/work/${p.slug}/`);
+      const figures = page.locator('figure.cs-sketch');
+      const count = await figures.count();
+      expect(count).toBeGreaterThanOrEqual(4);
+      await expect(page.locator('figure.cs-sketch[data-drawn]')).toHaveCount(count, { timeout: 15_000 });
+      for (let i = 0; i < count; i++) {
+        const fig = figures.nth(i);
+        const canvas = fig.locator('canvas');
+        await expect(canvas).toHaveAttribute('role', 'img');
+        expect((await canvas.getAttribute('aria-label'))?.length ?? 0).toBeGreaterThan(20);
+        const inked = await canvas.evaluate((c: HTMLCanvasElement) => {
+          const data = c.getContext('2d')!.getImageData(0, 0, c.width, c.height).data;
+          let n = 0;
+          for (let j = 3; j < data.length; j += 16) if (data[j] > 40) n++;
+          return n / (data.length / 16);
+        });
+        expect(inked).toBeGreaterThan(0.01);
+      }
+      await page.locator('#lang-btn').click();
+      const first = figures.first();
+      await expect(first.locator('canvas')).toHaveAttribute('aria-label', (await first.getAttribute('data-alt-ko')) as string);
+    });
+
     for (const viewport of [
       { name: 'desktop', width: 1440, height: 900 },
       { name: 'mobile', width: 375, height: 812 },

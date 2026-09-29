@@ -4,8 +4,8 @@ export default {
   company: 'Sidekick',
   title: { en: 'Sidekick — AI Employees on Your Phone', ko: '사이드킥 — 폰 속의 AI 직원' },
   dek: {
-    en: 'A mobile app that lets non-developers hire a team of AI employees and delegate real work — built solo in three months with AI coding agents, and the release discipline that made that safe.',
-    ko: '비개발자가 폰에서 AI 직원 팀을 채용하고 실제 일을 맡기는 앱. AI 코딩 에이전트와 함께 3개월 동안 혼자 만들었고, 그걸 안전하게 만든 릴리스 규율까지.',
+    en: 'A phone app for hiring AI employees and handing them real work, with your approval before anything goes out. I built it alone with AI coding agents; the hard part was keeping them from bringing old code back.',
+    ko: 'AI 직원을 채용하고 실제 일을 맡기되, 밖으로 나가는 건 모두 내가 승인하는 폰 앱. AI 코딩 에이전트와 혼자 만들었고, 가장 어려웠던 건 에이전트들이 옛 코드를 되살리지 않게 하는 일이었습니다.',
   },
   card: {
     en: 'Mobile app for hiring AI employees and delegating real work, with approval before anything goes out. Built solo with AI coding agents: per-user isolated agent runtimes and a governed release line.',
@@ -26,95 +26,85 @@ export default {
       ko: '제품 정의, 모바일 앱, 백엔드와 에이전트 런타임, 보안 격리, 릴리스 프로세스',
     },
     link: { label: 'sidekickagent.app', url: 'https://sidekickagent.app/' },
+    // The page lists the app-side stack only; infrastructure is not named on the page.
+    stack: ['Expo / React Native', 'Python', 'Claude Code'],
   },
-  hero: 'sidekickArch',
-  heroCaption: {
-    en: 'Sidekick’s shape. The phone app talks to a thin control plane; each user gets an isolated agent runtime where every AI employee has its own profile, memory and tools. Results come back as cards that the user approves.',
-    ko: '사이드킥의 구조. 모바일 앱은 얇은 컨트롤 플레인과 통신하고, 사용자마다 격리된 에이전트 런타임이 있으며, AI 직원마다 자기 프로필·메모리·도구를 가집니다. 결과는 사용자가 승인하는 카드로 돌아옵니다.',
+  hero: {
+    scene: 'p08-hero',
+    alt: {
+      en: 'Sketch of a phone showing “My team”: three AI employees (blog writer, working; shop helper, done; researcher, needs your OK). A blog draft and a result card with an Approve button come out of the phone.',
+      ko: '“나의 팀” 화면이 떠 있는 폰 스케치: AI 직원 세 명(블로그 담당 작업 중, 쇼핑몰 담당 완료, 리서치 담당 승인 대기). 폰 밖으로 블로그 초안과 승인 버튼이 있는 결과 카드가 나와 있다.',
+    },
+    caption: {
+      en: 'A small team on the phone. Work comes back as cards you approve.',
+      ko: '폰 속의 작은 팀. 일은 내가 승인하는 카드로 돌아옵니다.',
+    },
   },
   sourcesNote: {
-    en: 'Build figures come from the project repository as of September 29, 2026. Sidekick is in closed beta, so there are no public usage numbers yet.',
-    ko: '개발 규모 수치는 2026년 9월 29일 기준 프로젝트 저장소에서 집계했습니다. 사이드킥은 비공개 베타 단계라 아직 공개할 사용 지표는 없습니다.',
+    en: 'Build figures come from the project’s own history as of late September 2026. Sidekick is in closed beta, so there are no public usage numbers yet.',
+    ko: '개발 규모 수치는 2026년 9월 말 기준 프로젝트 이력에서 집계했습니다. 사이드킥은 비공개 베타 단계라 아직 공개할 사용 지표가 없습니다.',
   },
-  tldr: [
-    {
-      en: 'AI agents can already do real work, but using them means servers, API keys and a terminal. Sidekick puts a team of AI employees on a phone for people who will never open a terminal.',
-      ko: 'AI 에이전트는 이미 실제 일을 할 수 있지만, 쓰려면 서버·API 키·터미널이 필요합니다. 사이드킥은 터미널을 열 일이 없는 사람들의 폰에 AI 직원 팀을 넣습니다.',
+  glance: {
+    problem: {
+      en: 'AI agents can already do real work, but using one means servers, API keys and a terminal. Most people who could use the help will never open a terminal.',
+      ko: 'AI 에이전트는 이미 실제 일을 할 수 있지만, 쓰려면 서버, API 키, 터미널이 필요합니다. 도움이 필요한 사람 대부분은 터미널을 열 일이 없습니다.',
     },
-    {
-      en: 'The product rule is simple: you delegate, they work, and **nothing goes out without your approval**. Under it sits a per-user isolated agent runtime in the Seoul region.',
-      ko: '제품 원칙은 단순합니다. 맡기면 일하고, **승인 없이는 아무것도 밖으로 나가지 않습니다.** 그 아래에는 서울 리전의 사용자별 격리 에이전트 런타임이 있습니다.',
+    didLabel: { en: 'What I built', ko: '만든 것' },
+    did: {
+      en: 'A phone app where you hire AI employees, hand them a task and approve the result before anything is posted, sent or spent. Each user gets an isolated agent runtime.',
+      ko: 'AI 직원을 채용하고 일을 맡긴 뒤, 무언가 게시·전송·결제되기 전에 결과를 승인하는 폰 앱. 사용자마다 격리된 에이전트 런타임을 둡니다.',
     },
-    {
-      en: 'I built it alone with AI coding agents — **1,900+ commits and 1,600+ merged PRs in three months** — and the hardest problem turned out to be keeping parallel agents from bringing old code back.',
-      ko: 'AI 코딩 에이전트와 함께 혼자 만들었습니다. **3개월간 커밋 1,900개 이상, 머지된 PR 1,600개 이상.** 가장 어려운 문제는 병렬로 일하는 에이전트가 옛 코드를 되살리지 않게 하는 것이었습니다.',
+    resultLabel: { en: 'Where it is', ko: '현재 상태' },
+    result: {
+      en: 'Closed beta on TestFlight. **1,900+ commits** and **1,600+ merged PRs** in three months, with **5,600+** backend tests.',
+      ko: 'TestFlight 비공개 베타. 3개월간 **커밋 1,900개 이상**, **머지된 PR 1,600개 이상**, 백엔드 테스트 **5,600개 이상**.',
     },
-  ],
-  sections: [
+  },
+  chapters: [
     {
-      id: 'context',
+      id: 'why',
       heading: { en: 'Why build it', ko: '왜 만들었나' },
       blocks: [
         {
           type: 'p',
-          en: 'After a decade of building creator products, I kept meeting the same person: someone who wants to run a YouTube channel, a blog or a small online shop on the side, but can’t be on it every day. Agents could do much of that work. Setting one up was the barrier.',
-          ko: '10년 넘게 크리에이터 제품을 만들며 같은 사람을 계속 만났습니다. 유튜브 채널이나 블로그, 작은 온라인 가게를 부업으로 운영하고 싶지만 매일 붙어 있을 수는 없는 사람입니다. 그 일의 상당 부분은 에이전트가 할 수 있었습니다. 문제는 설정이었습니다.',
+          en: 'After years of building creator products, I kept meeting the same person: someone who wants to run a channel, a blog or a small online shop on the side but can’t be on it every day. Agents could do much of that work. Setting one up was the barrier.',
+          ko: '크리에이터 제품을 오래 만들며 같은 사람을 계속 만났습니다. 채널이나 블로그, 작은 온라인 가게를 부업으로 운영하고 싶지만 매일 붙어 있을 수는 없는 사람입니다. 그 일의 상당 부분은 에이전트가 할 수 있었습니다. 문제는 설정이었습니다.',
         },
         {
           type: 'p',
-          en: 'So the product definition became: a Korean non-developer can hire an AI employee on their phone — no servers, keys or terminal — and see a first real result within ten minutes. Retention means coming back for a second real run with the same employee within a week.',
-          ko: '그래서 제품 정의는 이렇게 정했습니다. 한국의 비개발자가 서버·키·터미널 없이 폰에서 AI 직원을 채용하고, 10분 안에 첫 실제 결과를 본다. 리텐션은 일주일 안에 같은 직원에게 두 번째 실제 작업을 맡기는 것이다.',
+          en: 'So the product definition was: a Korean non-developer hires an AI employee on their phone, with no servers, keys or terminal, and sees a first real result within ten minutes. Retention means a second real task for the same employee within a week.',
+          ko: '그래서 제품 정의를 이렇게 정했습니다. 한국의 비개발자가 서버, 키, 터미널 없이 폰에서 AI 직원을 채용하고, 10분 안에 첫 실제 결과를 본다. 리텐션은 일주일 안에 같은 직원에게 두 번째 실제 일을 맡기는 것이다.',
         },
       ],
     },
     {
-      id: 'product',
-      heading: { en: 'Product decisions', ko: '제품 의사결정' },
+      id: 'approve',
+      heading: { en: 'Delegate, work, approve', ko: '맡기고, 일하고, 승인하고' },
       blocks: [
         {
-          type: 'decision',
-          title: { en: 'Approval before anything goes out', ko: '밖으로 나가기 전에는 반드시 승인' },
-          options: {
-            en: 'Let AI employees publish and send on their own, or require the user to approve every external action.',
-            ko: 'AI 직원이 스스로 게시·전송하게 할지, 모든 외부 행동에 사용자 승인을 받을지.',
-          },
-          choice: { en: 'Results arrive as cards; external actions wait for approval.', ko: '결과는 카드로 도착하고, 외부 행동은 승인을 기다립니다.' },
-          why: {
-            en: 'Trust is the product. People will delegate more once they know nothing is posted, sent or spent behind their back.',
-            ko: '신뢰가 곧 제품입니다. 몰래 게시되거나 전송되거나 결제되는 일이 없다는 걸 알면 사람들은 더 많이 맡깁니다.',
-          },
-          tradeoff: { en: 'Less “fully automatic” than some competitors promise — on purpose.', ko: '일부 경쟁 제품이 약속하는 “완전 자동”보다 덜 자동입니다. 의도적으로요.' },
+          type: 'p',
+          en: 'Results come back as cards. Anything that leaves the app, such as a post, a message or a payment, waits for the user’s approval.',
+          ko: '결과는 카드로 돌아옵니다. 게시글, 메시지, 결제처럼 앱 밖으로 나가는 것은 모두 사용자 승인을 기다립니다.',
         },
         {
-          type: 'decision',
-          title: { en: 'Wrap the agent runtime, don’t fork it', ko: '에이전트 런타임은 포크하지 않고 감싸기' },
-          options: {
-            en: 'Build a custom agent framework, fork an existing one, or run an existing agent runtime as-is and build the product around it.',
-            ko: '에이전트 프레임워크를 직접 만들지, 기존 것을 포크할지, 기존 런타임을 그대로 쓰고 그 주위에 제품을 만들지.',
-          },
-          choice: {
-            en: 'Run Hermes Agent as-is. It owns memory, skills, tool connectors and schedules; Sidekick owns identity, billing, UI and provisioning.',
-            ko: 'Hermes Agent를 그대로 사용합니다. 메모리·스킬·도구 연결·예약 작업은 Hermes가, 인증·결제·UI·프로비저닝은 사이드킥이 맡습니다.',
-          },
-          why: {
-            en: 'A solo builder can’t out-build an agent framework. The value is in the experience around it — hiring, delegating, approving on a phone.',
-            ko: '혼자서 에이전트 프레임워크보다 잘 만들 수는 없습니다. 가치는 그 주변의 경험, 즉 폰에서 채용하고 맡기고 승인하는 데 있습니다.',
+          type: 'sketch',
+          scene: 'p08-flow',
+          alt: {
+            en: 'Three steps. Delegate: a phone with the request “Write this week’s blog post”. Work: an AI employee with a gear and a document, labelled memory, tools, skills. Approve: a card reading “Blog draft ready” with Approve and Edit buttons, a lock, and the note “nothing goes out without you”.',
+            ko: '세 단계. 맡기기: “이번 주 블로그 글 써 줘”라는 요청이 뜬 폰. 일하기: 톱니와 문서를 든 AI 직원, 메모리·도구·스킬. 승인하기: “블로그 초안 완료” 카드에 승인·수정 버튼과 자물쇠, “승인 없이는 아무것도 나가지 않음”이라는 메모.',
           },
         },
         {
-          type: 'decision',
-          title: { en: 'One isolated runtime per user, in Seoul', ko: '사용자마다 격리된 런타임, 서울 리전' },
-          options: {
-            en: 'A shared multi-tenant agent service, or a dedicated runtime for every user.',
-            ko: '여러 사용자가 공유하는 에이전트 서비스, 또는 사용자마다 전용 런타임.',
-          },
-          choice: {
-            en: 'A dedicated runtime per user, scaled to zero when idle, with isolation enforced by the operating system rather than by path conventions.',
-            ko: '사용자별 전용 런타임을 두고 쉴 때는 0으로 줄이며, 격리는 경로 규칙이 아니라 운영체제 수준에서 강제합니다.',
-          },
-          why: {
-            en: 'Agents run code and hold personal memory. An early test showed that path discipline alone could be escaped, so isolation had to fail closed. Seoul hosting is a product requirement for Korean users, not just a cost line.',
-            ko: '에이전트는 코드를 실행하고 개인 메모리를 가집니다. 초기 테스트에서 경로 규칙만으로는 격리를 뚫을 수 있다는 게 드러났고, 그래서 격리는 실패 시 닫히도록 설계했습니다. 서울 호스팅은 비용 항목이 아니라 한국 사용자를 위한 제품 요구사항입니다.',
+          type: 'p',
+          en: 'Each user has an isolated agent runtime in which every AI employee keeps its own profile, memory and tools. Isolation is enforced below the application, so a mistake fails closed instead of reaching someone else’s data.',
+          ko: '사용자마다 격리된 에이전트 런타임이 있고, 그 안에서 AI 직원마다 자기 프로필, 메모리, 도구를 가집니다. 격리는 애플리케이션 아래 계층에서 강제되므로, 실수가 생겨도 다른 사람의 데이터로 새지 않고 닫힌 채로 실패합니다.',
+        },
+        {
+          type: 'sketch',
+          scene: 'p08-arch',
+          alt: {
+            en: 'Architecture sketch: the phone app talks to a thin control plane (sign-in, billing, provisioning), which starts the user’s own isolated runtime, drawn as a locked dashed box stacked in front of others. Inside, two AI employees each have a profile, memory and tools.',
+            ko: '구조 스케치: 폰 앱이 얇은 컨트롤 플레인(인증·결제·프로비저닝)과 통신하고, 컨트롤 플레인은 사용자 전용 격리 런타임을 띄운다. 런타임은 자물쇠가 달린 점선 상자로, 다른 사용자의 상자들 앞에 겹쳐 있다. 안에는 AI 직원 두 명이 각자 프로필, 메모리, 도구를 가진다.',
           },
         },
       ],
@@ -125,65 +115,107 @@ export default {
       blocks: [
         {
           type: 'p',
-          en: 'Sidekick is an Expo / React Native app with a Python backend, Supabase for auth and data, and per-user agent runtimes on Kubernetes. I wrote it with AI coding agents — mostly Claude Code — running in parallel: about half of the 1,900+ commits are co-authored with Claude models, and the backend carries more than 5,600 tests.',
-          ko: '사이드킥은 Expo / React Native 앱에 Python 백엔드, 인증·데이터용 Supabase, Kubernetes 위의 사용자별 에이전트 런타임으로 구성됩니다. 주로 Claude Code를 비롯한 AI 코딩 에이전트를 병렬로 돌리며 만들었습니다. 1,900개가 넘는 커밋의 약 절반이 Claude 모델과의 공동 작성이고, 백엔드 테스트는 5,600개가 넘습니다.',
+          en: 'I built Sidekick with AI coding agents running in parallel, mostly Claude Code. About half of the 1,900+ commits are co-authored with Claude models.',
+          ko: '사이드킥은 주로 Claude Code를 비롯한 AI 코딩 에이전트를 병렬로 돌리며 만들었습니다. 1,900개가 넘는 커밋의 약 절반이 Claude 모델과의 공동 작성입니다.',
         },
         {
           type: 'p',
-          en: 'Speed created a new kind of bug. UI I had deliberately removed kept reappearing. The cause wasn’t the models “remembering” old code: parallel agents were starting from different base commits, merges asked for a broad union of old and new, and the tests themselves still protected the old behavior. Green tests proved nothing about whether the product was current.',
-          ko: '속도는 새로운 종류의 버그를 만들었습니다. 일부러 지운 UI가 계속 다시 나타났습니다. 원인은 모델이 옛 코드를 “기억”해서가 아니었습니다. 병렬 에이전트가 서로 다른 기준 커밋에서 출발했고, 병합 지시가 옛것과 새것의 넓은 합집합을 요구했으며, 테스트 자체가 옛 동작을 지키고 있었습니다. 테스트 통과는 제품이 최신이라는 증거가 아니었습니다.',
+          en: 'Speed brought a new kind of bug. UI I had removed kept coming back. The models weren’t remembering old code: parallel agents started from different base commits, merge instructions asked for a union of old and new, and the tests still protected the old behaviour. Green tests said nothing about whether the product was current.',
+          ko: '속도는 새로운 종류의 버그를 불렀습니다. 지운 UI가 계속 돌아왔습니다. 모델이 옛 코드를 기억해서가 아니었습니다. 병렬 에이전트가 서로 다른 기준 커밋에서 출발했고, 병합 지시가 옛것과 새것의 합집합을 요구했고, 테스트가 옛 동작을 지키고 있었습니다. 테스트 통과는 제품이 최신이라는 증거가 아니었습니다.',
         },
-        { type: 'figure', figure: 'releaseLine', caption: { en: 'The release line that fixed it.', ko: '문제를 해결한 릴리스 라인.' } },
+        {
+          type: 'sketch',
+          scene: 'p08-parallel',
+          alt: {
+            en: 'Git sketch: on main, a red commit marks “old button removed”. Three agents branch from commits before the removal and merge back later. A dashed “old button” reappears on main, labelled “it’s back”, next to a green check: tests pass.',
+            ko: 'Git 스케치: main의 빨간 커밋에 “옛 버튼 삭제”라고 적혀 있다. 에이전트 셋이 삭제 이전 커밋에서 갈라져 나중에 다시 합쳐지고, main에 점선으로 그린 “옛 버튼”이 “다시 나타남”이라는 메모와 함께 돌아온다. 옆에는 초록 체크와 “테스트 통과”.',
+          },
+        },
+        {
+          type: 'p',
+          en: 'The fix was a release line with four rules.',
+          ko: '해결책은 네 가지 규칙으로 된 릴리스 라인이었습니다.',
+        },
         {
           type: 'list',
           items: [
             { en: '**One pinned base.** Every agent works in an isolated worktree created from the same commit.', ko: '**하나의 고정된 기준.** 모든 에이전트는 같은 커밋에서 만든 격리 worktree에서 일합니다.' },
-            { en: '**Negative invariants.** What was removed gets a test that proves it stays removed.', ko: '**부재 조건.** 지운 것에는 계속 지워져 있음을 증명하는 테스트를 붙입니다.' },
-            { en: '**History is evidence, not a base.** Old branches are read for reference; only minimal changes are replayed forward.', ko: '**과거는 근거일 뿐 기준이 아닙니다.** 옛 브랜치는 참고용으로만 읽고, 최소한의 변경만 앞으로 옮깁니다.' },
-            { en: '**Workers never deploy.** Only one attested commit on main can be released, under a single lock.', ko: '**작업 에이전트는 배포하지 않습니다.** main의 증명된 커밋 하나만, 단일 잠금 아래에서 배포됩니다.' },
+            { en: '**Tests for what’s gone.** Anything removed gets a test that proves it stays removed.', ko: '**없앤 것에 대한 테스트.** 지운 것에는 계속 지워져 있음을 증명하는 테스트를 붙입니다.' },
+            { en: '**History is evidence, not a base.** Old branches are read for reference; only minimal changes are carried forward.', ko: '**과거는 근거일 뿐 기준이 아닙니다.** 옛 브랜치는 참고용으로만 읽고, 최소한의 변경만 앞으로 옮깁니다.' },
+            { en: '**Workers never deploy.** Only one verified commit on main is released, one release at a time.', ko: '**작업 에이전트는 배포하지 않습니다.** main의 검증된 커밋 하나만, 한 번에 하나씩 배포합니다.' },
           ],
         },
-      ],
-    },
-    {
-      id: 'status',
-      heading: { en: 'Where it is now', ko: '현재 상태' },
-      blocks: [
         {
-          type: 'p',
-          en: 'Sidekick is in closed beta through TestFlight, and I use it myself. The first cohort is designed to test the two numbers that matter — a first real result within ten minutes, and a second real run within seven days — before a wider App Store launch once the planned features are complete.',
-          ko: '사이드킥은 TestFlight를 통한 비공개 베타 단계이며, 저도 직접 쓰고 있습니다. 첫 사용자 그룹은 중요한 두 숫자, 즉 10분 안의 첫 실제 결과와 7일 안의 두 번째 실제 작업을 검증하도록 설계했고, 계획한 기능이 완성되면 App Store에 정식 출시할 예정입니다.',
-        },
-        {
-          type: 'metrics',
-          rows: [
-            { value: '1,900+', label: { en: 'Commits, June–September 2026', ko: '커밋, 2026년 6~9월' } },
-            { value: '1,600+', label: { en: 'Merged pull requests', ko: '머지된 PR' } },
-            { value: '5,600+', label: { en: 'Backend tests', ko: '백엔드 테스트' } },
-            { value: '~50%', label: { en: 'Commits co-authored with Claude models', ko: 'Claude 모델과 공동 작성한 커밋' } },
-          ],
-        },
-      ],
-    },
-    {
-      id: 'learned',
-      heading: { en: 'What I learned', ko: '배운 점' },
-      blocks: [
-        {
-          type: 'quote',
-          en: 'With AI agents, writing code stops being the bottleneck. Knowing which code is current becomes the job.',
-          ko: 'AI 에이전트와 일하면 코드 작성은 더 이상 병목이 아닙니다. 어떤 코드가 최신인지 아는 것이 일이 됩니다.',
-        },
-        {
-          type: 'list',
-          items: [
-            { en: '**Separate the kinds of evidence.** Passing tests, a working install, production behavior and store review are four different claims.', ko: '**증거의 종류를 구분하세요.** 테스트 통과, 설치된 앱의 동작, 운영 환경의 동작, 스토어 심사는 서로 다른 네 가지 주장입니다.' },
-            { en: '**PM instincts transfer.** Defining activation and retention before writing code kept a fast-moving solo project pointed at users.', ko: '**PM 감각은 그대로 통합니다.** 코드를 쓰기 전에 활성화와 리텐션을 정의해 둔 덕분에, 빠르게 움직이는 1인 프로젝트가 사용자를 향해 있을 수 있었습니다.' },
-          ],
+          type: 'sketch',
+          scene: 'p08-release',
+          alt: {
+            en: 'Release-line sketch with four numbered rules: a pinned base commit on main; three agents in dashed worktrees branching from that same commit, each with a test that a removed item stays removed; an old branch read through a magnifier; and a locked gate before a single release.',
+            ko: '번호가 붙은 네 가지 규칙의 릴리스 라인 스케치: main의 고정된 기준 커밋, 같은 커밋에서 갈라진 점선 worktree 안의 에이전트 셋과 각자의 “지운 것 유지” 테스트, 돋보기로 읽기만 하는 옛 브랜치, 배포 하나 앞에 놓인 잠긴 관문.',
+          },
         },
       ],
     },
   ],
+  decisions: [
+    {
+      title: { en: 'Approval before anything goes out', ko: '밖으로 나가기 전에는 반드시 승인' },
+      why: {
+        en: 'Trust is the product. People delegate more once they know nothing is posted, sent or spent behind their back. It is less automatic than some tools promise, on purpose.',
+        ko: '신뢰가 곧 제품입니다. 몰래 게시·전송·결제되는 일이 없다는 걸 알면 사람들은 더 많이 맡깁니다. 일부 도구가 약속하는 것보다 덜 자동이지만, 의도한 것입니다.',
+      },
+    },
+    {
+      title: { en: 'Wrap an agent runtime, don’t build one', ko: '에이전트 런타임은 만들지 않고 감싸기' },
+      why: {
+        en: 'A solo builder can’t out-build an agent framework. The value is in the experience around it: hiring, delegating and approving on a phone.',
+        ko: '혼자서 에이전트 프레임워크보다 잘 만들 수는 없습니다. 가치는 그 주변의 경험, 즉 폰에서 채용하고 맡기고 승인하는 데 있습니다.',
+      },
+    },
+    {
+      title: { en: 'One isolated runtime per user', ko: '사용자마다 격리된 런타임' },
+      why: {
+        en: 'Agents run code and keep personal memory. Isolation had to fail closed, even though a shared service would have been simpler to run.',
+        ko: '에이전트는 코드를 실행하고 개인 메모리를 가집니다. 공유 서비스가 운영은 더 쉬웠겠지만, 격리는 실패해도 닫혀 있어야 했습니다.',
+      },
+    },
+  ],
+  results: {
+    heading: { en: 'Where it is now', ko: '현재 상태' },
+    blocks: [
+      {
+        type: 'p',
+        en: 'Sidekick is in closed beta on TestFlight, and I use it myself. The first cohort tests the two numbers that matter: a first real result within ten minutes, and a second real task within seven days.',
+        ko: '사이드킥은 TestFlight 비공개 베타 단계이고, 저도 직접 씁니다. 첫 사용자 그룹으로 중요한 두 숫자를 검증합니다. 10분 안의 첫 실제 결과, 7일 안의 두 번째 실제 작업입니다.',
+      },
+      {
+        type: 'sketch',
+        scene: 'p08-scale',
+        alt: {
+          en: 'Four tiles: 1,900+ commits in three months (a line of commit dots), 1,600+ merged pull requests (a merge), 5,600+ backend tests (rows of check marks), about 50% of commits co-authored with Claude (a half-filled circle).',
+          ko: '타일 네 개: 3개월간 커밋 1,900개 이상(커밋 점이 이어진 선), 머지된 PR 1,600개 이상(병합), 백엔드 테스트 5,600개 이상(체크 표시 줄), Claude 공동 작성 커밋 약 50%(반쯤 칠한 원).',
+        },
+      },
+      {
+        type: 'metrics',
+        rows: [
+          { value: '1,900+', label: { en: 'Commits in three months', ko: '3개월간 커밋' } },
+          { value: '1,600+', label: { en: 'Merged pull requests', ko: '머지된 PR' } },
+          { value: '5,600+', label: { en: 'Backend tests', ko: '백엔드 테스트' } },
+          { value: '~50%', label: { en: 'Commits co-authored with Claude models', ko: 'Claude 모델과 공동 작성한 커밋' } },
+        ],
+      },
+    ],
+  },
+  learned: {
+    quote: {
+      en: 'With AI agents, writing code stops being the bottleneck. Knowing which code is current becomes the job.',
+      ko: 'AI 에이전트와 일하면 코드 작성은 더 이상 병목이 아닙니다. 어떤 코드가 최신인지 아는 것이 일이 됩니다.',
+    },
+    items: [
+      { en: '**Keep the kinds of evidence apart.** Passing tests, a working install, production behaviour and store review are four different claims.', ko: '**증거의 종류를 나눕니다.** 테스트 통과, 설치된 앱의 동작, 운영 환경의 동작, 스토어 심사는 서로 다른 네 가지 주장입니다.' },
+      { en: '**PM habits carry over.** Defining activation and retention before writing code kept a fast solo project pointed at users.', ko: '**PM 습관은 그대로 통합니다.** 코드를 쓰기 전에 활성화와 리텐션을 정해 둔 덕분에, 빠르게 움직이는 1인 프로젝트가 사용자를 향해 있을 수 있었습니다.' },
+    ],
+  },
   sources: [
     { publisher: 'Sidekick', title: 'sidekickagent.app', date: '2026', url: 'https://sidekickagent.app/' },
   ],

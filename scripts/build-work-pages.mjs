@@ -126,7 +126,7 @@ const glance = (p) => {
   const g = p.glance;
   const items = [
     [{ en: 'Problem', ko: '문제' }, g.problem],
-    [{ en: 'What we did', ko: '한 일' }, g.did],
+    [g.didLabel ?? { en: 'What we did', ko: '한 일' }, g.did],
     [g.resultLabel ?? { en: 'Result', ko: '결과' }, g.result],
   ];
   return `<section class="cs-glance" aria-labelledby="glance-h">
@@ -152,7 +152,7 @@ const metaRows = (p, rt) => {
     [{ en: 'Company', ko: '회사' }, p.meta.company],
     [{ en: 'Role', ko: '역할' }, p.meta.role],
     [{ en: 'Scope', ko: '범위' }, p.meta.scope],
-    [{ en: 'Stack', ko: '스택' }, p.stack.join(' · ')],
+    [{ en: 'Stack', ko: '스택' }, (p.meta.stack ?? p.stack).join(' · ')],
     [{ en: 'Reading time', ko: '읽는 시간' }, rt],
   ].filter(([, v]) => v);
   const link = p.meta.link

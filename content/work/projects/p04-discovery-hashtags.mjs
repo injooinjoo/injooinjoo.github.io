@@ -94,8 +94,8 @@ export default {
         },
         {
           type: 'p',
-          en: 'Candidates came from several pools rather than one popularity list, so the most relevant match could be a mid-tier streamer. The personalised home service MY+ launched in the first half of 2023.[^3]',
-          ko: '후보는 인기 목록 하나가 아니라 여러 풀에서 나왔고, 그래서 가장 관련 있는 방송이 미드티어일 수 있었습니다. 개인화 홈 서비스 MY+는 2023년 상반기에 출시됐습니다.[^3]',
+          en: 'Candidates came from several pools rather than one popularity list, so the most relevant match could be a mid-tier streamer. The personalised recommendation service MY+ launched in the first half of 2023.[^3]',
+          ko: '후보는 인기 목록 하나가 아니라 여러 풀에서 나왔고, 그래서 가장 관련 있는 방송이 미드티어일 수 있었습니다. 이용자 기반으로 콘텐츠를 추천하는 개인화 서비스 MY+는 2023년 상반기에 출시됐습니다.[^3]',
         },
         {
           type: 'sketch',
@@ -170,8 +170,8 @@ export default {
       },
       {
         type: 'p',
-        en: 'By April 2025, SOOP’s AI assistant SOOPi was recommending live streams, VOD and posts to viewers.[^5]',
-        ko: '2025년 4월에는 SOOP의 AI 비서 SOOPi가 시청자에게 라이브, VOD, 게시글을 추천하고 있었습니다.[^5]',
+        en: 'By April 2025, SOOP’s AI assistant SOOPi was recommending live streams, VOD and notices to viewers.[^5]',
+        ko: '2025년 4월에는 SOOP의 AI 비서 SOOPi가 시청자에게 라이브, VOD, 공지를 추천하고 있었습니다.[^5]',
       },
     ],
   },
