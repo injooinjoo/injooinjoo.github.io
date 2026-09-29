@@ -17,7 +17,7 @@ export default {
     { value: '5,600+', label: { en: 'Backend tests', ko: '백엔드 테스트' }, card: false },
     { value: '~50%', label: { en: 'Commits co-authored with Claude', ko: 'Claude 공동 작성 커밋' }, card: false },
   ],
-  stack: ['Expo / React Native', 'Python', 'Supabase', 'Kubernetes', 'Claude Code'],
+  stack: ['Expo / React Native', 'Python', 'Claude Code'],
   meta: {
     company: { en: 'Sidekick (independent product)', ko: 'Sidekick (개인 프로젝트)' },
     role: { en: 'Founder — product, design and engineering', ko: '창업자 — 기획·디자인·개발' },
@@ -26,8 +26,6 @@ export default {
       ko: '제품 정의, 모바일 앱, 백엔드와 에이전트 런타임, 보안 격리, 릴리스 프로세스',
     },
     link: { label: 'sidekickagent.app', url: 'https://sidekickagent.app/' },
-    // The page lists the app-side stack only; infrastructure is not named on the page.
-    stack: ['Expo / React Native', 'Python', 'Claude Code'],
   },
   hero: {
     scene: 'p08-hero',

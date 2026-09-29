@@ -152,7 +152,7 @@ const metaRows = (p, rt) => {
     [{ en: 'Company', ko: '회사' }, p.meta.company],
     [{ en: 'Role', ko: '역할' }, p.meta.role],
     [{ en: 'Scope', ko: '범위' }, p.meta.scope],
-    [{ en: 'Stack', ko: '스택' }, (p.meta.stack ?? p.stack).join(' · ')],
+    [{ en: 'Stack', ko: '스택' }, p.stack.join(' · ')],
     [{ en: 'Reading time', ko: '읽는 시간' }, rt],
   ].filter(([, v]) => v);
   const link = p.meta.link
