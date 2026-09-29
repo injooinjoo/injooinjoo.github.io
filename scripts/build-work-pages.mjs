@@ -136,7 +136,10 @@ const metaRows = (p, rt) => {
     [{ en: 'Stack', ko: '스택' }, p.stack.join(' · ')],
     [{ en: 'Reading time', ko: '읽는 시간' }, rt],
   ].filter(([, v]) => v);
-  return `<dl class="cs-meta">${rows.map(([k, v]) => `<div><dt>${bi(k)}</dt><dd>${bi(v)}</dd></div>`).join('')}</dl>`;
+  const link = p.meta.link
+    ? `<div><dt>${bi({ en: 'Website', ko: '웹사이트' })}</dt><dd><a href="${esc(p.meta.link.url)}" target="_blank" rel="noopener">${esc(p.meta.link.label)} ↗</a></dd></div>`
+    : '';
+  return `<dl class="cs-meta">${rows.map(([k, v]) => `<div><dt>${bi(k)}</dt><dd>${bi(v)}</dd></div>`).join('')}${link}</dl>`;
 };
 
 const sourcesList = (p) =>
@@ -144,7 +147,7 @@ const sourcesList = (p) =>
     ? `<section class="cs-sources" aria-labelledby="sources-h">
   <h2 id="sources-h">${bi({ en: 'Sources & public context', ko: '출처와 공개 맥락' })}</h2>
   ${bi(
-    {
+    p.sourcesNote ?? {
       en: 'Numbered notes point to public announcements and press coverage that describe the platform context. Project metrics are internal measurements from my time at SOOP.',
       ko: '번호 각주는 플랫폼 맥락을 보여주는 공개 공지와 보도 자료입니다. 프로젝트 지표는 SOOP 재직 당시의 내부 측정치입니다.',
     },

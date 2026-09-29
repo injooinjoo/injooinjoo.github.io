@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sidekick — AI Employees on Your Phone — InJoo Kim</title>
+<meta name="description" content="A mobile app that lets non-developers hire a team of AI employees and delegate real work — built solo in three months with AI coding agents, and the release discipline that made that safe." />
+<link rel="canonical" href="https://www.injookim.com/work/sidekick/" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Sidekick — AI Employees on Your Phone — P-08 case study" />
+<meta property="og:description" content="A mobile app that lets non-developers hire a team of AI employees and delegate real work — built solo in three months with AI coding agents, and the release discipline that made that safe." />
+<meta property="og:url" content="https://www.injookim.com/work/sidekick/" />
+<meta name="twitter:card" content="summary" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+<script>
+(function(){var d=document.documentElement;try{var l=localStorage.getItem('portfolio-lang');if(l==='ko'||l==='en'){d.setAttribute('data-lang',l);d.lang=l;}var t=localStorage.getItem('portfolio-theme');if(t==='dark'||t==='light')d.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Sidekick — AI Employees on Your Phone","description":"A mobile app that lets non-developers hire a team of AI employees and delegate real work — built solo in three months with AI coding agents, and the release discipline that made that safe.","author":{"@type":"Person","name":"InJoo Kim","url":"https://www.injookim.com"},"url":"https://www.injookim.com/work/sidekick/","inLanguage":["en","ko"]}</script>
+
+  <script type="module" crossorigin src="/assets/modulepreload-polyfill-3cfb730f.js"></script>
+  <script type="module" crossorigin src="/assets/case-study-11023237.js"></script>
+  <link rel="stylesheet" href="/assets/case-study-cbc345a7.css">
+</head>
+<body class="cs-body">
+<a class="skip-link" href="#main"><span data-en>Skip to content</span><span data-ko lang="ko">본문으로 건너뛰기</span></a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="/" class="brand"><span class="brand-mark">IK</span><span>InJoo Kim</span></a>
+    <div class="top-actions">
+      <a class="cs-back-link" href="/#work">← <span data-en>Selected work</span><span data-ko lang="ko">프로젝트</span></a>
+      <button class="icon-btn" id="lang-btn" type="button" aria-label="Switch language">KO</button>
+      <button class="icon-btn" id="theme-btn" type="button" aria-label="Toggle dark mode">◐</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<article class="cs">
+  <header class="cs-head">
+    <div class="cs-head-main">
+      <p class="cs-eyebrow"><span><span data-en>Case study</span><span data-ko lang="ko">케이스 스터디</span></span><span class="cs-dot">·</span><span>P-08</span><span class="cs-dot">·</span><span>Sidekick</span></p>
+      <h1><span data-en>Sidekick — AI Employees on Your Phone</span><span data-ko lang="ko">사이드킥 — 폰 속의 AI 직원</span></h1>
+      <p class="cs-dek" data-en>A mobile app that lets non-developers hire a team of AI employees and delegate real work — built solo in three months with AI coding agents, and the release discipline that made that safe.</p><p class="cs-dek" data-ko lang="ko">비개발자가 폰에서 AI 직원 팀을 채용하고 실제 일을 맡기는 앱. AI 코딩 에이전트와 함께 3개월 동안 혼자 만들었고, 그걸 안전하게 만든 릴리스 규율까지.</p>
+    </div>
+    <dl class="cs-meta"><div><dt><span data-en>Company</span><span data-ko lang="ko">회사</span></dt><dd><span data-en>Sidekick (independent product)</span><span data-ko lang="ko">Sidekick (개인 프로젝트)</span></dd></div><div><dt><span data-en>Role</span><span data-ko lang="ko">역할</span></dt><dd><span data-en>Founder — product, design and engineering</span><span data-ko lang="ko">창업자 — 기획·디자인·개발</span></dd></div><div><dt><span data-en>Scope</span><span data-ko lang="ko">범위</span></dt><dd><span data-en>Product definition, mobile app, backend and agent runtime, security isolation, release process</span><span data-ko lang="ko">제품 정의, 모바일 앱, 백엔드와 에이전트 런타임, 보안 격리, 릴리스 프로세스</span></dd></div><div><dt><span data-en>Stack</span><span data-ko lang="ko">스택</span></dt><dd><span>Expo / React Native · Python · Supabase · Kubernetes · Claude Code</span></dd></div><div><dt><span data-en>Reading time</span><span data-ko lang="ko">읽는 시간</span></dt><dd><span data-en>3 min read</span><span data-ko lang="ko">4분 분량</span></dd></div><div><dt><span data-en>Website</span><span data-ko lang="ko">웹사이트</span></dt><dd><a href="https://sidekickagent.app/" target="_blank" rel="noopener">sidekickagent.app ↗</a></dd></div></dl>
+  </header>
+  <div class="cs-kpis"><div class="cs-kpi"><div class="cs-kpi-v">1,900+</div><div class="cs-kpi-l"><span data-en>Commits in 3 months</span><span data-ko lang="ko">3개월간 커밋</span></div></div><div class="cs-kpi"><div class="cs-kpi-v">1,600+</div><div class="cs-kpi-l"><span data-en>Merged pull requests</span><span data-ko lang="ko">머지된 PR</span></div></div><div class="cs-kpi"><div class="cs-kpi-v">5,600+</div><div class="cs-kpi-l"><span data-en>Backend tests</span><span data-ko lang="ko">백엔드 테스트</span></div></div><div class="cs-kpi"><div class="cs-kpi-v">~50%</div><div class="cs-kpi-l"><span data-en>Commits co-authored with Claude</span><span data-ko lang="ko">Claude 공동 작성 커밋</span></div></div></div>
+  <figure class="cs-figure cs-wide"><div class="cs-figure-art" tabindex="0"><svg viewBox="0 0 840 272" role="img" aria-label="Sidekick architecture: phone app, control plane, and an isolated per-user agent runtime whose results return as approval cards" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-arrow"/></marker></defs><rect x="0" y="40" width="170" height="150" rx="10" class="f-box-strong" stroke-width="1.2"/>
+<text x="16" y="66" font-size="15" font-weight="600" text-anchor="start" data-en>Phone app</text><text x="16" y="66" font-size="15" font-weight="600" text-anchor="start" data-ko>모바일 앱</text>
+<text x="16" y="90" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-en>hire AI employees</text><text x="16" y="90" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-ko>AI 직원 채용</text>
+<text x="16" y="110" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-en>delegate by text or voice</text><text x="16" y="110" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-ko>글·음성으로 맡기기</text>
+<text x="16" y="130" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-en>approve result cards</text><text x="16" y="130" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-ko>결과 카드 승인</text>
+<path d="M174,115 L226,115" class="f-line" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="230" y="40" width="190" height="150" rx="10" class="f-box" stroke-width="1.2"/>
+<text x="246" y="66" font-size="15" font-weight="600" text-anchor="start" data-en>Control plane</text><text x="246" y="66" font-size="15" font-weight="600" text-anchor="start" data-ko>컨트롤 플레인</text>
+<text x="246" y="90" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-en>identity &amp; billing</text><text x="246" y="90" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-ko>인증·결제</text>
+<text x="246" y="110" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-en>provisioning</text><text x="246" y="110" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-ko>프로비저닝</text>
+<text x="246" y="130" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-en>approval gate</text><text x="246" y="130" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-ko>승인 게이트</text>
+<path d="M424,115 L476,115" class="f-line" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="480" y="20" width="350" height="190" rx="10" class="f-accent" stroke-width="1.2"/>
+<text x="498" y="48" font-size="15" font-weight="600" text-anchor="start" class="f-on-accent" data-en>Your own agent runtime</text><text x="498" y="48" font-size="15" font-weight="600" text-anchor="start" class="f-on-accent" data-ko>사용자 전용 에이전트 런타임</text>
+<text x="498" y="68" font-size="12" font-weight="400" text-anchor="start" class="f-on-accent" data-en>isolated per user · Seoul region</text><text x="498" y="68" font-size="12" font-weight="400" text-anchor="start" class="f-on-accent" data-ko>사용자별 격리 · 서울 리전</text>
+<rect x="498" y="88" width="98" height="40" rx="8" class="f-box"/><text x="547" y="113" font-size="12" font-weight="400" text-anchor="middle" data-en>Researcher</text><text x="547" y="113" font-size="12" font-weight="400" text-anchor="middle" data-ko>리서처</text><rect x="606" y="88" width="98" height="40" rx="8" class="f-box"/><text x="655" y="113" font-size="12" font-weight="400" text-anchor="middle" data-en>Writer</text><text x="655" y="113" font-size="12" font-weight="400" text-anchor="middle" data-ko>작가</text><rect x="714" y="88" width="98" height="40" rx="8" class="f-box"/><text x="763" y="113" font-size="12" font-weight="400" text-anchor="middle" data-en>Analyst</text><text x="763" y="113" font-size="12" font-weight="400" text-anchor="middle" data-ko>분석가</text>
+<text x="498" y="156" font-size="12" font-weight="400" text-anchor="start" class="f-on-accent" data-en>memory · skills · tool connectors · schedules</text><text x="498" y="156" font-size="12" font-weight="400" text-anchor="start" class="f-on-accent" data-ko>메모리 · 스킬 · 도구 연결 · 예약 작업</text>
+<text x="498" y="178" font-size="12" font-weight="400" text-anchor="start" class="f-on-accent" data-en>one profile per AI employee</text><text x="498" y="178" font-size="12" font-weight="400" text-anchor="start" class="f-on-accent" data-ko>AI 직원 1명 = 프로필 1개</text>
+<path d="M650,214 C650,250 85,250 85,194" class="f-line-accent" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#ah)"/>
+<text x="368" y="262" font-size="12.5" font-weight="400" text-anchor="middle" class="f-muted" data-en>results come back as cards — nothing goes out without your approval</text><text x="368" y="262" font-size="12.5" font-weight="400" text-anchor="middle" class="f-muted" data-ko>결과는 카드로 돌아오고, 승인 없이는 밖으로 나가지 않습니다</text></svg></div><figcaption><span data-en>Sidekick’s shape. The phone app talks to a thin control plane; each user gets an isolated agent runtime where every AI employee has its own profile, memory and tools. Results come back as cards that the user approves.</span><span data-ko lang="ko">사이드킥의 구조. 모바일 앱은 얇은 컨트롤 플레인과 통신하고, 사용자마다 격리된 에이전트 런타임이 있으며, AI 직원마다 자기 프로필·메모리·도구를 가집니다. 결과는 사용자가 승인하는 카드로 돌아옵니다.</span></figcaption></figure>
+  <div class="cs-body-col">
+    <section class="cs-tldr" aria-labelledby="tldr-h">
+      <h2 id="tldr-h" class="cs-tldr-h">TL;DR</h2>
+      <ul><li><span data-en>AI agents can already do real work, but using them means servers, API keys and a terminal. Sidekick puts a team of AI employees on a phone for people who will never open a terminal.</span><span data-ko lang="ko">AI 에이전트는 이미 실제 일을 할 수 있지만, 쓰려면 서버·API 키·터미널이 필요합니다. 사이드킥은 터미널을 열 일이 없는 사람들의 폰에 AI 직원 팀을 넣습니다.</span></li><li><span data-en>The product rule is simple: you delegate, they work, and <strong>nothing goes out without your approval</strong>. Under it sits a per-user isolated agent runtime in the Seoul region.</span><span data-ko lang="ko">제품 원칙은 단순합니다. 맡기면 일하고, <strong>승인 없이는 아무것도 밖으로 나가지 않습니다.</strong> 그 아래에는 서울 리전의 사용자별 격리 에이전트 런타임이 있습니다.</span></li><li><span data-en>I built it alone with AI coding agents — <strong>1,900+ commits and 1,600+ merged PRs in three months</strong> — and the hardest problem turned out to be keeping parallel agents from bringing old code back.</span><span data-ko lang="ko">AI 코딩 에이전트와 함께 혼자 만들었습니다. <strong>3개월간 커밋 1,900개 이상, 머지된 PR 1,600개 이상.</strong> 가장 어려운 문제는 병렬로 일하는 에이전트가 옛 코드를 되살리지 않게 하는 것이었습니다.</span></li></ul>
+    </section>
+<section class="cs-section" id="context" aria-labelledby="context-h">
+  <h2 id="context-h"><span data-en>Why build it</span><span data-ko lang="ko">왜 만들었나</span></h2>
+  <p data-en>After a decade of building creator products, I kept meeting the same person: someone who wants to run a YouTube channel, a blog or a small online shop on the side, but can’t be on it every day. Agents could do much of that work. Setting one up was the barrier.</p><p data-ko lang="ko">10년 넘게 크리에이터 제품을 만들며 같은 사람을 계속 만났습니다. 유튜브 채널이나 블로그, 작은 온라인 가게를 부업으로 운영하고 싶지만 매일 붙어 있을 수는 없는 사람입니다. 그 일의 상당 부분은 에이전트가 할 수 있었습니다. 문제는 설정이었습니다.</p>
+  <p data-en>So the product definition became: a Korean non-developer can hire an AI employee on their phone — no servers, keys or terminal — and see a first real result within ten minutes. Retention means coming back for a second real run with the same employee within a week.</p><p data-ko lang="ko">그래서 제품 정의는 이렇게 정했습니다. 한국의 비개발자가 서버·키·터미널 없이 폰에서 AI 직원을 채용하고, 10분 안에 첫 실제 결과를 본다. 리텐션은 일주일 안에 같은 직원에게 두 번째 실제 작업을 맡기는 것이다.</p>
+</section>
+<section class="cs-section" id="product" aria-labelledby="product-h">
+  <h2 id="product-h"><span data-en>Product decisions</span><span data-ko lang="ko">제품 의사결정</span></h2>
+  <div class="cs-decision">
+  <div class="cs-decision-label"><span data-en>Decision</span><span data-ko lang="ko">의사결정</span></div>
+  <h3><span data-en>Approval before anything goes out</span><span data-ko lang="ko">밖으로 나가기 전에는 반드시 승인</span></h3>
+  <dl>
+    <dt><span data-en>Options</span><span data-ko lang="ko">선택지</span></dt><dd><span data-en>Let AI employees publish and send on their own, or require the user to approve every external action.</span><span data-ko lang="ko">AI 직원이 스스로 게시·전송하게 할지, 모든 외부 행동에 사용자 승인을 받을지.</span></dd>
+    <dt><span data-en>Chose</span><span data-ko lang="ko">선택</span></dt><dd><span data-en>Results arrive as cards; external actions wait for approval.</span><span data-ko lang="ko">결과는 카드로 도착하고, 외부 행동은 승인을 기다립니다.</span></dd>
+    <dt><span data-en>Why</span><span data-ko lang="ko">이유</span></dt><dd><span data-en>Trust is the product. People will delegate more once they know nothing is posted, sent or spent behind their back.</span><span data-ko lang="ko">신뢰가 곧 제품입니다. 몰래 게시되거나 전송되거나 결제되는 일이 없다는 걸 알면 사람들은 더 많이 맡깁니다.</span></dd>
+    <dt><span data-en>Trade-off</span><span data-ko lang="ko">대가</span></dt><dd><span data-en>Less “fully automatic” than some competitors promise — on purpose.</span><span data-ko lang="ko">일부 경쟁 제품이 약속하는 “완전 자동”보다 덜 자동입니다. 의도적으로요.</span></dd>
+  </dl>
+</div>
+  <div class="cs-decision">
+  <div class="cs-decision-label"><span data-en>Decision</span><span data-ko lang="ko">의사결정</span></div>
+  <h3><span data-en>Wrap the agent runtime, don’t fork it</span><span data-ko lang="ko">에이전트 런타임은 포크하지 않고 감싸기</span></h3>
+  <dl>
+    <dt><span data-en>Options</span><span data-ko lang="ko">선택지</span></dt><dd><span data-en>Build a custom agent framework, fork an existing one, or run an existing agent runtime as-is and build the product around it.</span><span data-ko lang="ko">에이전트 프레임워크를 직접 만들지, 기존 것을 포크할지, 기존 런타임을 그대로 쓰고 그 주위에 제품을 만들지.</span></dd>
+    <dt><span data-en>Chose</span><span data-ko lang="ko">선택</span></dt><dd><span data-en>Run Hermes Agent as-is. It owns memory, skills, tool connectors and schedules; Sidekick owns identity, billing, UI and provisioning.</span><span data-ko lang="ko">Hermes Agent를 그대로 사용합니다. 메모리·스킬·도구 연결·예약 작업은 Hermes가, 인증·결제·UI·프로비저닝은 사이드킥이 맡습니다.</span></dd>
+    <dt><span data-en>Why</span><span data-ko lang="ko">이유</span></dt><dd><span data-en>A solo builder can’t out-build an agent framework. The value is in the experience around it — hiring, delegating, approving on a phone.</span><span data-ko lang="ko">혼자서 에이전트 프레임워크보다 잘 만들 수는 없습니다. 가치는 그 주변의 경험, 즉 폰에서 채용하고 맡기고 승인하는 데 있습니다.</span></dd>
+    
+  </dl>
+</div>
+  <div class="cs-decision">
+  <div class="cs-decision-label"><span data-en>Decision</span><span data-ko lang="ko">의사결정</span></div>
+  <h3><span data-en>One isolated runtime per user, in Seoul</span><span data-ko lang="ko">사용자마다 격리된 런타임, 서울 리전</span></h3>
+  <dl>
+    <dt><span data-en>Options</span><span data-ko lang="ko">선택지</span></dt><dd><span data-en>A shared multi-tenant agent service, or a dedicated runtime for every user.</span><span data-ko lang="ko">여러 사용자가 공유하는 에이전트 서비스, 또는 사용자마다 전용 런타임.</span></dd>
+    <dt><span data-en>Chose</span><span data-ko lang="ko">선택</span></dt><dd><span data-en>A dedicated runtime per user, scaled to zero when idle, with isolation enforced by the operating system rather than by path conventions.</span><span data-ko lang="ko">사용자별 전용 런타임을 두고 쉴 때는 0으로 줄이며, 격리는 경로 규칙이 아니라 운영체제 수준에서 강제합니다.</span></dd>
+    <dt><span data-en>Why</span><span data-ko lang="ko">이유</span></dt><dd><span data-en>Agents run code and hold personal memory. An early test showed that path discipline alone could be escaped, so isolation had to fail closed. Seoul hosting is a product requirement for Korean users, not just a cost line.</span><span data-ko lang="ko">에이전트는 코드를 실행하고 개인 메모리를 가집니다. 초기 테스트에서 경로 규칙만으로는 격리를 뚫을 수 있다는 게 드러났고, 그래서 격리는 실패 시 닫히도록 설계했습니다. 서울 호스팅은 비용 항목이 아니라 한국 사용자를 위한 제품 요구사항입니다.</span></dd>
+    
+  </dl>
+</div>
+</section>
+<section class="cs-section" id="building" aria-labelledby="building-h">
+  <h2 id="building-h"><span data-en>Building alone, with AI agents</span><span data-ko lang="ko">AI 에이전트와 혼자 만들기</span></h2>
+  <p data-en>Sidekick is an Expo / React Native app with a Python backend, Supabase for auth and data, and per-user agent runtimes on Kubernetes. I wrote it with AI coding agents — mostly Claude Code — running in parallel: about half of the 1,900+ commits are co-authored with Claude models, and the backend carries more than 5,600 tests.</p><p data-ko lang="ko">사이드킥은 Expo / React Native 앱에 Python 백엔드, 인증·데이터용 Supabase, Kubernetes 위의 사용자별 에이전트 런타임으로 구성됩니다. 주로 Claude Code를 비롯한 AI 코딩 에이전트를 병렬로 돌리며 만들었습니다. 1,900개가 넘는 커밋의 약 절반이 Claude 모델과의 공동 작성이고, 백엔드 테스트는 5,600개가 넘습니다.</p>
+  <p data-en>Speed created a new kind of bug. UI I had deliberately removed kept reappearing. The cause wasn’t the models “remembering” old code: parallel agents were starting from different base commits, merges asked for a broad union of old and new, and the tests themselves still protected the old behavior. Green tests proved nothing about whether the product was current.</p><p data-ko lang="ko">속도는 새로운 종류의 버그를 만들었습니다. 일부러 지운 UI가 계속 다시 나타났습니다. 원인은 모델이 옛 코드를 “기억”해서가 아니었습니다. 병렬 에이전트가 서로 다른 기준 커밋에서 출발했고, 병합 지시가 옛것과 새것의 넓은 합집합을 요구했으며, 테스트 자체가 옛 동작을 지키고 있었습니다. 테스트 통과는 제품이 최신이라는 증거가 아니었습니다.</p>
+  <figure class="cs-figure"><div class="cs-figure-art" tabindex="0"><svg viewBox="0 0 836 112" role="img" aria-label="Release line: pinned base, isolated worktrees, PR and CI, merge queue, attestation, release from a single SHA" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-arrow"/></marker></defs><rect x="0" y="20" width="108" height="48" rx="10" class="f-box-strong" stroke-width="1.2"/><text x="54" y="49" font-size="12" font-weight="600" text-anchor="middle" data-en>Pin base SHA</text><text x="54" y="49" font-size="12" font-weight="600" text-anchor="middle" data-ko>기준 SHA 고정</text><path d="M109,44 L119,44" class="f-line" stroke-width="1.4" marker-end="url(#ah)"/><rect x="120" y="20" width="108" height="48" rx="10" class="f-box" stroke-width="1.2"/><text x="174" y="49" font-size="12" font-weight="600" text-anchor="middle" data-en>Isolated worktree</text><text x="174" y="49" font-size="12" font-weight="600" text-anchor="middle" data-ko>격리 worktree</text><path d="M229,44 L239,44" class="f-line" stroke-width="1.4" marker-end="url(#ah)"/><rect x="240" y="20" width="108" height="48" rx="10" class="f-box" stroke-width="1.2"/><text x="294" y="49" font-size="12" font-weight="600" text-anchor="middle" data-en>Agent writes</text><text x="294" y="49" font-size="12" font-weight="600" text-anchor="middle" data-ko>에이전트 작업</text><path d="M349,44 L359,44" class="f-line" stroke-width="1.4" marker-end="url(#ah)"/><rect x="360" y="20" width="108" height="48" rx="10" class="f-box" stroke-width="1.2"/><text x="414" y="49" font-size="12" font-weight="600" text-anchor="middle" data-en>PR + CI</text><text x="414" y="49" font-size="12" font-weight="600" text-anchor="middle" data-ko>PR + CI</text><path d="M469,44 L479,44" class="f-line" stroke-width="1.4" marker-end="url(#ah)"/><rect x="480" y="20" width="108" height="48" rx="10" class="f-box" stroke-width="1.2"/><text x="534" y="49" font-size="12" font-weight="600" text-anchor="middle" data-en>Merge queue</text><text x="534" y="49" font-size="12" font-weight="600" text-anchor="middle" data-ko>머지 큐</text><path d="M589,44 L599,44" class="f-line" stroke-width="1.4" marker-end="url(#ah)"/><rect x="600" y="20" width="108" height="48" rx="10" class="f-box" stroke-width="1.2"/><text x="654" y="49" font-size="12" font-weight="600" text-anchor="middle" data-en>Attest main</text><text x="654" y="49" font-size="12" font-weight="600" text-anchor="middle" data-ko>main 증명</text><path d="M709,44 L719,44" class="f-line" stroke-width="1.4" marker-end="url(#ah)"/><rect x="720" y="20" width="108" height="48" rx="10" class="f-accent" stroke-width="1.2"/><text x="774" y="49" font-size="12" font-weight="600" text-anchor="middle" class="f-on-accent" data-en>Release one SHA</text><text x="774" y="49" font-size="12" font-weight="600" text-anchor="middle" class="f-on-accent" data-ko>단일 SHA 배포</text><text x="0" y="100" font-size="12.5" font-weight="400" text-anchor="start" class="f-muted" data-en>Negative invariants travel with every change: removed UI must stay removed, and workers never deploy.</text><text x="0" y="100" font-size="12.5" font-weight="400" text-anchor="start" class="f-muted" data-ko>모든 변경에 “부재 조건”이 따라갑니다: 지운 UI는 계속 지워져 있어야 하고, 작업 에이전트는 배포하지 않습니다.</text></svg></div><figcaption><span data-en>The release line that fixed it.</span><span data-ko lang="ko">문제를 해결한 릴리스 라인.</span></figcaption></figure>
+  <ul class="cs-list"><li><span data-en><strong>One pinned base.</strong> Every agent works in an isolated worktree created from the same commit.</span><span data-ko lang="ko"><strong>하나의 고정된 기준.</strong> 모든 에이전트는 같은 커밋에서 만든 격리 worktree에서 일합니다.</span></li><li><span data-en><strong>Negative invariants.</strong> What was removed gets a test that proves it stays removed.</span><span data-ko lang="ko"><strong>부재 조건.</strong> 지운 것에는 계속 지워져 있음을 증명하는 테스트를 붙입니다.</span></li><li><span data-en><strong>History is evidence, not a base.</strong> Old branches are read for reference; only minimal changes are replayed forward.</span><span data-ko lang="ko"><strong>과거는 근거일 뿐 기준이 아닙니다.</strong> 옛 브랜치는 참고용으로만 읽고, 최소한의 변경만 앞으로 옮깁니다.</span></li><li><span data-en><strong>Workers never deploy.</strong> Only one attested commit on main can be released, under a single lock.</span><span data-ko lang="ko"><strong>작업 에이전트는 배포하지 않습니다.</strong> main의 증명된 커밋 하나만, 단일 잠금 아래에서 배포됩니다.</span></li></ul>
+</section>
+<section class="cs-section" id="status" aria-labelledby="status-h">
+  <h2 id="status-h"><span data-en>Where it is now</span><span data-ko lang="ko">현재 상태</span></h2>
+  <p data-en>Sidekick is in closed beta through TestFlight, and I use it myself. The first cohort is designed to test the two numbers that matter — a first real result within ten minutes, and a second real run within seven days — before a wider App Store launch once the planned features are complete.</p><p data-ko lang="ko">사이드킥은 TestFlight를 통한 비공개 베타 단계이며, 저도 직접 쓰고 있습니다. 첫 사용자 그룹은 중요한 두 숫자, 즉 10분 안의 첫 실제 결과와 7일 안의 두 번째 실제 작업을 검증하도록 설계했고, 계획한 기능이 완성되면 App Store에 정식 출시할 예정입니다.</p>
+  <div class="cs-metric-table" role="table"><div class="cs-metric-row" role="row">
+  <div class="cs-metric-v" role="cell">1,900+</div>
+  <div class="cs-metric-l" role="cell"><span data-en>Commits, June–September 2026</span><span data-ko lang="ko">커밋, 2026년 6~9월</span></div>
+</div><div class="cs-metric-row" role="row">
+  <div class="cs-metric-v" role="cell">1,600+</div>
+  <div class="cs-metric-l" role="cell"><span data-en>Merged pull requests</span><span data-ko lang="ko">머지된 PR</span></div>
+</div><div class="cs-metric-row" role="row">
+  <div class="cs-metric-v" role="cell">5,600+</div>
+  <div class="cs-metric-l" role="cell"><span data-en>Backend tests</span><span data-ko lang="ko">백엔드 테스트</span></div>
+</div><div class="cs-metric-row" role="row">
+  <div class="cs-metric-v" role="cell">~50%</div>
+  <div class="cs-metric-l" role="cell"><span data-en>Commits co-authored with Claude models</span><span data-ko lang="ko">Claude 모델과 공동 작성한 커밋</span></div>
+</div></div>
+</section>
+<section class="cs-section" id="learned" aria-labelledby="learned-h">
+  <h2 id="learned-h"><span data-en>What I learned</span><span data-ko lang="ko">배운 점</span></h2>
+  <blockquote class="cs-pull"><p data-en>With AI agents, writing code stops being the bottleneck. Knowing which code is current becomes the job.</p><p data-ko lang="ko">AI 에이전트와 일하면 코드 작성은 더 이상 병목이 아닙니다. 어떤 코드가 최신인지 아는 것이 일이 됩니다.</p></blockquote>
+  <ul class="cs-list"><li><span data-en><strong>Separate the kinds of evidence.</strong> Passing tests, a working install, production behavior and store review are four different claims.</span><span data-ko lang="ko"><strong>증거의 종류를 구분하세요.</strong> 테스트 통과, 설치된 앱의 동작, 운영 환경의 동작, 스토어 심사는 서로 다른 네 가지 주장입니다.</span></li><li><span data-en><strong>PM instincts transfer.</strong> Defining activation and retention before writing code kept a fast-moving solo project pointed at users.</span><span data-ko lang="ko"><strong>PM 감각은 그대로 통합니다.</strong> 코드를 쓰기 전에 활성화와 리텐션을 정의해 둔 덕분에, 빠르게 움직이는 1인 프로젝트가 사용자를 향해 있을 수 있었습니다.</span></li></ul>
+</section>
+<section class="cs-sources" aria-labelledby="sources-h">
+  <h2 id="sources-h"><span data-en>Sources &amp; public context</span><span data-ko lang="ko">출처와 공개 맥락</span></h2>
+  <p class="cs-sources-lede" data-en>Build figures come from the project repository as of September 29, 2026. Sidekick is in closed beta, so there are no public usage numbers yet.</p><p class="cs-sources-lede" data-ko lang="ko">개발 규모 수치는 2026년 9월 29일 기준 프로젝트 저장소에서 집계했습니다. 사이드킥은 비공개 베타 단계라 아직 공개할 사용 지표는 없습니다.</p>
+  <ol><li id="fn-1">Sidekick, “sidekickagent.app” <span class="cs-src-date">(2026)</span>. <a href="https://sidekickagent.app/" target="_blank" rel="noopener"><span data-en>Link</span><span data-ko lang="ko">링크</span></a> <a class="cs-back" href="#fnref-1" aria-label="Back to text">↩</a></li></ol>
+</section>
+  </div>
+</article>
+<nav class="cs-pager" aria-label="More case studies">
+  <a href="/work/n-connect/" class="cs-pager-card" rel="prev">
+    <span class="cs-pager-dir">← P-07</span>
+    <span class="cs-pager-title"><span data-en>N-CONNECT Creator Partnership Program</span><span data-ko lang="ko">N-CONNECT 크리에이터 파트너십 프로그램</span></span>
+  </a>
+  <a href="/#work" class="cs-pager-card cs-pager-all">
+    <span class="cs-pager-dir"><span data-en>All work</span><span data-ko lang="ko">전체 프로젝트</span></span>
+    <span class="cs-pager-title"><span data-en>Back to selected work</span><span data-ko lang="ko">프로젝트 목록으로</span></span>
+  </a>
+  <a href="/work/creator-missions/" class="cs-pager-card" rel="next">
+    <span class="cs-pager-dir">P-01 →</span>
+    <span class="cs-pager-title"><span data-en>Creator Monetization Mission System</span><span data-ko lang="ko">크리에이터 수익화 미션 시스템</span></span>
+  </a>
+</nav>
+</main>
+<footer class="cs-footer">
+  <span>© 2026 InJoo Kim</span>
+  <span><a href="/">injookim.com</a> · <a href="/#contact"><span data-en>Get in touch</span><span data-ko lang="ko">연락하기</span></a></span>
+</footer>
+</body>
+</html>

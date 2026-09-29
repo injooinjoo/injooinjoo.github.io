@@ -217,6 +217,95 @@ ${T(16, 213, { en: 'One question per view · built for non-technical creators ·
     return svg(840, 240, 'Dashboard organized around three creator questions with a plain-language insight line', cards + insight);
   },
 
+  // P-07 — N-CONNECT three-sided program
+  nconnect: () => {
+    const node = (x, y, w, t, sub, cls = 'f-box') =>
+      `${box(x, y, w, 70, cls)}${T(x + w / 2, y + 30, t, { size: 15, weight: 600, anchor: 'middle', cls: cls === 'f-accent' ? 'f-on-accent' : '' })}${T(x + w / 2, y + 50, sub, { size: 12, anchor: 'middle', cls: cls === 'f-accent' ? 'f-on-accent' : 'f-muted' })}`;
+    const body = `${node(20, 20, 200, { en: 'Players', ko: '플레이어' }, { en: 'link accounts, get rewards', ko: '계정 연동·보상' })}
+${node(620, 20, 200, { en: 'Creators', ko: '크리에이터' }, { en: 'stream NEXON games', ko: '넥슨 게임 방송' })}
+${node(320, 150, 200, { en: 'N-CONNECT', ko: 'N-CONNECT' }, { en: 'program + measurement', ko: '프로그램·측정' }, 'f-accent')}
+${node(320, 290, 200, { en: 'NEXON games', ko: '넥슨 게임' }, { en: 'new & returning players', ko: '신규·복귀 유저' })}
+${line('M224,55 L616,55')}
+${T(420, 45, { en: 'watch · join via streamer', ko: '시청 · 스트리머 통해 참여' }, { size: 12, anchor: 'middle', cls: 'f-muted' })}
+${line('M700,94 L500,148')}
+${T(640, 132, { en: 'activity · growth · impact', ko: '활동 · 성장 · 임팩트' }, { size: 12, cls: 'f-muted' })}
+${line('M140,94 L340,148')}
+${T(96, 132, { en: 'account linking', ko: '계정 연동' }, { size: 12, cls: 'f-muted' })}
+${line('M420,224 L420,284')}
+${T(432, 260, { en: 'players arrive in-game', ko: '게임으로 유입' }, { size: 12, cls: 'f-muted' })}
+${T(60, 330, { en: 'Platforms: SOOP · Chzzk', ko: '플랫폼: SOOP · 치지직' }, { size: 12, cls: 'f-muted f-mono' })}`;
+    return svg(840, 370, 'N-CONNECT connects players, creators and NEXON games through account linking, creator rewards and measurement', body);
+  },
+
+  viewershipScore: () => {
+    const axes = [
+      { w: 40, t: { en: 'Reach', ko: '도달' }, s: { en: 'how many people saw it', ko: '얼마나 많이 봤나' } },
+      { w: 35, t: { en: 'Quality', ko: '품질' }, s: { en: 'how well they watched', ko: '얼마나 잘 봤나' } },
+      { w: 25, t: { en: 'Engagement', ko: '참여' }, s: { en: 'how much they took part', ko: '얼마나 참여했나' } },
+    ];
+    const W = 800;
+    let x = 0;
+    const bars = axes
+      .map((a, i) => {
+        const w = (a.w / 100) * W;
+        const out = `<rect x="${x}" y="20" width="${w - 6}" height="56" rx="8" class="${i === 0 ? 'f-accent' : i === 1 ? 'f-accent-2' : 'f-base'}"/>
+${T(x + 14, 46, a.t, { size: 15, weight: 600, cls: i === 0 ? 'f-on-accent' : '' })}
+${T(x + 14, 66, `${a.w}`, { size: 12, cls: `f-mono ${i === 0 ? 'f-on-accent' : ''}` })}
+${T(x + 4, 100, a.s, { size: 12, cls: 'f-muted' })}`;
+        x += w;
+        return out;
+      })
+      .join('');
+    const note = `${box(0, 124, W - 6, 44, 'f-box')}${T(16, 151, { en: '× short-form correction — so a 60-second clip and a 4-hour stream can be compared on one scale', ko: '× 숏폼 보정 — 60초 클립과 4시간 방송을 같은 척도로 비교하기 위해' }, { size: 13 })}`;
+    return svg(W, 176, 'Proposed three-axis creator score: Reach 40, Quality 35, Engagement 25, with a short-form correction', bars + note);
+  },
+
+  // P-08 — Sidekick architecture
+  sidekickArch: () => {
+    const body = `${box(0, 40, 170, 150, 'f-box-strong')}
+${T(16, 66, { en: 'Phone app', ko: '모바일 앱' }, { size: 15, weight: 600 })}
+${T(16, 90, { en: 'hire AI employees', ko: 'AI 직원 채용' }, { size: 12, cls: 'f-muted' })}
+${T(16, 110, { en: 'delegate by text or voice', ko: '글·음성으로 맡기기' }, { size: 12, cls: 'f-muted' })}
+${T(16, 130, { en: 'approve result cards', ko: '결과 카드 승인' }, { size: 12, cls: 'f-muted' })}
+${line('M174,115 L226,115')}
+${box(230, 40, 190, 150, 'f-box')}
+${T(246, 66, { en: 'Control plane', ko: '컨트롤 플레인' }, { size: 15, weight: 600 })}
+${T(246, 90, { en: 'identity & billing', ko: '인증·결제' }, { size: 12, cls: 'f-muted' })}
+${T(246, 110, { en: 'provisioning', ko: '프로비저닝' }, { size: 12, cls: 'f-muted' })}
+${T(246, 130, { en: 'approval gate', ko: '승인 게이트' }, { size: 12, cls: 'f-muted' })}
+${line('M424,115 L476,115')}
+${box(480, 20, 350, 190, 'f-accent')}
+${T(498, 48, { en: 'Your own agent runtime', ko: '사용자 전용 에이전트 런타임' }, { size: 15, weight: 600, cls: 'f-on-accent' })}
+${T(498, 68, { en: 'isolated per user · Seoul region', ko: '사용자별 격리 · 서울 리전' }, { size: 12, cls: 'f-on-accent' })}
+${['Researcher', 'Writer', 'Analyst'].map((r, i) => `<rect x="${498 + i * 108}" y="88" width="98" height="40" rx="8" class="f-box"/>${T(547 + i * 108, 113, { en: r, ko: ['리서처', '작가', '분석가'][i] }, { size: 12, anchor: 'middle' })}`).join('')}
+${T(498, 156, { en: 'memory · skills · tool connectors · schedules', ko: '메모리 · 스킬 · 도구 연결 · 예약 작업' }, { size: 12, cls: 'f-on-accent' })}
+${T(498, 178, { en: 'one profile per AI employee', ko: 'AI 직원 1명 = 프로필 1개' }, { size: 12, cls: 'f-on-accent' })}
+<path d="M650,214 C650,250 85,250 85,194" class="f-line-accent" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#ah)"/>
+${T(368, 262, { en: 'results come back as cards — nothing goes out without your approval', ko: '결과는 카드로 돌아오고, 승인 없이는 밖으로 나가지 않습니다' }, { size: 12.5, anchor: 'middle', cls: 'f-muted' })}`;
+    return svg(840, 272, 'Sidekick architecture: phone app, control plane, and an isolated per-user agent runtime whose results return as approval cards', body);
+  },
+
+  releaseLine: () => {
+    const steps = [
+      { en: 'Pin base SHA', ko: '기준 SHA 고정' },
+      { en: 'Isolated worktree', ko: '격리 worktree' },
+      { en: 'Agent writes', ko: '에이전트 작업' },
+      { en: 'PR + CI', ko: 'PR + CI' },
+      { en: 'Merge queue', ko: '머지 큐' },
+      { en: 'Attest main', ko: 'main 증명' },
+      { en: 'Release one SHA', ko: '단일 SHA 배포' },
+    ];
+    const w = 108, g = 12;
+    const body = steps
+      .map((st, i) => {
+        const x = i * (w + g);
+        return `${box(x, 20, w, 48, i === 6 ? 'f-accent' : i === 0 ? 'f-box-strong' : 'f-box')}${T(x + w / 2, 49, st, { size: 12, anchor: 'middle', weight: 600, cls: i === 6 ? 'f-on-accent' : '' })}${i < 6 ? line(`M${x + w + 1},44 L${x + w + g - 1},44`) : ''}`;
+      })
+      .join('');
+    const neg = `${T(0, 100, { en: 'Negative invariants travel with every change: removed UI must stay removed, and workers never deploy.', ko: '모든 변경에 “부재 조건”이 따라갑니다: 지운 UI는 계속 지워져 있어야 하고, 작업 에이전트는 배포하지 않습니다.' }, { size: 12.5, cls: 'f-muted' })}`;
+    return svg(836, 112, 'Release line: pinned base, isolated worktrees, PR and CI, merge queue, attestation, release from a single SHA', body + neg);
+  },
+
   // P-06 — application flow before/after
   supportFlow: () => {
     const before = [
