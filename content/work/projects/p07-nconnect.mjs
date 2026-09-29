@@ -4,12 +4,12 @@ export default {
   company: 'NEXON',
   title: { en: 'N-CONNECT Creator Partnership Program', ko: 'N-CONNECT 크리에이터 파트너십 프로그램' },
   dek: {
-    en: 'Connecting players, streamers and NEXON games across platforms — and building a shared way to measure creators whose formats and audiences don’t compare easily.',
-    ko: '플랫폼을 넘어 플레이어·스트리머·넥슨 게임을 잇는 프로그램. 그리고 형식도 시청자도 제각각인 크리에이터를 같은 기준으로 보는 방법.',
+    en: 'Connecting players, streamers and NEXON games across platforms — and giving every team in the program the same picture of how it is working.',
+    ko: '플랫폼을 넘어 플레이어·스트리머·넥슨 게임을 잇는 프로그램. 그리고 프로그램에 참여하는 모든 팀이 같은 그림을 보도록 하는 일.',
   },
   card: {
-    en: 'Cross-platform creator partnership program linking players, streamers and NEXON games on SOOP and Chzzk. Program reporting, partner planning, and a proposed three-axis creator score.',
-    ko: 'SOOP·치지직에서 플레이어·스트리머·넥슨 게임을 잇는 크로스 플랫폼 크리에이터 파트너십. 프로그램 리포팅, 파트너 기획, 3축 크리에이터 스코어 설계.',
+    en: 'Cross-platform creator partnership program linking players, streamers and NEXON games on SOOP and Chzzk. Program reporting, partner planning, and cross-functional requirements.',
+    ko: 'SOOP·치지직에서 플레이어·스트리머·넥슨 게임을 잇는 크로스 플랫폼 크리에이터 파트너십. 프로그램 리포팅, 파트너 기획, 크로스펑셔널 요구사항 정리.',
   },
   kpis: [
     {
@@ -36,8 +36,8 @@ export default {
     company: { en: 'NEXON KOREA', ko: '넥슨코리아' },
     role: { en: 'Senior Product Manager', ko: '시니어 프로덕트 매니저' },
     scope: {
-      en: 'Program reporting, partner-program planning, cross-functional requirements, creator scoring model',
-      ko: '프로그램 리포팅, 파트너 프로그램 기획, 크로스펑셔널 요구사항 정리, 크리에이터 스코어 모델',
+      en: 'Program reporting, partner-program planning, cross-functional requirements',
+      ko: '프로그램 리포팅, 파트너 프로그램 기획, 크로스펑셔널 요구사항 정리',
     },
     link: { label: 'ncon.nexon.com', url: 'https://ncon.nexon.com/' },
   },
@@ -58,10 +58,6 @@ export default {
     {
       en: 'I work on its product and partner planning: recurring program reporting across account linking, referrals, membership, content support and player impact, and turning creator-program needs into requirements other teams can build and operate.',
       ko: '저는 프로그램의 제품·파트너 기획을 맡고 있습니다. 계정 연동·추천·멤버십·콘텐츠 지원·플레이어 임팩트를 아우르는 정기 리포팅을 만들고, 크리에이터 프로그램의 요구를 다른 팀이 만들고 운영할 수 있는 요구사항으로 바꿉니다.',
-    },
-    {
-      en: 'I also designed a proposed three-axis creator score — reach, quality, engagement — with a correction for short-form content, so creators on different platforms and formats can be compared on one scale.',
-      ko: '또 플랫폼과 형식이 다른 크리에이터를 같은 척도로 비교할 수 있도록, 도달·품질·참여의 3축에 숏폼 보정을 더한 크리에이터 스코어를 설계했습니다.',
     },
   ],
   sections: [
@@ -125,22 +121,7 @@ export default {
                 ko: '크리에이터와 플랫폼 파트너가 필요로 하는 것을 제품·마케팅·운영 팀이 만들고 운영할 수 있는 요구사항으로 옮깁니다.',
               },
             },
-            {
-              title: { en: 'One scale for many formats', ko: '여러 형식을 위한 하나의 척도' },
-              body: {
-                en: 'Designing a proposed creator score so program and partner decisions can compare creators across platforms and formats.',
-                ko: '프로그램·파트너 의사결정에서 플랫폼과 형식이 다른 크리에이터를 비교할 수 있도록 크리에이터 스코어를 설계했습니다.',
-              },
-            },
           ],
-        },
-        {
-          type: 'figure',
-          figure: 'viewershipScore',
-          caption: {
-            en: 'The proposed score. Weights reflect a design choice, not the program’s published reward formula, which uses its own public criteria.',
-            ko: '제안한 스코어 구조. 가중치는 설계상의 선택이며, 프로그램의 공개 보상 기준과는 별개입니다.',
-          },
         },
       ],
     },
@@ -150,28 +131,15 @@ export default {
       blocks: [
         {
           type: 'decision',
-          title: { en: 'Three axes instead of one number', ko: '숫자 하나 대신 세 개의 축' },
+          title: { en: 'One shared read instead of team-by-team dashboards', ko: '팀별 대시보드 대신 하나의 공통 리포트' },
           options: {
-            en: 'Rank creators by a single audience metric, or combine reach, quality and engagement.',
-            ko: '크리에이터를 시청 지표 하나로 줄 세울지, 도달·품질·참여를 결합할지.',
+            en: 'Let each team track its own slice of the program, or bring account linking, referrals, membership, content support and player impact into one recurring report.',
+            ko: '각 팀이 자기 영역만 따로 볼지, 계정 연동·추천·멤버십·콘텐츠 지원·플레이어 임팩트를 하나의 정기 리포트로 묶을지.',
           },
-          choice: { en: 'Reach 40 · Quality 35 · Engagement 25.', ko: '도달 40 · 품질 35 · 참여 25.' },
+          choice: { en: 'One recurring report for the whole funnel.', ko: '퍼널 전체를 담은 하나의 정기 리포트.' },
           why: {
-            en: 'Reach alone rewards whoever is already biggest. Weighting quality and engagement makes room for smaller creators whose audiences actually show up and take part.',
-            ko: '도달만 보면 이미 가장 큰 크리에이터가 보상받습니다. 품질과 참여에 가중치를 두면, 규모는 작아도 시청자가 실제로 머물고 참여하는 크리에이터에게 자리가 생깁니다.',
-          },
-        },
-        {
-          type: 'decision',
-          title: { en: 'Correct for short-form', ko: '숏폼 보정' },
-          options: {
-            en: 'Score short clips and long broadcasts with the same formula, or apply a correction by format.',
-            ko: '짧은 클립과 긴 방송을 같은 공식으로 평가할지, 형식별 보정을 둘지.',
-          },
-          choice: { en: 'A correction multiplier for short-form content.', ko: '숏폼 콘텐츠에 보정 계수 적용.' },
-          why: {
-            en: 'Raw numbers favor whichever format inflates them. A correction keeps creators from being rewarded — or penalized — for format rather than impact.',
-            ko: '원시 숫자는 그 숫자를 부풀리기 쉬운 형식에 유리합니다. 보정은 크리에이터가 임팩트가 아니라 형식 때문에 보상받거나 불이익받지 않게 합니다.',
+            en: 'A program that spans players, creators and platforms fails at the handoffs. When everyone reads the same numbers, the conversation moves from “whose data is right” to “what do we change.”',
+            ko: '플레이어·크리에이터·플랫폼을 가로지르는 프로그램은 연결 지점에서 실패합니다. 모두가 같은 숫자를 보면 대화가 “누구 데이터가 맞나”에서 “무엇을 바꿀까”로 옮겨갑니다.',
           },
         },
       ],

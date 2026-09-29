@@ -237,29 +237,6 @@ ${T(60, 330, { en: 'Platforms: SOOP · Chzzk', ko: '플랫폼: SOOP · 치지직
     return svg(840, 370, 'N-CONNECT connects players, creators and NEXON games through account linking, creator rewards and measurement', body);
   },
 
-  viewershipScore: () => {
-    const axes = [
-      { w: 40, t: { en: 'Reach', ko: '도달' }, s: { en: 'how many people saw it', ko: '얼마나 많이 봤나' } },
-      { w: 35, t: { en: 'Quality', ko: '품질' }, s: { en: 'how well they watched', ko: '얼마나 잘 봤나' } },
-      { w: 25, t: { en: 'Engagement', ko: '참여' }, s: { en: 'how much they took part', ko: '얼마나 참여했나' } },
-    ];
-    const W = 800;
-    let x = 0;
-    const bars = axes
-      .map((a, i) => {
-        const w = (a.w / 100) * W;
-        const out = `<rect x="${x}" y="20" width="${w - 6}" height="56" rx="8" class="${i === 0 ? 'f-accent' : i === 1 ? 'f-accent-2' : 'f-base'}"/>
-${T(x + 14, 46, a.t, { size: 15, weight: 600, cls: i === 0 ? 'f-on-accent' : '' })}
-${T(x + 14, 66, `${a.w}`, { size: 12, cls: `f-mono ${i === 0 ? 'f-on-accent' : ''}` })}
-${T(x + 4, 100, a.s, { size: 12, cls: 'f-muted' })}`;
-        x += w;
-        return out;
-      })
-      .join('');
-    const note = `${box(0, 124, W - 6, 44, 'f-box')}${T(16, 151, { en: '× short-form correction — so a 60-second clip and a 4-hour stream can be compared on one scale', ko: '× 숏폼 보정 — 60초 클립과 4시간 방송을 같은 척도로 비교하기 위해' }, { size: 13 })}`;
-    return svg(W, 176, 'Proposed three-axis creator score: Reach 40, Quality 35, Engagement 25, with a short-form correction', bars + note);
-  },
-
   // P-08 — Sidekick architecture
   sidekickArch: () => {
     const body = `${box(0, 40, 170, 150, 'f-box-strong')}
