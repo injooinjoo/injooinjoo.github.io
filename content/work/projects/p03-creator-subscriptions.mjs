@@ -7,11 +7,11 @@ export default {
   title: { en: 'Creator Subscription Service', ko: '크리에이터 구독 서비스' },
   dek: {
     en: 'One monthly price gave every fan the same perks. Over several release cycles we reworked the paywall and the tiers, and let streamers decide what their subscription includes.',
-    ko: '월 구독료 하나에 모든 팬이 같은 혜택을 받던 구조였습니다. 여러 릴리스에 걸쳐 결제 화면과 티어를 다시 짰고, 구독에 무엇을 담을지는 스트리머가 정하게 했습니다.',
+    ko: '구독은 월 요금 하나에 모든 팬이 같은 혜택을 받는 구조였습니다. 여러 차례 릴리스에 걸쳐 결제 화면과 티어를 다시 짰고, 구독에 무엇을 담을지는 스트리머가 정하게 했습니다.',
   },
   card: {
     en: 'Subscription‑based monetization for content creators. Iterated paywall UX and tier packaging across multiple release cycles to lift paid conversion meaningfully.',
-    ko: '크리에이터 대상 구독 기반 수익화. 유료 UX와 구독 티어 패키징을 반복 개선하며 유료 전환율을 끌어올림.',
+    ko: '크리에이터를 위한 구독 기반 수익화. 결제 화면 UX와 구독 티어 구성을 여러 릴리스에 걸쳐 개선해 유료 전환율을 끌어올림.',
   },
   kpis: [
     { value: '+31%', label: { en: 'Paid conversion', ko: '유료 전환율' }, cardLabel: 'Paid conversion' },
@@ -25,14 +25,14 @@ export default {
     role: ROLE,
     scope: {
       en: 'Paywall UX, tier packaging, streamer-configurable benefits, release-cycle experiments',
-      ko: '유료 결제 UX, 티어 패키징, 스트리머 맞춤 혜택, 릴리스 주기별 실험',
+      ko: '결제 화면 UX, 티어 구성, 스트리머 맞춤 혜택, 릴리스 단위 실험',
     },
   },
   hero: {
     scene: 'p03-hero',
     alt: {
       en: 'Sketch: a four-step staircase with a fan on each step. Each step adds a benefit: a badge, emotes, members-only video, and a perk the streamer designs. A note reads “each step up adds something”.',
-      ko: '스케치: 네 칸짜리 계단 위 칸마다 팬이 서 있다. 칸마다 혜택이 하나씩 늘어난다. 배지, 이모티콘, 구독자 전용 영상, 스트리머가 직접 만든 혜택. “한 칸 오를 때마다 하나씩 더”라는 메모.',
+      ko: '스케치: 네 칸짜리 계단의 칸마다 팬이 서 있고, 한 칸 오를 때마다 혜택이 하나씩 늘어난다(배지, 이모티콘, 구독자 전용 영상, 스트리머가 직접 만든 혜택). 위쪽에 “한 칸 오를 때마다 하나씩 더”라는 메모가 있다.',
     },
     caption: {
       en: 'The subscription as a ladder. The upper steps are put together by the streamer.',
@@ -42,11 +42,11 @@ export default {
   glance: {
     problem: {
       en: 'Every fan paid the same price for the same perks on every channel. The most committed fans had nowhere to go, and ready buyers dropped out at checkout.',
-      ko: '모든 채널에서 모든 팬이 같은 가격에 같은 혜택을 받았습니다. 가장 열성적인 팬은 더 올라갈 곳이 없었고, 살 마음이 있던 시청자도 결제 도중 이탈했습니다.',
+      ko: '모든 채널에서 모든 팬이 같은 가격에 같은 혜택을 받았습니다. 가장 열성적인 팬은 더 올라갈 곳이 없었고, 구독할 마음이 있던 시청자도 결제 도중에 이탈했습니다.',
     },
     did: {
       en: 'We measured the paywall step by step, changed one thing per release, tried four tier structures, and let streamers compose their own benefits.',
-      ko: '결제 흐름을 단계별로 계측해 릴리스마다 한 가지씩 바꿨고, 티어 구조를 네 번 시도했으며, 혜택은 스트리머가 직접 조합하게 했습니다.',
+      ko: '결제 흐름을 단계별로 계측해 릴리스마다 한 가지씩 바꿨고, 티어 구조는 네 가지를 시도했으며, 혜택은 스트리머가 직접 조합하게 했습니다.',
     },
     result: {
       en: 'Paid conversion rose **31%**, retention **15%**. The top 20% of streamers grew subscription revenue **27%**.',
@@ -78,7 +78,7 @@ export default {
           scene: 'p03-oneprice',
           alt: {
             en: 'Sketch: one price tag, “3,300 won a month”, points to three fans (casual, regular, superfan) who all get the same badge. The superfan, surrounded by hearts, says “I’d happily give more”.',
-            ko: '스케치: “월 3,300원” 가격표 하나가 가끔 보는 팬, 단골, 열혈 팬 세 사람을 가리키고, 세 사람 모두 같은 배지를 받는다. 하트에 둘러싸인 열혈 팬이 “더 하고 싶은데…”라고 말한다.',
+            ko: '스케치: “월 3,300원” 가격표 하나가 가끔 보는 팬, 단골, 열혈 팬 세 사람을 가리키고, 세 사람 모두 같은 배지를 받는다. 하트에 둘러싸인 열혈 팬이 “더 후원하고 싶은데…”라고 말한다.',
           },
         },
       ],
@@ -122,7 +122,7 @@ export default {
         {
           type: 'p',
           en: 'We tried four tier structures and judged each on conversion and retention together. SOOP’s public changes went the same way: a second, higher tier in late 2024,[^2] then Basic and Plus in 2025, with each streamer setting the Plus price.[^3]',
-          ko: '티어 구조는 네 번 바꿨고, 매번 전환율과 유지율을 함께 봤습니다. SOOP의 공개 변경도 같은 방향이었습니다. 2024년 말 더 비싼 두 번째 티어가 생겼고,[^2] 2025년에는 베이직과 플러스로 나뉘며 플러스 가격을 스트리머가 정하게 됐습니다.[^3]',
+          ko: '티어 구조는 네 번 바꿨고, 매번 전환율과 유지율을 함께 봤습니다. 같은 시기 SOOP이 공개한 변경도 같은 방향이었습니다. 2024년 말 더 비싼 두 번째 티어가 생겼고,[^2] 2025년에는 베이직과 플러스로 나뉘며 플러스 가격을 스트리머가 정하게 됐습니다.[^3]',
         },
       ],
     },
@@ -132,7 +132,7 @@ export default {
       title: { en: 'Streamers design the benefits', ko: '혜택 설계는 스트리머가' },
       why: {
         en: 'Custom products gave fans a reason to subscribe to this channel, not just to “a subscription”. It meant more setup for streamers, so defaults and templates had to be good.',
-        ko: '맞춤 상품은 팬에게 “구독”이 아니라 이 채널을 구독할 이유를 줬습니다. 대신 스트리머의 설정 부담이 커져서 기본값과 템플릿이 좋아야 했습니다.',
+        ko: '맞춤 상품은 팬에게 그냥 ‘구독’이 아니라 이 채널을 구독할 이유를 줬습니다. 대신 스트리머의 설정 부담이 커져서 좋은 기본값과 템플릿이 필요했습니다.',
       },
     },
     {
@@ -150,7 +150,7 @@ export default {
         scene: 'p03-results',
         alt: {
           en: 'Results sketch: before/after bars for paid conversion (+31%), subscription revenue of the top 20% of streamers (+27%) and retention (+15%), and a pie showing that more than half of new subscribers chose a customised product.',
-          ko: '결과 스케치: 유료 전환율(+31%), 상위 20% 스트리머 구독 매출(+27%), 구독 유지율(+15%)의 전후 막대와, 신규 구독자 절반 이상이 맞춤형 상품을 골랐음을 보여주는 원그래프.',
+          ko: '결과 스케치: 유료 전환율(+31%), 상위 20% 스트리머 구독 매출(+27%), 구독 유지율(+15%)의 전후 막대그래프와, 신규 구독자 절반 이상이 맞춤형 상품을 골랐음을 보여 주는 원그래프.',
         },
       },
     ],

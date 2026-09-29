@@ -5,7 +5,7 @@ export default {
   title: { en: 'N-CONNECT Creator Partnership Program', ko: 'N-CONNECT 크리에이터 파트너십 프로그램' },
   dek: {
     en: 'N-CONNECT links players, streamers and NEXON games across streaming platforms. My part is keeping every team in the program on the same numbers, and turning what creators need into requirements other teams can build.',
-    ko: 'N-CONNECT는 스트리밍 플랫폼을 넘어 플레이어, 스트리머, 넥슨 게임을 잇는 프로그램입니다. 제 몫은 참여하는 모든 팀이 같은 숫자를 보게 하고, 크리에이터에게 필요한 것을 다른 팀이 만들 수 있는 요구사항으로 옮기는 일입니다.',
+    ko: 'N-CONNECT는 여러 스트리밍 플랫폼에서 플레이어, 스트리머, 넥슨 게임을 잇는 프로그램입니다. 제 몫은 참여하는 모든 팀이 같은 숫자를 보게 하고, 크리에이터에게 필요한 것을 다른 팀이 만들 수 있는 요구사항으로 옮기는 일입니다.',
   },
   card: {
     en: 'Cross-platform creator partnership program linking players, streamers and NEXON games on SOOP and Chzzk. Program reporting, partner planning, and cross-functional requirements.',
@@ -64,12 +64,12 @@ export default {
     didLabel: { en: 'My part', ko: '제 역할' },
     did: {
       en: 'Recurring program reporting across account linking, referrals, membership, content support and player impact, and turning creator and partner needs into cross-functional requirements.',
-      ko: '계정 연동, 추천, 멤버십, 콘텐츠 지원, 플레이어 임팩트를 아우르는 정기 리포팅, 그리고 크리에이터와 파트너의 요구를 크로스펑셔널 요구사항으로 정리하는 일.',
+      ko: '계정 연동, 추천, 멤버십, 콘텐츠 지원, 플레이어 임팩트를 아우르는 정기 리포트를 만들고, 크리에이터와 파트너의 요구를 크로스펑셔널 요구사항으로 정리합니다.',
     },
     resultLabel: { en: 'Program results (NEXON)', ko: '프로그램 성과 (넥슨 발표)' },
     result: {
       en: '**80K+** accounts linked within two weeks of the preseason launch, and about **1,000** active streamers in the preseason.',
-      ko: '프리시즌 시작 2주 만에 계정 연동 **8만 건 이상**, 프리시즌 활동 스트리머 약 **1,000명**.',
+      ko: '프리시즌 시작 2주 만에 계정 연동 **8만 건 이상**, 프리시즌 활동 스트리머 약 **1,000명**을 기록했습니다.',
     },
   },
   chapters: [
@@ -80,12 +80,12 @@ export default {
         {
           type: 'p',
           en: 'Sponsored broadcasts, launch events and code giveaways each spike and fade.',
-          ko: '후원 방송, 출시 이벤트, 쿠폰 배포는 하나하나 치솟았다가 사그라듭니다.',
+          ko: '후원 방송, 출시 이벤트, 쿠폰 배포는 반응이 잠깐 치솟았다가 금방 사그라듭니다.',
         },
         {
           type: 'p',
           en: 'N-CONNECT is ongoing instead. Players link their platform account to their NEXON account and earn rewards; streamers who join become N-Connectors, rewarded on activity, growth and impact. The preseason opened on SOOP in April 2026 for about five months.[^1]',
-          ko: 'N-CONNECT는 지속되는 프로그램입니다. 플레이어는 플랫폼 계정을 넥슨 계정과 연동하고 보상을 받고, 참여한 스트리머는 “N커넥터”가 되어 활동, 성장, 임팩트로 보상받습니다. 프리시즌은 2026년 4월 SOOP에서 약 5개월 일정으로 시작했습니다.[^1]',
+          ko: 'N-CONNECT는 지속되는 프로그램입니다. 플레이어는 플랫폼 계정을 넥슨 계정과 연동해 보상을 받고, 참여한 스트리머는 “N커넥터”가 되어 활동, 성장, 임팩트에 따라 보상을 받습니다. 프리시즌은 2026년 4월 SOOP에서 약 5개월 일정으로 시작했습니다.[^1]',
         },
         {
           type: 'sketch',
@@ -139,7 +139,7 @@ export default {
       title: { en: 'Requests become requirements, with the reason', ko: '요청은 이유와 함께 요구사항으로' },
       why: {
         en: 'A list of asks gets triaged by whoever reads it. A requirement that says which creator problem it solves, and for which team, gets built.',
-        ko: '요청 목록은 읽는 사람 마음대로 정리됩니다. 어떤 크리에이터 문제를 어느 팀이 풀어야 하는지 적힌 요구사항은 만들어집니다.',
+        ko: '요청을 나열만 하면 우선순위는 읽는 사람이 정합니다. 어떤 크리에이터 문제를 어느 팀이 풀어야 하는지 적힌 요구사항이어야 실제로 만들어집니다.',
       },
     },
   ],

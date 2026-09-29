@@ -7,11 +7,11 @@ export default {
   title: { en: 'Personalized Discovery & Hashtag System', ko: '개인화 추천 · 해시태그 시스템' },
   dek: {
     en: 'The home page mostly showed broadcasts that were already popular. We rebuilt recommendations around what each viewer watches, and gave tags stable IDs so smaller streams could be found.',
-    ko: '홈에는 주로 이미 인기 있는 방송이 걸렸습니다. 시청자마다 무엇을 보는지를 중심으로 추천을 다시 만들고, 태그에 고정 ID를 붙여 작은 방송도 찾을 수 있게 했습니다.',
+    ko: '홈에는 주로 이미 인기 있는 방송이 걸렸습니다. 시청자마다 무엇을 보는지를 기준으로 추천을 다시 만들고, 태그에 고정 ID를 붙여 작은 방송도 찾을 수 있게 했습니다.',
   },
   card: {
     en: 'ML‑assisted classification surfacing relevant mid‑tier creators by viewing history and intent signals. Paired with a hashtag taxonomy that improved average session depth.',
-    ko: '시청 이력·인텐트 시그널을 활용한 ML 기반 분류로 미드티어 크리에이터를 노출. 해시태그 분류 체계와 결합해 세션 깊이를 개선.',
+    ko: '시청 이력과 의도 시그널을 활용한 ML 기반 분류로 관련 있는 미드티어 크리에이터를 노출. 해시태그 분류 체계와 함께 세션 깊이를 개선.',
   },
   kpis: [
     { value: '+2.3×', label: { en: 'Homepage CTR', ko: '홈 클릭률' }, cardLabel: 'Homepage CTR' },
@@ -50,7 +50,7 @@ export default {
     },
     result: {
       en: 'Homepage CTR rose **2.3×** and session engagement **170%**. Mid-tier streams averaged **40** concurrent viewers, up from **10**.',
-      ko: '홈 클릭률은 **2.3배**, 세션 참여는 **170%** 늘었습니다. 미드티어 방송의 평균 동시 시청자는 **10명에서 40명**이 됐습니다.',
+      ko: '홈 클릭률은 **2.3배**, 세션 참여는 **170%** 늘었습니다. 미드티어 방송의 평균 동시 시청자는 **10명에서 40명**으로 늘었습니다.',
     },
   },
   chapters: [
@@ -79,7 +79,7 @@ export default {
         {
           type: 'p',
           en: 'In January 2023 the company said it would move from putting the most-watched streams first toward each viewer’s patterns and taste.[^2]',
-          ko: '2023년 1월 회사는 가장 많이 본 방송을 위에 올리던 방식에서 시청자의 패턴과 취향을 반영하는 방식으로 바꾸겠다고 밝혔습니다.[^2]',
+          ko: '2023년 1월, 회사는 시청자가 많은 방송을 위에 올리던 방식을 시청 패턴과 취향을 반영하는 방식으로 바꾸겠다고 밝혔습니다.[^2]',
         },
       ],
     },
@@ -90,7 +90,7 @@ export default {
         {
           type: 'p',
           en: 'We matched viewers to streamers using viewing history and intent signals instead of a global top list. Search already did this: from September 2021 it suggested terms and related content from each user’s viewing.[^1]',
-          ko: '전체 인기 순위 대신 시청 이력과 인텐트 시그널로 시청자와 스트리머를 연결했습니다. 검색은 이미 그렇게 하고 있었습니다. 2021년 9월부터 사용 이력을 분석해 검색어와 연관 콘텐츠를 추천했습니다.[^1]',
+          ko: '전체 인기 순위 대신 시청 이력과 의도 시그널로 시청자와 스트리머를 연결했습니다. 검색은 이미 그렇게 하고 있었습니다. 2021년 9월부터 사용 이력을 분석해 검색어와 연관 콘텐츠를 추천했습니다.[^1]',
         },
         {
           type: 'p',
@@ -137,7 +137,7 @@ export default {
       title: { en: 'Relevance first, then a wider pool', ko: '관련도 먼저, 후보는 넓게' },
       why: {
         en: 'A fixed quota for small channels shows viewers streams they don’t want. Relevance keeps viewers clicking; wider pools let the match be a mid-tier streamer.',
-        ko: '소형 채널 고정 할당은 시청자에게 원하지 않는 방송을 보여줍니다. 관련도는 클릭을 지키고, 넓어진 후보 풀은 그 방송이 미드티어일 수 있게 합니다.',
+        ko: '작은 채널에 고정 자리를 주면 시청자가 원하지 않는 방송이 뜹니다. 관련도는 클릭을 지키고, 넓어진 후보 풀은 그 자리에 미드티어 방송이 올 수 있게 합니다.',
       },
     },
     {

@@ -7,11 +7,11 @@ export default {
   title: { en: 'Creator Analytics Dashboard', ko: '크리에이터 분석 대시보드' },
   dek: {
     en: 'Creators had statistics but few answers. We built a self-serve dashboard around the three questions they actually ask, and left adoption up to them.',
-    ko: '크리에이터에게 통계는 있었지만 답은 부족했습니다. 그들이 실제로 묻는 세 가지 질문을 중심으로 셀프 서브 대시보드를 만들고, 쓸지 말지는 각자에게 맡겼습니다.',
+    ko: '크리에이터에게 통계는 있었지만 답은 부족했습니다. 크리에이터가 실제로 묻는 세 가지 질문을 중심으로 셀프서브 대시보드를 만들고, 쓸지 말지는 각자에게 맡겼습니다.',
   },
   card: {
     en: 'Self‑serve analytics helping creators understand performance and growth opportunities. Designed UX for non‑technical users and voluntary adoption — no mandates.',
-    ko: '크리에이터가 성과와 성장 기회를 직접 분석할 수 있는 셀프 서브 대시보드. 비전문 유저를 위한 UX와 자발적 도입을 중심에 두고 설계.',
+    ko: '크리에이터가 성과와 성장 기회를 직접 분석할 수 있는 셀프서브 대시보드. 분석에 익숙하지 않은 사용자를 위한 UX와 자발적 도입을 중심에 두고 설계.',
   },
   kpis: [
     { value: '65%+', label: { en: 'Voluntary adoption', ko: '자발적 도입률' }, cardLabel: 'Voluntary adoption' },
@@ -41,7 +41,7 @@ export default {
   glance: {
     problem: {
       en: 'Most creators aren’t analysts. A page of charts showed what had happened but not what to change, and partner managers could coach only a few streamers by hand.',
-      ko: '크리에이터 대부분은 분석가가 아닙니다. 차트 가득한 페이지는 무슨 일이 있었는지만 보여줬고, 파트너 매니저가 직접 코칭할 수 있는 스트리머는 몇 명뿐이었습니다.',
+      ko: '크리에이터 대부분은 분석가가 아닙니다. 차트로 가득한 페이지는 무슨 일이 있었는지만 보여줬고, 파트너 매니저가 직접 코칭할 수 있는 스트리머는 몇 명뿐이었습니다.',
     },
     did: {
       en: 'Research narrowed the dashboard to three questions, each answered by one view. We tested it with strategic streamers and kept adoption voluntary.',
@@ -76,7 +76,7 @@ export default {
         {
           type: 'p',
           en: 'Interviews with creators kept coming back to the same three questions. Each view answers one of them, with fewer metrics, consistent definitions and plain labels.',
-          ko: '크리에이터 인터뷰는 계속 같은 세 질문으로 돌아왔습니다. 화면마다 그중 하나에 답하고, 지표는 줄이고, 정의는 일관되게, 라벨은 쉽게 썼습니다.',
+          ko: '크리에이터 인터뷰는 계속 같은 세 질문으로 돌아왔습니다. 화면 하나가 질문 하나에 답하게 하고, 지표는 줄이고, 정의는 일관되게 맞추고, 라벨은 쉬운 말로 썼습니다.',
         },
         {
           type: 'sketch',
@@ -108,7 +108,7 @@ export default {
         {
           type: 'p',
           en: 'The beta with strategic streamers tested whether the views changed what creators did, not just whether they opened them.',
-          ko: '전략 스트리머와의 베타에서는 화면을 열어보는지가 아니라, 그걸 보고 실제로 무언가를 바꾸는지를 확인했습니다.',
+          ko: '전략 스트리머와의 베타에서는 화면을 열어 보는지가 아니라, 화면을 보고 실제로 무언가를 바꾸는지를 확인했습니다.',
         },
       ],
     },
@@ -118,14 +118,14 @@ export default {
       title: { en: 'No mandate', ko: '강제하지 않기' },
       why: {
         en: 'Required use measures compliance. Voluntary use shows whether the dashboard is actually useful, which is what we needed to know. The cost was a slower start.',
-        ko: '의무 사용은 규정 준수를 잴 뿐입니다. 자발적 사용이 대시보드가 정말 쓸모 있는지를 보여주고, 그게 우리가 알아야 할 것이었습니다. 대신 초기 확산은 느렸습니다.',
+        ko: '사용을 의무로 정하면 규정을 지켰는지만 알 수 있습니다. 자발적 사용이라야 대시보드가 정말 쓸모 있는지 보여 주고, 우리가 알아야 했던 것도 그것이었습니다. 대신 초기 확산은 느렸습니다.',
       },
     },
     {
       title: { en: 'Three questions, not thirty metrics', ko: '지표 30개 대신 질문 3개' },
       why: {
         en: 'Every chart we kept had to lead to something a creator could do. For this audience the rest was noise.',
-        ko: '남긴 차트는 모두 크리에이터가 할 수 있는 행동으로 이어져야 했습니다. 이 사용자에게 나머지는 소음이었습니다.',
+        ko: '남긴 차트는 모두 크리에이터가 할 수 있는 행동으로 이어져야 했습니다. 나머지는 이 사용자에게 소음이었습니다.',
       },
     },
   ],

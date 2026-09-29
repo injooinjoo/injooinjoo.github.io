@@ -164,8 +164,8 @@ export default {
       const tx = N ? 90 : X(0.9), ty = N ? 400 : 290;
       p.check(tx - 30, ty - 8, 26, { col: 'green', reveal: R(t, 0.88, 0.98) });
       p.text(L('tests pass', '테스트 통과'), tx - 10, ty, { size: 19, col: 'green', weight: 700, reveal: R(t, 0.88, 0.98) });
-      if (N) p.text(L('green tests, stale product', '테스트는 통과, 제품은 옛것'), 200, 480, { align: 'center', size: 18, col: 'soft', reveal: R(t, 0.9, 1) });
-      else p.text(L('green tests, stale product', '테스트는 통과, 제품은 옛것'), X(0.9), ty + 30, { align: 'center', size: 16, col: 'soft', reveal: R(t, 0.9, 1) });
+      if (N) p.text(L('green tests, stale product', '테스트는 통과, 제품은 옛 버전'), 200, 480, { align: 'center', size: 18, col: 'soft', reveal: R(t, 0.9, 1) });
+      else p.text(L('green tests, stale product', '테스트는 통과, 제품은 옛 버전'), X(0.9), ty + 30, { align: 'center', size: 16, col: 'soft', reveal: R(t, 0.9, 1) });
     },
   },
 
@@ -217,9 +217,9 @@ export default {
       // Legend.
       const legend = [
         L('one pinned base for every agent', '모든 에이전트가 같은 기준 커밋에서'),
-        L('what was removed gets a test that it stays removed', '지운 것은 계속 지워져 있음을 테스트'),
+        L('what was removed gets a test that it stays removed', '지운 것이 지워진 채로 있는지 테스트'),
         L('old branches are read, not built on', '옛 브랜치는 참고만, 기준으로 쓰지 않음'),
-        L('workers never deploy; one release at a time', '작업 에이전트는 배포하지 않음, 한 번에 하나씩'),
+        L('workers never deploy; one release at a time', '작업 에이전트는 배포하지 않음, 배포는 한 번에 하나씩'),
       ];
       legend.forEach((txt, i) => {
         const [lx, ly] = N ? [30, 400 + i * 62] : [0, 180 + i * 62];

@@ -75,8 +75,8 @@ export default {
       p.text(L('same perks for everyone', '모두 같은 혜택'), N ? 200 : 400, by + (N ? 60 : 56), { align: 'center', size: N ? 18 : 20, col: 'soft', reveal: R(t, 0.6, 0.72) });
       const sx = fans[2];
       [[-50, -s - 10], [48, -s - 22], [60, -s + 18]].forEach(([dx, dy], i) => K.heart(p, sx + dx, by + dy, 14, { reveal: R(t, 0.65 + i * 0.04, 0.75 + i * 0.04) }));
-      if (N) K.bubble(p, 176, 404, 214, 48, { text: L('I’d happily give more', '더 하고 싶은데…'), tail: 'tr', size: 17, fill: 'paper', reveal: R(t, 0.75, 0.9) });
-      else K.bubble(p, 590, 36, 200, 50, { text: L('I’d happily give more', '더 하고 싶은데…'), tail: 'bl', size: 19, fill: 'paper', reveal: R(t, 0.75, 0.9) });
+      if (N) K.bubble(p, 176, 404, 214, 48, { text: L('I’d happily give more', '더 후원하고 싶은데…'), tail: 'tr', size: 17, fill: 'paper', reveal: R(t, 0.75, 0.9) });
+      else K.bubble(p, 590, 36, 200, 50, { text: L('I’d happily give more', '더 후원하고 싶은데…'), tail: 'bl', size: 19, fill: 'paper', reveal: R(t, 0.75, 0.9) });
     },
   },
 
@@ -177,7 +177,7 @@ export default {
       if (a1 > a0 + 0.05) p.poly(wedge(cx, cy, rr - 2, a0, a1), { fill: 'red', fa: 0.4, hatch: { gap: 5, a: 0.3 }, stroke: false });
       p.circle(cx, cy, rr, { reveal: R(t, 0.45, 0.6) });
       p.text('50%+', cx, cy + 9, { align: 'center', size: 28, weight: 700, reveal: R(t, 0.75, 0.85) });
-      p.text(L('of new subscribers chose\na customised product', '신규 구독자가 고른\n맞춤형 상품'), N ? cx + 0 : cx, cy + rr + 30, { align: 'center', size: 17, lh: 20, reveal: R(t, 0.8, 0.9) });
+      p.text(L('of new subscribers chose\na customised product', '맞춤형 상품을 고른\n신규 구독자'), N ? cx + 0 : cx, cy + rr + 30, { align: 'center', size: 17, lh: 20, reveal: R(t, 0.8, 0.9) });
     },
   },
 };
