@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Operations Automation Platform — InJoo Kim</title>
+<meta name="description" content="Three teams, one pipeline: replacing roughly 200 hours a month of spreadsheet work with automation that reports itself." />
+<link rel="canonical" href="https://www.injookim.com/work/ops-automation/" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Operations Automation Platform — P-02 case study" />
+<meta property="og:description" content="Three teams, one pipeline: replacing roughly 200 hours a month of spreadsheet work with automation that reports itself." />
+<meta property="og:url" content="https://www.injookim.com/work/ops-automation/" />
+<meta name="twitter:card" content="summary" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+<script>
+(function(){var d=document.documentElement;try{var l=localStorage.getItem('portfolio-lang');if(l==='ko'||l==='en'){d.setAttribute('data-lang',l);d.lang=l;}var t=localStorage.getItem('portfolio-theme');if(t==='dark'||t==='light')d.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Operations Automation Platform","description":"Three teams, one pipeline: replacing roughly 200 hours a month of spreadsheet work with automation that reports itself.","author":{"@type":"Person","name":"InJoo Kim","url":"https://www.injookim.com"},"url":"https://www.injookim.com/work/ops-automation/","inLanguage":["en","ko"]}</script>
+<script type="module" src="/work/case-study.js"></script>
+</head>
+<body class="cs-body">
+<a class="skip-link" href="#main"><span data-en>Skip to content</span><span data-ko lang="ko">본문으로 건너뛰기</span></a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="/" class="brand"><span class="brand-mark">IK</span><span>InJoo Kim</span></a>
+    <div class="top-actions">
+      <a class="cs-back-link" href="/#work">← <span data-en>Selected work</span><span data-ko lang="ko">프로젝트</span></a>
+      <button class="icon-btn" id="lang-btn" type="button" aria-label="Switch language">KO</button>
+      <button class="icon-btn" id="theme-btn" type="button" aria-label="Toggle dark mode">◐</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<article class="cs">
+  <header class="cs-head">
+    <div class="cs-head-main">
+      <p class="cs-eyebrow"><span><span data-en>Case study</span><span data-ko lang="ko">케이스 스터디</span></span><span class="cs-dot">·</span><span>P-02</span><span class="cs-dot">·</span><span>SOOP</span></p>
+      <h1><span data-en>Operations Automation Platform</span><span data-ko lang="ko">운영 자동화 플랫폼</span></h1>
+      <p class="cs-dek" data-en>Three teams, one pipeline: replacing roughly 200 hours a month of spreadsheet work with automation that reports itself.</p><p class="cs-dek" data-ko lang="ko">세 팀, 하나의 파이프라인. 매달 약 200시간의 스프레드시트 작업을 스스로 보고하는 자동화로 바꾼 프로젝트.</p>
+    </div>
+    <dl class="cs-meta"><div><dt><span data-en>Company</span><span data-ko lang="ko">회사</span></dt><dd><span data-en>SOOP (formerly AfreecaTV)</span><span data-ko lang="ko">SOOP (구 아프리카TV)</span></dd></div><div><dt><span data-en>Role</span><span data-ko lang="ko">역할</span></dt><dd><span data-en>Product Manager</span><span data-ko lang="ko">프로덕트 매니저</span></dd></div><div><dt><span data-en>Scope</span><span data-ko lang="ko">범위</span></dt><dd><span data-en>Workflow audit, pipeline design and build, KPI reporting, rollout to finance, creator support and content review</span><span data-ko lang="ko">업무 흐름 진단, 파이프라인 설계·구축, KPI 리포팅, 재무·크리에이터 지원·콘텐츠 리뷰 팀 적용</span></dd></div><div><dt><span data-en>Stack</span><span data-ko lang="ko">스택</span></dt><dd><span>Python · GCP · Supabase · REST APIs</span></dd></div><div><dt><span data-en>Reading time</span><span data-ko lang="ko">읽는 시간</span></dt><dd><span data-en>3 min read</span><span data-ko lang="ko">3분 분량</span></dd></div></dl>
+  </header>
+  <div class="cs-kpis"><div class="cs-kpi"><div class="cs-kpi-v">200h → &lt;1h</div><div class="cs-kpi-l"><span data-en>Monthly manual ops</span><span data-ko lang="ko">월 수작업 운영 시간</span></div></div><div class="cs-kpi"><div class="cs-kpi-v">3</div><div class="cs-kpi-l"><span data-en>Teams unified</span><span data-ko lang="ko">통합한 팀</span></div></div><div class="cs-kpi"><div class="cs-kpi-v">5% → &lt;1%</div><div class="cs-kpi-l"><span data-en>Reporting error rate</span><span data-ko lang="ko">리포트 오류율</span></div></div></div>
+  <figure class="cs-figure cs-wide"><div class="cs-figure-art" tabindex="0"><svg viewBox="0 0 880 220" role="img" aria-label="Before: three teams copying spreadsheets by hand. After: one pipeline feeding Slack and dashboards." xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-arrow"/></marker></defs><text x="0" y="20" font-size="11" font-weight="400" text-anchor="start" class="f-muted f-mono" data-en>BEFORE — ~200 h / month</text><text x="0" y="20" font-size="11" font-weight="400" text-anchor="start" class="f-muted f-mono" data-ko>이전 — 월 약 200시간</text><rect x="0" y="38" width="150" height="44" rx="10" class="f-box" stroke-width="1.2"/><text x="14" y="65" font-size="13" font-weight="600" text-anchor="start" data-en>Finance</text><text x="14" y="65" font-size="13" font-weight="600" text-anchor="start" data-ko>재무</text>
+<rect x="170" y="38" width="120" height="44" rx="10" class="f-box" stroke-width="1.2"/><text x="184" y="58" font-size="12" font-weight="400" text-anchor="start" data-en>Spreadsheets</text><text x="184" y="58" font-size="12" font-weight="400" text-anchor="start" data-ko>스프레드시트</text><text x="184" y="73" font-size="11" font-weight="400" text-anchor="start" class="f-muted" data-en>manual copy</text><text x="184" y="73" font-size="11" font-weight="400" text-anchor="start" class="f-muted" data-ko>수동 취합</text>
+<path d="M152,60 L166,60" class="f-line" stroke-width="1.4" marker-end="url(#ah)"/><rect x="0" y="96" width="150" height="44" rx="10" class="f-box" stroke-width="1.2"/><text x="14" y="123" font-size="13" font-weight="600" text-anchor="start" data-en>Creator support</text><text x="14" y="123" font-size="13" font-weight="600" text-anchor="start" data-ko>크리에이터 지원</text>
+<rect x="170" y="96" width="120" height="44" rx="10" class="f-box" stroke-width="1.2"/><text x="184" y="116" font-size="12" font-weight="400" text-anchor="start" data-en>Spreadsheets</text><text x="184" y="116" font-size="12" font-weight="400" text-anchor="start" data-ko>스프레드시트</text><text x="184" y="131" font-size="11" font-weight="400" text-anchor="start" class="f-muted" data-en>manual copy</text><text x="184" y="131" font-size="11" font-weight="400" text-anchor="start" class="f-muted" data-ko>수동 취합</text>
+<path d="M152,118 L166,118" class="f-line" stroke-width="1.4" marker-end="url(#ah)"/><rect x="0" y="154" width="150" height="44" rx="10" class="f-box" stroke-width="1.2"/><text x="14" y="181" font-size="13" font-weight="600" text-anchor="start" data-en>Content review</text><text x="14" y="181" font-size="13" font-weight="600" text-anchor="start" data-ko>콘텐츠 리뷰</text>
+<rect x="170" y="154" width="120" height="44" rx="10" class="f-box" stroke-width="1.2"/><text x="184" y="174" font-size="12" font-weight="400" text-anchor="start" data-en>Spreadsheets</text><text x="184" y="174" font-size="12" font-weight="400" text-anchor="start" data-ko>스프레드시트</text><text x="184" y="189" font-size="11" font-weight="400" text-anchor="start" class="f-muted" data-en>manual copy</text><text x="184" y="189" font-size="11" font-weight="400" text-anchor="start" class="f-muted" data-ko>수동 취합</text>
+<path d="M152,176 L166,176" class="f-line" stroke-width="1.4" marker-end="url(#ah)"/><path d="M370,30 L370,210" class="f-line" stroke-width="1" stroke-dasharray="3 5"/><text x="420" y="20" font-size="11" font-weight="400" text-anchor="start" class="f-muted f-mono" data-en>AFTER — under 1 h / month</text><text x="420" y="20" font-size="11" font-weight="400" text-anchor="start" class="f-muted f-mono" data-ko>이후 — 월 1시간 미만</text>
+<rect x="420" y="38" width="150" height="160" rx="10" class="f-box" stroke-width="1.2"/><text x="434" y="62" font-size="13" font-weight="600" text-anchor="start" data-en>Sources</text><text x="434" y="62" font-size="13" font-weight="600" text-anchor="start" data-ko>데이터 소스</text>
+<text x="434" y="86" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-en>Platform APIs</text><text x="434" y="86" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-ko>플랫폼 API</text>
+<text x="434" y="106" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-en>Settlement data</text><text x="434" y="106" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-ko>정산 데이터</text>
+<text x="434" y="126" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-en>Support requests</text><text x="434" y="126" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-ko>지원 요청</text>
+<text x="434" y="146" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-en>Review queues</text><text x="434" y="146" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-ko>리뷰 대기열</text>
+<path d="M574,118 L606,118" class="f-line" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="610" y="70" width="130" height="96" rx="10" class="f-box-strong" stroke-width="1.2"/><text x="624" y="94" font-size="13" font-weight="600" text-anchor="start" data-en>One pipeline</text><text x="624" y="94" font-size="13" font-weight="600" text-anchor="start" data-ko>단일 파이프라인</text>
+<text x="624" y="116" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-en>Collect</text><text x="624" y="116" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-ko>수집</text><text x="624" y="134" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-en>Validate</text><text x="624" y="134" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-ko>검증</text><text x="624" y="152" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-en>Route</text><text x="624" y="152" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-ko>분배</text>
+<path d="M744,118 L776,118" class="f-line" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="780" y="62" width="100" height="44" rx="10" class="f-box" stroke-width="1.2"/><text x="792" y="89" font-size="12" font-weight="400" text-anchor="start" data-en>Slack alerts</text><text x="792" y="89" font-size="12" font-weight="400" text-anchor="start" data-ko>Slack 알림</text>
+<rect x="780" y="130" width="100" height="44" rx="10" class="f-box" stroke-width="1.2"/><text x="792" y="157" font-size="12" font-weight="400" text-anchor="start" data-en>Dashboards</text><text x="792" y="157" font-size="12" font-weight="400" text-anchor="start" data-ko>대시보드</text></svg></div><figcaption><span data-en>Before and after, reconstructed. Each team kept its own spreadsheets and copied data by hand; afterwards, one pipeline collected, checked and routed the same data to Slack and dashboards.</span><span data-ko lang="ko">전후 비교 재구성도. 이전에는 팀마다 스프레드시트를 따로 두고 데이터를 손으로 옮겼고, 이후에는 하나의 파이프라인이 데이터를 수집·검증해 Slack과 대시보드로 보냈습니다.</span></figcaption></figure>
+  <div class="cs-body-col">
+    <section class="cs-tldr" aria-labelledby="tldr-h">
+      <h2 id="tldr-h" class="cs-tldr-h">TL;DR</h2>
+      <ul><li><span data-en>Finance, creator support and content review each ran recurring work by hand — pulling platform data, reconciling spreadsheets and chasing updates — at a cost of about <strong>200 hours a month</strong>.</span><span data-ko lang="ko">재무, 크리에이터 지원, 콘텐츠 리뷰 팀은 플랫폼 데이터를 뽑고, 스프레드시트를 맞추고, 진행 상황을 확인하는 반복 업무를 손으로 처리했고, 여기에 매달 약 <strong>200시간</strong>이 들었습니다.</span></li><li><span data-en>We built one pipeline on GCP, Supabase and platform APIs that collects, validates and routes that data, and pushes results to Slack and dashboards where the teams already work.</span><span data-ko lang="ko">GCP, Supabase, 플랫폼 API로 데이터를 수집·검증·분배하는 파이프라인 하나를 만들고, 결과를 팀이 이미 일하는 Slack과 대시보드로 보냈습니다.</span></li><li><span data-en>Monthly manual work fell to <strong>under an hour</strong>, weekly reporting errors dropped from <strong>5% to under 1%</strong>, and the time went back into planning and analysis.</span><span data-ko lang="ko">월 수작업은 <strong>1시간 미만</strong>으로 줄었고, 주간 리포트 오류율은 <strong>5%에서 1% 미만</strong>으로 떨어졌으며, 확보한 시간은 기획과 분석에 쓰였습니다.</span></li></ul>
+    </section>
+<section class="cs-section" id="context" aria-labelledby="context-h">
+  <h2 id="context-h"><span data-en>Context</span><span data-ko lang="ko">배경</span></h2>
+  <p data-en>A livestreaming platform generates operational work in proportion to its creators. By 2024 SOOP was welcoming around 53,000 new streamers a year across 6.75 million broadcasts,<sup class="fnref"><a href="#fn-1" id="fnref-1">1</a></sup> and the early-2024 wave of streamers arriving after Twitch left Korea added thousands more at once.<sup class="fnref"><a href="#fn-2" id="fnref-2">2</a></sup></p><p data-ko lang="ko">라이브 스트리밍 플랫폼의 운영 업무는 크리에이터 수에 비례해 늘어납니다. 2024년 SOOP에는 한 해 약 5만 3천 명의 신규 스트리머가 들어왔고 방송은 675만 건에 달했습니다.<sup class="fnref"><a href="#fn-1" id="fnref-1-2">1</a></sup> 2024년 초 트위치가 한국에서 철수하면서 수천 명의 스트리머가 한꺼번에 넘어오기도 했습니다.<sup class="fnref"><a href="#fn-2" id="fnref-2-2">2</a></sup></p>
+  <p data-en>Behind every creator program sit the same chores: pull numbers from the platform, reconcile them with settlement data, check eligibility, update a tracker, tell someone. Each team had built its own version in spreadsheets.</p><p data-ko lang="ko">모든 크리에이터 프로그램 뒤에는 같은 잡무가 있습니다. 플랫폼에서 숫자를 뽑고, 정산 데이터와 맞추고, 자격을 확인하고, 트래커를 갱신하고, 담당자에게 알리는 일입니다. 각 팀은 이 과정을 제각각 스프레드시트로 만들어 쓰고 있었습니다.</p>
+</section>
+<section class="cs-section" id="problem" aria-labelledby="problem-h">
+  <h2 id="problem-h"><span data-en>The problem</span><span data-ko lang="ko">문제 정의</span></h2>
+  <ul class="cs-list"><li><span data-en><strong>Time.</strong> About 200 hours a month of skilled people copying and pasting.</span><span data-ko lang="ko"><strong>시간.</strong> 숙련된 인력이 매달 약 200시간을 복사·붙여넣기에 쓰고 있었습니다.</span></li><li><span data-en><strong>Accuracy.</strong> About 5% of weekly KPI reports carried errors — enough that people double-checked everything, which cost more time.</span><span data-ko lang="ko"><strong>정확도.</strong> 주간 KPI 리포트의 약 5%에 오류가 있었고, 그래서 모두가 모든 숫자를 다시 확인해야 했습니다. 시간이 더 들었습니다.</span></li><li><span data-en><strong>Latency.</strong> Numbers arrived weekly, after decisions had already been made.</span><span data-ko lang="ko"><strong>지연.</strong> 숫자는 매주 한 번, 이미 결정이 내려진 뒤에야 도착했습니다.</span></li><li><span data-en><strong>Fragmentation.</strong> Three teams maintained three versions of overlapping data.</span><span data-ko lang="ko"><strong>파편화.</strong> 세 팀이 겹치는 데이터를 세 가지 버전으로 관리했습니다.</span></li></ul>
+</section>
+<section class="cs-section" id="approach" aria-labelledby="approach-h">
+  <h2 id="approach-h"><span data-en>Approach</span><span data-ko lang="ko">접근 방식</span></h2>
+  <ol class="cs-steps"><li><span class="cs-step-h"><span data-en>Map the work, not the org chart</span><span data-ko lang="ko">조직도가 아닌 업무 흐름을 지도로</span></span><p data-en>We listed every recurring task across the three teams with its inputs, outputs and owner. Most of them turned out to be the same few steps applied to different data.</p><p data-ko lang="ko">세 팀의 반복 업무를 입력·출력·담당자와 함께 모두 나열했습니다. 대부분은 서로 다른 데이터에 같은 몇 단계를 적용하는 일이었습니다.</p></li><li><span class="cs-step-h"><span data-en>Automate the report first</span><span data-ko lang="ko">리포트부터 자동화</span></span><p data-en>Weekly KPI reporting moved to scheduled collection with Google Apps Script and Slack workflows, so numbers were shared as they landed instead of once a week.</p><p data-ko lang="ko">주간 KPI 리포트를 Google Apps Script와 Slack 워크플로우로 자동 수집하도록 바꿔, 숫자를 일주일에 한 번이 아니라 들어오는 즉시 공유했습니다.</p></li><li><span class="cs-step-h"><span data-en>Consolidate into one pipeline</span><span data-ko lang="ko">하나의 파이프라인으로 통합</span></span><p data-en>The shared steps — collect, validate, route — became one pipeline on GCP and Supabase, fed by platform APIs and serving finance, creator support and content review.</p><p data-ko lang="ko">수집·검증·분배라는 공통 단계를 GCP와 Supabase 위의 파이프라인 하나로 묶고, 플랫폼 API에서 데이터를 받아 재무·크리에이터 지원·콘텐츠 리뷰 팀에 제공했습니다.</p></li><li><span class="cs-step-h"><span data-en>Deliver where people already work</span><span data-ko lang="ko">이미 일하는 곳으로 전달</span></span><p data-en>Results went to Slack channels and dashboards the teams already used. No new tool to learn meant no adoption campaign.</p><p data-ko lang="ko">결과는 팀이 이미 쓰는 Slack 채널과 대시보드로 보냈습니다. 새로 배울 도구가 없으니 도입 캠페인도 필요 없었습니다.</p></li></ol>
+</section>
+<section class="cs-section" id="decisions" aria-labelledby="decisions-h">
+  <h2 id="decisions-h"><span data-en>Key decisions</span><span data-ko lang="ko">핵심 의사결정</span></h2>
+  <div class="cs-decision">
+  <div class="cs-decision-label"><span data-en>Decision</span><span data-ko lang="ko">의사결정</span></div>
+  <h3><span data-en>One pipeline instead of three tools</span><span data-ko lang="ko">도구 세 개 대신 파이프라인 하나</span></h3>
+  <dl>
+    <dt><span data-en>Options</span><span data-ko lang="ko">선택지</span></dt><dd><span data-en>Automate each team’s spreadsheet separately, or pull the shared steps into one system.</span><span data-ko lang="ko">팀별 스프레드시트를 각각 자동화할지, 공통 단계를 하나의 시스템으로 뺄지.</span></dd>
+    <dt><span data-en>Chose</span><span data-ko lang="ko">선택</span></dt><dd><span data-en>One pipeline with team-specific outputs.</span><span data-ko lang="ko">하나의 파이프라인, 팀별 출력.</span></dd>
+    <dt><span data-en>Why</span><span data-ko lang="ko">이유</span></dt><dd><span data-en>Three automations would have kept three versions of the truth. One pipeline made validation happen once, for everyone.</span><span data-ko lang="ko">자동화를 세 개 만들면 서로 다른 “정답”도 세 개로 남습니다. 파이프라인이 하나면 검증도 한 번, 모두에게 적용됩니다.</span></dd>
+    <dt><span data-en>Trade-off</span><span data-ko lang="ko">대가</span></dt><dd><span data-en>More upfront alignment between teams on shared definitions.</span><span data-ko lang="ko">공통 정의를 맞추기 위한 팀 간 사전 조율이 더 필요했습니다.</span></dd>
+  </dl>
+</div>
+  <div class="cs-decision">
+  <div class="cs-decision-label"><span data-en>Decision</span><span data-ko lang="ko">의사결정</span></div>
+  <h3><span data-en>Managed building blocks over a bespoke system</span><span data-ko lang="ko">맞춤 시스템 대신 관리형 서비스 조합</span></h3>
+  <dl>
+    <dt><span data-en>Options</span><span data-ko lang="ko">선택지</span></dt><dd><span data-en>Wait for a dedicated engineering project, or assemble the pipeline from managed services (GCP, Supabase, Apps Script, Slack).</span><span data-ko lang="ko">전담 개발 프로젝트를 기다릴지, 관리형 서비스(GCP, Supabase, Apps Script, Slack)를 조합해 직접 만들지.</span></dd>
+    <dt><span data-en>Chose</span><span data-ko lang="ko">선택</span></dt><dd><span data-en>Assemble from managed services and ship incrementally.</span><span data-ko lang="ko">관리형 서비스로 조립하고 단계적으로 출시.</span></dd>
+    <dt><span data-en>Why</span><span data-ko lang="ko">이유</span></dt><dd><span data-en>The cost of manual work was paid every week. Shipping the reporting piece first proved the value before anything larger was built.</span><span data-ko lang="ko">수작업 비용은 매주 발생했습니다. 리포트부터 먼저 내보내 가치를 증명한 뒤 더 큰 부분을 만들었습니다.</span></dd>
+    
+  </dl>
+</div>
+</section>
+<section class="cs-section" id="results" aria-labelledby="results-h">
+  <h2 id="results-h"><span data-en>Results</span><span data-ko lang="ko">결과</span></h2>
+  <figure class="cs-figure"><div class="cs-figure-art" tabindex="0"><svg viewBox="0 0 840 172" role="img" aria-label="Monthly manual operations hours, before and after" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-arrow"/></marker></defs><text x="0" y="32" font-size="14" font-weight="600" text-anchor="start" data-en>Manual ops time</text><text x="0" y="32" font-size="14" font-weight="600" text-anchor="start" data-ko>수작업 운영 시간</text>
+<text x="0" y="52" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-en>hours per month</text><text x="0" y="52" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-ko>월 기준</text>
+<rect x="250" y="18" width="480" height="16" rx="3" class="f-base"/>
+<text x="738" y="31" font-size="12" font-weight="400" text-anchor="start" class="f-muted f-mono">200 h</text>
+<rect x="250" y="40" width="3" height="16" rx="3" class="f-accent"/>
+<text x="261" y="53" font-size="12" font-weight="600" text-anchor="start" class="f-mono">&lt; 1 h</text><text x="0" y="96" font-size="14" font-weight="600" text-anchor="start" data-en>Reporting error rate</text><text x="0" y="96" font-size="14" font-weight="600" text-anchor="start" data-ko>리포트 오류율</text>
+<text x="0" y="116" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-en>weekly KPI reports</text><text x="0" y="116" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-ko>주간 KPI 리포트</text>
+<rect x="250" y="82" width="480" height="16" rx="3" class="f-base"/>
+<text x="738" y="95" font-size="12" font-weight="400" text-anchor="start" class="f-muted f-mono">5%</text>
+<rect x="250" y="104" width="96" height="16" rx="3" class="f-accent"/>
+<text x="354" y="117" font-size="12" font-weight="600" text-anchor="start" class="f-mono">&lt; 1%</text><rect x="250" y="152" width="12" height="10" rx="2" class="f-base"/><text x="268" y="161" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-en>Before</text><text x="268" y="161" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-ko>이전</text>
+<rect x="340" y="152" width="12" height="10" rx="2" class="f-accent"/><text x="358" y="161" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-en>After</text><text x="358" y="161" font-size="12" font-weight="400" text-anchor="start" class="f-muted" data-ko>이후</text></svg></div></figure>
+  <div class="cs-metric-table" role="table"><div class="cs-metric-row" role="row">
+  <div class="cs-metric-v" role="cell">200h → &lt;1h</div>
+  <div class="cs-metric-l" role="cell"><span data-en>Manual operations time per month</span><span data-ko lang="ko">월 수작업 운영 시간</span></div>
+</div><div class="cs-metric-row" role="row">
+  <div class="cs-metric-v" role="cell">3</div>
+  <div class="cs-metric-l" role="cell"><span data-en>Teams on one pipeline: finance, creator support, content review</span><span data-ko lang="ko">하나의 파이프라인으로 통합한 팀: 재무, 크리에이터 지원, 콘텐츠 리뷰</span></div>
+</div><div class="cs-metric-row" role="row">
+  <div class="cs-metric-v" role="cell">5% → &lt;1%</div>
+  <div class="cs-metric-l" role="cell"><span data-en>Error rate in weekly KPI reports</span><span data-ko lang="ko">주간 KPI 리포트 오류율</span></div>
+</div><div class="cs-metric-row" role="row">
+  <div class="cs-metric-v" role="cell">25%+</div>
+  <div class="cs-metric-l" role="cell"><span data-en>Team capacity freed for planning and new-service analysis</span><span data-ko lang="ko">기획·신규 서비스 분석에 돌린 팀 리소스</span></div>
+</div></div>
+</section>
+<section class="cs-section" id="learned" aria-labelledby="learned-h">
+  <h2 id="learned-h"><span data-en>What I learned</span><span data-ko lang="ko">배운 점</span></h2>
+  <blockquote class="cs-pull"><p data-en>Operational debt compounds quietly. Nobody files a ticket for “I spent Tuesday copying numbers.”</p><p data-ko lang="ko">운영 부채는 조용히 쌓입니다. “화요일 내내 숫자를 옮겼다”는 이유로 티켓을 올리는 사람은 없습니다.</p></blockquote>
+  <ul class="cs-list"><li><span data-en><strong>Measure the invisible work first.</strong> The 200-hour figure was what turned a side project into a priority.</span><span data-ko lang="ko"><strong>보이지 않는 일부터 측정하세요.</strong> 200시간이라는 숫자가 부업 같던 프로젝트를 우선순위로 만들었습니다.</span></li><li><span data-en><strong>Accuracy earns adoption.</strong> Once reports stopped being wrong, people stopped keeping their own copies.</span><span data-ko lang="ko"><strong>정확도가 도입을 만듭니다.</strong> 리포트가 틀리지 않자, 사람들은 각자 복사본을 만들던 습관을 버렸습니다.</span></li><li><span data-en><strong>Ship the smallest useful slice.</strong> Automating one weekly report earned the trust that the larger pipeline needed.</span><span data-ko lang="ko"><strong>가장 작은 유용한 조각부터 내보내세요.</strong> 주간 리포트 하나를 자동화해 얻은 신뢰가 더 큰 파이프라인의 토대가 됐습니다.</span></li></ul>
+</section>
+<section class="cs-sources" aria-labelledby="sources-h">
+  <h2 id="sources-h"><span data-en>Sources &amp; public context</span><span data-ko lang="ko">출처와 공개 맥락</span></h2>
+  <p class="cs-sources-lede" data-en>Numbered notes point to public announcements and press coverage that describe the platform context. Project metrics are internal measurements from my time at SOOP.</p><p class="cs-sources-lede" data-ko lang="ko">번호 각주는 플랫폼 맥락을 보여주는 공개 공지와 보도 자료입니다. 프로젝트 지표는 SOOP 재직 당시의 내부 측정치입니다.</p>
+  <ol><li id="fn-1">TechM, “SOOP 2024 platform statistics (new streamers, broadcasts, peak viewers)” <span class="cs-src-date">(Dec 23, 2024)</span>. <a href="https://www.techm.kr/news/articleView.html?idxno=133850" target="_blank" rel="noopener"><span data-en>Link</span><span data-ko lang="ko">링크</span></a> <a class="cs-back" href="#fnref-1" aria-label="Back to text">↩</a></li><li id="fn-2">Media Today, “AfreecaTV 2023 results and streamer inflow after Twitch’s Korea exit” <span class="cs-src-date">(Feb 2024)</span>. <a href="https://www.mediatoday.co.kr/news/articleView.html?idxno=315921" target="_blank" rel="noopener"><span data-en>Link</span><span data-ko lang="ko">링크</span></a> <a class="cs-back" href="#fnref-2" aria-label="Back to text">↩</a></li></ol>
+</section>
+  </div>
+</article>
+<nav class="cs-pager" aria-label="More case studies">
+  <a href="/work/creator-missions/" class="cs-pager-card" rel="prev">
+    <span class="cs-pager-dir">← P-01</span>
+    <span class="cs-pager-title"><span data-en>Creator Monetization Mission System</span><span data-ko lang="ko">크리에이터 수익화 미션 시스템</span></span>
+  </a>
+  <a href="/#work" class="cs-pager-card cs-pager-all">
+    <span class="cs-pager-dir"><span data-en>All work</span><span data-ko lang="ko">전체 프로젝트</span></span>
+    <span class="cs-pager-title"><span data-en>Back to selected work</span><span data-ko lang="ko">프로젝트 목록으로</span></span>
+  </a>
+  <a href="/work/creator-subscriptions/" class="cs-pager-card" rel="next">
+    <span class="cs-pager-dir">P-03 →</span>
+    <span class="cs-pager-title"><span data-en>Creator Subscription Service</span><span data-ko lang="ko">크리에이터 구독 서비스</span></span>
+  </a>
+</nav>
+</main>
+<footer class="cs-footer">
+  <span>© 2026 InJoo Kim</span>
+  <span><a href="/">injookim.com</a> · <a href="/#contact"><span data-en>Get in touch</span><span data-ko lang="ko">연락하기</span></a></span>
+</footer>
+</body>
+</html>
