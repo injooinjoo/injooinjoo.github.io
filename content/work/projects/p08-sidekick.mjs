@@ -67,13 +67,13 @@ export default {
       blocks: [
         {
           type: 'p',
-          en: 'After years of building creator products, I kept meeting the same person: someone who wants to run a channel, a blog or a small online shop on the side but can’t be on it every day. Agents could do much of that work. Setting one up was the barrier.',
-          ko: '크리에이터 제품을 오래 만들며 같은 사람을 계속 만났습니다. 채널이나 블로그, 작은 온라인 가게를 부업으로 운영하고 싶지만 매일 붙어 있을 수는 없는 사람입니다. 그 일의 상당 부분은 에이전트가 할 수 있었습니다. 문제는 설정이었습니다.',
+          en: 'Many people want to run a channel, a blog or a small shop on the side but can’t be on it every day. Agents could do much of that work. Setting one up was the barrier.',
+          ko: '채널이나 블로그, 작은 가게를 부업으로 운영하고 싶지만 매일 붙어 있을 수 없는 사람이 많습니다. 그 일의 상당 부분은 에이전트가 할 수 있었습니다. 문제는 설정이었습니다.',
         },
         {
           type: 'p',
-          en: 'So the product definition was: a Korean non-developer hires an AI employee on their phone, with no servers, keys or terminal, and sees a first real result within ten minutes. Retention means a second real task for the same employee within a week.',
-          ko: '그래서 제품 정의를 이렇게 정했습니다. 한국의 비개발자가 서버, 키, 터미널 없이 폰에서 AI 직원을 채용하고, 10분 안에 첫 실제 결과를 본다. 리텐션은 일주일 안에 같은 직원에게 두 번째 실제 일을 맡기는 것이다.',
+          en: 'The product definition: a Korean non-developer hires an AI employee on their phone and sees a first real result within ten minutes. Retention is a second real task for the same employee within a week.',
+          ko: '제품 정의는 이렇습니다. 한국의 비개발자가 폰에서 AI 직원을 채용하고 10분 안에 첫 실제 결과를 본다. 리텐션은 일주일 안에 같은 직원에게 두 번째 일을 맡기는 것이다.',
         },
       ],
     },
@@ -83,8 +83,8 @@ export default {
       blocks: [
         {
           type: 'p',
-          en: 'Results come back as cards. Anything that leaves the app, such as a post, a message or a payment, waits for the user’s approval.',
-          ko: '결과는 카드로 돌아옵니다. 게시글, 메시지, 결제처럼 앱 밖으로 나가는 것은 모두 사용자 승인을 기다립니다.',
+          en: 'Results come back as cards. Posts, messages and payments wait for the user’s approval.',
+          ko: '결과는 카드로 돌아옵니다. 게시글, 메시지, 결제는 모두 사용자 승인을 기다립니다.',
         },
         {
           type: 'sketch',
@@ -96,8 +96,8 @@ export default {
         },
         {
           type: 'p',
-          en: 'Each user has an isolated agent runtime in which every AI employee keeps its own profile, memory and tools. Isolation is enforced below the application, so a mistake fails closed instead of reaching someone else’s data.',
-          ko: '사용자마다 격리된 에이전트 런타임이 있고, 그 안에서 AI 직원마다 자기 프로필, 메모리, 도구를 가집니다. 격리는 애플리케이션 아래 계층에서 강제되므로, 실수가 생겨도 다른 사람의 데이터로 새지 않고 닫힌 채로 실패합니다.',
+          en: 'Each user gets an isolated runtime where every AI employee keeps its own profile, memory and tools. If isolation breaks, it fails closed.',
+          ko: '사용자마다 격리된 런타임이 있고, AI 직원마다 자기 프로필, 메모리, 도구를 가집니다. 격리가 깨지면 닫힌 채로 실패합니다.',
         },
         {
           type: 'sketch',
@@ -115,13 +115,13 @@ export default {
       blocks: [
         {
           type: 'p',
-          en: 'I built Sidekick with AI coding agents running in parallel, mostly Claude Code. About half of the 1,900+ commits are co-authored with Claude models.',
-          ko: '사이드킥은 주로 Claude Code를 비롯한 AI 코딩 에이전트를 병렬로 돌리며 만들었습니다. 1,900개가 넘는 커밋의 약 절반이 Claude 모델과의 공동 작성입니다.',
+          en: 'I built Sidekick with AI coding agents running in parallel, mostly Claude Code. About half of the commits are co-authored with Claude models.',
+          ko: '사이드킥은 주로 Claude Code 같은 AI 코딩 에이전트를 병렬로 돌리며 만들었습니다. 커밋의 약 절반이 Claude 모델과의 공동 작성입니다.',
         },
         {
           type: 'p',
-          en: 'Speed brought a new kind of bug. UI I had removed kept coming back. The models weren’t remembering old code: parallel agents started from different base commits, merge instructions asked for a union of old and new, and the tests still protected the old behaviour. Green tests said nothing about whether the product was current.',
-          ko: '속도는 새로운 종류의 버그를 불렀습니다. 지운 UI가 계속 돌아왔습니다. 모델이 옛 코드를 기억해서가 아니었습니다. 병렬 에이전트가 서로 다른 기준 커밋에서 출발했고, 병합 지시가 옛것과 새것의 합집합을 요구했고, 테스트가 옛 동작을 지키고 있었습니다. 테스트 통과는 제품이 최신이라는 증거가 아니었습니다.',
+          en: 'Speed brought a new kind of bug: UI I had removed kept coming back. Parallel agents started from different base commits, merges asked for a union of old and new, and the tests still protected the old behaviour. Green tests said nothing about whether the product was current.',
+          ko: '속도는 새로운 버그를 불렀습니다. 지운 UI가 계속 돌아왔습니다. 병렬 에이전트가 서로 다른 기준 커밋에서 출발했고, 병합은 옛것과 새것의 합집합을 요구했고, 테스트는 옛 동작을 지키고 있었습니다. 테스트 통과는 제품이 최신이라는 증거가 아니었습니다.',
         },
         {
           type: 'sketch',
@@ -165,13 +165,6 @@ export default {
       },
     },
     {
-      title: { en: 'Wrap an agent runtime, don’t build one', ko: '에이전트 런타임은 만들지 않고 감싸기' },
-      why: {
-        en: 'A solo builder can’t out-build an agent framework. The value is in the experience around it: hiring, delegating and approving on a phone.',
-        ko: '혼자서 에이전트 프레임워크보다 잘 만들 수는 없습니다. 가치는 그 주변의 경험, 즉 폰에서 채용하고 맡기고 승인하는 데 있습니다.',
-      },
-    },
-    {
       title: { en: 'One isolated runtime per user', ko: '사용자마다 격리된 런타임' },
       why: {
         en: 'Agents run code and keep personal memory. Isolation had to fail closed, even though a shared service would have been simpler to run.',
@@ -194,15 +187,6 @@ export default {
           en: 'Four tiles: 1,900+ commits in three months (a line of commit dots), 1,600+ merged pull requests (a merge), 5,600+ backend tests (rows of check marks), about 50% of commits co-authored with Claude (a half-filled circle).',
           ko: '타일 네 개: 3개월간 커밋 1,900개 이상(커밋 점이 이어진 선), 머지된 PR 1,600개 이상(병합), 백엔드 테스트 5,600개 이상(체크 표시 줄), Claude 공동 작성 커밋 약 50%(반쯤 칠한 원).',
         },
-      },
-      {
-        type: 'metrics',
-        rows: [
-          { value: '1,900+', label: { en: 'Commits in three months', ko: '3개월간 커밋' } },
-          { value: '1,600+', label: { en: 'Merged pull requests', ko: '머지된 PR' } },
-          { value: '5,600+', label: { en: 'Backend tests', ko: '백엔드 테스트' } },
-          { value: '~50%', label: { en: 'Commits co-authored with Claude models', ko: 'Claude 모델과 공동 작성한 커밋' } },
-        ],
       },
     ],
   },

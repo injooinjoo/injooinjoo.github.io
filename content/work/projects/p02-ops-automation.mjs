@@ -64,8 +64,8 @@ export default {
         },
         {
           type: 'p',
-          en: 'Behind each creator program sat the same routine: pull numbers, reconcile them with settlement data, check the rules, tell someone. Each team had built its own version in spreadsheets.',
-          ko: '크리에이터 프로그램마다 같은 일이 반복됐습니다. 숫자를 뽑고, 정산 데이터와 맞추고, 기준을 확인하고, 담당자에게 알립니다. 팀마다 이 과정을 스프레드시트로 따로 만들어 쓰고 있었습니다.',
+          en: 'Every creator program ran the same routine: pull numbers, reconcile them with settlement data, check the rules, tell someone. Each team had its own spreadsheet version.',
+          ko: '크리에이터 프로그램마다 같은 일이 반복됐습니다. 숫자를 뽑고, 정산 데이터와 맞추고, 기준을 확인하고, 담당자에게 알립니다. 팀마다 이를 스프레드시트로 따로 만들어 썼습니다.',
         },
         {
           type: 'p',
@@ -171,7 +171,6 @@ export default {
     items: [
       { en: '**Measure the invisible work first.** The 200-hour figure turned a side project into a priority.', ko: '**보이지 않는 일부터 잽니다.** 200시간이라는 숫자가 부업 같던 일을 우선순위로 올렸습니다.' },
       { en: '**Accuracy earns adoption.** Once the reports stopped being wrong, people stopped keeping their own copies.', ko: '**정확해야 쓰입니다.** 리포트가 틀리지 않자 사람들은 각자 만들던 복사본을 버렸습니다.' },
-      { en: '**Ship the smallest useful slice.** One automated weekly report earned the trust the larger pipeline needed.', ko: '**쓸모 있는 가장 작은 조각부터 냅니다.** 자동화한 주간 리포트 하나가 더 큰 파이프라인에 필요한 신뢰를 만들었습니다.' },
     ],
   },
   sources: [

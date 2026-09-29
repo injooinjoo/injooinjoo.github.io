@@ -65,13 +65,13 @@ export default {
         },
         {
           type: 'p',
-          en: 'Superfans had nowhere to go above the base plan, and streamers couldn’t reward them differently.',
-          ko: '열혈 팬은 기본 구독 위로 갈 곳이 없었고, 스트리머는 그들에게 다르게 보답할 방법이 없었습니다.',
+          en: 'Superfans had nowhere to go above it.',
+          ko: '열혈 팬은 그 위로 갈 곳이 없었습니다.',
         },
         {
           type: 'p',
-          en: 'Demand was not the problem. In early 2024, viewers who followed streamers over from Twitch could carry their subscription months across to AfreecaTV.[^1]',
-          ko: '수요는 충분했습니다. 2024년 초에는 트위치에서 넘어온 스트리머를 따라온 시청자가 구독 개월 수를 아프리카TV로 이어갈 수 있었습니다.[^1]',
+          en: 'Demand was there: in early 2024, viewers following streamers over from Twitch could carry their subscription months across.[^1]',
+          ko: '수요는 있었습니다. 2024년 초 트위치에서 스트리머를 따라온 시청자는 구독 개월 수를 그대로 이어갈 수 있었습니다.[^1]',
         },
         {
           type: 'sketch',
@@ -121,8 +121,8 @@ export default {
         },
         {
           type: 'p',
-          en: 'We went through four tier structures and judged each on conversion and retention together. The platform’s public changes in this period followed the same line: a second, higher-priced tier in late 2024,[^2] then Basic and Plus in 2025, where each streamer sets the Plus price level.[^3]',
-          ko: '티어 구조는 네 번 바꿨고, 매번 전환율과 유지율을 함께 봤습니다. 이 시기 플랫폼의 공개 변경도 같은 방향이었습니다. 2024년 말 더 높은 가격의 두 번째 티어가 생겼고,[^2] 2025년에는 베이직과 플러스로 나뉘어 플러스 가격 단계를 스트리머가 정하게 됐습니다.[^3]',
+          en: 'We tried four tier structures and judged each on conversion and retention together. SOOP’s public changes went the same way: a second, higher tier in late 2024,[^2] then Basic and Plus in 2025, with each streamer setting the Plus price.[^3]',
+          ko: '티어 구조는 네 번 바꿨고, 매번 전환율과 유지율을 함께 봤습니다. SOOP의 공개 변경도 같은 방향이었습니다. 2024년 말 더 비싼 두 번째 티어가 생겼고,[^2] 2025년에는 베이직과 플러스로 나뉘며 플러스 가격을 스트리머가 정하게 됐습니다.[^3]',
         },
       ],
     },
@@ -152,15 +152,6 @@ export default {
           en: 'Results sketch: before/after bars for paid conversion (+31%), subscription revenue of the top 20% of streamers (+27%) and retention (+15%), and a pie showing that more than half of new subscribers chose a customised product.',
           ko: '결과 스케치: 유료 전환율(+31%), 상위 20% 스트리머 구독 매출(+27%), 구독 유지율(+15%)의 전후 막대와, 신규 구독자 절반 이상이 맞춤형 상품을 골랐음을 보여주는 원그래프.',
         },
-      },
-      {
-        type: 'metrics',
-        rows: [
-          { value: '+31%', label: { en: 'Paid conversion', ko: '유료 전환율' } },
-          { value: '+27%', label: { en: 'Average subscription revenue, top-20% streamers', ko: '상위 20% 스트리머 평균 구독 매출' } },
-          { value: '+15%', label: { en: 'Subscriber retention', ko: '구독 유지율' } },
-          { value: '50%+', label: { en: 'New subscribers who chose a customised product', ko: '맞춤형 상품을 고른 신규 구독자 비율' } },
-        ],
       },
     ],
   },

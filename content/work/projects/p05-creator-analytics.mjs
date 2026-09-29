@@ -64,13 +64,8 @@ export default {
         },
         {
           type: 'p',
-          en: 'What was missing was a view a busy creator could read in a minute and act on. Most stream for hours and edit on the side.',
-          ko: '없던 것은 바쁜 크리에이터가 1분 안에 읽고 바로 움직일 수 있는 화면이었습니다. 대부분 몇 시간씩 방송하고 틈틈이 편집까지 합니다.',
-        },
-        {
-          type: 'p',
-          en: 'Growth advice didn’t scale either. Partner managers could coach a handful of streamers; thousands needed a self-serve version.',
-          ko: '성장 조언도 확장되지 않았습니다. 파트너 매니저는 몇 명만 코칭할 수 있었고, 수천 명에게는 스스로 쓰는 도구가 필요했습니다.',
+          en: 'What was missing was a view a busy creator could read in a minute. Partner managers could coach a handful of streamers by hand; thousands needed something self-serve.',
+          ko: '없던 것은 바쁜 크리에이터가 1분 안에 읽을 수 있는 화면이었습니다. 파트너 매니저가 직접 코칭할 수 있는 스트리머는 몇 명뿐이었고, 수천 명에게는 스스로 쓰는 도구가 필요했습니다.',
         },
       ],
     },
@@ -143,14 +138,6 @@ export default {
           en: 'A grid of 100 dots with 65 filled in green, next to “65%+ adopted it on their own, no mandate”, “5,000+ creators served” and “+18% channel growth, strategic streamers”.',
           ko: '점 100개 중 65개가 초록색으로 채워진 격자와 “65%+ 강제 없이 스스로 도입”, “이용 크리에이터 5,000명+”, “전략 스트리머 채널 성장 +18%”.',
         },
-      },
-      {
-        type: 'metrics',
-        rows: [
-          { value: '65%+', label: { en: 'Voluntary adoption among eligible creators', ko: '대상 크리에이터의 자발적 도입률' } },
-          { value: '5k+', label: { en: 'Creators served', ko: '이용 크리에이터' } },
-          { value: '+18%', label: { en: 'Average channel growth for strategic streamers', ko: '전략 스트리머 평균 채널 성장' } },
-        ],
       },
     ],
   },

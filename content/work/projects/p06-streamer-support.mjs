@@ -63,13 +63,13 @@ export default {
         },
         {
           type: 'p',
-          en: 'For a streamer, support has a shelf life. Equipment for a planned series or a budget for a collaboration matters this month, not after a review that outlasts the idea.',
-          ko: '스트리머에게 지원에는 유효 기간이 있습니다. 준비 중인 시리즈에 쓸 장비나 합방 제작비는 이번 달에 필요하지, 아이디어보다 오래 걸리는 심사가 끝난 뒤에 필요한 게 아닙니다.',
+          en: 'Support has a shelf life. Equipment for a planned series matters this month, not after a review that outlasts the idea.',
+          ko: '지원에는 유효 기간이 있습니다. 준비 중인 시리즈에 쓸 장비는 이번 달에 필요하지, 아이디어보다 오래 걸리는 심사 뒤에 필요한 게 아닙니다.',
         },
         {
           type: 'p',
-          en: 'Streamers were asked to prove things the platform already knew, such as broadcast history and partner status, and each missing document meant another round.',
-          ko: '스트리머는 방송 이력이나 파트너 여부처럼 플랫폼이 이미 아는 사실을 증명해야 했고, 서류가 하나 빠질 때마다 한 번씩 더 오갔습니다.',
+          en: 'Streamers had to prove what the platform already knew, and each missing document meant another round.',
+          ko: '스트리머는 플랫폼이 이미 아는 사실을 증명해야 했고, 서류가 하나 빠질 때마다 한 번 더 오갔습니다.',
         },
       ],
     },
@@ -79,8 +79,8 @@ export default {
       blocks: [
         {
           type: 'p',
-          en: 'We split each review into what platform data could verify and what needed a person. Eligibility checks ran automatically, so reviewers only saw applications that already met the rules.',
-          ko: '심사를 플랫폼 데이터로 확인할 수 있는 부분과 사람이 봐야 하는 부분으로 나눴습니다. 자격 확인은 자동으로 돌아가서, 심사자는 기준을 이미 충족한 신청만 보게 됐습니다.',
+          en: 'We split each review into what platform data could verify and what needed a person. Eligibility checks ran automatically.',
+          ko: '심사를 플랫폼 데이터로 확인할 수 있는 부분과 사람이 봐야 하는 부분으로 나눴습니다. 자격 확인은 자동으로 돌아갑니다.',
         },
         {
           type: 'sketch',
@@ -111,13 +111,13 @@ export default {
       blocks: [
         {
           type: 'p',
-          en: 'Part of the delay came after approval. Every payout needed a settlement workbook with the right income-tax category, the recipients’ payment details and a payment date, put together by hand by the manager who owned the program.',
-          ko: '지연의 일부는 승인 이후에 있었습니다. 지급 건마다 소득 구분, 수령인 지급 정보, 지급일이 들어간 정산 엑셀을 담당 매니저가 손으로 만들어야 했습니다.',
+          en: 'Part of the delay came after approval: every payout needed a settlement workbook with the right tax category, payment details and date, built by hand.',
+          ko: '지연의 일부는 승인 이후에 있었습니다. 지급 건마다 소득 구분, 지급 정보, 지급일이 들어간 정산 엑셀을 손으로 만들어야 했습니다.',
         },
         {
           type: 'p',
-          en: 'In December 2021 I wrote a small desktop tool in Python for the team. A manager picks their name; the tool reads the shared support sheet, finds that manager’s unpaid items, splits each award across its recipients, picks the right tax form (business income, other income, or other income with expenses), sets the next payment date and fills in the settlement template.',
-          ko: '2021년 12월, 팀을 위해 Python으로 작은 데스크톱 도구를 만들었습니다. 매니저가 자기 이름을 고르면, 도구가 공유 지원 시트를 읽어 그 매니저의 미지급 건을 찾고, 지원금을 수령인 수로 나누고, 소득 구분(사업소득, 기타소득, 필요경비 인정 기타소득)에 맞는 서식을 고르고, 다음 지급일을 정해 정산 양식을 채웁니다.',
+          en: 'In December 2021 I wrote a small Python desktop tool for the team. A manager picks their name; the tool finds their unpaid items in the shared support sheet, splits each award across recipients, picks the tax form (business income, other income, or other income with expenses), sets the next payment date and fills in the settlement template.',
+          ko: '2021년 12월, 팀을 위해 Python으로 작은 데스크톱 도구를 만들었습니다. 매니저가 이름을 고르면 도구가 공유 지원 시트에서 미지급 건을 찾아, 지원금을 수령인 수로 나누고, 소득 구분(사업소득, 기타소득, 필요경비 인정 기타소득)에 맞는 서식을 고르고, 다음 지급일을 정해 정산 양식을 채웁니다.',
         },
         {
           type: 'sketch',

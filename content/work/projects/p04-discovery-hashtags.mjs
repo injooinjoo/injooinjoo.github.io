@@ -65,8 +65,8 @@ export default {
         },
         {
           type: 'p',
-          en: 'Popularity is a reasonable signal. Used alone, it becomes a loop: the top channels get the exposure, and the exposure keeps them on top. The mid-tier, where most streamers are, stays out of sight.',
-          ko: '인기는 합리적인 시그널입니다. 하지만 그것만 쓰면 순환이 됩니다. 상위 채널이 노출을 받고, 그 노출이 그들을 계속 위에 둡니다. 대부분의 스트리머가 있는 미드티어는 보이지 않습니다.',
+          en: 'Used alone, popularity becomes a loop: the top channels get the exposure that keeps them on top, and the mid-tier, where most streamers are, stays out of sight.',
+          ko: '인기만 쓰면 순환이 됩니다. 상위 채널이 받은 노출이 그들을 계속 위에 두고, 대부분의 스트리머가 있는 미드티어는 보이지 않습니다.',
         },
         {
           type: 'sketch',
@@ -78,8 +78,8 @@ export default {
         },
         {
           type: 'p',
-          en: 'The company said so publicly in January 2023: it planned to move away from putting the most-watched streams first, toward each viewer’s patterns and taste.[^2]',
-          ko: '회사도 2023년 1월 이를 공개적으로 밝혔습니다. 가장 많이 본 방송을 위에 올리는 방식에서, 시청자의 시청 패턴과 취향을 반영하는 방식으로 바꾸겠다는 계획이었습니다.[^2]',
+          en: 'In January 2023 the company said it would move from putting the most-watched streams first toward each viewer’s patterns and taste.[^2]',
+          ko: '2023년 1월 회사는 가장 많이 본 방송을 위에 올리던 방식에서 시청자의 패턴과 취향을 반영하는 방식으로 바꾸겠다고 밝혔습니다.[^2]',
         },
       ],
     },
@@ -89,13 +89,13 @@ export default {
       blocks: [
         {
           type: 'p',
-          en: 'We classified what each viewer was looking for from viewing history and intent signals, and matched them with relevant streamers instead of a global top list. Search already worked this way: from September 2021 it suggested terms and related content based on how each user watched.[^1]',
-          ko: '시청 이력과 인텐트 시그널로 시청자가 찾는 것을 분류하고, 전체 인기 순위 대신 관련 있는 스트리머와 연결했습니다. 검색은 이미 이렇게 움직이고 있었습니다. 2021년 9월부터 사용자의 시청 방식을 분석해 검색어와 연관 콘텐츠를 추천했습니다.[^1]',
+          en: 'We matched viewers to streamers using viewing history and intent signals instead of a global top list. Search already did this: from September 2021 it suggested terms and related content from each user’s viewing.[^1]',
+          ko: '전체 인기 순위 대신 시청 이력과 인텐트 시그널로 시청자와 스트리머를 연결했습니다. 검색은 이미 그렇게 하고 있었습니다. 2021년 9월부터 사용 이력을 분석해 검색어와 연관 콘텐츠를 추천했습니다.[^1]',
         },
         {
           type: 'p',
-          en: 'Candidates came from several pools rather than one popularity list, so the most relevant match could be a mid-tier streamer. The personalised recommendation service MY+ launched in the first half of 2023.[^3]',
-          ko: '후보는 인기 목록 하나가 아니라 여러 풀에서 나왔고, 그래서 가장 관련 있는 방송이 미드티어일 수 있었습니다. 이용자 기반으로 콘텐츠를 추천하는 개인화 서비스 MY+는 2023년 상반기에 출시됐습니다.[^3]',
+          en: 'Candidates came from several pools, so the best match could be a mid-tier streamer. The personalised recommendation service MY+ launched in the first half of 2023.[^3]',
+          ko: '후보는 여러 풀에서 나왔고, 그래서 가장 잘 맞는 방송이 미드티어일 수 있었습니다. 이용자 기반으로 콘텐츠를 추천하는 개인화 서비스 MY+는 2023년 상반기에 출시됐습니다.[^3]',
         },
         {
           type: 'sketch',
@@ -118,7 +118,7 @@ export default {
         },
         {
           type: 'p',
-          en: 'We gave every tag a unique ID and used auto-suggest to steer creators to existing tags as they typed. Classification, search and recommendations all inherited the fix.',
+          en: 'We gave every tag a unique ID and used auto-suggest to steer creators to existing tags. Classification, search and recommendations all inherited the fix.',
           ko: '태그마다 고유 ID를 붙이고, 입력하는 순간 자동 추천으로 기존 태그를 쓰도록 유도했습니다. 분류, 검색, 추천이 모두 그 개선을 이어받았습니다.',
         },
         {
@@ -136,8 +136,8 @@ export default {
     {
       title: { en: 'Relevance first, then a wider pool', ko: '관련도 먼저, 후보는 넓게' },
       why: {
-        en: 'A fixed quota for small channels shows viewers streams they don’t care about, and that hurts everyone. Relevance keeps viewers clicking; wider pools let the relevant match be a mid-tier streamer.',
-        ko: '소형 채널에 고정 할당을 주면 시청자에게 관심 없는 방송을 보여주게 되고, 모두에게 손해입니다. 관련도는 클릭을 지키고, 넓어진 후보 풀은 관련 있는 방송이 미드티어일 수 있게 합니다.',
+        en: 'A fixed quota for small channels shows viewers streams they don’t want. Relevance keeps viewers clicking; wider pools let the match be a mid-tier streamer.',
+        ko: '소형 채널 고정 할당은 시청자에게 원하지 않는 방송을 보여줍니다. 관련도는 클릭을 지키고, 넓어진 후보 풀은 그 방송이 미드티어일 수 있게 합니다.',
       },
     },
     {

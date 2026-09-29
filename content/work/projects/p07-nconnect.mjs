@@ -79,13 +79,13 @@ export default {
       blocks: [
         {
           type: 'p',
-          en: 'Game publishers have long worked with streamers through sponsored broadcasts, launch events and code giveaways. Each one spikes and fades.',
-          ko: '게임사는 오랫동안 후원 방송, 출시 이벤트, 쿠폰 배포로 스트리머와 협업해 왔습니다. 하나하나가 치솟았다가 사그라듭니다.',
+          en: 'Sponsored broadcasts, launch events and code giveaways each spike and fade.',
+          ko: '후원 방송, 출시 이벤트, 쿠폰 배포는 하나하나 치솟았다가 사그라듭니다.',
         },
         {
           type: 'p',
-          en: 'N-CONNECT is set up as ongoing participation instead. Players link their platform account to their NEXON account and earn rewards. Streamers who join become N-Connectors and are rewarded on activity, growth and impact. The preseason opened on SOOP in April 2026 and runs for about five months.[^1]',
-          ko: 'N-CONNECT는 대신 지속적인 참여를 목표로 합니다. 플레이어는 플랫폼 계정을 넥슨 계정과 연동하고 보상을 받습니다. 참여한 스트리머는 “N커넥터”가 되어 활동, 성장, 임팩트에 따라 보상받습니다. 프리시즌은 2026년 4월 SOOP에서 시작해 약 5개월간 이어집니다.[^1]',
+          en: 'N-CONNECT is ongoing instead. Players link their platform account to their NEXON account and earn rewards; streamers who join become N-Connectors, rewarded on activity, growth and impact. The preseason opened on SOOP in April 2026 for about five months.[^1]',
+          ko: 'N-CONNECT는 지속되는 프로그램입니다. 플레이어는 플랫폼 계정을 넥슨 계정과 연동하고 보상을 받고, 참여한 스트리머는 “N커넥터”가 되어 활동, 성장, 임팩트로 보상받습니다. 프리시즌은 2026년 4월 SOOP에서 약 5개월 일정으로 시작했습니다.[^1]',
         },
         {
           type: 'sketch',
@@ -103,13 +103,13 @@ export default {
       blocks: [
         {
           type: 'p',
-          en: 'Product, marketing, operations and platform partners each hold part of the picture. Platform signals don’t line up either: views, watch time and chat mean different things on different services.',
-          ko: '제품, 마케팅, 운영, 플랫폼 파트너가 각자 그림의 일부를 갖고 있습니다. 플랫폼 시그널도 서로 맞지 않습니다. 조회수, 시청 시간, 채팅의 의미가 서비스마다 다릅니다.',
+          en: 'Product, marketing, operations and platform partners each hold part of the picture, and views or watch time mean different things on each service.',
+          ko: '제품, 마케팅, 운영, 플랫폼 파트너가 각자 그림의 일부를 갖고 있고, 조회수나 시청 시간의 의미도 서비스마다 다릅니다.',
         },
         {
           type: 'p',
-          en: 'I run recurring program reports that bring account linking, referrals, membership, content support and player-impact signals into one read, so decisions start from the same numbers.',
-          ko: '저는 계정 연동, 추천, 멤버십, 콘텐츠 지원, 플레이어 임팩트 시그널을 한 번에 볼 수 있게 묶은 정기 리포트를 만듭니다. 모든 결정이 같은 숫자에서 출발하게 하려는 것입니다.',
+          en: 'I run recurring reports that put account linking, referrals, membership, content support and player impact in one read.',
+          ko: '저는 계정 연동, 추천, 멤버십, 콘텐츠 지원, 플레이어 임팩트를 한 번에 보는 정기 리포트를 만듭니다.',
         },
         {
           type: 'sketch',
@@ -121,8 +121,8 @@ export default {
         },
         {
           type: 'p',
-          en: 'The other half of the job is translation: turning what creators and platform partners ask for into requirements that product, marketing and operations teams can build and run.',
-          ko: '나머지 절반은 번역입니다. 크리에이터와 플랫폼 파트너가 요청하는 것을 제품, 마케팅, 운영 팀이 만들고 운영할 수 있는 요구사항으로 옮깁니다.',
+          en: 'The other half is translation: turning what creators and platform partners ask for into requirements other teams can build and run.',
+          ko: '나머지 절반은 번역입니다. 크리에이터와 플랫폼 파트너의 요청을 다른 팀이 만들고 운영할 수 있는 요구사항으로 옮깁니다.',
         },
       ],
     },

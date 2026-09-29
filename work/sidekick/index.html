@@ -42,7 +42,7 @@
     <p class="cs-eyebrow"><span><span data-en>Case study</span><span data-ko lang="ko">케이스 스터디</span></span><span class="cs-dot">·</span><span>P-08</span><span class="cs-dot">·</span><span>Sidekick</span></p>
     <h1><span data-en>Sidekick — AI Employees on Your Phone</span><span data-ko lang="ko">사이드킥 — 폰 속의 AI 직원</span></h1>
     <p class="cs-dek" data-en>A phone app for hiring AI employees and handing them real work, with your approval before anything goes out. I built it alone with AI coding agents; the hard part was keeping them from bringing old code back.</p><p class="cs-dek" data-ko lang="ko">AI 직원을 채용하고 실제 일을 맡기되, 밖으로 나가는 건 모두 내가 승인하는 폰 앱. AI 코딩 에이전트와 혼자 만들었고, 가장 어려웠던 건 에이전트들이 옛 코드를 되살리지 않게 하는 일이었습니다.</p>
-    <dl class="cs-meta"><div><dt><span data-en>Company</span><span data-ko lang="ko">회사</span></dt><dd><span data-en>Sidekick (independent product)</span><span data-ko lang="ko">Sidekick (개인 프로젝트)</span></dd></div><div><dt><span data-en>Role</span><span data-ko lang="ko">역할</span></dt><dd><span data-en>Founder — product, design and engineering</span><span data-ko lang="ko">창업자 — 기획·디자인·개발</span></dd></div><div><dt><span data-en>Scope</span><span data-ko lang="ko">범위</span></dt><dd><span data-en>Product definition, mobile app, backend and agent runtime, security isolation, release process</span><span data-ko lang="ko">제품 정의, 모바일 앱, 백엔드와 에이전트 런타임, 보안 격리, 릴리스 프로세스</span></dd></div><div><dt><span data-en>Stack</span><span data-ko lang="ko">스택</span></dt><dd><span>Expo / React Native · Python · Claude Code</span></dd></div><div><dt><span data-en>Reading time</span><span data-ko lang="ko">읽는 시간</span></dt><dd><span data-en>4 min read</span><span data-ko lang="ko">4분 분량</span></dd></div><div><dt><span data-en>Website</span><span data-ko lang="ko">웹사이트</span></dt><dd><a href="https://sidekickagent.app/" target="_blank" rel="noopener">sidekickagent.app ↗</a></dd></div></dl>
+    <dl class="cs-meta"><div><dt><span data-en>Company</span><span data-ko lang="ko">회사</span></dt><dd><span data-en>Sidekick (independent product)</span><span data-ko lang="ko">Sidekick (개인 프로젝트)</span></dd></div><div><dt><span data-en>Role</span><span data-ko lang="ko">역할</span></dt><dd><span data-en>Founder — product, design and engineering</span><span data-ko lang="ko">창업자 — 기획·디자인·개발</span></dd></div><div><dt><span data-en>Scope</span><span data-ko lang="ko">범위</span></dt><dd><span data-en>Product definition, mobile app, backend and agent runtime, security isolation, release process</span><span data-ko lang="ko">제품 정의, 모바일 앱, 백엔드와 에이전트 런타임, 보안 격리, 릴리스 프로세스</span></dd></div><div><dt><span data-en>Stack</span><span data-ko lang="ko">스택</span></dt><dd><span>Expo / React Native · Python · Claude Code</span></dd></div><div><dt><span data-en>Reading time</span><span data-ko lang="ko">읽는 시간</span></dt><dd><span data-en>3 min read</span><span data-ko lang="ko">4분 분량</span></dd></div><div><dt><span data-en>Website</span><span data-ko lang="ko">웹사이트</span></dt><dd><a href="https://sidekickagent.app/" target="_blank" rel="noopener">sidekickagent.app ↗</a></dd></div></dl>
   </header>
   <figure class="cs-sketch cs-hero" data-scene="p08-hero" data-alt-en="Sketch of a phone showing “My team”: three AI employees (blog writer, working; shop helper, done; researcher, needs your OK). A blog draft and a result card with an Approve button come out of the phone." data-alt-ko="“나의 팀” 화면이 떠 있는 폰 스케치: AI 직원 세 명(블로그 담당 작업 중, 쇼핑몰 담당 완료, 리서치 담당 승인 대기). 폰 밖으로 블로그 초안과 승인 버튼이 있는 결과 카드가 나와 있다." style="--ar: 800 / 440; --ar-n: 400 / 640">
   <canvas role="img" aria-label="Sketch of a phone showing “My team”: three AI employees (blog writer, working; shop helper, done; researcher, needs your OK). A blog draft and a result card with an Approve button come out of the phone."></canvas>
@@ -56,21 +56,21 @@
 <section class="cs-section" id="why" aria-labelledby="why-h">
 <div class="cs-body-col">
   <span class="cs-chnum" aria-hidden="true">01</span><h2 id="why-h"><span data-en>Why build it</span><span data-ko lang="ko">왜 만들었나</span></h2>
-  <p data-en>After years of building creator products, I kept meeting the same person: someone who wants to run a channel, a blog or a small online shop on the side but can’t be on it every day. Agents could do much of that work. Setting one up was the barrier.</p><p data-ko lang="ko">크리에이터 제품을 오래 만들며 같은 사람을 계속 만났습니다. 채널이나 블로그, 작은 온라인 가게를 부업으로 운영하고 싶지만 매일 붙어 있을 수는 없는 사람입니다. 그 일의 상당 부분은 에이전트가 할 수 있었습니다. 문제는 설정이었습니다.</p>
-  <p data-en>So the product definition was: a Korean non-developer hires an AI employee on their phone, with no servers, keys or terminal, and sees a first real result within ten minutes. Retention means a second real task for the same employee within a week.</p><p data-ko lang="ko">그래서 제품 정의를 이렇게 정했습니다. 한국의 비개발자가 서버, 키, 터미널 없이 폰에서 AI 직원을 채용하고, 10분 안에 첫 실제 결과를 본다. 리텐션은 일주일 안에 같은 직원에게 두 번째 실제 일을 맡기는 것이다.</p>
+  <p data-en>Many people want to run a channel, a blog or a small shop on the side but can’t be on it every day. Agents could do much of that work. Setting one up was the barrier.</p><p data-ko lang="ko">채널이나 블로그, 작은 가게를 부업으로 운영하고 싶지만 매일 붙어 있을 수 없는 사람이 많습니다. 그 일의 상당 부분은 에이전트가 할 수 있었습니다. 문제는 설정이었습니다.</p>
+  <p data-en>The product definition: a Korean non-developer hires an AI employee on their phone and sees a first real result within ten minutes. Retention is a second real task for the same employee within a week.</p><p data-ko lang="ko">제품 정의는 이렇습니다. 한국의 비개발자가 폰에서 AI 직원을 채용하고 10분 안에 첫 실제 결과를 본다. 리텐션은 일주일 안에 같은 직원에게 두 번째 일을 맡기는 것이다.</p>
 </div>
 </section>
 <section class="cs-section" id="approve" aria-labelledby="approve-h">
 <div class="cs-body-col">
   <span class="cs-chnum" aria-hidden="true">02</span><h2 id="approve-h"><span data-en>Delegate, work, approve</span><span data-ko lang="ko">맡기고, 일하고, 승인하고</span></h2>
-  <p data-en>Results come back as cards. Anything that leaves the app, such as a post, a message or a payment, waits for the user’s approval.</p><p data-ko lang="ko">결과는 카드로 돌아옵니다. 게시글, 메시지, 결제처럼 앱 밖으로 나가는 것은 모두 사용자 승인을 기다립니다.</p>
+  <p data-en>Results come back as cards. Posts, messages and payments wait for the user’s approval.</p><p data-ko lang="ko">결과는 카드로 돌아옵니다. 게시글, 메시지, 결제는 모두 사용자 승인을 기다립니다.</p>
   </div>
 <figure class="cs-sketch" data-scene="p08-flow" data-alt-en="Three steps. Delegate: a phone with the request “Write this week’s blog post”. Work: an AI employee with a gear and a document, labelled memory, tools, skills. Approve: a card reading “Blog draft ready” with Approve and Edit buttons, a lock, and the note “nothing goes out without you”." data-alt-ko="세 단계. 맡기기: “이번 주 블로그 글 써 줘”라는 요청이 뜬 폰. 일하기: 톱니와 문서를 든 AI 직원, 메모리·도구·스킬. 승인하기: “블로그 초안 완료” 카드에 승인·수정 버튼과 자물쇠, “승인 없이는 아무것도 나가지 않음”이라는 메모." style="--ar: 800 / 330; --ar-n: 400 / 800">
   <canvas role="img" aria-label="Three steps. Delegate: a phone with the request “Write this week’s blog post”. Work: an AI employee with a gear and a document, labelled memory, tools, skills. Approve: a card reading “Blog draft ready” with Approve and Edit buttons, a lock, and the note “nothing goes out without you”."></canvas>
   
 </figure>
 <div class="cs-body-col">
-  <p data-en>Each user has an isolated agent runtime in which every AI employee keeps its own profile, memory and tools. Isolation is enforced below the application, so a mistake fails closed instead of reaching someone else’s data.</p><p data-ko lang="ko">사용자마다 격리된 에이전트 런타임이 있고, 그 안에서 AI 직원마다 자기 프로필, 메모리, 도구를 가집니다. 격리는 애플리케이션 아래 계층에서 강제되므로, 실수가 생겨도 다른 사람의 데이터로 새지 않고 닫힌 채로 실패합니다.</p>
+  <p data-en>Each user gets an isolated runtime where every AI employee keeps its own profile, memory and tools. If isolation breaks, it fails closed.</p><p data-ko lang="ko">사용자마다 격리된 런타임이 있고, AI 직원마다 자기 프로필, 메모리, 도구를 가집니다. 격리가 깨지면 닫힌 채로 실패합니다.</p>
   </div>
 <figure class="cs-sketch" data-scene="p08-arch" data-alt-en="Architecture sketch: the phone app talks to a thin control plane (sign-in, billing, provisioning), which starts the user’s own isolated runtime, drawn as a locked dashed box stacked in front of others. Inside, two AI employees each have a profile, memory and tools." data-alt-ko="구조 스케치: 폰 앱이 얇은 컨트롤 플레인(인증·결제·프로비저닝)과 통신하고, 컨트롤 플레인은 사용자 전용 격리 런타임을 띄운다. 런타임은 자물쇠가 달린 점선 상자로, 다른 사용자의 상자들 앞에 겹쳐 있다. 안에는 AI 직원 두 명이 각자 프로필, 메모리, 도구를 가진다." style="--ar: 800 / 420; --ar-n: 400 / 780">
   <canvas role="img" aria-label="Architecture sketch: the phone app talks to a thin control plane (sign-in, billing, provisioning), which starts the user’s own isolated runtime, drawn as a locked dashed box stacked in front of others. Inside, two AI employees each have a profile, memory and tools."></canvas>
@@ -81,8 +81,8 @@
 <section class="cs-section" id="building" aria-labelledby="building-h">
 <div class="cs-body-col">
   <span class="cs-chnum" aria-hidden="true">03</span><h2 id="building-h"><span data-en>Building alone, with AI agents</span><span data-ko lang="ko">AI 에이전트와 혼자 만들기</span></h2>
-  <p data-en>I built Sidekick with AI coding agents running in parallel, mostly Claude Code. About half of the 1,900+ commits are co-authored with Claude models.</p><p data-ko lang="ko">사이드킥은 주로 Claude Code를 비롯한 AI 코딩 에이전트를 병렬로 돌리며 만들었습니다. 1,900개가 넘는 커밋의 약 절반이 Claude 모델과의 공동 작성입니다.</p>
-  <p data-en>Speed brought a new kind of bug. UI I had removed kept coming back. The models weren’t remembering old code: parallel agents started from different base commits, merge instructions asked for a union of old and new, and the tests still protected the old behaviour. Green tests said nothing about whether the product was current.</p><p data-ko lang="ko">속도는 새로운 종류의 버그를 불렀습니다. 지운 UI가 계속 돌아왔습니다. 모델이 옛 코드를 기억해서가 아니었습니다. 병렬 에이전트가 서로 다른 기준 커밋에서 출발했고, 병합 지시가 옛것과 새것의 합집합을 요구했고, 테스트가 옛 동작을 지키고 있었습니다. 테스트 통과는 제품이 최신이라는 증거가 아니었습니다.</p>
+  <p data-en>I built Sidekick with AI coding agents running in parallel, mostly Claude Code. About half of the commits are co-authored with Claude models.</p><p data-ko lang="ko">사이드킥은 주로 Claude Code 같은 AI 코딩 에이전트를 병렬로 돌리며 만들었습니다. 커밋의 약 절반이 Claude 모델과의 공동 작성입니다.</p>
+  <p data-en>Speed brought a new kind of bug: UI I had removed kept coming back. Parallel agents started from different base commits, merges asked for a union of old and new, and the tests still protected the old behaviour. Green tests said nothing about whether the product was current.</p><p data-ko lang="ko">속도는 새로운 버그를 불렀습니다. 지운 UI가 계속 돌아왔습니다. 병렬 에이전트가 서로 다른 기준 커밋에서 출발했고, 병합은 옛것과 새것의 합집합을 요구했고, 테스트는 옛 동작을 지키고 있었습니다. 테스트 통과는 제품이 최신이라는 증거가 아니었습니다.</p>
   </div>
 <figure class="cs-sketch" data-scene="p08-parallel" data-alt-en="Git sketch: on main, a red commit marks “old button removed”. Three agents branch from commits before the removal and merge back later. A dashed “old button” reappears on main, labelled “it’s back”, next to a green check: tests pass." data-alt-ko="Git 스케치: main의 빨간 커밋에 “옛 버튼 삭제”라고 적혀 있다. 에이전트 셋이 삭제 이전 커밋에서 갈라져 나중에 다시 합쳐지고, main에 점선으로 그린 “옛 버튼”이 “다시 나타남”이라는 메모와 함께 돌아온다. 옆에는 초록 체크와 “테스트 통과”." style="--ar: 800 / 370; --ar-n: 400 / 520">
   <canvas role="img" aria-label="Git sketch: on main, a red commit marks “old button removed”. Three agents branch from commits before the removal and merge back later. A dashed “old button” reappears on main, labelled “it’s back”, next to a green check: tests pass."></canvas>
@@ -110,11 +110,6 @@
 </li>
 <li class="cs-decision">
   <div class="cs-decision-label"><span data-en>Decision</span><span data-ko lang="ko">결정</span></div>
-  <h3><span data-en>Wrap an agent runtime, don’t build one</span><span data-ko lang="ko">에이전트 런타임은 만들지 않고 감싸기</span></h3>
-  <p data-en>A solo builder can’t out-build an agent framework. The value is in the experience around it: hiring, delegating and approving on a phone.</p><p data-ko lang="ko">혼자서 에이전트 프레임워크보다 잘 만들 수는 없습니다. 가치는 그 주변의 경험, 즉 폰에서 채용하고 맡기고 승인하는 데 있습니다.</p>
-</li>
-<li class="cs-decision">
-  <div class="cs-decision-label"><span data-en>Decision</span><span data-ko lang="ko">결정</span></div>
   <h3><span data-en>One isolated runtime per user</span><span data-ko lang="ko">사용자마다 격리된 런타임</span></h3>
   <p data-en>Agents run code and keep personal memory. Isolation had to fail closed, even though a shared service would have been simpler to run.</p><p data-ko lang="ko">에이전트는 코드를 실행하고 개인 메모리를 가집니다. 공유 서비스가 운영은 더 쉬웠겠지만, 격리는 실패해도 닫혀 있어야 했습니다.</p>
 </li></ul>
@@ -128,21 +123,7 @@
   <canvas role="img" aria-label="Four tiles: 1,900+ commits in three months (a line of commit dots), 1,600+ merged pull requests (a merge), 5,600+ backend tests (rows of check marks), about 50% of commits co-authored with Claude (a half-filled circle)."></canvas>
   
 </figure>
-<div class="cs-body-col">
-  <div class="cs-metric-table" role="table"><div class="cs-metric-row" role="row">
-  <div class="cs-metric-v" role="cell">1,900+</div>
-  <div class="cs-metric-l" role="cell"><span data-en>Commits in three months</span><span data-ko lang="ko">3개월간 커밋</span></div>
-</div><div class="cs-metric-row" role="row">
-  <div class="cs-metric-v" role="cell">1,600+</div>
-  <div class="cs-metric-l" role="cell"><span data-en>Merged pull requests</span><span data-ko lang="ko">머지된 PR</span></div>
-</div><div class="cs-metric-row" role="row">
-  <div class="cs-metric-v" role="cell">5,600+</div>
-  <div class="cs-metric-l" role="cell"><span data-en>Backend tests</span><span data-ko lang="ko">백엔드 테스트</span></div>
-</div><div class="cs-metric-row" role="row">
-  <div class="cs-metric-v" role="cell">~50%</div>
-  <div class="cs-metric-l" role="cell"><span data-en>Commits co-authored with Claude models</span><span data-ko lang="ko">Claude 모델과 공동 작성한 커밋</span></div>
-</div></div>
-</div>
+
 </section>
 <section class="cs-section" id="learned" aria-labelledby="learned-h">
 <div class="cs-body-col">

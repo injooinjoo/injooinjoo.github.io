@@ -164,15 +164,6 @@ export default {
           ko: '결과 스케치: 크리에이터 82% 참여를 보여주는 원그래프와, 출시 전 기준 대비 막대: 월 매출 +42%, 신규 업로드 3배, 체류 시간 1.6배.',
         },
       },
-      {
-        type: 'metrics',
-        rows: [
-          { value: '82%', label: { en: 'Creator participation in the mission program', ko: '미션 프로그램 크리에이터 참여율' } },
-          { value: '+42%', label: { en: 'Monthly revenue', ko: '월 매출' } },
-          { value: '3×', label: { en: 'New video uploads from participating streamers', ko: '참여 스트리머의 신규 영상 업로드' } },
-          { value: '1.6×', label: { en: 'Viewer stay time on mission broadcasts', ko: '미션 진행 방송의 시청자 체류 시간' } },
-        ],
-      },
     ],
   },
   learned: {
@@ -183,7 +174,6 @@ export default {
     items: [
       { en: '**Trust is part of the feature.** Settlement rules mattered as much as the UI.', ko: '**신뢰도 기능의 일부입니다.** 정산 규칙은 UI만큼 중요했습니다.' },
       { en: '**Adoption is operations work.** Participation came from education and campaigns as much as from the mechanic.', ko: '**도입은 운영의 일입니다.** 참여율은 메커닉만큼이나 교육과 캠페인에서 나왔습니다.' },
-      { en: '**Design for the middle.** A tool a mid-tier streamer can run live also works for the top.', ko: '**중간층을 기준으로 설계합니다.** 미드티어 스트리머가 방송 중에 쓸 수 있는 도구는 상위권에게도 통합니다.' },
     ],
   },
   sources: [
