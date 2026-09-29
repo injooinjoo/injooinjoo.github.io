@@ -376,7 +376,7 @@ export const siteContent = {
     education: [
       {
         name: { en: 'Harvard University', ko: 'Harvard University' },
-        subtitle: { en: 'Master of Liberal Arts (ALM) in Extension Studies, Data Science and Artificial Intelligence', ko: 'ALM in Extension Studies, Data Science and Artificial Intelligence' },
+        subtitle: { en: 'Master of Liberal Arts (ALM), Data Science and Artificial Intelligence', ko: 'ALM, 데이터 사이언스 및 인공지능' },
         period: { en: '2024 - 2026', ko: '2024 - 2026' },
         description: {
           en: 'Focused on machine learning, statistical analysis, data engineering, and applied AI for product work.',

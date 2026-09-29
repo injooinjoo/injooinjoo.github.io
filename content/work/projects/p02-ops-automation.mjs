@@ -7,11 +7,11 @@ export default {
   title: { en: 'Operations Automation Platform', ko: '운영 자동화 플랫폼' },
   dek: {
     en: 'Three teams were doing the same spreadsheet chores by hand, about 200 hours a month. We replaced them with one pipeline that collects, checks and reports the data itself.',
-    ko: '세 팀이 같은 스프레드시트 잡무를 손으로 하느라 매달 약 200시간을 쓰고 있었습니다. 이를 데이터를 스스로 모으고, 검증하고, 보고하는 파이프라인 하나로 바꿨습니다.',
+    ko: '세 팀이 같은 스프레드시트 잡무를 손으로 처리하느라 매달 약 200시간을 쓰고 있었습니다. 이 일을 데이터를 알아서 모으고 검증해 보고하는 파이프라인 하나로 바꿨습니다.',
   },
   card: {
     en: 'Internal automation replacing cross‑team manual ops. Consolidated workflows for finance, creator support, and content review into a single pipeline.',
-    ko: '여러 팀에 분산된 수동 운영을 대체한 사내 자동화 플랫폼. 재무·크리에이터 지원·콘텐츠 리뷰 워크플로우를 하나의 파이프라인으로 통합.',
+    ko: '여러 팀에 분산된 수동 운영을 대체한 사내 자동화 플랫폼. 재무·크리에이터 지원·콘텐츠 리뷰 워크플로를 하나의 파이프라인으로 통합.',
   },
   kpis: [
     { value: '200h → <1h', label: { en: 'Monthly manual ops', ko: '월 수작업 운영 시간' }, cardLabel: 'Monthly ops' },
@@ -41,11 +41,11 @@ export default {
   glance: {
     problem: {
       en: 'Finance, creator support and content review pulled platform data, reconciled spreadsheets and chased updates by hand: about **200 hours a month**.',
-      ko: '재무, 크리에이터 지원, 콘텐츠 리뷰 팀이 플랫폼 데이터 추출, 스프레드시트 대조, 진행 확인을 손으로 했습니다. 매달 약 **200시간**이었습니다.',
+      ko: '재무, 크리에이터 지원, 콘텐츠 리뷰 팀이 플랫폼 데이터 추출, 스프레드시트 대조, 진행 상황 확인을 손으로 처리했습니다. 여기에 매달 약 **200시간**이 들었습니다.',
     },
     did: {
       en: 'We mapped the recurring work, automated the weekly report first, then moved the shared steps into one pipeline.',
-      ko: '반복 업무를 지도로 그리고, 주간 리포트부터 자동화한 뒤, 공통 단계를 파이프라인 하나로 옮겼습니다.',
+      ko: '반복 업무를 모두 정리하고, 주간 리포트부터 자동화한 뒤, 공통 단계를 파이프라인 하나로 옮겼습니다.',
     },
     result: {
       en: 'Manual work fell to **under an hour a month**. Weekly report errors dropped from **5% to under 1%**.',
@@ -65,7 +65,7 @@ export default {
         {
           type: 'p',
           en: 'Every creator program ran the same routine: pull numbers, reconcile them with settlement data, check the rules, tell someone. Each team had its own spreadsheet version.',
-          ko: '크리에이터 프로그램마다 같은 일이 반복됐습니다. 숫자를 뽑고, 정산 데이터와 맞추고, 기준을 확인하고, 담당자에게 알립니다. 팀마다 이를 스프레드시트로 따로 만들어 썼습니다.',
+          ko: '크리에이터 프로그램마다 같은 일이 반복됐습니다. 숫자를 뽑고, 정산 데이터와 맞추고, 기준을 확인하고, 담당자에게 알리는 일입니다. 팀마다 이 과정을 스프레드시트로 따로 만들어 쓰고 있었습니다.',
         },
         {
           type: 'p',
@@ -89,7 +89,7 @@ export default {
         {
           type: 'p',
           en: 'The weekly KPI report was the most visible chore, so it went first. Google Apps Script and Slack workflows collected the numbers on a schedule and posted them as they landed, instead of once a week.',
-          ko: '가장 눈에 띄는 잡무인 주간 KPI 리포트부터 손댔습니다. Google Apps Script와 Slack 워크플로우가 정해진 시간에 숫자를 모아, 일주일에 한 번이 아니라 들어오는 대로 공유했습니다.',
+          ko: '가장 눈에 띄는 잡무인 주간 KPI 리포트부터 손댔습니다. Google Apps Script와 Slack 워크플로가 정해진 시간에 숫자를 모아, 일주일에 한 번이 아니라 들어오는 즉시 공유하게 했습니다.',
         },
         {
           type: 'sketch',
@@ -113,7 +113,7 @@ export default {
         {
           type: 'p',
           en: 'Results went to the Slack channels, dashboards and sheets each team already used. There was no new tool to learn.',
-          ko: '결과는 각 팀이 이미 쓰던 Slack 채널, 대시보드, 시트로 보냈습니다. 새로 배울 도구가 없었습니다.',
+          ko: '결과는 각 팀이 이미 쓰던 Slack 채널, 대시보드, 시트로 보냈습니다. 팀이 새로 배워야 할 도구는 없었습니다.',
         },
         {
           type: 'sketch',
@@ -131,14 +131,14 @@ export default {
       title: { en: 'One pipeline, not three automations', ko: '자동화 세 개 대신 파이프라인 하나' },
       why: {
         en: 'Three automations would have kept three versions of the truth. With one pipeline, validation runs once and every team reads the same numbers. The cost was agreeing on shared definitions up front.',
-        ko: '자동화를 세 개 만들면 서로 다른 정답도 세 개로 남습니다. 파이프라인이 하나면 검증은 한 번이고 모든 팀이 같은 숫자를 봅니다. 대신 공통 정의를 먼저 맞춰야 했습니다.',
+        ko: '자동화를 셋 따로 만들면 서로 다른 ‘정답’도 셋이 남습니다. 파이프라인이 하나면 검증은 한 번으로 끝나고 모든 팀이 같은 숫자를 봅니다. 대신 공통 정의를 먼저 맞춰야 했습니다.',
       },
     },
     {
       title: { en: 'Build from managed services, in slices', ko: '관리형 서비스로, 작게 나눠서' },
       why: {
         en: 'The manual work cost us every week. Shipping the report first proved the value before anything larger was built.',
-        ko: '수작업 비용은 매주 나갔습니다. 리포트를 먼저 내보내 효과를 보여준 뒤에 더 큰 부분을 만들었습니다.',
+        ko: '수작업 비용은 매주 쌓였습니다. 리포트 자동화를 먼저 내보내 효과를 보여 준 뒤에 더 큰 부분을 만들었습니다.',
       },
     },
   ],
@@ -169,7 +169,7 @@ export default {
       ko: '운영 부채는 조용히 쌓입니다. “화요일 내내 숫자를 옮겼다”는 이유로 티켓을 올리는 사람은 없습니다.',
     },
     items: [
-      { en: '**Measure the invisible work first.** The 200-hour figure turned a side project into a priority.', ko: '**보이지 않는 일부터 잽니다.** 200시간이라는 숫자가 부업 같던 일을 우선순위로 올렸습니다.' },
+      { en: '**Measure the invisible work first.** The 200-hour figure turned a side project into a priority.', ko: '**보이지 않는 일부터 측정합니다.** 200시간이라는 숫자가 곁가지 같던 일을 우선순위로 끌어올렸습니다.' },
       { en: '**Accuracy earns adoption.** Once the reports stopped being wrong, people stopped keeping their own copies.', ko: '**정확해야 쓰입니다.** 리포트가 틀리지 않자 사람들은 각자 만들던 복사본을 버렸습니다.' },
     ],
   },

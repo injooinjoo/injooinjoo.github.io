@@ -7,11 +7,11 @@ export default {
   title: { en: 'Streamer Instant Support System', ko: '스트리머 즉시 지원 시스템' },
   dek: {
     en: 'Support funds only help if they arrive while the idea is still alive. We checked eligibility automatically, cut the paperwork, and moved partner approvals from weeks to days.',
-    ko: '지원금은 아이디어가 식기 전에 도착해야 의미가 있습니다. 자격 확인을 자동화하고 서류를 줄여 파트너 지원 승인을 수 주에서 수 일로 줄였습니다.',
+    ko: '지원금은 아이디어가 식기 전에 도착해야 의미가 있습니다. 자격 확인을 자동화하고 서류를 덜어 내, 파트너 지원 승인 기간을 수 주에서 수 일로 줄였습니다.',
   },
   card: {
     en: 'Streamlined the partner support‑fund application flow. Automated verification and simplified documentation moved approvals from weeks to days.',
-    ko: '파트너 지원금 신청 플로우를 간소화. 자동화된 검증과 문서 요건 축소로 승인 소요를 주 단위에서 일 단위로 단축.',
+    ko: '파트너 지원금 신청 플로우를 간소화. 자동화된 검증과 서류 요건 축소로 승인 기간을 주 단위에서 일 단위로 단축.',
   },
   kpis: [
     { value: 'Weeks → Days', label: { en: 'Approval time', ko: '승인 소요 시간' }, cardLabel: 'Approval time' },
@@ -69,7 +69,7 @@ export default {
         {
           type: 'p',
           en: 'Streamers had to prove what the platform already knew, and each missing document meant another round.',
-          ko: '스트리머는 플랫폼이 이미 아는 사실을 증명해야 했고, 서류가 하나 빠질 때마다 한 번 더 오갔습니다.',
+          ko: '스트리머는 플랫폼이 이미 아는 사실을 증명해야 했고, 서류가 하나 빠질 때마다 서류가 한 번 더 오갔습니다.',
         },
       ],
     },
@@ -80,7 +80,7 @@ export default {
         {
           type: 'p',
           en: 'We split each review into what platform data could verify and what needed a person. Eligibility checks ran automatically.',
-          ko: '심사를 플랫폼 데이터로 확인할 수 있는 부분과 사람이 봐야 하는 부분으로 나눴습니다. 자격 확인은 자동으로 돌아갑니다.',
+          ko: '심사를 플랫폼 데이터로 확인할 수 있는 부분과 사람이 봐야 하는 부분으로 나눴습니다. 자격 확인은 자동으로 처리했습니다.',
         },
         {
           type: 'sketch',
@@ -93,7 +93,7 @@ export default {
         {
           type: 'p',
           en: 'Documents shrank to what the decision depended on. The flow went from five steps to three.',
-          ko: '서류는 판단에 실제로 필요한 것만 남겼습니다. 흐름은 다섯 단계에서 세 단계가 됐습니다.',
+          ko: '서류는 판단에 실제로 필요한 것만 남겼습니다. 절차는 다섯 단계에서 세 단계로 줄었습니다.',
         },
         {
           type: 'sketch',
@@ -147,7 +147,7 @@ export default {
       title: { en: 'Measure coverage, not only speed', ko: '속도만이 아니라 커버리지도' },
       why: {
         en: 'A fast process that only well-informed partners use still leaves support unused. The target was every partner in the flow.',
-        ko: '빨라도 절차에 밝은 파트너만 쓰는 프로세스라면 지원은 여전히 남습니다. 목표는 모든 파트너가 플로우 안에 있는 것이었습니다.',
+        ko: '빨라도 절차에 밝은 파트너만 쓰는 프로세스라면 쓰이지 않는 지원금이 남습니다. 목표는 모든 파트너가 플로우 안에 들어오는 것이었습니다.',
       },
     },
   ],
@@ -177,7 +177,7 @@ export default {
     },
     items: [
       { en: '**Most review steps are lookups.** Once they ran automatically, reviewers could spend their time on the real judgement calls.', ko: '**심사 단계 대부분은 조회입니다.** 조회가 자동으로 돌아가자 심사자는 진짜 판단에 시간을 쓸 수 있었습니다.' },
-      { en: '**Process is part of the relationship.** A partner who waits weeks for an answer learns something about how much they matter.', ko: '**프로세스도 관계의 일부입니다.** 답을 몇 주씩 기다린 파트너는 자신이 얼마나 중요한지에 대해 무언가를 느낍니다.' },
+      { en: '**Process is part of the relationship.** A partner who waits weeks for an answer learns something about how much they matter.', ko: '**프로세스도 관계의 일부입니다.** 답을 몇 주씩 기다린 파트너는 플랫폼이 자신을 어떻게 여기는지 느낍니다.' },
     ],
   },
   sources: [

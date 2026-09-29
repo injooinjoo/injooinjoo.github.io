@@ -85,7 +85,7 @@ export default {
       [[-40, -ss - 6, -0.2], [34, -ss - 18, 0.15], [58, -ss + 16, 0.3]].forEach(([dx, dy, rot], i) =>
         p.text('?', sx + dx, sby + dy, { size: 34 - i * 5, weight: 700, rot, col: 'red', reveal: R(t, 0.62 + i * 0.05, 0.7 + i * 0.05) }));
       // Viewers asking in chat.
-      const qs = [L('Did my gift count?', '제 풍선 들어갔어요?'), L('I sent 50 earlier!', '아까 50개 쐈는데요'), L("What's the count now?", '지금 몇 개예요?')];
+      const qs = [L('Did my gift count?', '제 별풍선 들어갔어요?'), L('I sent 50 earlier!', '아까 50개 쐈는데요'), L("What's the count now?", '지금 몇 개예요?')];
       qs.forEach((q, i) => {
         const [bx, by, bw] = N ? [190, 318 + i * 76, 196] : [560, 52 + i * 92, 220];
         K.bubble(p, bx, by, bw, 52, { text: q, tail: 'l', size: N ? 18 : 19, fill: 'paper', reveal: R(t, 0.4 + i * 0.1, 0.55 + i * 0.1) });
@@ -102,7 +102,7 @@ export default {
       const pts = N ? [[124, 96], [300, 96], [300, 336], [124, 336]] : [[100, 110], [300, 110], [500, 110], [700, 110]];
       const labels = [
         [L('Goal posted', '목표 등록'), L('by streamer or viewer', '스트리머·시청자')],
-        [L('Gifts pool up', '후원이 모임'), L('toward a visible goal', '보이는 목표로')],
+        [L('Gifts pool up', '후원 모으기'), L('toward a visible goal', '목표가 보이게')],
         [L('Attempt on air', '방송 중 도전'), L('live, together', '실시간으로 함께')],
         [L('Result is final', '결과 확정'), L('no take-backs', '번복 없음')],
       ];

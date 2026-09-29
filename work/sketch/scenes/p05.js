@@ -131,7 +131,7 @@ export default {
           p.text(acts[i], 520, y + 7, { size: 22, col: 'red', weight: 700, reveal: r });
         }
       });
-      if (!N) p.text(L('each question points to something a creator can change', '질문마다 크리에이터가 바꿀 수 있는 것으로'), 400, 350, { align: 'center', size: 18, col: 'soft', reveal: R(t, 0.85, 0.95) });
+      if (!N) p.text(L('each question points to something a creator can change', '질문마다 크리에이터가 바꿀 수 있는 행동으로'), 400, 350, { align: 'center', size: 18, col: 'soft', reveal: R(t, 0.85, 0.95) });
     },
   },
 

@@ -69,7 +69,7 @@ const readingTime = (p) => {
   const ko = collectText(body, 'ko').join('');
   return {
     en: `${Math.max(2, Math.round(words(en) / 230))} min read`,
-    ko: `${Math.max(2, Math.round(ko.replace(/\s/g, '').length / 500))}분 분량`,
+    ko: `약 ${Math.max(2, Math.round(ko.replace(/\s/g, '').length / 500))}분`,
   };
 };
 

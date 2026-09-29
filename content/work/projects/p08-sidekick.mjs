@@ -5,11 +5,11 @@ export default {
   title: { en: 'Sidekick — AI Employees on Your Phone', ko: '사이드킥 — 폰 속의 AI 직원' },
   dek: {
     en: 'A phone app for hiring AI employees and handing them real work, with your approval before anything goes out. I built it alone with AI coding agents; the hard part was keeping them from bringing old code back.',
-    ko: 'AI 직원을 채용하고 실제 일을 맡기되, 밖으로 나가는 건 모두 내가 승인하는 폰 앱. AI 코딩 에이전트와 혼자 만들었고, 가장 어려웠던 건 에이전트들이 옛 코드를 되살리지 않게 하는 일이었습니다.',
+    ko: 'AI 직원을 채용해 실제 일을 맡기고, 밖으로 나가는 것은 모두 사용자가 승인하는 폰 앱입니다. AI 코딩 에이전트와 함께 혼자 만들었고, 가장 어려웠던 일은 에이전트들이 옛 코드를 되살리지 않게 하는 것이었습니다.',
   },
   card: {
     en: 'Mobile app for hiring AI employees and delegating real work, with approval before anything goes out. Built solo with AI coding agents: per-user isolated agent runtimes and a governed release line.',
-    ko: 'AI 직원을 채용하고 실제 업무를 맡기며, 외부로 나가기 전 반드시 승인받는 모바일 앱. AI 코딩 에이전트와 혼자 개발 — 사용자별 격리 런타임과 관리된 릴리스 라인.',
+    ko: 'AI 직원을 채용해 실제 업무를 맡기고, 외부로 나가는 결과는 반드시 승인을 거치는 모바일 앱. AI 코딩 에이전트와 함께 혼자 개발. 사용자별 격리 런타임과 관리된 릴리스 라인.',
   },
   kpis: [
     { value: '1,900+', label: { en: 'Commits in 3 months', ko: '3개월간 커밋' }, cardLabel: 'Commits in 3 months' },
@@ -35,7 +35,7 @@ export default {
     },
     caption: {
       en: 'A small team on the phone. Work comes back as cards you approve.',
-      ko: '폰 속의 작은 팀. 일은 내가 승인하는 카드로 돌아옵니다.',
+      ko: '폰 속의 작은 팀. 일은 승인을 기다리는 카드로 돌아옵니다.',
     },
   },
   sourcesNote: {
@@ -50,12 +50,12 @@ export default {
     didLabel: { en: 'What I built', ko: '만든 것' },
     did: {
       en: 'A phone app where you hire AI employees, hand them a task and approve the result before anything is posted, sent or spent. Each user gets an isolated agent runtime.',
-      ko: 'AI 직원을 채용하고 일을 맡긴 뒤, 무언가 게시·전송·결제되기 전에 결과를 승인하는 폰 앱. 사용자마다 격리된 에이전트 런타임을 둡니다.',
+      ko: 'AI 직원을 채용해 일을 맡기고, 게시·전송·결제 전에 결과를 승인하는 폰 앱을 만들었습니다. 사용자마다 격리된 에이전트 런타임을 둡니다.',
     },
     resultLabel: { en: 'Where it is', ko: '현재 상태' },
     result: {
       en: 'Closed beta on TestFlight. **1,900+ commits** and **1,600+ merged PRs** in three months, with **5,600+** backend tests.',
-      ko: 'TestFlight 비공개 베타. 3개월간 **커밋 1,900개 이상**, **머지된 PR 1,600개 이상**, 백엔드 테스트 **5,600개 이상**.',
+      ko: 'TestFlight 비공개 베타 중입니다. 3개월간 **커밋 1,900개 이상**, **머지된 PR 1,600개 이상**, 백엔드 테스트 **5,600개 이상**을 쌓았습니다.',
     },
   },
   chapters: [
@@ -71,7 +71,7 @@ export default {
         {
           type: 'p',
           en: 'The product definition: a Korean non-developer hires an AI employee on their phone and sees a first real result within ten minutes. Retention is a second real task for the same employee within a week.',
-          ko: '제품 정의는 이렇습니다. 한국의 비개발자가 폰에서 AI 직원을 채용하고 10분 안에 첫 실제 결과를 본다. 리텐션은 일주일 안에 같은 직원에게 두 번째 일을 맡기는 것이다.',
+          ko: '제품 정의는 ‘한국의 비개발자가 폰에서 AI 직원을 채용하고 10분 안에 첫 실제 결과를 본다’입니다. 리텐션은 일주일 안에 같은 직원에게 두 번째 일을 맡기는 것으로 정했습니다.',
         },
       ],
     },
@@ -95,7 +95,7 @@ export default {
         {
           type: 'p',
           en: 'Each user gets an isolated runtime where every AI employee keeps its own profile, memory and tools. If isolation breaks, it fails closed.',
-          ko: '사용자마다 격리된 런타임이 있고, AI 직원마다 자기 프로필, 메모리, 도구를 가집니다. 격리가 깨지면 닫힌 채로 실패합니다.',
+          ko: '사용자마다 격리된 런타임이 있고, AI 직원마다 자기 프로필, 메모리, 도구를 가집니다. 격리에 문제가 생기면 접근을 막는 쪽으로 실패하게 했습니다.',
         },
         {
           type: 'sketch',
@@ -119,7 +119,7 @@ export default {
         {
           type: 'p',
           en: 'Speed brought a new kind of bug: UI I had removed kept coming back. Parallel agents started from different base commits, merges asked for a union of old and new, and the tests still protected the old behaviour. Green tests said nothing about whether the product was current.',
-          ko: '속도는 새로운 버그를 불렀습니다. 지운 UI가 계속 돌아왔습니다. 병렬 에이전트가 서로 다른 기준 커밋에서 출발했고, 병합은 옛것과 새것의 합집합을 요구했고, 테스트는 옛 동작을 지키고 있었습니다. 테스트 통과는 제품이 최신이라는 증거가 아니었습니다.',
+          ko: '속도가 붙자 새로운 종류의 버그가 생겼습니다. 지운 UI가 계속 돌아왔습니다. 병렬 에이전트가 서로 다른 기준 커밋에서 출발했고, 병합 지시는 옛것과 새것을 모두 살리라고 했고, 테스트는 옛 동작을 지키고 있었습니다. 테스트 통과는 제품이 최신이라는 증거가 아니었습니다.',
         },
         {
           type: 'sketch',
@@ -159,14 +159,14 @@ export default {
       title: { en: 'Approval before anything goes out', ko: '밖으로 나가기 전에는 반드시 승인' },
       why: {
         en: 'Trust is the product. People delegate more once they know nothing is posted, sent or spent behind their back. It is less automatic than some tools promise, on purpose.',
-        ko: '신뢰가 곧 제품입니다. 몰래 게시·전송·결제되는 일이 없다는 걸 알면 사람들은 더 많이 맡깁니다. 일부 도구가 약속하는 것보다 덜 자동이지만, 의도한 것입니다.',
+        ko: '신뢰가 곧 제품입니다. 몰래 게시·전송·결제되는 일이 없다는 걸 알면 사람들은 더 많이 맡깁니다. 일부 도구가 내세우는 것보다 덜 자동화돼 있지만, 의도한 선택입니다.',
       },
     },
     {
       title: { en: 'One isolated runtime per user', ko: '사용자마다 격리된 런타임' },
       why: {
         en: 'Agents run code and keep personal memory. Isolation had to fail closed, even though a shared service would have been simpler to run.',
-        ko: '에이전트는 코드를 실행하고 개인 메모리를 가집니다. 공유 서비스가 운영은 더 쉬웠겠지만, 격리는 실패해도 닫혀 있어야 했습니다.',
+        ko: '에이전트는 코드를 실행하고 개인 메모리를 가집니다. 공유 서비스가 운영하기는 더 쉬웠겠지만, 격리에 문제가 생겨도 다른 사용자의 데이터에는 닿지 않아야 했습니다.',
       },
     },
   ],
@@ -195,7 +195,7 @@ export default {
     },
     items: [
       { en: '**Keep the kinds of evidence apart.** Passing tests, a working install, production behaviour and store review are four different claims.', ko: '**증거의 종류를 나눕니다.** 테스트 통과, 설치된 앱의 동작, 운영 환경의 동작, 스토어 심사는 서로 다른 네 가지 주장입니다.' },
-      { en: '**PM habits carry over.** Defining activation and retention before writing code kept a fast solo project pointed at users.', ko: '**PM 습관은 그대로 통합니다.** 코드를 쓰기 전에 활성화와 리텐션을 정해 둔 덕분에, 빠르게 움직이는 1인 프로젝트가 사용자를 향해 있을 수 있었습니다.' },
+      { en: '**PM habits carry over.** Defining activation and retention before writing code kept a fast solo project pointed at users.', ko: '**PM 습관은 그대로 통합니다.** 코드를 쓰기 전에 활성화와 리텐션을 정해 둔 덕분에, 빠르게 움직이는 1인 프로젝트도 사용자에게서 벗어나지 않았습니다.' },
     ],
   },
   sources: [

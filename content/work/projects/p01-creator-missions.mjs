@@ -7,11 +7,11 @@ export default {
   title: { en: 'Creator Monetization Mission System', ko: '크리에이터 수익화 미션 시스템' },
   dek: {
     en: 'Streamers were already turning gifts into on-stream challenges and keeping count by hand. We turned that habit into missions with a visible goal and a result nobody can change afterwards.',
-    ko: '스트리머들은 이미 후원을 방송 속 도전으로 바꾸고, 그 숫자를 손으로 세고 있었습니다. 이 습관을 목표가 보이고 결과는 나중에 바꿀 수 없는 미션으로 만들었습니다.',
+    ko: '스트리머들은 이미 후원을 방송 속 도전과 엮고, 모인 개수를 손으로 세고 있었습니다. 이 습관을 목표가 화면에 보이고 결과는 나중에 되돌릴 수 없는 미션 기능으로 만들었습니다.',
   },
   card: {
     en: 'Gamified mission platform giving content creators measurable milestones toward monetization. A/B tested the reward loop across cohorts and iterated to an industry‑beating participation rate.',
-    ko: '크리에이터에게 수익화 마일스톤을 제공하는 게이미파이드 미션 플랫폼. 코호트별 A/B 테스트를 반복하며 참여율을 업계 최고 수준으로 끌어올렸습니다.',
+    ko: '크리에이터에게 수익화 목표를 단계별로 제시하는 게임형 미션 플랫폼. 코호트별 A/B 테스트로 보상 루프를 반복 개선해 참여율을 업계 최고 수준으로 끌어올림.',
   },
   kpis: [
     { value: '82%', label: { en: 'Creator participation', ko: '크리에이터 참여율' }, cardLabel: 'Participation' },
@@ -25,14 +25,14 @@ export default {
     role: ROLE,
     scope: {
       en: 'Mission mechanics, reward loop, cohort experiments, creator education, campaign operations',
-      ko: '미션 메커닉, 보상 루프, 코호트 실험, 크리에이터 교육, 캠페인 운영',
+      ko: '미션 설계, 보상 루프, 코호트 실험, 크리에이터 교육, 캠페인 운영',
     },
   },
   hero: {
     scene: 'p01-hero',
     alt: {
       en: 'Sketch: a streamer on screen under a mission card that reads “1,000 balloons, hardest level”. The progress bar sits at 820 of 1,000 while three viewers send star balloons toward it.',
-      ko: '스케치: 화면 속 스트리머 위에 “별풍선 1,000개 → 최고 난이도 도전” 미션 카드가 있고, 진행 바는 1,000개 중 820개. 시청자 세 명이 별풍선을 보내고 있다.',
+      ko: '스케치: 화면 속 스트리머 위에 “별풍선 1,000개 → 최고 난이도 도전” 미션 카드가 떠 있고, 진행 바는 1,000개 중 820개까지 찼다. 시청자 세 명이 별풍선을 보내고 있다.',
     },
     caption: {
       en: 'A mission on air: one goal, one shared counter, one result.',
@@ -46,11 +46,11 @@ export default {
     },
     did: {
       en: 'We made missions a product feature: a posted goal, pooled gifts, a final result. The reward loop was tested cohort by cohort.',
-      ko: '미션을 제품 기능으로 만들었습니다. 목표를 걸고, 후원을 모으고, 결과를 확정합니다. 보상 루프는 코호트별로 실험했습니다.',
+      ko: '목표를 걸고, 후원을 모으고, 결과를 확정하는 미션을 제품 기능으로 만들었습니다. 보상 루프는 코호트별로 실험했습니다.',
     },
     result: {
       en: '**82%** of creators took part and monthly revenue rose **42%**. Participating streamers uploaded **3×** as many new videos.',
-      ko: '크리에이터 **82%**가 참여했고 월 매출은 **42%** 늘었습니다. 참여 스트리머의 신규 영상 업로드는 **3배**가 됐습니다.',
+      ko: '크리에이터 **82%**가 참여했고 월 매출은 **42%** 늘었습니다. 참여 스트리머의 신규 영상 업로드는 **3배**로 늘었습니다.',
     },
   },
   chapters: [
@@ -66,19 +66,19 @@ export default {
         {
           type: 'p',
           en: 'Streamers had long turned gifts into goals: “at 1,000 balloons, I’ll try the hardest level.” The count lived in a memo pad on screen, updated by hand.',
-          ko: '스트리머들은 오래전부터 후원을 목표로 바꿔 왔습니다. “별풍선 1,000개가 모이면 최고 난이도에 도전할게요.” 숫자는 화면 속 메모장에 손으로 적었습니다.',
+          ko: '스트리머들은 오래전부터 후원을 목표와 엮어 왔습니다. “별풍선 1,000개가 모이면 최고 난이도에 도전할게요.” 모인 개수는 방송 화면에 띄운 메모장에 손으로 적었습니다.',
         },
         {
           type: 'p',
           en: 'Counts drifted. Viewers asked whether their gift had landed. The streamer lost the thread of the show.',
-          ko: '숫자는 자꾸 어긋났습니다. 시청자는 자기 풍선이 들어갔는지 물었고, 스트리머는 방송의 흐름을 놓쳤습니다.',
+          ko: '숫자는 자꾸 어긋났습니다. 시청자는 자기 별풍선이 반영됐는지 물었고, 스트리머는 방송 흐름을 놓쳤습니다.',
         },
         {
           type: 'sketch',
           scene: 'p01-memo',
           alt: {
             en: 'Sketch: a tilted sticky note with tally marks and crossed-out counts (412, 437, 45?), a worried streamer with question marks, and three chat bubbles: “Did my gift count?”, “I sent 50 earlier!”, “What’s the count now?”',
-            ko: '스케치: 기울어진 메모지에 바를 정(正) 표시와 지워진 숫자들(412, 437, 45?)이 있고, 곤란한 표정의 스트리머 옆에 물음표, 채팅 말풍선 세 개. “제 풍선 들어갔어요?”, “아까 50개 쐈는데요”, “지금 몇 개예요?”',
+            ko: '스케치: 기울어진 메모지에 바를 정(正) 자로 센 표시와 지워진 숫자들(412, 437, 45?)이 있다. 곤란한 표정의 스트리머 옆에는 물음표가, 채팅창에는 말풍선 세 개가 떠 있다. “제 별풍선 들어갔어요?”, “아까 50개 쐈는데요”, “지금 몇 개예요?”',
           },
           caption: { en: 'Before: the tally was the streamer’s job, live.', ko: '이전: 집계는 방송 중인 스트리머의 몫이었습니다.' },
         },
@@ -96,7 +96,7 @@ export default {
         {
           type: 'p',
           en: 'Viewers can propose a mission, not only fund one. When challenge missions opened in April 2023, a viewer could request a mission or a streamer could register their own, and the pooled balloons went to the streamer on success.[^1]',
-          ko: '시청자는 미션에 후원만 하는 게 아니라 직접 제안할 수도 있습니다. 2023년 4월 도전미션이 열리면서 시청자는 미션을 요청하고 스트리머는 직접 등록할 수 있게 됐고, 성공하면 모인 별풍선이 스트리머에게 갔습니다.[^1]',
+          ko: '시청자는 미션에 후원만 하는 게 아니라 직접 제안할 수도 있습니다. 2023년 4월 도전미션이 열리면서 시청자는 미션을 요청하고, 스트리머는 미션을 직접 등록할 수 있게 됐습니다. 미션에 성공하면 모인 별풍선은 스트리머에게 갑니다.[^1]',
         },
         {
           type: 'sketch',
@@ -128,12 +128,12 @@ export default {
         {
           type: 'p',
           en: 'We rolled mechanics out cohort by cohort and A/B tested the reward loop before scaling. Each change was judged on participation and revenue.',
-          ko: '메커닉은 코호트 단위로 순차 적용했고, 확대 전에 보상 루프를 A/B 테스트했습니다. 변경 하나하나를 참여율과 매출로 판단했습니다.',
+          ko: '새 기능은 코호트 단위로 순차 적용했고, 확대하기 전에 보상 루프를 A/B 테스트했습니다. 변경마다 참여율과 매출로 판단했습니다.',
         },
         {
           type: 'p',
           en: 'A mission only works if the streamer can run it live, so partner education and campaign operations shipped with the feature.',
-          ko: '미션은 스트리머가 방송 중에 운영할 수 있어야 작동합니다. 그래서 파트너 교육과 캠페인 운영을 기능과 함께 내보냈습니다.',
+          ko: '미션은 스트리머가 방송 중에 직접 운영할 수 있어야 작동합니다. 그래서 기능 출시와 함께 파트너 교육과 캠페인 운영을 진행했습니다.',
         },
       ],
     },
@@ -143,7 +143,7 @@ export default {
       title: { en: 'Results are final', ko: '결과는 번복할 수 없게' },
       why: {
         en: 'Pooled money only moves when people trust the rules. A result that can’t be undone protects backers, so the conditions have to be clear before a mission starts.',
-        ko: '여럿이 돈을 모으는 구조는 규칙을 믿을 때만 움직입니다. 번복할 수 없는 결과가 후원자를 지킵니다. 그만큼 조건은 미션 시작 전에 분명해야 합니다.',
+        ko: '여럿이 돈을 모으는 구조는 규칙을 믿을 수 있어야 돌아갑니다. 결과를 되돌릴 수 없어야 후원자가 보호되고, 그래서 조건은 미션을 시작하기 전에 분명해야 합니다.',
       },
     },
     {
@@ -161,7 +161,7 @@ export default {
         scene: 'p01-results',
         alt: {
           en: 'Results sketch: a pie chart with 82% of creators taking part, and before/after bars against the pre-launch baseline: monthly revenue +42%, new uploads 3×, stay time 1.6×.',
-          ko: '결과 스케치: 크리에이터 82% 참여를 보여주는 원그래프와, 출시 전 기준 대비 막대: 월 매출 +42%, 신규 업로드 3배, 체류 시간 1.6배.',
+          ko: '결과 스케치: 크리에이터 82% 참여를 보여 주는 원그래프와 출시 전 대비 막대그래프(월 매출 +42%, 신규 업로드 3배, 체류 시간 1.6배).',
         },
       },
     ],
