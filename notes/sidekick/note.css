@@ -1,0 +1,4 @@
+@import '../shared/extended-note.css';
+body.sidekick-note{--accent:#28476f;--sk-blue:#5a86b8;--sk-red:#5a86b8;--sk-green:#5a86b8}
+[data-theme=dark] body.sidekick-note{--accent:#a9c4e6;--sk-blue:#86aede;--sk-red:#86aede;--sk-green:#86aede}
+@media print{body.sidekick-note,[data-theme=dark] body.sidekick-note{--accent:#28476f;--sk-blue:#5a86b8;--sk-red:#5a86b8;--sk-green:#5a86b8}}

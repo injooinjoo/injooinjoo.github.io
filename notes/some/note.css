@@ -1,0 +1,4 @@
+@import '../shared/extended-note.css';
+body.some-note{--accent:#644374;--sk-blue:#9681a2;--sk-red:#9681a2;--sk-green:#9681a2}
+[data-theme=dark] body.some-note{--accent:#dcc7e9;--sk-blue:#c4a8d5;--sk-red:#c4a8d5;--sk-green:#c4a8d5}
+@media print{body.some-note,[data-theme=dark] body.some-note{--accent:#644374;--sk-blue:#9681a2;--sk-red:#9681a2;--sk-green:#9681a2}}

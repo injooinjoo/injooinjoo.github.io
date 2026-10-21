@@ -1,0 +1,4 @@
+@import '../shared/extended-note.css';
+body.lotto-note{--accent:#6d4f2a;--sk-blue:#ae8651;--sk-red:#ae8651;--sk-green:#ae8651}
+[data-theme=dark] body.lotto-note{--accent:#ddc7a8;--sk-blue:#d1b17f;--sk-red:#d1b17f;--sk-green:#d1b17f}
+@media print{body.lotto-note,[data-theme=dark] body.lotto-note{--accent:#6d4f2a;--sk-blue:#ae8651;--sk-red:#ae8651;--sk-green:#ae8651}}
