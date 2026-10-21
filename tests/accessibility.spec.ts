@@ -9,7 +9,7 @@ test.describe('Accessibility Tests', () => {
     const headings = await page.locator('h1, h2, h3, h4, h5, h6').all();
     expect(headings.length).toBeGreaterThan(0);
     
-    await expect(page.locator('main, [role="main"], body')).toBeVisible();
+    await expect(page.getByRole('main')).toBeVisible();
   });
 
   test('images have alt attributes', async ({ page }) => {

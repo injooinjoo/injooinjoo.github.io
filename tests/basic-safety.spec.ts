@@ -108,8 +108,8 @@ test.describe('Basic Safety Tests', () => {
     for (const img of visibleImages) {
       const src = await img.getAttribute('src');
       if (src) {
-        const naturalWidth = await img.evaluate((el: HTMLImageElement) => el.naturalWidth);
-        expect(naturalWidth).toBeGreaterThan(0);
+        await img.scrollIntoViewIfNeeded();
+        await expect.poll(() => img.evaluate((el: HTMLImageElement) => el.naturalWidth)).toBeGreaterThan(0);
       }
     }
     

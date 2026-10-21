@@ -364,7 +364,7 @@ const index = readFileSync(indexPath, 'utf8');
 const a = index.indexOf(GRID_START);
 const b = index.indexOf(GRID_END);
 if (a === -1 || b === -1 || b < a) throw new Error('index.html is missing the work-grid markers');
-const grid = `${GRID_START}\n${projects.map(cardHtml).join('\n\n')}\n      ${GRID_END}`;
+const grid = `${GRID_START}\n${projects.map(p => (p.slug === 'sidekick' ? '<h3 class="work-group-heading"><span data-en>Independent app project · existing case study</span><span data-ko>개인 앱 프로젝트 · 기존 케이스 스터디</span></h3>' : '') + cardHtml(p)).join('\n\n')}\n      ${GRID_END}`;
 outputs.push([indexPath, index.slice(0, a) + grid + index.slice(b + GRID_END.length)]);
 
 let stale = [];

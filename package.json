@@ -5,14 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port 3000",
-    "build": "node scripts/build-work-pages.mjs && vite build",
+    "build": "node scripts/build-web-projects.mjs && node scripts/build-work-pages.mjs && vite build",
     "lint": "eslint src tests --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "playwright test",
     "test:headed": "playwright test --headed",
     "test:ui": "playwright test --ui",
     "work:build": "node scripts/build-work-pages.mjs",
-    "work:check": "node scripts/build-work-pages.mjs --check"
+    "work:check": "node scripts/build-work-pages.mjs --check",
+    "web:check": "node scripts/build-web-projects.mjs --check"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

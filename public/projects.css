@@ -1,0 +1,87 @@
+/* Personal work shares the typography and palette of the existing resume. */
+#web-projects { scroll-margin-top: 100px; border-top: 1px solid var(--line); }
+.web-grid { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 24px; }
+.web-card { grid-column: span 2; min-width: 0; border: 1px solid var(--line); background: var(--surface); display: flex; flex-direction: column; }
+.web-featured { grid-column: span 3; }
+.web-card figure { margin: 0; background: var(--chip); }
+.web-card img { display: block; width: 100%; height: auto; aspect-ratio: 1.44; object-fit: cover; border-bottom: 1px solid var(--line); }
+.web-card figcaption { font-size: 11px; padding: 9px 20px; color: var(--ink-3); }
+.web-card-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+.web-card-top { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.web-index { font: 11px var(--mono); color: var(--accent); }
+.web-status { font-size: 11px; line-height: 1.6; color: var(--accent); background: var(--chip); padding: 4px 8px; border-radius: 3px; }
+.web-card h3 { font-size: 22px; line-height: 1.4; letter-spacing: -.03em; margin-bottom: 12px; }
+.web-featured h3 { font-size: 27px; }
+.web-intro { color: var(--ink-2); font-size: 15px; line-height: 1.75; margin-bottom: 20px; }
+.web-points { padding-left: 18px; color: var(--ink-2); font-size: 14px; line-height: 1.85; margin-bottom: 22px; }
+.web-points li + li { margin-top: 12px; }
+.web-card .tags { margin: auto 0 22px; gap: 6px; }
+.web-card .tag { white-space: normal; }
+.web-scope { border-top: 1px solid var(--line); padding-top: 18px; margin-bottom: 20px; }
+.web-scope h4 { font-size: 12px; font-weight: 600; color: var(--accent); margin-bottom: 7px; }
+.web-scope p { font-size: 12px; line-height: 1.85; color: var(--ink-2); }
+.web-visit { display: flex; flex-direction: column; gap: 4px; border-top: 1px solid var(--line); padding-top: 16px; color: var(--accent); font-size: 14px; font-weight: 600; min-height: 48px; overflow-wrap: anywhere; }
+.web-visit:hover { text-decoration: underline; }
+.web-domain { font: 10px var(--mono); color: var(--ink-3); }
+.web-note { color: var(--ink-3); font-size: 12px; line-height: 1.8; margin-top: 24px; }
+.web-app-link { display: flex; justify-content: space-between; align-items: center; gap: 24px; border-block: 1px solid var(--line); margin-top: 30px; padding: 24px 0; }
+.web-app-link h3 { font-size: 17px; margin-bottom: 8px; }
+.web-app-link p { font-size: 13px; color: var(--ink-2); }
+.web-app-link .btn { flex-shrink: 0; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+.skip-link { position: absolute; top: -100px; left: 12px; z-index: 100; background: var(--surface); padding: 16px; }
+.skip-link:focus { top: 8px; }
+@media (max-width: 1100px) { .web-card { grid-column: span 3; } }
+@media (max-width: 650px) {
+ .web-grid { grid-template-columns: minmax(0,1fr); gap: 24px; }
+ .web-card, .web-featured { grid-column: auto; }
+ .web-card-body { padding: 22px; }
+ .web-featured h3 { font-size: 24px; }
+ .web-app-link { flex-direction: column; align-items: flex-start; }
+ .hero-cta-row { flex-wrap: wrap; }
+ .topbar-inner { gap: 10px; }
+ .top-actions { gap: 8px; }
+ .top-actions .cta { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+ html { scroll-behavior: auto !important; }
+ *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+@media print {
+ @page { margin: 15mm; }
+ :root, [data-theme="dark"] { --bg: #fff; --surface: #fff; --ink: #111; --ink-2: #333; --ink-3: #555; --line: #ddd; --accent: #163b64; --chip: #f6f6f6; }
+ body { font-size: 10pt; }
+ .topbar, .hero-portrait-wrap, .hero-cta-row, .skip-link, .web-card figure { display: none !important; }
+ .wrap, .container-narrow { max-width: none; padding: 0; }
+ .hero, section.block, .contact-block { padding: 20px 0 !important; }
+ .hero-grid, .section-head, .xp, .contact-grid { display: block; }
+ .hero h1 { font-size: 28pt; max-width: none; }
+ .section-title { font-size: 22pt; }
+ .web-grid { display: block; }
+ .web-card { break-inside: avoid; margin-bottom: 18px; }
+ .web-card-body { padding: 15px; }
+ .web-card h3, .web-featured h3 { font-size: 17pt; }
+ .web-points, .web-intro { font-size: 10pt; }
+ .web-card .tags { margin: 0 0 10px; }
+ .web-app-link, .xp, .edu-item { break-inside: avoid; }
+ .work-grid { display: block; }
+ .work-card { break-inside: avoid; margin-bottom: 12px; }
+ .hero-meta { margin-top: 16px; }
+ a[href^="http"] { overflow-wrap: anywhere; }
+}
+.mobile-nav-toggle { display: none; }
+.work-group-heading { grid-column: 1 / -1; border-top: 1px solid var(--line); padding-top: 36px; margin-top: 20px; font-size: 18px; font-weight: 500; }
+@media (max-width: 960px) {
+ .mobile-nav-toggle { display: grid; }
+ .nav.is-open { display: flex; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; padding: 12px 24px; background: var(--surface); border-bottom: 1px solid var(--line); }
+ .nav.is-open a { padding: 12px; }
+}
+@media print { .mobile-nav-toggle, .nav { display: none !important; } }
+@media (max-width: 480px) {
+ .metrics { grid-template-columns: minmax(0,1fr); }
+ .metric { min-width: 0; }
+}
+[data-lang="ko"] h1, [data-lang="ko"] h2, [data-lang="ko"] h3 { word-break: keep-all; }
+@media (max-width: 480px) {
+ [data-lang="ko"] .hero h1 { font-size: 42px; line-height: 1.17; }
+}
