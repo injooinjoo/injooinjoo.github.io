@@ -1,0 +1,7 @@
+@import '../shared/pencil-note.css';
+
+/* The same paper and graphite as Seoul, with one quiet rose pigment. */
+body.yeon-note{--accent:#754341;--sk-blue:#b87874;--sk-red:#b87874;--sk-green:#b87874}
+.yeon-note h1{text-wrap:balance}
+[data-theme=dark] body.yeon-note{--accent:#e5b7b1;--sk-blue:#d5a19b;--sk-red:#d5a19b;--sk-green:#d5a19b}
+@media print{body.yeon-note,[data-theme=dark] body.yeon-note{--accent:#754341;--sk-blue:#975d58;--sk-red:#975d58;--sk-green:#975d58}}

@@ -1,7 +1,7 @@
 // The pilot restyle is intentionally scoped to injookim.com/notes/seoul/.
 export function seoulNote(n,{bi,label,image}){
  const p=n.project;
- const figure=(id,ratio,ratioN,alt,caption)=>`<figure class="sketch-figure" data-note-scene="${id}" data-alt-en="${alt.en}" data-alt-ko="${alt.ko}" style="--ratio:${ratio};--ratio-n:${ratioN}"><canvas role="img" aria-label="${alt.en}">${bi(alt)}</canvas><figcaption>${bi(caption)}</figcaption></figure>`;
+ const figure=(id,ratio,ratioN,alt,caption)=>`<figure class="sketch-figure${id==='seoul-home'?' sketch-hero':''}" data-note-scene="${id}" data-alt-en="${alt.en}" data-alt-ko="${alt.ko}" style="--ratio:${ratio};--ratio-n:${ratioN}"><canvas role="img" aria-label="${alt.en}">${bi(alt)}</canvas><figcaption>${bi(caption)}</figcaption></figure>`;
  const heading=(num,en,ko)=>`<h2><span class="chapter-number" aria-hidden="true">${num}</span>${label(en,ko)}</h2>`;
  return `<article class="wrap reading">
  <div class="note-head"><a href="/notes/">${label('← All notes','← 전체 기록')}</a><h1>${bi(n.title)}</h1><p class="meta">${p.name} · ${label('Project note','프로젝트 노트')} · <time datetime="${n.published}">${n.published}</time></p><p class="lede">${bi(p.intro)}</p></div>
@@ -17,4 +17,4 @@ export function seoulNote(n,{bi,label,image}){
  ${heading('05','Questions to verify next','다음으로 확인할 질문')}<p>${bi(n.next)}</p><p class="meta">${label('Source documents, implementation, and the public deployment were checked on 21 Oct 2026. These are verification questions, not a committed release schedule.','프로젝트 문서·소스·공개 배포를 2026.10.21 기준으로 대조했습니다. 다음 질문은 확인 과제이며 확정된 출시 일정이 아닙니다.')}</p>
  <div class="links"><a href="${p.url}" target="_blank" rel="noopener noreferrer">${label('Visit the product ↗','서비스 방문 ↗')}</a><a href="/#web-seoul">${label('Portfolio overview →','포트폴리오 소개 →')}</a><a href="/notes/">${label('All notes →','전체 기록 →')}</a></div></div></article>`;
 }
-export const seoulOptions={bodyClass:'seoul-note',head:`<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet"/>`,script:'<script type="module" src="/notes/seoul/seoul-note.js"></script>'};
+export const seoulOptions={bodyClass:'seoul-note pencil-note',head:`<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet"/>`,script:'<script type="module" src="/notes/seoul/seoul-note.js"></script>'};
