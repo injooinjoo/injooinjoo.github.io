@@ -2,8 +2,8 @@ import {test,expect,type Locator} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 const figures='[data-note-scene]';
 async function ink(canvas: Locator){return canvas.evaluate((c:HTMLCanvasElement)=>{const a=c.getContext('2d')!.getImageData(0,0,c.width,c.height).data;let n=0;for(let i=3;i<a.length;i+=16)if(a[i]>30)n++;return n/(a.length/16);});}
-for(const slug of ['seoul','sketch']){
-const heroId=slug==='seoul'?'seoul-home':'yeon-story';
+for(const slug of ['seoul','sketch','tarot'] as const){
+const heroId={seoul:'seoul-home',sketch:'yeon-story',tarot:'maju-room'}[slug];
 for(const width of [375,768,1440]){
  test(`${slug} pencil illustrations render accessibly at ${width}px`,async({page})=>{
   const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
@@ -44,5 +44,14 @@ test(`${slug}: dark theme prints complete graphite strokes on white paper`,async
 test('illustrated notes preserve service boundaries and leave other notes unchanged',async({page})=>{
  await page.goto('/notes/sketch/');await expect(page.locator('.links a[href="https://sketch.zpzg.co.kr"]')).toHaveCount(1);
  await page.locator('#lang-btn').click();await expect(page.locator('.scope')).toContainText('결제 테스트');await expect(page.locator('.scope')).toContainText('이메일 발송은 미제공');await expect(page.locator('.sketch-hero figcaption')).toContainText('실제 서비스 화면이나 생성 결과가 아니며');
- await page.goto('/notes/tarot/');await expect(page.locator('body')).not.toHaveClass(/pencil-note/);await expect(page.locator(figures)).toHaveCount(0);await expect(page.locator('.cover img')).toBeVisible();
+ await page.goto('/notes/lotto/');await expect(page.locator('body')).not.toHaveClass(/pencil-note/);await expect(page.locator(figures)).toHaveCount(0);await expect(page.locator('.cover img')).toBeVisible();
+});
+
+
+test('Maju diagrams retain disabled integration scope and the original service destination',async({page})=>{
+ await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/notes/tarot/');
+ await expect(page.locator('.links a[href="https://tarot.zpzg.co.kr"]')).toHaveCount(1);
+ await expect(page.locator('.scope')).toContainText('Purchase and AI readings are disabled');
+ await page.locator('#lang-btn').click();await expect(page.locator('.scope')).toContainText('구매·AI 해석은 비활성');await expect(page.locator('.sketch-hero figcaption')).toContainText('실시간 사람 상담이 아니며');
+ await expect(page.locator('[data-note-scene="maju-states"] figcaption')).toContainText('실결제 성공 사례가 아닙니다');
 });

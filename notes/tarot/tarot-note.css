@@ -1,0 +1,6 @@
+@import '../shared/pencil-note.css';
+
+body.maju-note{--accent:#3f5c4d;--sk-blue:#748f7d;--sk-red:#748f7d;--sk-green:#748f7d}
+.maju-note h1{text-wrap:balance}
+[data-theme=dark] body.maju-note{--accent:#bdd4c4;--sk-blue:#abc3af;--sk-red:#abc3af;--sk-green:#abc3af}
+@media print{body.maju-note,[data-theme=dark] body.maju-note{--accent:#3f5c4d;--sk-blue:#526e5b;--sk-red:#526e5b;--sk-green:#526e5b}}
