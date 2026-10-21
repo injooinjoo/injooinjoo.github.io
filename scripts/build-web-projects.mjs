@@ -8,7 +8,7 @@ const end = '<!-- web-projects:end -->';
 const card = (p,i,kind='web') => `<article class="web-card${kind==='app'?' app-card':i<2?' web-featured':''}" id="${kind}-${p.id}">
   <figure><img src="/projects/${p.image}" width="1440" height="1000" loading="lazy" alt="${esc(p.alt.en)}" data-alt-en="${esc(p.alt.en)}" data-alt-ko="${esc(p.alt.ko)}" /><figcaption>${bi(p.caption || {en:'Captured from the public site · 21 Oct 2026',ko:'공개 사이트 실제 화면 · 2026.10.21'})}</figcaption></figure>
   <div class="web-card-body"><div class="web-card-top"><span class="web-index">${kind==='app'?'APP / ':''}${String(i+1).padStart(2,'0')}${kind==='web'&&i<2?' / FEATURED':''}</span><span class="web-status">${bi(p.status)}</span></div>
-  <h3>${bi({en:`${p.name} · ${p.english}`,ko:p.name})}</h3><p class="web-intro">${bi(p.intro)}</p>
+  <h3>${bi({en:kind==='app'?p.english:`${p.name} · ${p.english}`,ko:p.name})}</h3><p class="web-intro">${bi(p.intro)}</p>
   <ul class="web-points">${p.points.map(x=>`<li>${bi(x)}</li>`).join('')}</ul>
   <div class="tags">${p.tech.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
   <div class="web-scope"><h4>${bi({en:'Available now',ko:'현재 제공 범위'})}</h4><p>${bi(p.scope)}</p></div>

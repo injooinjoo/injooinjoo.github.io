@@ -9,6 +9,7 @@ test('personal work is prominent, complete, bilingual and separate from company 
   await expect(page.locator('#web-projects .web-featured')).toHaveCount(2);
   await expect(page.locator('#work a.work-card-link')).toHaveCount(8);
   await expect(page.locator('#app-projects #app-sidekick')).toHaveCount(1);
+  await expect(page.locator('#app-sidekick h3 [data-en]')).toHaveText('Sidekick');
   await expect(page.locator('#app-sidekick .web-visit')).toHaveAttribute('href','https://sidekickagent.app');
   await expect(page.locator('#app-sidekick .web-scope')).toContainText('Store availability');
   await expect(page.locator('#web-sketch .web-scope')).toContainText('no actual charge');
