@@ -85,3 +85,11 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 @media (max-width: 480px) {
  [data-lang="ko"] .hero h1 { font-size: 42px; line-height: 1.17; }
 }
+#app-projects { scroll-margin-top: 100px; border-top: 1px solid var(--line); }
+.app-card { display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); }
+.app-card h3 { font-size: 27px; }
+.app-card .web-card-body { padding: 30px; }
+.app-card .web-visit { margin-top: auto; }
+.app-case-link { display: inline-block; padding-block: 18px; font-size: 14px; color: var(--accent); }
+@media (max-width: 768px) { .app-card { grid-template-columns: minmax(0,1fr); } .app-card .web-card-body { padding: 22px; } }
+@media print { .app-card { display: block; } }
