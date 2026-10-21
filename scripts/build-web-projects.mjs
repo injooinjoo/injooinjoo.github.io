@@ -12,6 +12,7 @@ const card = (p,i,kind='web') => `<article class="web-card${kind==='app'?' app-c
   <ul class="web-points">${p.points.map(x=>`<li>${bi(x)}</li>`).join('')}</ul>
   <div class="tags">${p.tech.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
   <div class="web-scope"><h4>${bi({en:'Available now',ko:'현재 제공 범위'})}</h4><p>${bi(p.scope)}</p></div>
+  <a class="app-case-link" href="/notes/${p.id}/">${bi({en:'Read the project note →',ko:'프로젝트 노트 읽기 →'})}</a>
   <a class="web-visit" href="${p.url}" target="_blank" rel="noopener noreferrer">${bi({en:`Visit ${p.english} ↗`,ko:`${p.name} 방문 ↗`})}<span class="web-domain">${new URL(p.url).hostname}</span></a></div>
 </article>`;
 const block = `${start}
